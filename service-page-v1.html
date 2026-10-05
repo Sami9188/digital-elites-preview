@@ -1,0 +1,381 @@
+<!-- Service: Marketing (03) — the homepage treats campaigns for the next patient or the next job as the commercial offer. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>The Digital Elites — Marketing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      background: #fff;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #fff;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: normal;
+      line-height: 34px;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: normal;
+      line-height: 1;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg {
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    .hero {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 100px);
+      background: #F6F4EF;
+    }
+    .hero-copy {
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 56px 72px 48px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .eyebrow span {
+      color: #04EA86;
+      letter-spacing: 0.06em;
+    }
+    h1 {
+      margin: 0;
+      max-width: 920px;
+      font-weight: 800;
+      font-size: 80px;
+      line-height: 84px;
+      letter-spacing: 0.02em;
+      color: #2f2c23;
+    }
+    h1 > span { display: block; }
+    h1 .book {
+      color: #04EA86;
+      font-style: normal;
+    }
+    .support {
+      margin: 26px 0 0;
+      max-width: 640px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.011em;
+      color: #2f2c23;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      line-height: 47px;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .specimen {
+      flex: 0 0 auto;
+      padding: 32px 72px 40px;
+      background: #111111;
+    }
+    .specimen-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .board {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      flex: 1 1 auto;
+      max-width: 760px;
+      min-height: 168px;
+      padding: 26px 32px;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .sample-label {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .ad-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .ad-tag {
+      display: inline-block;
+      flex: 0 0 auto;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: #04EA86;
+      color: #111111;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .ad-title {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #2f2c23;
+    }
+    .ad-place {
+      margin: 4px 0 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #2f2c23;
+    }
+    .rooms-wrap {
+      flex: 0 0 auto;
+      text-align: right;
+    }
+    .rooms-label {
+      margin: 0 0 10px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #04EA86;
+    }
+    .rooms {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rooms li {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+      color: #fff;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble {
+        animation: none;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="https://thedigitalelites.com/">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/TDE-Logo.png" alt="The Digital Elites">
+    </a>
+    <nav class="nav">
+      <a href="homepage-hero-v3.html#services">Services</a>
+      <a href="homepage-hero-v3.html#work">Work</a>
+      <a href="homepage-hero-v3.html#industries">Industries</a>
+      <a href="homepage-hero-v3.html">About</a>
+      <a href="homepage-hero-v3.html#contact">Contact</a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="hero" aria-labelledby="marketing-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span>03</span> Marketing</p>
+      <h1 id="marketing-title">
+        <span>Campaigns that <span class="book">book</span></span>
+        <span>the next patient</span>
+        <span>and the next job.</span>
+      </h1>
+      <p class="support">Social channels and advertising for clinics, dental, and home services in Katy and across the U.S.</p>
+      <a class="pill" href="tel:+17134878445">Get a campaign proposal</a>
+    </div>
+
+    <div class="specimen">
+      <div class="specimen-row">
+        <article class="board">
+          <p class="sample-label">Sample campaign</p>
+          <div class="ad-row">
+            <span class="ad-tag">Ad</span>
+            <div>
+              <p class="ad-title">Chiropractor in Katy</p>
+              <p class="ad-place">Local clinic</p>
+            </div>
+          </div>
+        </article>
+        <div class="rooms-wrap">
+          <p class="rooms-label">For</p>
+          <ul class="rooms">
+            <li>Clinics</li>
+            <li>Dental</li>
+            <li>Home services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>

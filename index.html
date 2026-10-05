@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1440">
+  <title>The Digital Elites — Hero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=IBM+Plex+Mono:wght@700&family=Inter+Tight:wght@500;600;700;800;900&family=Source+Serif+4:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: #fff;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      /* One row: logo, each nav link, and phone are equal flex items.
+         space-between spreads the same gap between every pair; 40px inset keeps them off the window edge. */
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #fff;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      /* Thrive logo img is 106×62; height attribute 62px (svg rule is 65px and does not apply to the img). */
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav {
+      /* Children join the header flex row so Services…Contact are not a centered cluster. */
+      display: contents;
+    }
+    .nav a {
+      /* Menu links stay 18px and read clearly lighter than ExtraBold. */
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: normal;
+      line-height: 34px;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      /* Black pill: 10px around the bubble, 20px after the number, 12px between them. */
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: normal;
+      line-height: 1;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+      overflow: visible;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg {
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .hero {
+      flex: 1 0 auto;
+      min-height: 640px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      max-width: none;
+      /* 48px top / 0 bottom shifts the centered row down 24px and shortens the gap above the band. */
+      padding: 48px 72px 0;
+      gap: 104px;
+    }
+    .copy {
+      flex: 0 0 auto;
+      align-self: center;
+    }
+    .eyebrow {
+      margin: 0 0 20px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    h1 {
+      margin: 0;
+      /* Thrive hero: ProximaNova-Extrabld (paid). Face is ExtraBold; @font-face weight is normal. */
+      font-weight: 800;
+      font-size: 86px;
+      line-height: 74px;
+      letter-spacing: 0.03em;
+      color: #2f2c23;
+    }
+    h1 > span {
+      display: block;
+      white-space: nowrap;
+    }
+    h1 .ai {
+      display: block;
+      min-height: 74px;
+      color: #04EA86;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+    h1 .ai-period {
+      color: #2f2c23;
+    }
+    h1 .ai-caret {
+      display: inline-block;
+      width: 0;
+      height: 0.68em;
+      border-right: 2px solid #04EA86;
+      margin-left: 2px;
+      vertical-align: -0.06em;
+      animation: ai-caret 1s step-end infinite;
+    }
+    @keyframes ai-caret {
+      50% { border-right-color: transparent; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      h1 .ai-caret {
+        display: none;
+        animation: none;
+      }
+    }
+    .support {
+      margin: 26px 0 0;
+      max-width: 640px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.011em;
+      color: #2f2c23;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 28px;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      line-height: 47px;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .visual {
+      position: relative;
+      flex: 0 0 640px;
+      width: 640px;
+      height: 384px;
+      align-self: center;
+      background: none;
+      overflow: visible;
+    }
+    .shot {
+      position: relative;
+      width: 640px;
+      height: 384px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      flex: 1 1 auto;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 12px;
+    }
+    .quote {
+      position: absolute;
+      top: -120px;
+      right: -124px;
+      z-index: 2;
+      width: 296px;
+      margin: 0;
+      padding: 22px 22px 0;
+      border-radius: 16px;
+      background: #04EA86;
+      box-shadow: 0 16px 44px rgba(17, 17, 17, 0.16), 0 2px 8px rgba(17, 17, 17, 0.06);
+      overflow: hidden;
+    }
+    .mark {
+      display: block;
+      margin: 0 0 6px;
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 0.8;
+      color: #111;
+    }
+    .quote p {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: -0.015em;
+      color: #2f2c23;
+    }
+    .quote footer {
+      margin: 14px -22px 0;
+      padding: 10px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      background: #111111;
+    }
+    .quote strong {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #04EA86;
+    }
+    .quote footer span {
+      font-size: 13px;
+      font-weight: 500;
+      color: #FFFFFF;
+    }
+    .shot img,
+    .quote p,
+    .quote footer strong,
+    .quote footer span {
+      transition: opacity 240ms ease;
+    }
+    .shot img.is-out,
+    .quote.is-out p,
+    .quote.is-out footer strong,
+    .quote.is-out footer span {
+      opacity: 0;
+    }
+    .hero-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid #E4E4E4;
+      border-radius: 50%;
+      background: #fff;
+      color: #141414;
+      cursor: pointer;
+      transform: translateY(-50%);
+      box-shadow: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .hero-arrow svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+    }
+    .hero-arrow-prev { left: 0; }
+    .hero-arrow-next { right: 0; }
+    .hero-arrow:hover { background: #04EA86; }
+    @media (prefers-reduced-motion: reduce) {
+      .shot img,
+      .quote p,
+      .quote footer strong,
+      .quote footer span {
+        transition: none;
+      }
+    }
+
+    .trust {
+      flex: 0 0 auto;
+      align-self: stretch;
+      width: 100%;
+      margin: 0;
+      padding: 16px 40px 28px;
+      background: #F6F4EF;
+    }
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 140px;
+      width: 100%;
+    }
+    .trust-group {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .trust-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .trust-mark {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .google-wordmark {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 45px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .google-wordmark span:nth-child(1) { color: #4285F4; }
+    .google-wordmark span:nth-child(2) { color: #EA4335; }
+    .google-wordmark span:nth-child(3) { color: #FBBC05; }
+    .google-wordmark span:nth-child(4) { color: #4285F4; }
+    .google-wordmark span:nth-child(5) { color: #34A853; }
+    .google-wordmark span:nth-child(6) { color: #EA4335; }
+    .clutch-wordmark {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 45px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .stars svg {
+      display: block;
+      width: 22px;
+      height: 22px;
+    }
+    .trust-num {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .trust-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 0;
+    }
+    .trust-label {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: #2f2c23;
+    }
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+    .avatars span {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      margin-left: -10px;
+      border: 2px solid #F6F4EF;
+      border-radius: 50%;
+      background: #111;
+      color: #04EA86;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .avatars span:first-child { margin-left: 0; }
+    @media (max-width: 760px) {
+      .trust-row {
+        flex-direction: column;
+        gap: 28px;
+      }
+    }
+
+    .chapter {
+      flex: 0 0 auto;
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px 104px;
+      background: #fff;
+    }
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .chapter-title {
+      margin: 0;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 60px;
+      letter-spacing: 0.02em;
+      color: #2f2c23;
+    }
+    .chapter-support {
+      margin: 18px 0 0;
+      max-width: 640px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.011em;
+      color: #2f2c23;
+    }
+    .chapter-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .chapter-action .pill {
+      margin-top: 0;
+    }
+    .panel-title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #2f2c23;
+    }
+    .svc-no {
+      margin-right: 10px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #04EA86;
+      font-variant-numeric: tabular-nums;
+    }
+    .panel-copy {
+      margin: 10px 0 0;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+    }
+    .ico {
+      display: block;
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+    }
+
+    .svc {
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .design-bench {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.86fr) 1.24fr;
+      min-height: 332px;
+      border-radius: 12px;
+      background: #F6F4EF;
+      overflow: hidden;
+    }
+    .design-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 36px;
+    }
+    .design-copy .ico { margin-bottom: 18px; }
+    .design-copy .panel-copy { max-width: 34ch; }
+    .spec-row {
+      display: grid;
+      grid-template-columns: 1.05fr 0.85fr 1fr;
+      margin: 22px 22px 22px 0;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .spec {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 18px 16px;
+      border-left: 1px solid #E4E4E4;
+    }
+    .spec:first-child { border-left: 0; }
+    .spec-label {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .mark-svg {
+      width: 100%;
+      height: auto;
+      margin-top: 8px;
+      display: block;
+    }
+    .mark-q { opacity: 0; }
+    .mark-q1 { opacity: 1; }
+    .mark-q1,
+    .mark-q2,
+    .mark-q3,
+    .mark-q4 {
+      animation: mark-quarter 2.4s linear infinite;
+    }
+    .mark-q2 { animation-delay: 0.6s; }
+    .mark-q3 { animation-delay: 1.2s; }
+    .mark-q4 { animation-delay: 1.8s; }
+    @keyframes mark-quarter {
+      0%, 25% { opacity: 1; }
+      25.01%, 100% { opacity: 0; }
+    }
+    .spec-aa {
+      margin: 18px 0 0;
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: #2f2c23;
+    }
+    .spec-face {
+      margin: 12px 0 0;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: #2f2c23;
+    }
+    .swatches {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .swatches span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #2f2c23;
+    }
+    .swatches i {
+      display: block;
+      width: 56px;
+      height: 28px;
+      border-radius: 6px;
+    }
+    .swatch-olive { background: #2f2c23; }
+    .swatch-green { background: #04EA86; }
+    .swatch-black { background: #111111; }
+    .swatches i {
+      animation: swatch-live 3.6s linear infinite;
+    }
+    .swatches span:nth-child(2) i { animation-delay: 1.2s; }
+    .swatches span:nth-child(3) i { animation-delay: 2.4s; }
+    @keyframes swatch-live {
+      0%, 26% { transform: scale(1.08); box-shadow: 0 0 0 2px #04EA86; }
+      34%, 100% { transform: none; box-shadow: none; }
+    }
+
+    .svc-mid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.82fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .dev-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 520px;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .dev-head {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 14px 16px;
+      padding: 28px 28px 18px;
+    }
+    .dev-head .ico { grid-row: span 2; align-self: start; margin-top: 2px; }
+    .browser {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin: 0 24px 24px;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .browser::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 36px;
+      height: 2px;
+      background: #04EA86;
+      box-shadow: 0 0 14px #04EA86;
+      pointer-events: none;
+      animation: dev-scan 3.4s ease-in-out infinite;
+    }
+    @keyframes dev-scan {
+      0% { top: 36px; opacity: 0; }
+      14% { opacity: 1; }
+      86% { opacity: 1; }
+      100% { top: calc(100% - 52px); opacity: 0; }
+    }
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 12px;
+      background: #F6F4EF;
+    }
+    .browser-top span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #E4E4E4;
+    }
+    .browser-top em {
+      margin-left: 8px;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2f2c23;
+    }
+    .browser img {
+      width: 100%;
+      height: 312px;
+      object-fit: contain;
+      object-position: center center;
+      background: #0c0c0c;
+      display: block;
+    }
+    .shot-credit {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin: 0;
+      padding: 10px 14px;
+      background: #111111;
+    }
+    .shot-credit strong {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: #04EA86;
+    }
+    .shot-credit span {
+      font-size: 13px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .mkt-panel {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px 24px;
+      border-radius: 12px;
+      background: #F6F4EF;
+    }
+    .mkt-head {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 8px 16px;
+    }
+    .mkt-head .ico { grid-row: span 2; }
+    .ad-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 28px;
+    }
+    .ad-search {
+      padding: 16px 16px 14px;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .ad-tag {
+      display: inline-block;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: #04EA86;
+      color: #111111;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .ad-title {
+      margin: 8px 0 0;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      color: #2f2c23;
+    }
+    .ad-url {
+      margin: 4px 0 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #2f2c23;
+    }
+    .ad-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .ad-lines i {
+      display: block;
+      height: 6px;
+      border-radius: 99px;
+      background: #E4E4E4;
+      transform-origin: left center;
+      animation: ad-draw 3.6s ease infinite;
+    }
+    .ad-lines i:first-child { width: 92%; }
+    .ad-lines i:last-child { width: 70%; animation-delay: 0.4s; }
+    .ad-dark .ad-line { animation: ad-reveal 3.6s ease 0.9s infinite; }
+    @keyframes ad-draw {
+      0%, 6% { transform: scaleX(0); }
+      28%, 78% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+    @keyframes ad-reveal {
+      0%, 8% { opacity: 0; transform: translateY(8px); }
+      24%, 78% { opacity: 1; transform: none; }
+      100% { opacity: 0; transform: none; }
+    }
+    .ad-dark {
+      padding: 18px 16px 16px;
+      border-radius: 12px;
+      background: #111111;
+    }
+    .ad-kicker {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .ad-line {
+      margin: 10px 0 0;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: #fff;
+    }
+
+    .svc-low {
+      display: grid;
+      grid-template-columns: 1.15fr 0.9fr 0.95fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .video-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111111;
+    }
+    .video-stage {
+      position: relative;
+      flex: 1;
+      min-height: 250px;
+      display: grid;
+      place-items: center;
+      padding: 22px 22px 6px;
+    }
+    .video-scene {
+      width: 100%;
+      height: 220px;
+      display: block;
+    }
+    .play {
+      position: absolute;
+      left: 72%;
+      top: 46%;
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #04EA86;
+      transform: translate(-50%, -50%);
+      animation: play-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes play-pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.08); }
+    }
+    .video-bar {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 16px;
+      height: 3px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.22);
+      overflow: hidden;
+    }
+    .video-bar::after {
+      content: "";
+      display: block;
+      height: 100%;
+      background: #04EA86;
+      transform-origin: left center;
+      animation: video-play 3.6s linear infinite;
+    }
+    @keyframes video-play {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+    .video-foot {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 8px 16px;
+      padding: 22px 24px 24px;
+      background: #fff;
+    }
+    .video-foot .ico { grid-row: span 2; }
+
+    .write-sheet {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      padding: 28px 26px 26px;
+      border-radius: 2px 12px 12px 12px;
+      background: #fff;
+      box-shadow: 0 16px 40px rgba(17, 17, 17, 0.08);
+      background-image: linear-gradient(#F6F4EF, #F6F4EF);
+      background-size: 100% 14px;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .write-sheet::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-width: 0 22px 22px 0;
+      border-style: solid;
+      border-color: #fff #fff #E4E4E4 #E4E4E4;
+    }
+    .write-sheet .panel-title { margin-top: 18px; }
+    .sheet-sample {
+      margin: 22px 0 0;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #2f2c23;
+    }
+    .write-sheet .panel-copy { max-width: 28ch; }
+    .sheet-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 28px;
+    }
+    .sheet-rules i {
+      display: block;
+      height: 8px;
+      border-radius: 99px;
+      background: #E4E4E4;
+      transform-origin: left center;
+      animation: write-line 3.6s ease infinite;
+    }
+    .sheet-rules i:nth-child(1) { width: 100%; }
+    .sheet-rules i:nth-child(2) { width: 92%; animation-delay: 0.35s; }
+    .sheet-rules i:nth-child(3) { width: 96%; animation-delay: 0.7s; }
+    .sheet-rules i:nth-child(4) { width: 64%; background: #04EA86; animation-delay: 1.05s; }
+    @keyframes write-line {
+      0% { transform: scaleX(0); }
+      16%, 82% { transform: scaleX(1); }
+      100% { transform: scaleX(0); }
+    }
+
+    .consult {
+      display: flex;
+      flex-direction: column;
+      min-height: 420px;
+      padding: 8px 8px 8px 12px;
+    }
+    .consult-head {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 8px 16px;
+    }
+    .consult-head .ico { grid-row: span 2; }
+    .session {
+      position: relative;
+      list-style: none;
+      margin: auto 0 0;
+      padding: 8px 0 0;
+    }
+    .session li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 17px;
+      top: 44px;
+      width: 2px;
+      height: 20px;
+      background: #2f2c23;
+      transform-origin: top center;
+      transform: scaleY(0);
+      z-index: 0;
+    }
+    .session li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 9px 0;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #2f2c23;
+    }
+    .session li span {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid #2f2c23;
+      border-radius: 50%;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .session li.is-now span {
+      background: #04EA86;
+      border-color: #04EA86;
+      color: #111111;
+    }
+    .session li:nth-child(1) span { animation: consult-fill-1 2.8s linear infinite; }
+    .session li:nth-child(2) span { animation: consult-fill-2 2.8s linear infinite; }
+    .session li:nth-child(3) span { animation: consult-fill-3 2.8s linear infinite; }
+    .session li:nth-child(4) span { animation: consult-fill-4 2.8s linear infinite; }
+    .session li:nth-child(1)::after { animation: consult-line-1 2.8s linear infinite; }
+    .session li:nth-child(2)::after { animation: consult-line-2 2.8s linear infinite; }
+    .session li:nth-child(3)::after { animation: consult-line-3 2.8s linear infinite; }
+    @keyframes consult-fill-1 {
+      0% { background: #fff; border-color: #2f2c23; color: #2f2c23; }
+      8%, 100% { background: #04EA86; border-color: #04EA86; color: #111111; }
+    }
+    @keyframes consult-fill-2 {
+      0%, 28% { background: #fff; border-color: #2f2c23; color: #2f2c23; }
+      36%, 100% { background: #04EA86; border-color: #04EA86; color: #111111; }
+    }
+    @keyframes consult-fill-3 {
+      0%, 56% { background: #fff; border-color: #2f2c23; color: #2f2c23; }
+      64%, 100% { background: #04EA86; border-color: #04EA86; color: #111111; }
+    }
+    @keyframes consult-fill-4 {
+      0%, 84% { background: #fff; border-color: #2f2c23; color: #2f2c23; }
+      92%, 100% { background: #04EA86; border-color: #04EA86; color: #111111; }
+    }
+    @keyframes consult-line-1 {
+      0%, 8% { transform: scaleY(0); }
+      28%, 100% { transform: scaleY(1); }
+    }
+    @keyframes consult-line-2 {
+      0%, 36% { transform: scaleY(0); }
+      56%, 100% { transform: scaleY(1); }
+    }
+    @keyframes consult-line-3 {
+      0%, 64% { transform: scaleY(0); }
+      84%, 100% { transform: scaleY(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .mark-q1,
+      .mark-q2,
+      .mark-q3,
+      .mark-q4,
+      .session li:nth-child(1) span,
+      .session li:nth-child(2) span,
+      .session li:nth-child(3) span,
+      .session li:nth-child(4) span,
+      .session li:nth-child(1)::after,
+      .session li:nth-child(2)::after,
+      .session li:nth-child(3)::after {
+        animation: none;
+      }
+      .mark-q { opacity: 0; }
+      .mark-q1 { opacity: 1; }
+      .session li span {
+        background: #04EA86;
+        border-color: #04EA86;
+        color: #111111;
+      }
+      .session li:not(:last-child)::after {
+        transform: scaleY(1);
+      }
+      .swatches i,
+      .browser::after,
+      .ad-lines i,
+      .ad-dark .ad-line,
+      .play,
+      .video-bar::after,
+      .sheet-rules i {
+        animation: none;
+      }
+      .ad-lines i,
+      .sheet-rules i,
+      .video-bar::after { transform: scaleX(1); }
+      .ad-dark .ad-line { opacity: 1; transform: none; }
+      .browser::after { opacity: 0; }
+    }
+
+    .chapter-industries { background: #fff; }
+
+    /* One floor: a great room, two rooms against it, a service hall. 8px joints are the walls. */
+    .floor {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      grid-template-rows: 340px 312px auto;
+      gap: 8px;
+      margin-top: 48px;
+      width: 100%;
+      background: #111111;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .room {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      background: #111111;
+    }
+    .room-chiro { grid-column: 1; grid-row: 1 / span 2; }
+    .room-ortho { grid-column: 2; grid-row: 1; }
+    .room-dental { grid-column: 2; grid-row: 2; }
+    .room-home {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      min-height: 212px;
+    }
+    .room-media {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .room-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1);
+      transition: transform 0.4s ease;
+    }
+    .room:hover .room-photo { transform: scale(1.04); }
+    .room-chiro .room-photo { object-position: 50% 40%; }
+    .room-ortho .room-photo { object-position: 50% 38%; }
+    .room-dental .room-photo { object-position: 62% 58%; }
+    .room-home .room-photo { object-position: 78% 42%; }
+    .room-chiro .room-media {
+      animation: room-drift 38s ease-in-out infinite alternate;
+    }
+    @keyframes room-drift {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+    .room-tag {
+      position: absolute;
+      z-index: 3;
+      top: 14px;
+      left: 14px;
+      margin: 0;
+      max-width: calc(100% - 28px);
+      padding: 7px 9px;
+      background: #fff;
+      box-shadow: 0 0 0 1px rgba(17, 17, 17, 0.14);
+      color: #2f2c23;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+    .room-home .room-tag { left: auto; right: 14px; }
+    .room-caption {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .room-name {
+      margin: 0;
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+    }
+    .room-line {
+      margin: 8px 0 0;
+      font-family: "Inter Tight", sans-serif;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .room-rule {
+      display: block;
+      width: 48px;
+      height: 3px;
+      margin: 14px 0 0;
+      background: #04EA86;
+    }
+    .room-chiro .room-caption {
+      padding: 150px 36px 32px;
+      background: linear-gradient(to top, #111111 0%, #111111 38%, rgba(17, 17, 17, 0.82) 58%, rgba(17, 17, 17, 0) 100%);
+    }
+    .room-chiro .room-name {
+      font-size: 48px;
+      color: #fff;
+    }
+    .room-chiro .room-line {
+      max-width: 34ch;
+      font-size: 18px;
+      color: #fff;
+    }
+    .room-ortho {
+      display: flex;
+      flex-direction: column;
+    }
+    .room-ortho .room-media {
+      position: relative;
+      flex: 1 1 auto;
+      min-height: 0;
+      inset: auto;
+    }
+    .room-ortho .room-caption {
+      position: relative;
+      flex: 0 0 auto;
+      padding: 16px 18px 18px;
+      background: #111111;
+    }
+    .room-ortho .room-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      color: #04EA86;
+    }
+    .room-ortho .room-line {
+      margin-top: 6px;
+      font-size: 16px;
+      color: #fff;
+    }
+    .room-dental .room-caption {
+      padding: 92px 20px 18px;
+      background: linear-gradient(to top, #F6F4EF 0%, #F6F4EF 46%, rgba(246, 244, 239, 0) 100%);
+    }
+    .room-dental .room-name {
+      font-size: 32px;
+      color: #2f2c23;
+    }
+    .room-dental .room-line {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2f2c23;
+    }
+    .room-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.72) 32%, rgba(17, 17, 17, 0.28) 62%, rgba(17, 17, 17, 0.2) 100%);
+      pointer-events: none;
+    }
+    .room-home .room-caption {
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px 40px;
+      max-width: 620px;
+      background: none;
+    }
+    .room-home .room-name {
+      font-size: 36px;
+      color: #fff;
+    }
+    .room-home .room-line {
+      max-width: 42ch;
+      font-size: 18px;
+      color: #fff;
+    }
+    .also-row { margin-top: 28px; }
+    .also-row > span {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .also-row nav {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .also-row a {
+      position: relative;
+      display: block;
+      min-height: 190px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111111;
+      color: #fff;
+    }
+    .also-row img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transition: transform 0.45s ease;
+    }
+    .also-shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.15) 62%);
+    }
+    .also-copy {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 190px;
+      padding: 18px 18px 20px;
+    }
+    .also-copy span {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: #04EA86;
+    }
+    .also-copy strong {
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .also-row a:hover img { transform: scale(1.06); }
+    @media (max-width: 900px) {
+      .floor {
+        display: flex;
+        flex-direction: column;
+      }
+      .room-chiro,
+      .room-ortho,
+      .room-dental {
+        min-height: 420px;
+      }
+      .room-home { min-height: 280px; }
+      .room-chiro .room-name { font-size: 40px; }
+      .room-chiro .room-caption { padding: 120px 24px 28px; }
+      .also-row nav { grid-template-columns: 1fr 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .room-chiro .room-media { animation: none; }
+      .room-photo { transition: none; }
+      .room:hover .room-photo,
+      .also-row img { transition: none; }
+      .also-row a:hover img { transform: none; }
+    }
+
+    .shot-stage {
+      position: relative;
+      height: 1020px;
+      margin-top: 28px;
+    }
+    .polaroid {
+      position: absolute;
+      width: 340px;
+      margin: 0;
+      padding: 12px 12px 18px;
+      background: #fff;
+      border-radius: 3px;
+      box-shadow: 0 16px 36px rgba(17, 17, 17, 0.14);
+      transition: transform 0.35s ease;
+    }
+    .polaroid img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: top center;
+      background: #111111;
+    }
+    .polaroid figcaption {
+      margin-top: 14px;
+      text-align: center;
+    }
+    .polaroid figcaption strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #2f2c23;
+    }
+    .polaroid figcaption span {
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #04EA86;
+    }
+    .polaroid a {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .polaroid-1 { top: 8px; left: 0; transform: rotate(-6deg); }
+    .polaroid-2 { top: 36px; left: 24%; transform: rotate(3deg); }
+    .polaroid-3 { top: 10px; left: 49%; transform: rotate(-4deg); }
+    .polaroid-4 { top: 40px; right: 0; transform: rotate(5deg); }
+    .polaroid-5 { top: 520px; left: 2%; transform: rotate(4deg); }
+    .polaroid-6 { top: 548px; left: 26%; transform: rotate(-5deg); }
+    .polaroid-7 { top: 512px; left: 51%; transform: rotate(3deg); }
+    .polaroid-8 { top: 540px; right: 0; transform: rotate(-3deg); }
+    .polaroid:hover { z-index: 4; }
+    .polaroid-1:hover { transform: rotate(-2deg) translateY(-8px); }
+    .polaroid-2:hover { transform: rotate(1deg) translateY(-8px); }
+    .polaroid-3:hover { transform: rotate(-1deg) translateY(-8px); }
+    .polaroid-4:hover { transform: rotate(2deg) translateY(-8px); }
+    .polaroid-5:hover { transform: rotate(1deg) translateY(-8px); }
+    .polaroid-6:hover { transform: rotate(-2deg) translateY(-8px); }
+    .polaroid-7:hover { transform: rotate(1deg) translateY(-8px); }
+    .polaroid-8:hover { transform: rotate(0deg) translateY(-8px); }
+    @media (max-width: 980px) {
+      .shot-stage {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+      }
+      .polaroid {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: min(340px, 100%);
+        transform: none;
+      }
+      .shot-stage .polaroid:hover { transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .polaroid { transition: none; }
+    }
+    .chapter-quotes {
+      background: #F6F4EF;
+      scroll-margin-top: 100px;
+    }
+    .quotes-head {
+      position: relative;
+      z-index: 2;
+      background: #F6F4EF;
+    }
+    .review-wall {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      margin-top: 40px;
+    }
+    .review-row {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      cursor: grab;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 64px, #000 calc(100% - 64px), transparent);
+    }
+    .review-row:hover {
+      scrollbar-width: thin;
+      scrollbar-color: #2f2c23 transparent;
+    }
+    .review-row:active { cursor: grabbing; }
+    .review-row::-webkit-scrollbar { height: 0; }
+    .review-row:hover::-webkit-scrollbar { height: 8px; }
+    .review-row::-webkit-scrollbar-thumb {
+      background: #2f2c23;
+      border-radius: 99px;
+    }
+    .review-track {
+      display: flex;
+      width: max-content;
+    }
+    .review-set {
+      display: flex;
+      gap: 16px;
+      padding-right: 16px;
+    }
+    .review-card {
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 360px;
+      width: 360px;
+      height: 276px;
+      padding: 22px 22px 18px;
+      border: 1px solid #E4E4E4;
+      border-radius: 16px;
+      background: #fff;
+    }
+    .review-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-person > .review-avatar {
+      display: grid;
+      place-items: center;
+      flex: 0 0 46px;
+      width: 46px;
+      height: 46px;
+      margin: 0;
+      overflow: hidden;
+      border-radius: 50%;
+      background: #2f2c23;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      opacity: 1;
+    }
+    .review-person > .review-avatar.av-green { background: #04EA86; color: #111111; }
+    .review-person > .review-avatar.av-black { background: #111111; color: #04EA86; }
+    .review-person strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2f2c23;
+    }
+    .review-person div span {
+      display: block;
+      margin-top: 2px;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: #2f2c23;
+      opacity: 0.62;
+    }
+    .review-card h3 {
+      margin: 16px 0 0;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+      color: #2f2c23;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-card p {
+      margin: 8px 0 0;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .review-foot {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+      padding-top: 14px;
+    }
+    .review-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .review-icons svg { display: block; width: 16px; height: 16px; }
+    .review-foot a,
+    .review-foot em {
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 600;
+      color: #2f2c23;
+      opacity: 0.72;
+    }
+    .review-foot a:hover { color: #04EA86; opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .review-set.is-clone { display: none; }
+    }
+
+    .ai-panel {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      margin-top: 48px;
+      padding: 28px;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .ai-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 22px;
+      min-height: 380px;
+      padding: 32px 28px;
+      border-radius: 12px;
+      background: #F6F4EF;
+    }
+    .ai-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 72px;
+      padding: 16px 22px;
+      border-radius: 28px;
+      background: #111111;
+    }
+    .ai-bar svg {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+    }
+    .ai-bar p {
+      margin: 0;
+      min-height: 1.4em;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.011em;
+      color: #fff;
+    }
+    .ai-caret {
+      display: inline-block;
+      width: 0;
+      height: 0.9em;
+      border-right: 2px solid #04EA86;
+      margin-left: 2px;
+      vertical-align: -0.08em;
+      animation: ai-caret 1s step-end infinite;
+    }
+    .ai-caret[hidden] { display: none; }
+    .ai-stage {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 118px;
+      padding-top: 8px;
+    }
+    .ai-think,
+    .ai-reply { display: none; }
+    .ai-think.is-in {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ai-reply.is-in { display: block; }
+    .ai-think.is-done .ai-dots i {
+      animation: none;
+      opacity: 1;
+    }
+    .ai-think strong {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #04EA86;
+    }
+    .ai-dots {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ai-dots i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #04EA86;
+      animation: ai-dot 1.05s ease-in-out infinite;
+    }
+    .ai-dots i:nth-child(2) { animation-delay: 0.15s; }
+    .ai-dots i:nth-child(3) { animation-delay: 0.3s; }
+    @keyframes ai-dot {
+      0%, 70%, 100% { opacity: 0.25; transform: translateY(0); }
+      35% { opacity: 1; transform: translateY(-4px); }
+    }
+    .ai-reply strong {
+      display: block;
+      margin-top: 0;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #2f2c23;
+    }
+    .ai-reply p {
+      margin: 8px 0 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #2f2c23;
+    }
+    .ai-agents {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .ai-agent {
+      padding: 12px 14px 14px;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      background: #fff;
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    .ai-agent.is-on {
+      opacity: 1;
+      transform: none;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+    .ai-agent header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+      color: #2f2c23;
+    }
+    .ai-agent svg { width: 22px; height: 22px; flex: 0 0 auto; display: block; }
+    .ai-agent p {
+      margin: 10px 0 0;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #2f2c23;
+    }
+    .ai-agent em {
+      font-style: normal;
+      font-weight: 800;
+      color: #111111;
+    }
+    .ai-path {
+      list-style: none;
+      margin: 0;
+      padding: 12px 8px 12px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    .ai-path::before {
+      content: "";
+      position: absolute;
+      left: 35px;
+      top: 58px;
+      bottom: 58px;
+      width: 2px;
+      background: #2f2c23;
+    }
+    .ai-path li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 0;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #2f2c23;
+    }
+    .ai-path li span {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1.5px solid #2f2c23;
+      border-radius: 50%;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .ai-path li.is-ai { color: #04EA86; }
+    @keyframes ai-arrive {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ai-caret, .ai-dots i { animation: none; }
+      .ai-think { display: flex; }
+      .ai-dots { display: none; }
+      .ai-reply { display: block; }
+      .ai-agent { opacity: 1; transform: none; }
+    }
+
+    .chapter-faq { background: #F6F4EF; }
+    .chapter-faq .chapter-title,
+    .chapter-faq .chapter-support,
+    .chapter-faq .faq-list {
+      width: 100%;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .chapter-faq .chapter-support {
+      margin-top: 12px;
+      max-width: 560px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      opacity: 0.62;
+    }
+    .faq-list {
+      margin-top: 56px;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .faq-item.is-open button { padding-bottom: 8px; }
+    .chapter-faq .faq-a {
+      padding: 6px 72px 28px 0;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.5;
+      opacity: 0.78;
+    }
+    .faq-item { border-top: 1px solid #E4E4E4; }
+    .faq-item button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0;
+      padding: 26px 0;
+      border: 0;
+      background: transparent;
+      color: #2f2c23;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-mark {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      position: relative;
+    }
+    .faq-mark::before,
+    .faq-mark::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 13px;
+      height: 2px;
+      background: #2f2c23;
+    }
+    .faq-mark::after { transform: rotate(90deg); }
+    .faq-item.is-open .faq-mark::after { display: none; }
+    .faq-item.is-open .faq-mark::before { background: #04EA86; }
+    .faq-a {
+      display: none;
+      margin: 0;
+      padding: 0 52px 26px 0;
+      max-width: 640px;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+    }
+    .faq-item.is-open .faq-a { display: block; }
+
+    .close {
+      background: #111111;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    #proposal { scroll-margin-top: 120px; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="https://thedigitalelites.com/">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/TDE-Logo.png" alt="The Digital Elites">
+    </a>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="hero">
+    <div class="copy">
+      <p class="eyebrow">For clinics and home services</p>
+      <h1>
+        <span>Show up first.</span>
+        <span>Book the job.</span>
+        <span>Stay visible in</span>
+        <span class="ai"><span id="ai-typed">AI search</span><span class="ai-caret" aria-hidden="true"></span><span class="ai-period">.</span></span>
+      </h1>
+      <p class="support">Websites, ads, and content for companies in Katy and across the U.S.</p>
+      <a class="pill" href="#proposal">Get your free proposal</a>
+    </div>
+
+    <div class="visual">
+      <div class="shot">
+        <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website">
+        <button class="hero-arrow hero-arrow-prev" type="button" aria-label="Previous project">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10.2 3.2 5.2 8l5 4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="hero-arrow hero-arrow-next" type="button" aria-label="Next project">
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M5.8 3.2 10.8 8l-5 4.8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <blockquote class="quote">
+        <span class="mark" aria-hidden="true">“</span>
+        <p>New patient inquiries doubled, and our appointment schedule is fuller than ever.</p>
+        <footer>
+          <strong>Dr. Emily Carter</strong>
+          <span>ChiroWellness Clinic</span>
+        </footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Reviews">
+    <div class="trust-row">
+      <div class="trust-group">
+        <div class="trust-head">
+          <div class="trust-mark">
+            <span class="google-wordmark" aria-label="Google"><span aria-hidden="true">G</span><span aria-hidden="true">o</span><span aria-hidden="true">o</span><span aria-hidden="true">g</span><span aria-hidden="true">l</span><span aria-hidden="true">e</span></span>
+          </div>
+          <strong class="trust-num">150+</strong>
+        </div>
+        <p class="trust-line">
+          <span class="trust-label">Clients</span>
+          <span class="stars" role="img" aria-label="Five stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+          </span>
+        </p>
+      </div>
+
+      <div class="trust-group">
+        <div class="trust-head">
+          <div class="trust-mark">
+            <span class="clutch-wordmark">Clutch</span>
+          </div>
+          <strong class="trust-num">100+</strong>
+        </div>
+        <p class="trust-line">
+          <span class="trust-label">Projects</span>
+          <span class="stars" role="img" aria-label="Five stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+          </span>
+        </p>
+      </div>
+
+      <div class="trust-group">
+        <div class="trust-head">
+          <div class="trust-mark">
+            <div class="avatars" aria-hidden="true">
+              <span>EC</span>
+              <span>RS</span>
+              <span>DR</span>
+              <span>LM</span>
+            </div>
+          </div>
+          <strong class="trust-num">5+</strong>
+        </div>
+        <p class="trust-line">
+          <span class="trust-label">Years</span>
+          <span class="stars" role="img" aria-label="Five stars">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path fill="#FBBC04" d="M10 1.2 12.6 6.8l6 .6-4.5 4 1.3 5.9L10 14.6 4.6 17.3l1.3-5.9L1.4 7.4l6-.6L10 1.2z"/></svg>
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="ai" aria-labelledby="ai-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="ai-title">Found when someone asks.</h2>
+      <p class="chapter-support">A local business shows up in the answer, then the job gets booked.</p>
+
+      <div class="ai-panel">
+        <div class="ai-screen">
+          <div class="ai-bar">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.25" stroke="#04EA86" stroke-width="1.75"/>
+              <path d="M16 16.5 20 20.5" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <p aria-label="Which is the best digital marketing agency in the USA?"><span id="ai-q-typed"></span><span class="ai-caret" aria-hidden="true"></span></p>
+          </div>
+          <div class="ai-stage">
+            <div class="ai-think" id="ai-think">
+              <span class="ai-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <strong>AI search</strong>
+            </div>
+            <div class="ai-reply" id="ai-reply">
+              <div class="ai-agents">
+                <article class="ai-agent">
+                  <header>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="url(#gem)" d="M12 1.2c.5 4.6 2.6 7.2 7.2 7.8-4.6.6-6.7 3.2-7.2 7.8-.5-4.6-2.6-7.2-7.2-7.8C9.4 8.4 11.5 5.8 12 1.2z"/><defs><linearGradient id="gem" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse"><stop stop-color="#4285F4"/><stop offset=".5" stop-color="#9B72CB"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs></svg>
+                    Gemini
+                  </header>
+                  <p>The best agency is <em>The Digital Elites</em>.</p>
+                </article>
+                <article class="ai-agent">
+                  <header>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#111"/><path fill="#fff" d="M12 5.2 13.1 9l3.7-1.2-1.6 3.5 3.6 1.5-3.6 1.4 1.6 3.6L13.1 15 12 18.8 10.9 15l-3.7 1.8 1.6-3.6-3.6-1.4 3.6-1.5-1.6-3.5L10.9 9z"/></svg>
+                    ChatGPT
+                  </header>
+                  <p><em>The Digital Elites</em> is the one that shows up.</p>
+                </article>
+                <article class="ai-agent">
+                  <header>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#D97757"/><path fill="#fff" d="M12 3.2 13.2 9.4 19.6 8l-4.4 3.6 3.2 5.2-5.2-1.6L12 20.8l-1.2-5.6-5.2 1.6 3.2-5.2L4.4 8l6.4 1.4z"/></svg>
+                    Claude
+                  </header>
+                  <p>I’d name <em>The Digital Elites</em>.</p>
+                </article>
+                <article class="ai-agent">
+                  <header>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#4D6BFE"/><path fill="#fff" d="M5.5 14.2c1.6-3.6 3.6-5.4 6.2-5.4 1.6 0 2.4 1.1 3.8 1.1 1.2 0 2.2-.7 3.2-1.6-.6 3.4-2.6 6.7-6.4 6.7-2.4 0-4.6-.8-6.8-.8z"/></svg>
+                    DeepSeek
+                  </header>
+                  <p>Top result: <em>The Digital Elites</em>.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="ai-path" aria-label="From being found to a booked job">
+          <li><span>1</span> Show up</li>
+          <li class="is-ai"><span>2</span> AI search</li>
+          <li><span>3</span> Book the job</li>
+        </ol>
+      </div>
+
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Get found in AI search</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="chapter" id="services" aria-labelledby="services-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="services-title">The work that gets you chosen.</h2>
+      <p class="chapter-support">Design, development, marketing, video, writing, and consultation for clinics and home services.</p>
+
+      <div class="svc">
+        <article class="design-bench">
+          <div class="design-copy">
+            <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M8 32.5 14.2 30.6 32.2 12.6a3.2 3.2 0 0 0-4.5-4.5L9.7 26.1 8 32.5Z" stroke="#2f2c23" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M25.2 10.6 29.6 15" stroke="#2f2c23" stroke-width="1.75" stroke-linecap="round"/>
+              <path d="M8 32.5h8" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <h3 class="panel-title"><span class="svc-no">01</span>Design</h3>
+            <p class="panel-copy">Logos, UI/UX, brand style guides, catalogues, and packages for the business.</p>
+          </div>
+          <div class="spec-row" aria-hidden="true">
+            <div class="spec">
+              <span class="spec-label">Mark</span>
+              <svg class="mark-svg" viewBox="0 0 180 150">
+                <path d="M14 36V14h22M166 14v22M14 114v22h22M144 136h22v-22" fill="none" stroke="#E4E4E4" stroke-width="1.5"/>
+                <circle cx="90" cy="78" r="40" fill="#E4E4E4"/>
+                <circle cx="90" cy="78" r="40" fill="none" stroke="#2f2c23" stroke-width="2"/>
+                <path class="mark-q mark-q1" d="M90 38A40 40 0 0 1 130 78L90 78Z" fill="#04EA86"/>
+                <path class="mark-q mark-q2" d="M130 78A40 40 0 0 1 90 118L90 78Z" fill="#04EA86"/>
+                <path class="mark-q mark-q3" d="M90 118A40 40 0 0 1 50 78L90 78Z" fill="#04EA86"/>
+                <path class="mark-q mark-q4" d="M50 78A40 40 0 0 1 90 38L90 78Z" fill="#04EA86"/>
+                <circle cx="90" cy="78" r="6" fill="#2f2c23"/>
+              </svg>
+            </div>
+            <div class="spec">
+              <span class="spec-label">Type</span>
+              <p class="spec-aa">Aa</p>
+              <p class="spec-face">Inter Tight</p>
+            </div>
+            <div class="spec">
+              <span class="spec-label">Color</span>
+              <div class="swatches">
+                <span><i class="swatch-olive"></i>2F2C23</span>
+                <span><i class="swatch-green"></i>04EA86</span>
+                <span><i class="swatch-black"></i>111111</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="svc-mid">
+          <article class="dev-panel">
+            <div class="dev-head">
+              <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M14 11 6 20l8 9" stroke="#2f2c23" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M26 11l8 9-8 9" stroke="#2f2c23" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 9 18 31" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+              <h3 class="panel-title"><span class="svc-no">02</span>Development</h3>
+              <p class="panel-copy">Lead-generation sites, online stores, and web portals, built as a platform that can scale.</p>
+            </div>
+            <div class="browser">
+              <div class="browser-top">
+                <span></span><span></span><span></span>
+                <em>Bright Approach</em>
+              </div>
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website">
+              <p class="shot-credit">
+                <strong>Dr. Emily Carter</strong>
+                <span>ChiroWellness Clinic</span>
+              </p>
+            </div>
+          </article>
+
+          <article class="mkt-panel">
+            <div class="mkt-head">
+              <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <path d="M7 16.5v7l14 5.5V11L7 16.5Z" stroke="#2f2c23" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M21 15.5a6 6 0 0 1 0 9" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M12 24.5v3.2a3 3 0 0 0 3 2.6" stroke="#2f2c23" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+              <h3 class="panel-title"><span class="svc-no">03</span>Marketing</h3>
+              <p class="panel-copy">Social channels and advertising campaigns for the next patient or the next job.</p>
+            </div>
+            <div class="ad-stack">
+              <div class="ad-search">
+                <span class="ad-tag">Ad</span>
+                <p class="ad-title">Chiropractor in Katy</p>
+                <p class="ad-url">Local clinic</p>
+                <div class="ad-lines" aria-hidden="true"><i></i><i></i></div>
+              </div>
+              <div class="ad-dark">
+                <span class="ad-kicker">Sample ad</span>
+                <p class="ad-line">Book the job.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="svc-low">
+          <article class="video-panel">
+            <div class="video-stage">
+              <svg class="video-scene" viewBox="0 0 520 240" aria-hidden="true">
+                <rect x="6" y="10" width="508" height="220" rx="14" fill="#1a1916"/>
+                <rect x="36" y="40" width="118" height="78" rx="2" fill="none" stroke="#04EA86" stroke-width="2"/>
+                <path d="M36 79h118M95 40v78" stroke="#04EA86" stroke-width="1.5"/>
+                <path d="M36 168h250" stroke="#fff" stroke-width="1.5" opacity="0.28"/>
+                <path d="M168 168V118h64v50" fill="none" stroke="#fff" stroke-width="1.75" stroke-linejoin="round"/>
+                <path d="M188 168v-24h28v24" fill="none" stroke="#fff" stroke-width="1.75"/>
+              </svg>
+              <span class="play">
+                <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+                  <path d="M8 5.5v11l9-5.5-9-5.5Z" fill="#111111"/>
+                </svg>
+              </span>
+              <span class="video-bar" aria-hidden="true"></span>
+            </div>
+            <div class="video-foot">
+              <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <rect x="6" y="10" width="28" height="20" rx="3" stroke="#2f2c23" stroke-width="1.75"/>
+                <path d="M13 10v20M27 10v20M6 16h7M27 16h7M6 24h7M27 24h7" stroke="#2f2c23" stroke-width="1.75"/>
+              </svg>
+              <h3 class="panel-title"><span class="svc-no">04</span>Video</h3>
+              <p class="panel-copy">Brand stories and promotional video for the channels patients already watch.</p>
+            </div>
+          </article>
+
+          <article class="write-sheet">
+            <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M10 8h14l8 8v16a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2Z" stroke="#2f2c23" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M23 8v8h8" stroke="#2f2c23" stroke-width="1.75" stroke-linejoin="round"/>
+              <path d="M14 22h12M14 27h8" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+            </svg>
+            <h3 class="panel-title"><span class="svc-no">05</span>Writing</h3>
+            <p class="sheet-sample">The page they meant to book from.</p>
+            <p class="panel-copy">Social, blog, ads, and email, written to attract, engage, and convert.</p>
+            <div class="sheet-rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </article>
+
+          <article class="consult">
+            <div class="consult-head">
+              <svg class="ico" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="14" cy="14" r="4" stroke="#2f2c23" stroke-width="1.75"/>
+                <circle cx="26.5" cy="16" r="3" stroke="#2f2c23" stroke-width="1.75"/>
+                <path d="M6.5 30c.8-4 3.2-6 7.5-6s6.7 2 7.5 6" stroke="#2f2c23" stroke-width="1.75" stroke-linecap="round"/>
+                <path d="M22 28.5c.5-2.4 1.8-3.8 4.5-3.8 2.2 0 3.6 1.1 4.3 3.2" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
+              </svg>
+              <h3 class="panel-title"><span class="svc-no">06</span>Consultation</h3>
+              <p class="panel-copy">A guide through each step so the work reaches the goal without wasted effort.</p>
+            </div>
+            <ol class="session">
+              <li><span>1</span> Goals</li>
+              <li><span>2</span> Market</li>
+              <li><span>3</span> Plan</li>
+              <li><span>4</span> Next step</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Choose a service</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-industries" id="industries" aria-labelledby="industries-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="industries-title">The rooms where the work shows up.</h2>
+      <p class="chapter-support">Chiropractic, orthodontics, and dental practices in Katy, and home-service companies booking jobs across the U.S.</p>
+
+      <div class="floor">
+        <article class="room room-chiro">
+          <div class="room-media">
+            <img class="room-photo" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Placeholder: adjustment on a treatment table in a clinic interior.">
+          </div>
+          <p class="room-tag">Placeholder · clinic interior</p>
+          <div class="room-caption">
+            <h3 class="room-name">Chiropractic</h3>
+            <span class="room-rule" aria-hidden="true"></span>
+            <p class="room-line">A clinic site and a patient campaign for the practice that needs the next new patient.</p>
+          </div>
+        </article>
+
+        <article class="room room-ortho">
+          <div class="room-media">
+            <img class="room-photo" src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Placeholder: clinician and patient reviewing a jaw image in an orthodontic practice.">
+          </div>
+          <p class="room-tag">Placeholder · orthodontic practice</p>
+          <div class="room-caption">
+            <h3 class="room-name">Orthodontics</h3>
+            <p class="room-line">Found in search when someone is ready to start treatment.</p>
+          </div>
+        </article>
+
+        <article class="room room-dental">
+          <div class="room-media">
+            <img class="room-photo" src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Placeholder: dental operatory with the chair, light, and cabinets a patient books from.">
+          </div>
+          <p class="room-tag">Placeholder · dental office</p>
+          <div class="room-caption">
+            <h3 class="room-name">Dental</h3>
+            <p class="room-line">The office, the new-patient offer, and the page a patient books from.</p>
+          </div>
+        </article>
+
+        <article class="room room-home">
+          <div class="room-media">
+            <img class="room-photo" src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Placeholder: electrician working a service panel on a job site.">
+          </div>
+          <div class="room-shade" aria-hidden="true"></div>
+          <p class="room-tag">Placeholder · job site</p>
+          <div class="room-caption">
+            <h3 class="room-name">Home services</h3>
+            <p class="room-line">The service area, the offer, and the call that books the job.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="also-row">
+        <span>Also</span>
+        <nav aria-label="More industries">
+          <a href="https://thedigitalelites.com/industries/">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: medical spa treatment room">
+            <span class="also-shade" aria-hidden="true"></span>
+            <span class="also-copy"><span>01</span><strong>Medical spa</strong></span>
+          </a>
+          <a href="https://thedigitalelites.com/industries/">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: therapy consult">
+            <span class="also-shade" aria-hidden="true"></span>
+            <span class="also-copy"><span>02</span><strong>Therapy</strong></span>
+          </a>
+          <a href="https://thedigitalelites.com/industries/">
+            <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: home exterior for pest control">
+            <span class="also-shade" aria-hidden="true"></span>
+            <span class="also-copy"><span>03</span><strong>Pest control</strong></span>
+          </a>
+          <a href="https://thedigitalelites.com/industries/">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: home cleaning">
+            <span class="also-shade" aria-hidden="true"></span>
+            <span class="also-copy"><span>04</span><strong>Cleaning</strong></span>
+          </a>
+          <a href="https://thedigitalelites.com/industries/">
+            <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: electrician on a job">
+            <span class="also-shade" aria-hidden="true"></span>
+            <span class="also-copy"><span>05</span><strong>Electrical</strong></span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="chapter-action">
+        <a class="pill" href="#work">See work in your market</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-quotes" id="testimonials" aria-labelledby="quotes-title">
+    <div class="chapter-inner">
+      <div class="quotes-head">
+        <h2 class="chapter-title" id="quotes-title">Said by the people who hired the work.</h2>
+        <p class="chapter-support">Four real clients. Cards marked Demo are placeholders so the rows can move.</p>
+      </div>
+
+      <div class="review-wall" aria-label="Client reviews">
+        <div class="review-row">
+          <div class="review-track">
+            <div class="review-set">
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">EC</span>
+                  <div><strong>Dr. Emily Carter</strong><span>ChiroWellness Clinic</span></div>
+                </div>
+                <h3>New patient inquiries doubled.</h3>
+                <p>New patient inquiries doubled, and our appointment schedule is fuller than ever.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-green" aria-hidden="true">RS</span>
+                  <div><strong>Dr. Raj Singh</strong><span>Align &amp; Thrive Chiropractic</span></div>
+                </div>
+                <h3>The site and the social presence.</h3>
+                <p>The Digital Elites not only designed an attractive website but also overhauled our social media presence.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-black" aria-hidden="true">JH</span>
+                  <div><strong>Jordan Hale</strong><span>Demo · Dental office</span></div>
+                </div>
+                <h3>The booking page matches the front desk.</h3>
+                <p>A placeholder card. Patients can see the office, the offer, and the time before they call.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                  </span>
+                  <em>Demo</em>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">DR</span>
+                  <div><strong>David Reynolds</strong><span>GreenLeaf Landscaping</span></div>
+                </div>
+                <h3>Calls and quote requests picked up.</h3>
+                <p>Within weeks, our calls and quote requests increased dramatically.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-green" aria-hidden="true">PS</span>
+                  <div><strong>Priya Shah</strong><span>Demo · Home services</span></div>
+                </div>
+                <h3>The right calls, from the service area.</h3>
+                <p>A placeholder card. The towns are named, and the call is the next step on the page.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                  </span>
+                  <em>Demo</em>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-green" aria-hidden="true">LM</span>
+                  <div><strong>Dr. Lydia Moore</strong><span>SpineSmart Chiropractic</span></div>
+                </div>
+                <h3>Bookings, and a professional presence.</h3>
+                <p>A noticeable increase in patient bookings and a strong, professional online presence.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="review-row is-reverse">
+          <div class="review-track">
+            <div class="review-set">
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-black" aria-hidden="true">CN</span>
+                  <div><strong>Chris Nguyen</strong><span>Demo · Orthodontics</span></div>
+                </div>
+                <h3>Parents can book the consult.</h3>
+                <p>A placeholder card. Treatment, timing, and the next visit sit on one page.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                  </span>
+                  <em>Demo</em>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-green" aria-hidden="true">LM</span>
+                  <div><strong>Dr. Lydia Moore</strong><span>SpineSmart Chiropractic</span></div>
+                </div>
+                <h3>Bookings, and a professional presence.</h3>
+                <p>A noticeable increase in patient bookings and a strong, professional online presence.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">AC</span>
+                  <div><strong>Avery Cole</strong><span>Demo · Medical spa</span></div>
+                </div>
+                <h3>The offer is clear before the call.</h3>
+                <p>A placeholder card for the layout. Swap this for a real review when one is in.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                  </span>
+                  <em>Demo</em>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-green" aria-hidden="true">EC</span>
+                  <div><strong>Dr. Emily Carter</strong><span>ChiroWellness Clinic</span></div>
+                </div>
+                <h3>New patient inquiries doubled.</h3>
+                <p>New patient inquiries doubled, and our appointment schedule is fuller than ever.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar av-black" aria-hidden="true">SO</span>
+                  <div><strong>Sam Ortiz</strong><span>Demo · Pest control</span></div>
+                </div>
+                <h3>The job shows up in the towns they serve.</h3>
+                <p>A placeholder card. Service area, offer, and the number to call, on one screen.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#7B61FF" d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z"/></svg>
+                  </span>
+                  <em>Demo</em>
+                </div>
+              </article>
+              <article class="review-card">
+                <div class="review-person">
+                  <span class="review-avatar" aria-hidden="true">RS</span>
+                  <div><strong>Dr. Raj Singh</strong><span>Align &amp; Thrive Chiropractic</span></div>
+                </div>
+                <h3>The site and the social presence.</h3>
+                <p>The Digital Elites not only designed an attractive website but also overhauled our social media presence.</p>
+                <div class="review-foot">
+                  <span class="review-icons" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path fill="#0A66C2" d="M4.7 3.3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4zM3 8.8h3.4V21H3V8.8zM9.2 8.8H12.5v1.7h.1c.5-.9 1.6-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5V21H17v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9.2V8.8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.4h6.5a5.6 5.6 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.5-5.2 3.5-8.7z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1.1.7-2.5 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3A7.2 7.2 0 0 1 4.9 12c0-.8.1-1.6.4-2.3V6.6H1.3A12 12 0 0 0 0 12c0 1.9.5 3.8 1.3 5.4l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.3.6 4.5 1.8l3.4-3.4C17.9 1.1 15.2 0 12 0 7.4 0 3.3 2.7 1.3 6.6l4 3.1C6.2 7 8.9 4.8 12 4.8z"/></svg>
+                  </span>
+                  <a href="#work">Client story</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Talk with the studio</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var rows = [].slice.call(document.querySelectorAll(".review-row"));
+      rows.forEach(function (row) {
+        var track = row.querySelector(".review-track");
+        var set = row.querySelector(".review-set");
+        if (!reduce && set && track) {
+          var clone = set.cloneNode(true);
+          clone.classList.add("is-clone");
+          clone.setAttribute("aria-hidden", "true");
+          track.appendChild(clone);
+          if (row.classList.contains("is-reverse")) row.scrollLeft = set.offsetWidth;
+        }
+        row.addEventListener("mouseenter", function () { row.dataset.hover = "1"; });
+        row.addEventListener("mouseleave", function () { row.dataset.hover = ""; });
+        row.addEventListener("wheel", function (e) {
+          if (row.dataset.hover !== "1") return;
+          var delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+          if (!delta) return;
+          e.preventDefault();
+          row.scrollLeft += delta;
+          var width = set ? set.offsetWidth : 0;
+          if (!width) return;
+          if (row.scrollLeft >= width) row.scrollLeft -= width;
+          else if (row.scrollLeft <= 0) row.scrollLeft += width;
+        }, { passive: false });
+      });
+      if (reduce) return;
+      function tick() {
+        rows.forEach(function (row) {
+          if (row.dataset.hover === "1") return;
+          var set = row.querySelector(".review-set:not(.is-clone)");
+          var width = set ? set.offsetWidth : 0;
+          if (!width) return;
+          var dir = row.classList.contains("is-reverse") ? -1 : 1;
+          row.scrollLeft += dir * 0.7;
+          if (row.scrollLeft >= width) row.scrollLeft -= width;
+          if (dir < 0 && row.scrollLeft <= 0) row.scrollLeft += width;
+        });
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    })();
+  </script>
+
+
+  <section class="chapter" id="work" aria-labelledby="work-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="work-title">The work, in their words.</h2>
+      <p class="chapter-support">Bright Approach, LDCCO, Amiri, and Julie Gray — the project beside the person who said it.</p>
+
+      <div class="shot-stage">
+        <figure class="polaroid polaroid-1">
+          <a href="https://thedigitalelites.com/portfolio/" target="_blank" rel="noopener noreferrer">
+            <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website">
+            <figcaption>
+              <strong>“Bright Approach”</strong>
+              <span>Dr. Emily Carter</span>
+            </figcaption>
+          </a>
+        </figure>
+        <figure class="polaroid polaroid-2">
+          <a href="https://ldcco.net/en/" target="_blank" rel="noopener noreferrer">
+            <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website">
+            <figcaption>
+              <strong>“LDCCO”</strong>
+              <span>Dr. Raj Singh</span>
+            </figcaption>
+          </a>
+        </figure>
+        <figure class="polaroid polaroid-3">
+          <a href="https://amiriholdings.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" alt="Amiri website">
+            <figcaption>
+              <strong>“Amiri”</strong>
+              <span>David Reynolds</span>
+            </figcaption>
+          </a>
+        </figure>
+        <figure class="polaroid polaroid-4">
+          <a href="https://www.sayjulie.com/" target="_blank" rel="noopener noreferrer">
+            <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" alt="Julie Gray website">
+            <figcaption>
+              <strong>“Julie Gray”</strong>
+              <span>Dr. Lydia Moore</span>
+            </figcaption>
+          </a>
+        </figure>
+        <figure class="polaroid polaroid-5">
+          <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: dental office">
+          <figcaption>
+            <strong>“Northline Dental”</strong>
+            <span>Demo</span>
+          </figcaption>
+        </figure>
+        <figure class="polaroid polaroid-6">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: clinic consult">
+          <figcaption>
+            <strong>“Harbor Therapy”</strong>
+            <span>Demo</span>
+          </figcaption>
+        </figure>
+        <figure class="polaroid polaroid-7">
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: home cleaning">
+          <figcaption>
+            <strong>“Cleanwell”</strong>
+            <span>Demo</span>
+          </figcaption>
+        </figure>
+        <figure class="polaroid polaroid-8">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: electrical job site">
+          <figcaption>
+            <strong>“Volt &amp; Co”</strong>
+            <span>Demo</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter-action">
+        <a class="pill" href="#testimonials">Hear it from the clients</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-faq" id="faq" aria-labelledby="faq-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="faq-title">Before you ask for a proposal.</h2>
+      <p class="chapter-support">What the studio does, who it is for, and what it will not promise.</p>
+      <div class="faq-list">
+        <div class="faq-item is-open">
+          <button type="button" aria-expanded="true">
+            What do you actually do?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Design, development, marketing, video, writing, and consultation. That is websites, ads, and content for the business.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Who do you work with?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Clinics and home-service companies, including chiropractic, orthodontics, dental, and home services. The same kinds of firms, in Katy and across the U.S.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Where are you?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">The studio is in Katy, Texas. The work is for companies there and across the country.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            How do we start?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Ask for a proposal. The first step is a look at the business and what should be built, before a campaign goes live.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Do you guarantee rankings?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">No. Nothing here promises a ranking, a review count, or a result on a clock. The work is meant to help a business show up and get booked.</p>
+        </div>
+      </div>
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Ask for the proposal</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter close" id="contact">
+    <div class="chapter-inner" id="proposal">
+      <h2 class="chapter-title">Ready when you are.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company.</p>
+      <div class="chapter-action">
+        <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var phrase = "AI search";
+      var text = document.getElementById("ai-typed");
+      if (!text) return;
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) {
+        text.textContent = phrase;
+        return;
+      }
+
+      var caret = text.nextElementSibling;
+      var index = 0;
+
+      function tick() {
+        index += 1;
+        text.textContent = phrase.slice(0, index);
+        if (index >= phrase.length) {
+          if (caret) caret.hidden = true;
+          return;
+        }
+        setTimeout(tick, 160);
+      }
+
+      text.textContent = "";
+      setTimeout(tick, 160);
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      var slides = [
+        {
+          src: "https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png",
+          alt: "Bright Approach website",
+          quote: "New patient inquiries doubled, and our appointment schedule is fuller than ever.",
+          name: "Dr. Emily Carter",
+          place: "ChiroWellness Clinic"
+        },
+        {
+          src: "https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png",
+          alt: "LDCCO website",
+          quote: "The Digital Elites not only designed an attractive website but also overhauled our social media presence.",
+          name: "Dr. Raj Singh",
+          place: "Align & Thrive Chiropractic"
+        },
+        {
+          src: "https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png",
+          alt: "Amiri website",
+          quote: "Within weeks, our calls and quote requests increased dramatically.",
+          name: "David Reynolds",
+          place: "GreenLeaf Landscaping"
+        },
+        {
+          src: "https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png",
+          alt: "Julie Gray website",
+          quote: "A noticeable increase in patient bookings and a strong, professional online presence.",
+          name: "Dr. Lydia Moore",
+          place: "SpineSmart Chiropractic"
+        }
+      ];
+
+      var root = document.querySelector(".visual");
+      if (!root) return;
+      var shot = root.querySelector(".shot");
+      var img = shot.querySelector("img");
+      var quote = root.querySelector(".quote");
+      var quoteText = quote.querySelector("p");
+      var quoteName = quote.querySelector("strong");
+      var quotePlace = quote.querySelector("footer span");
+      var prev = root.querySelector(".hero-arrow-prev");
+      var next = root.querySelector(".hero-arrow-next");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var index = 0;
+      var timer = null;
+      var fadeTimer = null;
+      var paused = false;
+      var remaining = 4500;
+      var started = 0;
+      var FADE = 240;
+
+      slides.forEach(function (slide) {
+        var preload = new Image();
+        preload.src = slide.src;
+      });
+
+      function apply(slide) {
+        img.src = slide.src;
+        img.alt = slide.alt;
+        quoteText.textContent = slide.quote;
+        quoteName.textContent = slide.name;
+        quotePlace.textContent = slide.place;
+      }
+
+      function show(nextIndex, animate) {
+        index = (nextIndex + slides.length) % slides.length;
+        var slide = slides[index];
+        clearTimeout(fadeTimer);
+        if (!animate) {
+          img.classList.remove("is-out");
+          quote.classList.remove("is-out");
+          apply(slide);
+          return;
+        }
+        img.classList.add("is-out");
+        quote.classList.add("is-out");
+        fadeTimer = setTimeout(function () {
+          apply(slide);
+          void img.offsetWidth;
+          img.classList.remove("is-out");
+          quote.classList.remove("is-out");
+        }, FADE);
+      }
+
+      function arm(ms) {
+        clearTimeout(timer);
+        if (reduce || paused) return;
+        remaining = ms;
+        started = Date.now();
+        timer = setTimeout(function () {
+          show(index + 1, true);
+          arm(4500);
+        }, ms);
+      }
+
+      function pause() {
+        if (reduce || paused) return;
+        paused = true;
+        if (timer) {
+          remaining -= Date.now() - started;
+          if (remaining < 0) remaining = 0;
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      function resume() {
+        if (reduce || !paused) return;
+        paused = false;
+        if (remaining <= 0) {
+          show(index + 1, true);
+          arm(4500);
+          return;
+        }
+        arm(remaining);
+      }
+
+      function step(dir) {
+        show(index + dir, !reduce);
+        remaining = 4500;
+        if (!paused && !reduce) arm(4500);
+      }
+
+      prev.addEventListener("click", function () { step(-1); });
+      next.addEventListener("click", function () { step(1); });
+      shot.addEventListener("pointerenter", pause);
+      shot.addEventListener("pointerleave", resume);
+
+      if (!reduce) arm(4500);
+    })();
+  </script>
+  <script>
+    (function () {
+      var sample = document.querySelector(".spec-aa");
+      var label = document.querySelector(".spec-face");
+      if (!sample || !label) return;
+
+      var faces = [
+        { name: "Inter Tight", family: '"Inter Tight", sans-serif', weight: "800" },
+        { name: "Fraunces", family: "Fraunces, serif", weight: "700" },
+        { name: "Source Serif 4", family: '"Source Serif 4", serif', weight: "700" },
+        { name: "IBM Plex Mono", family: '"IBM Plex Mono", monospace', weight: "700" }
+      ];
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var index = 0;
+      var timer = 0;
+
+      function apply(face) {
+        sample.style.fontFamily = face.family;
+        sample.style.fontWeight = face.weight;
+        label.textContent = face.name;
+      }
+
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = 0;
+        }
+        index = 0;
+        apply(faces[0]);
+      }
+
+      function start() {
+        if (timer) return;
+        apply(faces[index]);
+        timer = setInterval(function () {
+          index = (index + 1) % faces.length;
+          apply(faces[index]);
+        }, 1200);
+      }
+
+      function sync() {
+        if (reduce.matches) stop();
+        else start();
+      }
+
+      if (reduce.addEventListener) reduce.addEventListener("change", sync);
+      else if (reduce.addListener) reduce.addListener(sync);
+      sync();
+    })();
+  </script>
+  <script>
+    (function () {
+      var el = document.getElementById("ai-q-typed");
+      var think = document.getElementById("ai-think");
+      var reply = document.getElementById("ai-reply");
+      var caret = document.querySelector(".ai-caret");
+      if (!el || !think || !reply) return;
+      var phrase = "Which is the best digital marketing agency in the USA?";
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) {
+        el.textContent = phrase;
+        think.classList.add("is-in", "is-done");
+        reply.classList.add("is-in");
+        reply.querySelectorAll(".ai-agent").forEach(function (card) {
+          card.classList.add("is-on");
+        });
+        if (caret) caret.hidden = true;
+        return;
+      }
+      var i = 0;
+      function reset() {
+        reply.classList.remove("is-in");
+        reply.querySelectorAll(".ai-agent").forEach(function (card) {
+          card.classList.remove("is-on");
+        });
+        think.classList.remove("is-in", "is-done");
+        i = 0;
+        el.textContent = "";
+        setTimeout(tick, 420);
+      }
+      function answer() {
+        var cards = reply.querySelectorAll(".ai-agent");
+        think.classList.add("is-done");
+        reply.classList.add("is-in");
+        cards.forEach(function (card, n) {
+          setTimeout(function () { card.classList.add("is-on"); }, 480 * n);
+        });
+        setTimeout(reset, 8200 + 480 * cards.length);
+      }
+      function tick() {
+        if (i <= phrase.length) {
+          el.textContent = phrase.slice(0, i);
+          i += 1;
+          setTimeout(tick, i > phrase.length ? 500 : 48);
+          return;
+        }
+        think.classList.add("is-in");
+        setTimeout(answer, 1700);
+      }
+      tick();
+    })();
+  </script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll(".faq-item");
+      items.forEach(function (item) {
+        var btn = item.querySelector("button");
+        btn.addEventListener("click", function () {
+          if (item.classList.contains("is-open")) return;
+          items.forEach(function (other) {
+            other.classList.remove("is-open");
+            other.querySelector("button").setAttribute("aria-expanded", "false");
+          });
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
