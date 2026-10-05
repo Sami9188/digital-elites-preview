@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1440">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Digital Elites — Marketing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -282,6 +282,444 @@
       color: #fff;
     }
 
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    .chapter {
+      flex: 0 0 auto;
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px 104px;
+      background: #fff;
+    }
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .chapter-title {
+      margin: 0;
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 60px;
+      letter-spacing: 0.02em;
+      color: #2f2c23;
+    }
+    .chapter-support {
+      margin: 18px 0 0;
+      max-width: 640px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.011em;
+      color: #2f2c23;
+    }
+    .chapter-action {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+    .chapter-action .pill { margin-top: 0; }
+
+    .chapter-run { background: #F6F4EF; }
+    .run {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.82fr) 1.18fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .steps li {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 8px 18px;
+      padding: 26px 0;
+      border-top: 1px solid #E4E4E4;
+    }
+    .steps li:last-child { border-bottom: 1px solid #E4E4E4; }
+    .step-no {
+      grid-row: span 2;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #04EA86;
+    }
+    .step-name {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #2f2c23;
+    }
+    .step-copy {
+      margin: 0;
+      max-width: 46ch;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      margin-top: 48px;
+    }
+    .pane {
+      min-width: 0;
+      padding: 36px 32px 32px;
+      border-radius: 12px;
+    }
+    .pane-social { background: #F6F4EF; }
+    .pane-ads {
+      background: #111111;
+      color: #fff;
+    }
+    .pane-kicker {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: #04EA86;
+    }
+    .pane h3 {
+      margin: 16px 0 0;
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+      color: #2f2c23;
+    }
+    .pane-ads h3 { color: #fff; }
+    .pane p {
+      margin: 16px 0 0;
+      max-width: 38ch;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+    }
+    .pane-ads p { color: #fff; }
+    .pane-note {
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid #E4E4E4;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    .pane-ads .pane-note { border-top-color: rgba(255, 255, 255, 0.18); }
+
+    .for-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 48px;
+    }
+    .for-card {
+      position: relative;
+      min-height: 460px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #111111;
+    }
+    .for-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .for-card figcaption {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 88px 22px 22px;
+      background: linear-gradient(to top, #111111 0%, #111111 42%, rgba(17, 17, 17, 0) 100%);
+      color: #fff;
+    }
+    .for-tag {
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      left: 14px;
+      max-width: calc(100% - 28px);
+      margin: 0;
+      padding: 7px 9px;
+      background: #fff;
+      color: #2f2c23;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+    .for-card h3 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+    }
+    .for-card p {
+      margin: 10px 0 0;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    .proof {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .proof img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      background: #111111;
+    }
+    .proof blockquote { margin: 0; }
+    .proof blockquote p {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #2f2c23;
+    }
+    .proof footer {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 18px;
+    }
+    .proof strong {
+      font-size: 16px;
+      font-weight: 700;
+      color: #04EA86;
+    }
+    .proof footer span {
+      font-size: 15px;
+      font-weight: 500;
+      color: #2f2c23;
+    }
+    .named {
+      list-style: none;
+      margin: 36px 0 0;
+      padding: 0;
+      border-top: 1px solid #E4E4E4;
+    }
+    .named a {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 18px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .named a:hover strong { color: #04EA86; }
+    .named strong {
+      font-size: 18px;
+      font-weight: 700;
+      color: #2f2c23;
+    }
+    .named em {
+      font-style: normal;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #2f2c23;
+    }
+
+    .chapter-faq { background: #F6F4EF; }
+    .chapter-faq .chapter-title,
+    .chapter-faq .chapter-support,
+    .chapter-faq .faq-list {
+      width: 100%;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-list {
+      margin-top: 48px;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .faq-item { border-top: 1px solid #E4E4E4; }
+    .faq-item button {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 16px;
+      margin: 0;
+      padding: 24px 0;
+      border: 0;
+      background: transparent;
+      color: #2f2c23;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-mark {
+      width: 28px;
+      height: 28px;
+      position: relative;
+    }
+    .faq-mark::before,
+    .faq-mark::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 13px;
+      height: 2px;
+      background: #2f2c23;
+    }
+    .faq-mark::after { transform: rotate(90deg); }
+    .faq-item.is-open .faq-mark::after { display: none; }
+    .faq-item.is-open .faq-mark::before { background: #04EA86; }
+    .faq-a {
+      display: none;
+      margin: 0;
+      padding: 0 48px 22px 0;
+      max-width: 62ch;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: #2f2c23;
+    }
+    .faq-item.is-open .faq-a { display: block; }
+
+    .close { background: #111111; }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    #proposal { scroll-margin-top: 120px; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 8px 12px 16px;
+        background: #fff;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a { display: block; padding: 14px 12px; }
+      .header > .phone { margin-left: 8px; }
+      .hero { min-height: 0; }
+      .hero-copy { padding: 40px 28px 36px; }
+      h1 { font-size: 48px; line-height: 1.05; }
+      .specimen { padding: 24px 28px 32px; }
+      .specimen-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 28px;
+      }
+      .rooms-wrap { text-align: left; }
+      .chapter { padding: 64px 28px 72px; }
+      .chapter-title { font-size: 40px; line-height: 1.12; }
+      .run,
+      .split,
+      .proof,
+      .for-row { grid-template-columns: 1fr; }
+      .for-card { min-height: 320px; }
+      .named a { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .hero-copy,
+      .specimen,
+      .chapter { padding-left: 20px; padding-right: 20px; }
+      h1 { font-size: 34px; }
+      .ad-title { font-size: 24px; }
+      .rooms li { font-size: 22px; }
+      .chapter-title { font-size: 32px; }
+      .proof blockquote p,
+      .pane h3 { font-size: 28px; }
+      .faq-item button { font-size: 20px; padding: 20px 0; }
+      .faq-a { padding-right: 0; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .phone-bubble {
         animation: none;
@@ -295,12 +733,23 @@
     <a class="logo" href="https://thedigitalelites.com/">
       <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/TDE-Logo.png" alt="The Digital Elites">
     </a>
-    <nav class="nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
       <a href="homepage-hero-v3.html#services">Services</a>
       <a href="homepage-hero-v3.html#work">Work</a>
       <a href="homepage-hero-v3.html#industries">Industries</a>
       <a href="homepage-hero-v3.html">About</a>
       <a href="homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
     </nav>
     <a class="phone" href="tel:+17134878445">
       <span class="phone-bubble">
@@ -348,6 +797,193 @@
     </div>
   </section>
 
+  <section class="chapter chapter-run" id="runs" aria-labelledby="runs-title">
+    <div class="chapter-inner run">
+      <div>
+        <h2 class="chapter-title" id="runs-title">Four moves, then it is live.</h2>
+        <p class="chapter-support">The offer, the posts and ads, the page they land on, and what stays running.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-no">01</span>
+          <h3 class="step-name">Name the offer</h3>
+          <p class="step-copy">The next patient or the next job. A clinic in Katy is a different campaign from a crew booking calls across a service area.</p>
+        </li>
+        <li>
+          <span class="step-no">02</span>
+          <h3 class="step-name">Put it on the channels</h3>
+          <p class="step-copy">Social posts and the ads that carry that offer. That is the marketing work.</p>
+        </li>
+        <li>
+          <span class="step-no">03</span>
+          <h3 class="step-name">Land on a page that can book</h3>
+          <p class="step-copy">The click has to reach the site, the offer, and the number. The campaign points there. The website itself is separate work.</p>
+        </li>
+        <li>
+          <span class="step-no">04</span>
+          <h3 class="step-name">Keep what is running</h3>
+          <p class="step-copy">After it is live, the studio looks at which calls come in and changes the offer if they are the wrong ones. Nothing here promises a ranking.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="included" aria-labelledby="included-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="included-title">Social channels and the ads.</h2>
+      <p class="chapter-support">Marketing is the campaign for the next patient or the next job. It is the same offer the homepage already names.</p>
+      <div class="split">
+        <article class="pane pane-social">
+          <p class="pane-kicker">Social</p>
+          <h3>The channels they already check.</h3>
+          <p>Posts that name the offer and the town. A clinic, a dental office, or a home-service company, written as that business.</p>
+          <p class="pane-note">The post is part of the campaign. A blog and an email program are not added on here.</p>
+        </article>
+        <article class="pane pane-ads">
+          <p class="pane-kicker">Advertising</p>
+          <h3>The ad names the town and the job.</h3>
+          <p>The same kind of ad as the sample above: a local clinic, or a crew that needs the next call.</p>
+          <p class="pane-note">Sample line, already on the studio’s own work: Book the job.</p>
+        </article>
+      </div>
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Ask what the campaign includes</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="rooms" aria-labelledby="rooms-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="rooms-title">Clinics, dental, and home services.</h2>
+      <p class="chapter-support">The same rooms as the rest of the studio. No new audience.</p>
+      <div class="for-row">
+        <figure class="for-card">
+          <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Placeholder: adjustment on a treatment table in a clinic interior.">
+          <p class="for-tag">Placeholder · clinic interior</p>
+          <figcaption>
+            <h3>Chiropractic</h3>
+            <p>A clinic site and a patient campaign for the practice that needs the next new patient.</p>
+          </figcaption>
+        </figure>
+        <figure class="for-card">
+          <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Placeholder: dental operatory with the chair, light, and cabinets a patient books from.">
+          <p class="for-tag">Placeholder · dental office</p>
+          <figcaption>
+            <h3>Dental</h3>
+            <p>The office, the new-patient offer, and the page a patient books from.</p>
+          </figcaption>
+        </figure>
+        <figure class="for-card">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Placeholder: electrician working a service panel on a job site.">
+          <p class="for-tag">Placeholder · job site</p>
+          <figcaption>
+            <h3>Home services</h3>
+            <p>The service area, the offer, and the call that books the job.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="proof" aria-labelledby="proof-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="proof-title">The social work, in his words.</h2>
+      <p class="chapter-support">Four real projects. The sentence stays with the person who said it.</p>
+      <div class="proof">
+        <a href="https://ldcco.net/en/" target="_blank" rel="noopener noreferrer">
+          <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website">
+        </a>
+        <blockquote>
+          <p>The Digital Elites not only designed an attractive website but also overhauled our social media presence.</p>
+          <footer>
+            <strong>Dr. Raj Singh</strong>
+            <span>Align &amp; Thrive Chiropractic · LDCCO</span>
+          </footer>
+        </blockquote>
+      </div>
+      <ul class="named">
+        <li>
+          <a href="https://thedigitalelites.com/portfolio/" target="_blank" rel="noopener noreferrer">
+            <strong>Bright Approach</strong>
+            <em>Dr. Emily Carter, ChiroWellness Clinic — “New patient inquiries doubled, and our appointment schedule is fuller than ever.”</em>
+          </a>
+        </li>
+        <li>
+          <a href="https://amiriholdings.com/" target="_blank" rel="noopener noreferrer">
+            <strong>Amiri</strong>
+            <em>David Reynolds, GreenLeaf Landscaping — “Within weeks, our calls and quote requests increased dramatically.”</em>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.sayjulie.com/" target="_blank" rel="noopener noreferrer">
+            <strong>Julie Gray</strong>
+            <em>Dr. Lydia Moore, SpineSmart Chiropractic — “A noticeable increase in patient bookings and a strong, professional online presence.”</em>
+          </a>
+        </li>
+      </ul>
+      <div class="chapter-action">
+        <a class="pill" href="homepage-hero-v3.html#work">See the projects</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-faq" id="faq" aria-labelledby="faq-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="faq-title">Before a campaign starts.</h2>
+      <p class="chapter-support">What marketing includes, who it is for, and what it will not promise.</p>
+      <div class="faq-list">
+        <div class="faq-item is-open">
+          <button type="button" aria-expanded="true">
+            What does marketing include?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Social channels and advertising campaigns for the next patient or the next job. The words on the post and the ad are part of that work.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Who is a campaign for?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Clinics, dental offices, and home-service companies. The same rooms as the rest of the studio, in Katy and across the U.S.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Does the campaign include the website?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">No. The campaign points at a page that can book. Building that site is separate work.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            How does a campaign start?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">With a proposal. The first step is a look at the business and the offer, before anything goes live.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Do you guarantee bookings?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">No. Nothing here promises a ranking, a review count, or a result on a clock.</p>
+        </div>
+      </div>
+      <div class="chapter-action">
+        <a class="pill" href="#proposal">Ask for the campaign proposal</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter close" id="contact">
+    <div class="chapter-inner" id="proposal">
+      <h2 class="chapter-title">Ready for the campaign.</h2>
+      <p class="chapter-support">A proposal for a clinic, a dental office, or a home-service company.</p>
+      <div class="chapter-action">
+        <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
+      </div>
+    </div>
+  </section>
+
   <script>
     (function () {
       function paint(img) {
@@ -375,6 +1011,41 @@
         if (img.complete && img.naturalWidth) paint(img);
         else img.addEventListener("load", function () { paint(img); });
       }
+    })();
+  </script>
+  <script>
+    (function () {
+      var items = document.querySelectorAll(".faq-item");
+      items.forEach(function (item) {
+        var btn = item.querySelector("button");
+        btn.addEventListener("click", function () {
+          if (item.classList.contains("is-open")) return;
+          items.forEach(function (other) {
+            other.classList.remove("is-open");
+            other.querySelector("button").setAttribute("aria-expanded", "false");
+          });
+          item.classList.add("is-open");
+          btn.setAttribute("aria-expanded", "true");
+        });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
     })();
   </script>
 </body>

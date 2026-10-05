@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=1440">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Digital Elites — Hero</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1896,6 +1896,253 @@
     .close .chapter-title,
     .close .chapter-support { color: #fff; }
     #proposal { scroll-margin-top: 120px; }
+
+    .nav-toggle {
+      display: none;
+    }
+    .nav a.nav-phone { display: none; }
+
+    /* Mobile layout. Desktop rules above stay in effect at 1440px. */
+    @media (max-width: 1100px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        min-height: 0;
+        padding: 40px 32px 48px;
+        gap: 36px;
+      }
+      .copy,
+      .visual {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+      }
+      .visual { height: auto; }
+      h1 {
+        font-size: 52px;
+        line-height: 1.02;
+      }
+      h1 > span,
+      h1 .ai { white-space: normal; }
+      .shot {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+      }
+      .shot img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .quote {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: min(420px, 100%);
+        margin-top: 20px;
+      }
+      .trust { padding: 20px 32px 28px; }
+      .trust-row {
+        flex-direction: column;
+        gap: 28px;
+      }
+      .chapter { padding: 72px 32px 80px; }
+      .chapter-title {
+        font-size: 44px;
+        line-height: 1.12;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #fff;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+      }
+      .header > .phone { margin-left: 8px; }
+      .design-bench,
+      .svc-mid,
+      .svc-low,
+      .ai-panel {
+        display: flex;
+        flex-direction: column;
+      }
+      .spec-row {
+        display: flex;
+        flex-direction: column;
+        margin: 0 16px 16px;
+      }
+      .spec { border-left: 0; border-top: 1px solid #E4E4E4; }
+      .spec:first-child { border-top: 0; }
+      .ai-panel { padding: 16px; gap: 8px; }
+      .ai-screen { min-height: 0; padding: 22px 18px; }
+      .ai-bar { align-items: flex-start; }
+      .ai-bar svg { margin-top: 2px; }
+      .ai-bar p { min-width: 0; }
+      .ai-path { padding: 8px 8px 8px 12px; }
+      .ai-path li { font-size: 22px; padding: 14px 0; }
+      .ai-path::before { left: 29px; top: 42px; bottom: 42px; }
+      .play { left: 50%; }
+      .review-row {
+        -webkit-mask-image: none;
+        mask-image: none;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x pan-y;
+      }
+      .review-card {
+        flex-basis: min(360px, calc(100vw - 80px));
+        width: min(360px, calc(100vw - 80px));
+        height: auto;
+        min-height: 220px;
+      }
+      .shot-stage {
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 16px;
+        align-items: start;
+      }
+      .polaroid,
+      .polaroid-1,
+      .polaroid-2,
+      .polaroid-3,
+      .polaroid-4,
+      .polaroid-5,
+      .polaroid-6,
+      .polaroid-7,
+      .polaroid-8 {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        width: 100%;
+        transform: none;
+      }
+      .shot-stage .polaroid:hover { transform: none; }
+      .faq-item button {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        font-size: 22px;
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .hero { padding: 28px 20px 36px; gap: 28px; }
+      h1 { font-size: 36px; }
+      .support { margin-top: 18px; }
+      .trust { padding: 18px 20px 24px; }
+      .trust-head,
+      .trust-line { max-width: 100%; }
+      .google-wordmark,
+      .clutch-wordmark { font-size: 36px; }
+      .chapter { padding: 48px 20px 56px; }
+      .chapter-title { font-size: 34px; }
+      .chapter-support { font-size: 18px; }
+      .ai-agents { grid-template-columns: 1fr; }
+      .room-chiro,
+      .room-ortho,
+      .room-dental { min-height: 300px; }
+      .room-home { min-height: 220px; }
+      .room-chiro .room-name { font-size: 34px; }
+      .room-chiro .room-caption { padding: 88px 20px 22px; }
+      .room-home .room-caption {
+        padding: 22px 20px;
+        max-width: none;
+      }
+      .room-home .room-name { font-size: 30px; }
+      .also-row nav { grid-template-columns: 1fr 1fr; }
+      .review-card {
+        flex-basis: calc(100vw - 56px);
+        width: calc(100vw - 56px);
+      }
+      .shot-stage { grid-template-columns: 1fr; }
+      .polaroid img { height: 200px; }
+      .faq-item button { font-size: 20px; padding: 20px 0; }
+      .chapter-faq .faq-a { padding-right: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -1903,12 +2150,23 @@
     <a class="logo" href="https://thedigitalelites.com/">
       <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/TDE-Logo.png" alt="The Digital Elites">
     </a>
-    <nav class="nav">
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#industries">Industries</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
     </nav>
     <a class="phone" href="tel:+17134878445">
       <span class="phone-bubble">
@@ -2563,6 +2821,11 @@
         }
         row.addEventListener("mouseenter", function () { row.dataset.hover = "1"; });
         row.addEventListener("mouseleave", function () { row.dataset.hover = ""; });
+        row.addEventListener("touchstart", function () { row.dataset.hold = "1"; }, { passive: true });
+        row.addEventListener("touchend", function () {
+          setTimeout(function () { row.dataset.hold = ""; }, 700);
+        });
+        row.addEventListener("touchcancel", function () { row.dataset.hold = ""; });
         row.addEventListener("wheel", function (e) {
           if (row.dataset.hover !== "1") return;
           var delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
@@ -2578,7 +2841,7 @@
       if (reduce) return;
       function tick() {
         rows.forEach(function (row) {
-          if (row.dataset.hover === "1") return;
+          if (row.dataset.hover === "1" || row.dataset.hold === "1") return;
           var set = row.querySelector(".review-set:not(.is-clone)");
           var width = set ? set.offsetWidth : 0;
           if (!width) return;
@@ -3035,6 +3298,27 @@
           item.classList.add("is-open");
           btn.setAttribute("aria-expanded", "true");
         });
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
       });
     })();
   </script>
