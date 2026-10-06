@@ -141,6 +141,23 @@
       /* Gap yields the extra width the two-line title needs; the device frame stays 640px at 1440. */
       gap: 56px;
     }
+    /* All-caps headline is wider. At 1440, give the copy more of the row and hold the device frame at 640. */
+    @media (min-width: 1440px) {
+      .hero {
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 16px;
+      }
+      h1,
+      h1 .ai {
+        letter-spacing: -0.05em;
+      }
+      .visual {
+        flex: 0 0 640px;
+        width: 640px;
+        max-width: 640px;
+      }
+    }
     .copy {
       flex: 0 0 auto;
       align-self: center;
@@ -161,6 +178,7 @@
       font-size: 48px;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
       color: #2f2c23;
     }
     h1 .l1,
@@ -429,6 +447,14 @@
       line-height: 1;
       color: #2f2c23;
     }
+    .trust-count {
+      display: inline-block;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+    .trust-count[data-count="150"],
+    .trust-count[data-count="100"] { min-width: 3ch; }
+    .trust-count[data-count="5"] { min-width: 1ch; }
     .trust-line {
       display: flex;
       align-items: center;
@@ -489,6 +515,7 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
       color: #2f2c23;
     }
     .chapter-support {
@@ -514,6 +541,7 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
       color: #2f2c23;
     }
     .svc-no {
@@ -1207,6 +1235,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.1;
+      text-transform: uppercase;
     }
     .room-line {
       margin: 16px 0 0;
@@ -1363,6 +1392,7 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
     .also-row a:hover img { transform: scale(1.06); }
     @media (max-width: 900px) {
@@ -1888,6 +1918,7 @@
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
+      text-transform: uppercase;
       text-align: left;
       cursor: pointer;
     }
@@ -2261,7 +2292,7 @@
           <div class="trust-mark">
             <span class="google-wordmark" aria-label="Google"><span aria-hidden="true">G</span><span aria-hidden="true">o</span><span aria-hidden="true">o</span><span aria-hidden="true">g</span><span aria-hidden="true">l</span><span aria-hidden="true">e</span></span>
           </div>
-          <strong class="trust-num">150+</strong>
+          <strong class="trust-num"><span class="trust-count" data-count="150">150</span>+</strong>
         </div>
         <p class="trust-line">
           <span class="trust-label">Clients</span>
@@ -2280,7 +2311,7 @@
           <div class="trust-mark">
             <span class="clutch-wordmark">Clutch</span>
           </div>
-          <strong class="trust-num">100+</strong>
+          <strong class="trust-num"><span class="trust-count" data-count="100">100</span>+</strong>
         </div>
         <p class="trust-line">
           <span class="trust-label">Projects</span>
@@ -2304,7 +2335,7 @@
               <span>LM</span>
             </div>
           </div>
-          <strong class="trust-num">5+</strong>
+          <strong class="trust-num"><span class="trust-count" data-count="5">5</span>+</strong>
         </div>
         <p class="trust-line">
           <span class="trust-label">Years</span>
@@ -2319,6 +2350,49 @@
       </div>
     </div>
   </section>
+  <script>
+    (function () {
+      var band = document.querySelector(".trust");
+      if (!band) return;
+      var nums = band.querySelectorAll(".trust-count");
+      if (!nums.length) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      nums.forEach(function (el) { el.textContent = "0"; });
+
+      var duration = 1400;
+      function run() {
+        if (band.dataset.counted === "1") return;
+        band.dataset.counted = "1";
+        nums.forEach(function (el) {
+          var target = parseInt(el.getAttribute("data-count"), 10);
+          if (!target && target !== 0) return;
+          var start = performance.now();
+          el.textContent = "0";
+          function frame(now) {
+            var progress = Math.min((now - start) / duration, 1);
+            var ease = 1 - Math.pow(1 - progress, 3);
+            el.textContent = String(Math.floor(target * ease));
+            if (progress < 1) requestAnimationFrame(frame);
+            else el.textContent = String(target);
+          }
+          requestAnimationFrame(frame);
+        });
+      }
+
+      if (!("IntersectionObserver" in window)) {
+        run();
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          run();
+          observer.disconnect();
+        });
+      }, { threshold: 0.4 });
+      observer.observe(band);
+    })();
+  </script>
 
   <section class="chapter" id="ai" aria-labelledby="ai-title">
     <div class="chapter-inner">
