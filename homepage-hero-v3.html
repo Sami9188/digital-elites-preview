@@ -138,7 +138,8 @@
       max-width: none;
       /* 48px top / 0 bottom shifts the centered row down 24px and shortens the gap above the band. */
       padding: 48px 72px 0;
-      gap: 104px;
+      /* Gap yields the extra width the two-line title needs; the device frame stays 640px at 1440. */
+      gap: 56px;
     }
     .copy {
       flex: 0 0 auto;
@@ -162,12 +163,13 @@
       letter-spacing: -0.02em;
       color: #2f2c23;
     }
-    h1 > span {
-      display: block;
+    h1 .l1,
+    h1 .l2,
+    h1 .l1b {
       white-space: nowrap;
     }
     h1 .ai {
-      display: block;
+      display: inline;
       min-height: 1.1em;
       color: #04EA86;
       letter-spacing: -0.02em;
@@ -230,17 +232,20 @@
 
     .visual {
       position: relative;
-      flex: 0 0 640px;
+      flex: 0 1 640px;
       width: 640px;
-      height: 384px;
+      max-width: 640px;
+      min-width: 0;
+      height: auto;
       align-self: center;
       background: none;
       overflow: visible;
     }
     .shot {
       position: relative;
-      width: 640px;
-      height: 384px;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 640 / 384;
       border-radius: 12px;
       overflow: hidden;
     }
@@ -1954,8 +1959,10 @@
         min-width: 0;
       }
       .visual { height: auto; }
-      h1 > span,
-      h1 .ai { white-space: normal; }
+      h1 .l1 { white-space: normal; }
+      h1 .l1b,
+      h1 .l2,
+      h1 .ai { white-space: nowrap; }
       .shot {
         width: 100%;
         height: auto;
@@ -2215,10 +2222,8 @@
     <div class="copy">
       <p class="eyebrow">For clinics and home services</p>
       <h1>
-        <span>Show up first.</span>
-        <span>Book the job.</span>
-        <span>Stay visible in</span>
-        <span class="ai"><span id="ai-typed">AI search</span><span class="ai-caret" aria-hidden="true"></span><span class="ai-period">.</span></span>
+        <span class="l1">Show up first. <span class="l1b">Book the job.</span></span><br>
+        <span class="l2">Stay visible in <span class="ai"><span id="ai-typed">AI search</span><span class="ai-caret" aria-hidden="true"></span><span class="ai-period">.</span></span></span>
       </h1>
       <p class="support">Websites, ads, and content for companies in Katy and across the U.S.</p>
       <a class="pill" href="#proposal">Get your free proposal</a>
