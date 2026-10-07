@@ -17,8 +17,8 @@
       --muted: #6B6861;
       --line: #E6E6E6;
       --line-dark: #262626;
-      --green: #189E73;
-      --green-soft: #CAE9DF;
+      --green: #04EA86;
+      --green-soft: #C8F8DE;
       --on-dark-muted: #A6A6A6;
       --frame: 1200px;
       --gutter: 40px;
@@ -242,7 +242,7 @@
       color: var(--text); text-decoration: none;
       transition: background .15s ease;
     }
-    .mega-list a:hover { background: #F2FAF7; }
+    .mega-list a:hover { background: #F2FDF7; }
     .mi {
       display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px;
       border-radius: 10px; background: var(--ink); color: var(--green);
@@ -386,7 +386,7 @@
       text-decoration: none;
       transition: border-color .2s ease, background .2s ease;
     }
-    .badge:hover { border-color: var(--green); background: #F5FBF9; }
+    .badge:hover { border-color: var(--green); background: #F4FEF9; }
     .stars { display: inline-flex; gap: 2px; }
     .stars svg { width: 16px; height: 16px; }
     .hero h1 { max-width: 16ch; font-size: clamp(36px, 4.2vw, 56px); }
@@ -410,7 +410,7 @@
       width: 360px;
       height: 360px;
       border-radius: 50%;
-      background: radial-gradient(closest-side, rgba(24,158,115,.35), rgba(24,158,115,0));
+      background: radial-gradient(closest-side, rgba(4,234,134,.35), rgba(4,234,134,0));
       pointer-events: none;
     }
     .studio .tag { color: var(--green); margin: 0 0 20px; }
@@ -499,12 +499,12 @@
     }
     textarea { min-height: 140px; resize: vertical; }
     input::placeholder, textarea::placeholder { color: #9B9B9B; }
-    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 4px rgba(24,158,115,.35); }
-    .form-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 4px rgba(4,234,134,.35); }
+    .form-foot { grid-column: 1 / -1; display: flex; align-items: center; justify-content: flex-end; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
     .form-foot small { font-size: 15px; color: var(--muted); }
     .form-foot small a { color: var(--ink); font-weight: 700; text-decoration: none; background-image: linear-gradient(var(--green), var(--green)); background-repeat: no-repeat; background-size: 100% 2px; background-position: 0 100%; transition: background-size .2s ease; }
     .form-foot small a:hover { background-size: 100% 40%; }
-    .form-status { grid-column: 1 / -1; margin: 0; padding: 14px 16px; border-radius: 9px; background: #EFF8F6; border: 1px solid #BFE4D8; font-size: 15px; }
+    .form-status { grid-column: 1 / -1; margin: 0; padding: 14px 16px; border-radius: 9px; background: #EFFCF5; border: 1px solid #BDF0D7; font-size: 15px; }
     .form-status[hidden] { display: none; }
 
     /* ---------- Process (connected steps) ---------- */
@@ -551,7 +551,7 @@
     .step h3::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
     .step:hover h3::after { transform: scaleX(1); }
     .step p { margin: 0; color: var(--muted); font-size: 17px; }
-    .steps.is-in .node { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 8px rgba(24,158,115,.18); }
+    .steps.is-in .node { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 8px rgba(4,234,134,.18); }
     .steps.is-in .step::after { background-size: 100% 100%; }
     .steps.is-in .step-body { opacity: 1; transform: none; }
     .steps.is-in .step:hover .node { background: var(--ink); border-color: var(--ink); color: var(--green); transform: scale(1.08); transition-delay: 0s; }
@@ -941,7 +941,6 @@
             </div>
             <p class="form-status" id="form-status" hidden role="status"></p>
             <div class="form-foot">
-              <small>Or call <a href="tel:+17134878445">(713) 487-8445</a></small>
               <button class="pill" type="submit">
                 Request proposal
                 <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
