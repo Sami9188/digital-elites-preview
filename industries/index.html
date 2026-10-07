@@ -1,0 +1,828 @@
+<!-- Industries. The four homepage rooms, then the Also set, then a close. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Industries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img { max-width: 100%; display: block; }
+    figure, blockquote { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    p { text-transform: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo { display: flex; align-items: center; flex: 0 0 auto; }
+    .logo img { height: 62px; width: auto; display: block; }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chapter-support {
+      margin: 20px 0 0;
+      max-width: 38em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .ph-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: #111111;
+      background: #04EA86;
+      padding: 4px 8px;
+    }
+
+    .open { padding: 72px 72px 40px; }
+    .open-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.85fr);
+      gap: 64px;
+      align-items: end;
+    }
+    .hero-photo {
+      position: relative;
+      min-width: 0;
+      background: #111111;
+    }
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .hero-photo .ph-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+    .room-index {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 8px 0;
+      background: #F6F4EF;
+    }
+    .room-index a {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 10px 16px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .room-index a:hover { background: #C8F8DE; }
+    .room-index span {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: #04EA86;
+    }
+
+    .chiro { padding: 48px 72px 72px; }
+    .chiro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .chiro-photo {
+      position: relative;
+      min-width: 0;
+      background: #111111;
+    }
+    .chiro-photo img {
+      width: 100%;
+      aspect-ratio: 5 / 4;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .chiro-photo .ph-tag {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+    }
+    .pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .pair a {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+      padding: 18px 16px 16px;
+      background: #fff;
+      border-top: 2px solid #04EA86;
+    }
+    .pair a:hover { background: #111111; color: #fff; }
+    .pair strong {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .pair em {
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .pair a:hover em { color: #04EA86; }
+
+    .ortho { padding: 0 72px 72px; }
+    .cinema {
+      position: relative;
+      min-width: 0;
+      background: #111111;
+    }
+    .cinema img {
+      width: 100%;
+      aspect-ratio: 2.5 / 1;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .cinema .ph-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+    .ortho-row {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      gap: 40px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .ortho-row .chapter-support { margin-top: 0; }
+
+    .dental { padding: 24px 72px 80px; }
+    .dental-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 48px;
+      align-items: start;
+    }
+    .bits { list-style: none; margin: 28px 0 0; padding: 0; }
+    .bits li {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-top: 1px solid #2f2c23;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .bits span {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .dental-photo {
+      position: relative;
+      min-width: 0;
+      background: #111111;
+    }
+    .dental-photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .dental-photo .ph-tag {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      max-width: calc(100% - 24px);
+    }
+
+    .home {
+      background: #111111;
+      padding: 80px 72px;
+    }
+    .home .chapter-title { color: #fff; }
+    .home .chapter-support { color: #F6F4EF; }
+    .home-jobs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .home-jobs article {
+      min-width: 0;
+      padding-top: 16px;
+      border-top: 2px solid #04EA86;
+    }
+    .home-jobs span {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .home-jobs strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: #fff;
+    }
+    .home-photo {
+      position: relative;
+      margin-top: 36px;
+      min-width: 0;
+      border-top: 2px solid #04EA86;
+    }
+    .home-photo img {
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      object-position: center center;
+    }
+    .home-photo .ph-tag {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+    }
+
+    .also { padding: 80px 72px; }
+    .also-list { margin-top: 8px; }
+    .also-list article {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 120px;
+      gap: 20px;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid #2f2c23;
+      color: #2f2c23;
+    }
+    .also-list em {
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .also-list strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .also-list small {
+      display: block;
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: normal;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .also-list img {
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.6fr);
+      gap: 40px;
+      align-items: end;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .text-link {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .text-link:hover { color: #fff; }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .chapter-title { font-size: 28px; }
+      .open, .chiro, .ortho, .dental, .also { padding: 48px 32px; }
+      .open { padding-top: 48px; }
+      .home { padding: 56px 32px; }
+      .close { padding: 72px 32px 80px; }
+      .open-grid,
+      .chiro-grid,
+      .ortho-row,
+      .dental-grid,
+      .close-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-photo img { aspect-ratio: 16 / 10; }
+      .room-index { position: static; }
+      .home-jobs { grid-template-columns: 1fr; }
+      .bits li { font-size: 22px; }
+      .also-list strong { font-size: 22px; }
+      .pair { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .open, .chiro, .ortho, .dental, .also { padding: 36px 20px; }
+      .home { padding: 48px 20px; }
+      .close { padding: 56px 20px 64px; }
+      .also-list article {
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
+      }
+      .also-list img {
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 140px;
+      }
+      .pill { white-space: normal; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../design/">Design</a>
+      <a href="../development/">Development</a>
+      <a href="../service/">Marketing</a>
+      <a href="../video/">Video</a>
+      <a href="../writing/">Writing</a>
+      <a href="../consultation/">Consultation</a>
+      <a href="../work/">Work</a>
+      <a href="./" aria-current="page">Industries</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="open" id="open" aria-labelledby="open-title">
+    <div class="wrap open-grid">
+      <div>
+        <p class="eyebrow">Industries</p>
+        <h1 class="chapter-title" id="open-title">The rooms where the work shows up.</h1>
+        <p class="chapter-support">Chiropractic, orthodontics, and dental practices in Katy, and home-service companies booking jobs across the U.S.</p>
+      </div>
+      <figure class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Placeholder: adjustment on a treatment table in a clinic interior.">
+        <span class="ph-tag">Placeholder · clinic interior</span>
+        <nav class="room-index" aria-label="Rooms">
+          <a href="#chiropractic"><span>01</span>Chiropractic</a>
+          <a href="#orthodontics"><span>02</span>Orthodontics</a>
+          <a href="#dental"><span>03</span>Dental</a>
+          <a href="#home-services"><span>04</span>Home services</a>
+        </nav>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chiro" id="chiropractic" aria-labelledby="chiro-title">
+    <div class="wrap chiro-grid">
+      <figure class="chiro-photo">
+        <img src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Placeholder: adjustment on a treatment table in a clinic interior.">
+        <span class="ph-tag">Placeholder · clinic interior</span>
+      </figure>
+      <div>
+        <h2 class="chapter-title" id="chiro-title">Chiropractic</h2>
+        <p class="chapter-support">A clinic site and a patient campaign for the practice that needs the next new patient.</p>
+        <div class="pair">
+          <a href="../development/"><strong>A clinic site</strong><em>Development</em></a>
+          <a href="../service/"><strong>A patient campaign</strong><em>Marketing</em></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ortho" id="orthodontics" aria-labelledby="ortho-title">
+    <div class="wrap">
+      <figure class="cinema">
+        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Placeholder: clinician and patient reviewing a jaw image in an orthodontic practice.">
+        <span class="ph-tag">Placeholder · orthodontic practice</span>
+      </figure>
+      <div class="ortho-row">
+        <h2 class="chapter-title" id="ortho-title">Orthodontics</h2>
+        <p class="chapter-support">Found in search when someone is ready to start treatment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="dental" id="dental" aria-labelledby="dental-title">
+    <div class="wrap dental-grid">
+      <div>
+        <h2 class="chapter-title" id="dental-title">Dental</h2>
+        <p class="chapter-support">The office, the new-patient offer, and the page a patient books from.</p>
+        <ol class="bits">
+          <li><span>01</span>The office</li>
+          <li><span>02</span>The new-patient offer</li>
+          <li><span>03</span>The page a patient books from</li>
+        </ol>
+      </div>
+      <figure class="dental-photo">
+        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Placeholder: dental operatory with the chair, light, and cabinets a patient books from.">
+        <span class="ph-tag">Placeholder · dental office</span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="home" id="home-services" aria-labelledby="home-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="home-title">Home services</h2>
+      <p class="chapter-support">The service area, the offer, and the call that books the job.</p>
+      <div class="home-jobs">
+        <article><span>01</span><strong>The service area</strong></article>
+        <article><span>02</span><strong>The offer</strong></article>
+        <article><span>03</span><strong>The call that books the job</strong></article>
+      </div>
+      <figure class="home-photo">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="Placeholder: electrician working a service panel on a job site.">
+        <span class="ph-tag">Placeholder · job site</span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="also" id="also" aria-labelledby="also-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="also-title">Also</h2>
+      <p class="chapter-support">Medical spa, therapy, pest control, cleaning, and electrical. Named with the rooms above. Nothing here is a separate case.</p>
+      <div class="also-list">
+        <article>
+          <em>01</em>
+          <span><strong>Medical spa</strong><small>Placeholder · medical spa treatment room</small></span>
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Placeholder: medical spa treatment room">
+        </article>
+        <article>
+          <em>02</em>
+          <span><strong>Therapy</strong><small>Placeholder · therapy consult</small></span>
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Placeholder: therapy consult">
+        </article>
+        <article>
+          <em>03</em>
+          <span><strong>Pest control</strong><small>Placeholder · home exterior for pest control</small></span>
+          <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Placeholder: home exterior for pest control">
+        </article>
+        <article>
+          <em>04</em>
+          <span><strong>Cleaning</strong><small>Placeholder · home cleaning</small></span>
+          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Placeholder: home cleaning">
+        </article>
+        <article>
+          <em>05</em>
+          <span><strong>Electrical</strong><small>Placeholder · electrician on a job</small></span>
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Placeholder: electrician on a job">
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" id="proposal" aria-labelledby="close-title">
+    <div class="wrap close-grid">
+      <div>
+        <h2 class="chapter-title" id="close-title">See work in your market.</h2>
+        <p class="chapter-support">Bright Approach, LDCCO, Amiri, and Julie Gray are on the work page. A proposal is a call.</p>
+      </div>
+      <div class="close-actions">
+        <a class="pill" href="../work/">See the work</a>
+        <a class="text-link" href="tel:+17134878445">Call (713) 487-8445</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>
