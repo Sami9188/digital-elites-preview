@@ -1,0 +1,887 @@
+<!-- Services index. Masthead reviewed. Section 2: what each service is for. Close comes next. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .mast {
+      flex: 1 0 auto;
+      display: flex;
+      background: #F6F4EF;
+      padding: 72px 72px 80px;
+    }
+    .mast-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.72fr);
+      gap: 72px;
+      align-items: start;
+    }
+    .mast-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-width: 0;
+      padding: 4px 0 0;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title {
+      margin: 0;
+      max-width: 11em;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-support {
+      margin: 24px 0 0;
+      max-width: 34em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .mast-copy .pill { align-self: flex-start; margin-top: 28px; }
+
+    .roster {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .roster a {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr) 18px;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 0;
+      border-top: 1px solid #E4E4E4;
+      color: #2f2c23;
+    }
+    .roster li:last-child a { border-bottom: 1px solid #E4E4E4; }
+    .roster .num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+      font-variant-numeric: tabular-nums;
+    }
+    .roster strong {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .roster .go {
+      display: block;
+      width: 18px;
+      height: 18px;
+      color: #2f2c23;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .roster a:hover strong { color: #111111; }
+    .roster a:hover .go {
+      color: #04EA86;
+      transform: translateX(4px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .roster .go { transition: none; }
+    }
+
+    .chapter {
+      width: 100%;
+      padding: 8px 72px 96px;
+      background: #F6F4EF;
+    }
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chapter-support {
+      margin: 16px 0 48px;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .piece { min-width: 0; }
+    .piece + .piece { margin-top: 64px; }
+    .piece-kicker {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .piece-kicker span {
+      margin-right: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+      font-variant-numeric: tabular-nums;
+    }
+    .blurb {
+      margin: 12px 0 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .more svg { width: 18px; height: 18px; }
+    .more:hover { color: #111111; }
+    .more:hover svg { color: #04EA86; }
+
+    .design-piece,
+    .dev-piece,
+    .mkt-piece {
+      display: grid;
+      gap: 36px;
+      align-items: center;
+    }
+    .design-piece { grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); }
+    .dev-piece { grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); }
+    .mkt-piece { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+
+    .specimen {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 20px;
+      align-items: center;
+      padding: 8px 0 8px 28px;
+      border-left: 2px solid #04EA86;
+    }
+    .aa {
+      margin: 0;
+      grid-row: span 2;
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: #2f2c23;
+    }
+    .face {
+      margin: 0;
+      align-self: end;
+      font-size: 16px;
+      font-weight: 600;
+      color: #2f2c23;
+    }
+    .swatches {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #2f2c23;
+    }
+    .swatches li { display: inline-flex; align-items: center; gap: 8px; }
+    .swatches i {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: block;
+    }
+    .swatch-olive { background: #2f2c23; }
+    .swatch-green { background: #04EA86; }
+    .swatch-black { background: #111111; }
+
+    .browser {
+      display: block;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      min-width: 0;
+    }
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 36px;
+      padding: 0 12px;
+      background: #111111;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .browser-top i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #04EA86;
+    }
+    .browser-top em {
+      margin-left: 8px;
+      font-style: normal;
+    }
+    .browser img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .mkt-ad {
+      background: #111111;
+      border-radius: 12px;
+      padding: 28px 28px 32px;
+      min-height: 200px;
+    }
+    .ad-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: #04EA86;
+      color: #111111;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .mkt-ad .offer {
+      margin: 20px 0 0;
+      max-width: none;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .mkt-ad .sample {
+      margin: 10px 0 0;
+      max-width: none;
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    .video-stage {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .video-scene {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .play {
+      position: absolute;
+      left: 19%;
+      top: 33%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #04EA86;
+    }
+
+    .sheet-lead {
+      margin: 0;
+      max-width: 16em;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .rules {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 22px;
+      max-width: 520px;
+    }
+    .rules i {
+      display: block;
+      height: 3px;
+      border-radius: 2px;
+      background: #E4E4E4;
+    }
+    .rules i:nth-child(1) { width: 100%; }
+    .rules i:nth-child(2) { width: 74%; }
+    .rules i:nth-child(3) { width: 52%; }
+    .rules i:nth-child(4) { width: 28%; background: #04EA86; }
+    .write-piece .piece-kicker { margin-top: 28px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      position: relative;
+    }
+    .steps::before { content: none; }
+    .steps li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 32px;
+      width: calc(100% - 16px);
+      height: 2px;
+      background: #04EA86;
+    }
+    .steps li span { z-index: 1; }
+    .steps li {
+      position: relative;
+      padding-top: 44px;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .steps li span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      color: #111111;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close .chapter-support {
+      max-width: 34em;
+      font-size: 20px;
+    }
+    .close .chapter-support a {
+      color: #04EA86;
+      font-weight: 700;
+    }
+    .close .chapter-action { margin-top: 32px; }
+    .close .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border-color: #04EA86;
+    }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .mast { min-height: 0; padding: 48px 32px 56px; }
+      .mast-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+      .mast-title { font-size: 28px; max-width: 12em; }
+      .mast-copy .pill { margin-top: 28px; }
+      .roster { justify-content: flex-start; }
+      .chapter { padding: 8px 32px 72px; }
+      .close { padding: 72px 32px 80px; }
+      .chapter-title { font-size: 28px; }
+      .design-piece,
+      .dev-piece,
+      .mkt-piece { grid-template-columns: 1fr; }
+      .specimen { padding-left: 20px; }
+      .mkt-piece .mkt-ad { order: -1; }
+      .video-stage { margin-bottom: 16px; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .steps li::after { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .mast { padding: 36px 20px 44px; }
+      .mast-title { font-size: 28px; }
+      .roster strong { font-size: 20px; }
+      .chapter { padding: 8px 20px 56px; }
+      .close { padding: 56px 20px 64px; }
+      .aa { font-size: 56px; }
+      .mkt-ad .offer,
+      .sheet-lead { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="./" aria-current="page">Services</a>
+      <a href="../homepage-hero-v3.html#work">Work</a>
+      <a href="../homepage-hero-v3.html#industries">Industries</a>
+      <a href="../homepage-hero-v3.html#about">About</a>
+      <a href="../homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="mast" id="mast" aria-labelledby="mast-title">
+    <div class="mast-inner">
+      <div class="mast-copy">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h1 class="mast-title" id="mast-title">The work that gets you chosen.</h1>
+          <p class="mast-support">Design, development, marketing, video, writing, and consultation for clinics and home services.</p>
+        </div>
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+      </div>
+      <ol class="roster" aria-label="The six services">
+        <li><a href="../design/"><span class="num">01</span><strong>Design</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a href="service-development.html"><span class="num">02</span><strong>Development</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a href="../service/"><span class="num">03</span><strong>Marketing</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a href="service-video.html"><span class="num">04</span><strong>Video</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a href="service-writing.html"><span class="num">05</span><strong>Writing</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+        <li><a href="service-consultation.html"><span class="num">06</span><strong>Consultation</strong><svg class="go" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="what" aria-labelledby="what-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="what-title">What each one is for.</h2>
+      <p class="chapter-support">The six named on the homepage. This is what each one covers, and the page it opens.</p>
+
+      <article class="piece design-piece">
+        <div>
+          <h3 class="piece-kicker"><span>01</span>Design</h3>
+          <p class="blurb">Logos, UI/UX, brand style guides, catalogues, and packages for the business.</p>
+          <a class="more" href="../design/">Open design <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="specimen" aria-hidden="true">
+          <p class="aa">Aa</p>
+          <p class="face">Inter Tight</p>
+          <ul class="swatches">
+            <li><i class="swatch-olive"></i>2F2C23</li>
+            <li><i class="swatch-green"></i>04EA86</li>
+            <li><i class="swatch-black"></i>111111</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="piece dev-piece">
+        <div>
+          <h3 class="piece-kicker"><span>02</span>Development</h3>
+          <p class="blurb">Lead-generation sites, online stores, and web portals, built as a platform that can scale.</p>
+          <a class="more" href="service-development.html">Open development <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <a class="browser" href="https://thedigitalelites.com/portfolio/">
+          <span class="browser-top"><i></i><i></i><i></i><em>Bright Approach</em></span>
+          <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website">
+        </a>
+      </article>
+
+      <article class="piece mkt-piece">
+        <div class="mkt-ad">
+          <span class="ad-tag">Sample ad</span>
+          <p class="offer">Book the job.</p>
+          <p class="sample">Chiropractor in Katy</p>
+        </div>
+        <div>
+          <h3 class="piece-kicker"><span>03</span>Marketing</h3>
+          <p class="blurb">Social channels and advertising campaigns for the next patient or the next job.</p>
+          <a class="more" href="../service/">Open marketing <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <article class="piece video-piece">
+        <div class="video-stage">
+          <svg class="video-scene" viewBox="0 0 520 240" role="img" aria-label="A drawn set: a framed shot, a floor line, and a doorway.">
+            <rect width="520" height="240" rx="14" fill="#1a1916"/>
+            <rect x="36" y="36" width="128" height="84" fill="none" stroke="#04EA86" stroke-width="2"/>
+            <path d="M36 78h128M100 36v84" stroke="#04EA86" stroke-width="1.5"/>
+            <path d="M36 176h280" stroke="#fff" stroke-width="1.5" opacity="0.35"/>
+            <path d="M196 176V122h72v54" fill="none" stroke="#fff" stroke-width="1.75" stroke-linejoin="round"/>
+            <path d="M214 176v-28h36v28" fill="none" stroke="#fff" stroke-width="1.75"/>
+            <circle cx="400" cy="92" r="28" fill="none" stroke="#04EA86" stroke-width="1.75"/>
+            <path d="M400 74v36M382 92h36" stroke="#04EA86" stroke-width="1.5"/>
+          </svg>
+          <span class="play" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22"><path d="M8 5.5v11l9-5.5-9-5.5Z" fill="#111111"/></svg>
+          </span>
+        </div>
+        <h3 class="piece-kicker"><span>04</span>Video</h3>
+        <p class="blurb">Brand stories and promotional video for the channels patients already watch.</p>
+        <a class="more" href="service-video.html">Open video <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+      <article class="piece write-piece">
+        <p class="sheet-lead">The page they meant to book from.</p>
+        <div class="rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <h3 class="piece-kicker"><span>05</span>Writing</h3>
+        <p class="blurb">Social, blog, ads, and email, written to attract, engage, and convert.</p>
+        <a class="more" href="service-writing.html">Open writing <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+      <article class="piece consult-piece">
+        <h3 class="piece-kicker"><span>06</span>Consultation</h3>
+        <p class="blurb">A guide through each step so the work reaches the goal without wasted effort.</p>
+        <ol class="steps">
+          <li><span>1</span>Goals</li>
+          <li><span>2</span>Market</li>
+          <li><span>3</span>Plan</li>
+          <li><span>4</span>Next step</li>
+        </ol>
+        <a class="more" href="service-consultation.html">Open consultation <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter close" id="proposal" aria-labelledby="close-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="close-title">Name the service.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. <a href="tel:+17134878445">Call (713) 487-8445</a>.</p>
+      <div class="chapter-action">
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>

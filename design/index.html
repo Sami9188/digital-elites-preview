@@ -1,0 +1,893 @@
+<!-- Service: Design (01). Logos, UI/UX, brand style guides, catalogues, and packages. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .mast {
+      padding: 72px 72px 0;
+      background: #F6F4EF;
+    }
+    .mast-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title,
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title { max-width: 11em; }
+    .mast-support,
+    .chapter-support,
+    .blurb {
+      margin: 24px 0 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .chapter-support { margin: 16px 0 0; }
+    .mast .pill { margin-top: 28px; }
+
+    .contents {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin: 64px 0 0;
+      padding: 22px 0 0;
+      list-style: none;
+      border-top: 1px solid #E4E4E4;
+    }
+    .contents a {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .contents a:hover { color: #111111; }
+    .contents span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+
+    .chapter {
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px;
+      background: #F6F4EF;
+    }
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .mark-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 48px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .lockup {
+      position: relative;
+      min-height: 340px;
+      padding: 56px 48px;
+      border-radius: 12px;
+      background: #111111;
+      color: #F6F4EF;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .crop {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 0 solid #04EA86;
+    }
+    .crop-tl { top: 20px; left: 20px; border-top-width: 2px; border-left-width: 2px; }
+    .crop-tr { top: 20px; right: 20px; border-top-width: 2px; border-right-width: 2px; }
+    .crop-bl { bottom: 20px; left: 20px; border-bottom-width: 2px; border-left-width: 2px; }
+    .crop-br { bottom: 20px; right: 20px; border-bottom-width: 2px; border-right-width: 2px; }
+    .mono {
+      margin: 0;
+      font-size: 92px;
+      font-weight: 800;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      color: #04EA86;
+    }
+    .word {
+      margin: 16px 0 0;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #F6F4EF;
+    }
+    .lockup small {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+
+    .wire-chapter { padding-top: 0; }
+    .wire {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      margin-top: 40px;
+      padding: 28px;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .wire-label {
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .wire-title {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .field {
+      min-width: 0;
+      padding: 14px 16px;
+      border: 1px solid #E4E4E4;
+      border-radius: 8px;
+      background: #F6F4EF;
+      font-size: 16px;
+      font-weight: 400;
+      color: #2f2c23;
+    }
+    .wire .pill { margin: 0; height: 52px; }
+
+    .guide {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr 1fr;
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .guide article {
+      min-width: 0;
+      padding-top: 18px;
+      border-top: 2px solid #04EA86;
+    }
+    .guide h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .guide p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+    .face-sample {
+      margin: 18px 0 0;
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: #2f2c23;
+    }
+    .face-name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #2f2c23;
+    }
+    .swatches {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #2f2c23;
+    }
+    .swatches li { display: flex; align-items: center; gap: 10px; }
+    .swatches i {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: block;
+      flex: 0 0 auto;
+    }
+    .swatch-olive { background: #2f2c23; }
+    .swatch-green { background: #04EA86; }
+    .swatch-black { background: #111111; }
+    .use-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .use-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #E4E4E4;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+
+    .sheet {
+      margin: 36px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid #E4E4E4;
+    }
+    .sheet li {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 24px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .sheet strong {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .sheet span {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .rooms {
+      margin: 36px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rooms li {
+      display: grid;
+      grid-template-columns: 28px 200px minmax(0, 1fr);
+      gap: 16px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-top: 1px solid #2f2c23;
+    }
+    .rooms li:last-child { border-bottom: 1px solid #2f2c23; }
+    .rooms em {
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .rooms strong {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .rooms span {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .expect {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .expect article {
+      min-width: 0;
+      padding: 28px 24px 32px;
+      border-radius: 12px;
+      background: #111111;
+      color: #fff;
+    }
+    .expect b {
+      display: block;
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .expect h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .expect p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close .chapter-support a {
+      color: #04EA86;
+      font-weight: 700;
+    }
+    .close-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 32px;
+    }
+    .text-link {
+      display: inline-flex;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .text-link:hover { color: #111111; }
+    .close .text-link {
+      margin-top: 0;
+      color: #04EA86;
+    }
+    .close .text-link:hover { color: #fff; }
+    .close .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border-color: #04EA86;
+    }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .mast { padding: 48px 32px 0; }
+      .mast-title,
+      .chapter-title { font-size: 28px; }
+      .contents { grid-template-columns: 1fr 1fr; margin-top: 40px; }
+      .chapter { padding: 64px 32px; }
+      .close { padding: 72px 32px 80px; }
+      .mark-layout,
+      .guide,
+      .expect { grid-template-columns: 1fr; }
+      .wire { grid-template-columns: 1fr 1fr; }
+      .wire-head { grid-column: 1 / -1; }
+      .wire .pill { grid-column: 1 / -1; justify-self: start; }
+      .sheet li,
+      .rooms li { grid-template-columns: 1fr; gap: 6px; }
+      .mono { font-size: 72px; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .mast { padding: 36px 20px 0; }
+      .chapter { padding: 48px 20px; }
+      .close { padding: 56px 20px 64px; }
+      .contents { grid-template-columns: 1fr; }
+      .wire { grid-template-columns: 1fr; padding: 20px; }
+      .lockup { min-height: 0; padding: 48px 24px 32px; }
+      .face-sample { font-size: 48px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../homepage-hero-v3.html#work">Work</a>
+      <a href="../homepage-hero-v3.html#industries">Industries</a>
+      <a href="../homepage-hero-v3.html#about">About</a>
+      <a href="../homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="mast" id="mast" aria-labelledby="mast-title">
+    <div class="mast-inner">
+      <p class="eyebrow">01 · Design</p>
+      <h1 class="mast-title" id="mast-title">Logos, UI, and the printed piece.</h1>
+      <p class="mast-support">Logos, UI/UX, brand style guides, catalogues, and packages for the business.</p>
+      <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+      <ol class="contents" aria-label="What design covers">
+        <li><a href="#logo"><span>01</span>Logo</a></li>
+        <li><a href="#interface"><span>02</span>UI/UX</a></li>
+        <li><a href="#guide"><span>03</span>Style guide</a></li>
+        <li><a href="#pieces"><span>04</span>Catalogue</a></li>
+        <li><a href="#pieces"><span>05</span>Package</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="logo" aria-labelledby="logo-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="logo-title">A mark they can repeat.</h2>
+      <p class="chapter-support">A logo that stays simple, clear, and recognizable, so the clinic or the company is visible before the sentence starts.</p>
+      <div class="mark-layout">
+        <div class="lockup" aria-hidden="true">
+          <span class="crop crop-tl"></span>
+          <span class="crop crop-tr"></span>
+          <span class="crop crop-bl"></span>
+          <span class="crop crop-br"></span>
+          <p class="mono">De</p>
+          <p class="word">The Digital Elites</p>
+          <small>Clear space around the mark</small>
+        </div>
+        <div>
+          <p class="blurb">The logo is the piece every other design has to match: the site, the card, the catalogue, and the package. It is drawn to be read at the size of a header and at the size of a business card.</p>
+          <a class="text-link" href="../services/">All six services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter wire-chapter" id="interface" aria-labelledby="interface-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="interface-title">A page that is easy to use.</h2>
+      <p class="chapter-support">UI and UX layouts that are simple to navigate, and that guide a patient or a customer to the next step.</p>
+      <div class="wire" aria-hidden="true">
+        <div class="wire-head">
+          <p class="wire-label">Sample screen</p>
+          <p class="wire-title">Book a visit</p>
+        </div>
+        <div class="field">Name</div>
+        <div class="field">Phone</div>
+        <span class="pill">Book</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="guide" aria-labelledby="guide-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="guide-title">The same brand on every piece.</h2>
+      <p class="chapter-support">A style guide keeps the logo, the type, and the color consistent, so a client can recognize the business on any screen or printed piece.</p>
+      <div class="guide">
+        <article>
+          <h3>Type</h3>
+          <p class="face-sample">Aa</p>
+          <p class="face-name">Inter Tight</p>
+          <p>One face for the name, the headline, and the body, so the pieces look like they came from the same studio.</p>
+        </article>
+        <article>
+          <h3>Color</h3>
+          <ul class="swatches">
+            <li><i class="swatch-olive"></i>2F2C23</li>
+            <li><i class="swatch-green"></i>04EA86</li>
+            <li><i class="swatch-black"></i>111111</li>
+          </ul>
+          <p>The olive, the green, and the black used on this site. A client guide uses the client’s own colors the same way.</p>
+        </article>
+        <article>
+          <h3>Where it applies</h3>
+          <ul class="use-list">
+            <li>Logo</li>
+            <li>Website</li>
+            <li>Social graphics</li>
+            <li>Card and stationery</li>
+            <li>Catalogue and package</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="pieces" aria-labelledby="pieces-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="pieces-title">Catalogues, packages, and what gets handed over.</h2>
+      <p class="chapter-support">The printed and social pieces named on the design service, set so a customer can read the offer quickly.</p>
+      <ul class="sheet">
+        <li><strong>Catalogue</strong><span>A clear layout of the products or services, with images that make the offer easy to understand.</span></li>
+        <li><strong>Package</strong><span>The set of pieces that travel together with the catalogue: the card, the flyer, and the wrap a customer sees.</span></li>
+        <li><strong>Business card</strong><span>A card that carries the brand into a meeting or an event.</span></li>
+        <li><strong>Stationery</strong><span>Letterhead and office pieces that match the rest of the brand.</span></li>
+        <li><strong>Flyer and brochure</strong><span>An announcement, a service, or a promotion, with a message that can be read quickly.</span></li>
+        <li><strong>Menu</strong><span>A menu that is easy to read and still looks like the brand.</span></li>
+        <li><strong>Social graphics</strong><span>Graphics made for the channels the business already posts on.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="chapter" id="rooms" aria-labelledby="rooms-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="rooms-title">Clinics and home services.</h2>
+      <p class="chapter-support">The rooms named on the homepage, and the way design shows up in each one.</p>
+      <ol class="rooms">
+        <li><em>01</em><strong>Chiropractic</strong><span>Calm, professional visuals so a patient can feel comfortable.</span></li>
+        <li><em>02</em><strong>Dental</strong><span>Procedures explained clearly, in a design that still looks like the office.</span></li>
+        <li><em>03</em><strong>Orthodontics</strong><span>Simple images that work for parents and for children.</span></li>
+        <li><em>04</em><strong>Home services</strong><span>The card, the flyer, and the catalogue a customer sees before the job.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="chapter" id="expect" aria-labelledby="expect-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="expect-title">What the work includes.</h2>
+      <p class="chapter-support">Three facts from the design service. Timing and price follow the size of the job.</p>
+      <div class="expect">
+        <article>
+          <b>01</b>
+          <h3>Revisions</h3>
+          <p>Revision assistance is part of the work, so the design can be adjusted after you see it.</p>
+        </article>
+        <article>
+          <b>02</b>
+          <h3>Print-ready files</h3>
+          <p>Designs are delivered in print-ready formats, for a card, a brochure, a flyer, or a menu.</p>
+        </article>
+        <article>
+          <b>03</b>
+          <h3>Time follows the job</h3>
+          <p>A flyer, a social graphic, or a business card generally takes a few days. A full brand takes longer.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter close" id="proposal" aria-labelledby="close-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="close-title">Start with the mark.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. <a href="tel:+17134878445">Call (713) 487-8445</a>. Marketing, when the mark needs a campaign, is a separate service.</p>
+      <div class="close-actions">
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        <a class="text-link" href="../services/">All six services</a>
+        <a class="text-link" href="../service/">Open marketing</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>
