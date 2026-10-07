@@ -1,0 +1,747 @@
+<!-- Service: Consultation (06). A guide through each step: Goals, Market, Plan, Next step. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Consultation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    p { text-transform: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .mast {
+      padding: 72px 72px 0;
+      background: #F6F4EF;
+    }
+    .mast-inner,
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title,
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title { max-width: 11em; }
+    .mast-support,
+    .chapter-support,
+    .blurb {
+      margin: 24px 0 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .chapter-support { margin: 16px 0 0; }
+    .mast .pill { margin-top: 28px; }
+
+    .open {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 48px;
+      align-items: end;
+    }
+    .rundown {
+      list-style: none;
+      margin: 0;
+      padding: 6px 0;
+      min-width: 0;
+      background: #111111;
+      border-radius: 2px;
+    }
+    .rundown li {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 148px) minmax(0, 1fr);
+      gap: 8px 16px;
+      align-items: baseline;
+      padding: 18px 22px;
+      border-top: 1px solid rgba(4, 234, 134, 0.35);
+    }
+    .rundown li:first-child { border-top: 0; }
+    .rundown a { color: inherit; }
+    .rundown a:hover strong { color: #04EA86; }
+    .rundown span {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .rundown strong {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .rundown em {
+      font-style: normal;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-transform: none;
+      color: #F6F4EF;
+    }
+    .session {
+      position: relative;
+      margin: 36px 0 0;
+      min-width: 0;
+      background: #111111;
+      overflow: hidden;
+    }
+    .session img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    .session figcaption {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      margin: 0;
+      padding: 6px 10px;
+      background: #111111;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+
+    .chapter {
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px;
+      background: #F6F4EF;
+    }
+
+    .goals-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 32px;
+      align-items: end;
+    }
+    .giant {
+      margin: 0;
+      max-width: 100%;
+      font-size: clamp(72px, 11vw, 168px);
+      font-weight: 800;
+      line-height: 0.82;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+      color: #2f2c23;
+      overflow-wrap: anywhere;
+    }
+
+    .gazetteer {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+      gap: 40px 64px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 2px solid #2f2c23;
+    }
+    .place {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+      background: #2f2c23;
+      display: inline-block;
+      padding: 4px 10px;
+    }
+    .names {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 28px;
+      margin: 18px 0 0;
+      padding: 0;
+    }
+    .names li {
+      font-size: clamp(32px, 4vw, 56px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+
+    .ledger {
+      margin: 40px 0 0;
+      border-top: 8px solid #04EA86;
+    }
+    .ledger div {
+      display: grid;
+      grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+      gap: 12px 28px;
+      align-items: baseline;
+      padding: 20px 0;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .ledger dt {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .ledger dd {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+
+    .next {
+      background: #2f2c23;
+    }
+    .next .chapter-title { color: #F6F4EF; }
+    .next .chapter-support,
+    .next .blurb { color: #F6F4EF; }
+    .handoff {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 12px 36px;
+      align-items: start;
+    }
+    .num {
+      margin: 0;
+      font-size: clamp(96px, 14vw, 200px);
+      font-weight: 800;
+      line-height: 0.8;
+      letter-spacing: -0.04em;
+      color: #04EA86;
+    }
+    .next-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+      margin-top: 24px;
+    }
+    .next .text-link { color: #04EA86; margin-top: 0; }
+    .next .text-link:hover { color: #fff; }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close .chapter-support a {
+      color: #04EA86;
+      font-weight: 700;
+    }
+    .close-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 32px;
+    }
+    .text-link {
+      display: inline-flex;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .text-link:hover { color: #111111; }
+    .close .text-link {
+      margin-top: 0;
+      color: #04EA86;
+    }
+    .close .text-link:hover { color: #fff; }
+    .close .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border-color: #04EA86;
+    }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .mast { padding: 48px 32px 0; }
+      .mast-title,
+      .chapter-title { font-size: 28px; }
+      .chapter { padding: 64px 32px; }
+      .close { padding: 72px 32px 80px; }
+      .open,
+      .goals-layout,
+      .gazetteer,
+      .handoff { grid-template-columns: 1fr; }
+      .session img { height: 200px; }
+      .names li { font-size: 32px; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .mast { padding: 36px 20px 0; }
+      .chapter { padding: 48px 20px; }
+      .close { padding: 56px 20px 64px; }
+      .rundown li {
+        grid-template-columns: 40px minmax(0, 1fr);
+        padding: 14px 16px;
+      }
+      .rundown em { grid-column: 2; }
+      .ledger div { grid-template-columns: 1fr; gap: 4px; }
+      .session img { height: 180px; }
+      .giant { font-size: 64px; }
+      .num { font-size: 96px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../homepage-hero-v3.html#work">Work</a>
+      <a href="../homepage-hero-v3.html#industries">Industries</a>
+      <a href="../homepage-hero-v3.html#about">About</a>
+      <a href="../homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="mast" id="mast" aria-labelledby="mast-title">
+    <div class="mast-inner">
+      <p class="eyebrow">06 · Consultation</p>
+      <div class="open">
+        <div>
+          <h1 class="mast-title" id="mast-title">A guide through each step.</h1>
+          <p class="mast-support">A guide through each step so the work reaches the goal without wasted effort.</p>
+          <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        </div>
+        <ol class="rundown">
+          <li>
+            <span>01</span>
+            <a href="#goals"><strong>Goals</strong></a>
+            <em>The goal, said before the work starts.</em>
+          </li>
+          <li>
+            <span>02</span>
+            <a href="#market"><strong>Market</strong></a>
+            <em>The clinics and the home-service companies the plan is for.</em>
+          </li>
+          <li>
+            <span>03</span>
+            <a href="#plan"><strong>Plan</strong></a>
+            <em>What the work will include, written down.</em>
+          </li>
+          <li>
+            <span>04</span>
+            <a href="#next"><strong>Next step</strong></a>
+            <em>The proposal, before a campaign goes live.</em>
+          </li>
+        </ol>
+      </div>
+      <figure class="session">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" width="1800" height="1200" alt="Placeholder: a working session">
+        <figcaption>Placeholder</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter" id="goals" aria-labelledby="goals-title">
+    <div class="chapter-inner goals-layout">
+      <p class="giant">Goals</p>
+      <div>
+        <h2 class="chapter-title" id="goals-title">The goal, said first.</h2>
+        <p class="chapter-support">The session starts with the goal of the clinic or the company. Design, a site, and a campaign come after, so the work reaches that goal without wasted effort.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="market" aria-labelledby="market-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="market-title">The market the plan is for.</h2>
+      <p class="chapter-support">Chiropractic, orthodontics, and dental practices in Katy, and home-service companies booking jobs across the U.S.</p>
+      <div class="gazetteer">
+        <div>
+          <p class="place">Katy, Texas</p>
+          <ul class="names">
+            <li>Chiropractic</li>
+            <li>Orthodontics</li>
+            <li>Dental</li>
+          </ul>
+        </div>
+        <div>
+          <p class="place">Across the U.S.</p>
+          <ul class="names">
+            <li>Home services</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="plan" aria-labelledby="plan-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="plan-title">The plan, written down.</h2>
+      <p class="chapter-support">The plan names the work and the results it is expected to reach. The count belongs to this business. It is not borrowed from another job.</p>
+      <dl class="ledger">
+        <div>
+          <dt>Social posts</dt>
+          <dd>The short pieces, named for this clinic or this company.</dd>
+        </div>
+        <div>
+          <dt>Blogs</dt>
+          <dd>The longer pages a patient or a customer can book from.</dd>
+        </div>
+        <div>
+          <dt>Paid ads</dt>
+          <dd>The lines a campaign can run for the next patient or the next job.</dd>
+        </div>
+        <div>
+          <dt>Emails</dt>
+          <dd>The notes for people who already know the business.</dd>
+        </div>
+        <div>
+          <dt>Results expected</dt>
+          <dd>Stated for this business, before the work starts.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="chapter next" id="next" aria-labelledby="next-title">
+    <div class="chapter-inner handoff">
+      <p class="num">04</p>
+      <div>
+        <h2 class="chapter-title" id="next-title">The next step.</h2>
+        <p class="chapter-support">The session ends with a look at what should be built, before a campaign goes live. That next step is a proposal.</p>
+        <p class="blurb">Writing is the social, the blog, the ads, and the email the plan names. Marketing runs the campaign. Development builds the page the writing sends people to.</p>
+        <div class="next-links">
+          <a class="text-link" href="../writing/">Open writing</a>
+          <a class="text-link" href="../service/">Open marketing</a>
+          <a class="text-link" href="../development/">Open development</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter close" id="proposal" aria-labelledby="close-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="close-title">Start with the goal.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. <a href="tel:+17134878445">Call (713) 487-8445</a>.</p>
+      <div class="close-actions">
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        <a class="text-link" href="../services/">All six services</a>
+        <a class="text-link" href="../writing/">Open writing</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>

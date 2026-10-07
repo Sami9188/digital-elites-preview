@@ -1,0 +1,930 @@
+<!-- Service: Writing (05). Social, blog, ads, and email, written to attract, engage, and convert. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Writing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    p { text-transform: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .mast {
+      padding: 72px 72px 0;
+      background: #F6F4EF;
+    }
+    .mast-inner,
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title,
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title { max-width: 11em; }
+    .mast-support,
+    .chapter-support,
+    .blurb {
+      margin: 24px 0 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .chapter-support { margin: 16px 0 0; }
+    .mast .pill { margin-top: 28px; }
+
+    .folio {
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 56px;
+      align-items: end;
+    }
+    .sheet {
+      margin: 0;
+      min-width: 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      min-height: 440px;
+      padding: 32px 28px 28px 40px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 0 16px 44px rgba(17, 17, 17, 0.08);
+      position: relative;
+    }
+    .sheet::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #04EA86;
+    }
+    .sheet-kicker {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .sheet-line {
+      margin: 18px 0 0;
+      max-width: 12em;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .sheet-rules {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+    .sheet-rules i {
+      display: block;
+      height: 8px;
+      border-radius: 4px;
+      background: #E4E4E4;
+    }
+    .sheet-rules i:nth-child(1) { width: 100%; }
+    .sheet-rules i:nth-child(2) { width: 92%; }
+    .sheet-rules i:nth-child(3) { width: 78%; }
+    .sheet-rules i:nth-child(4) { width: 64%; }
+    .sheet-index {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      min-width: 0;
+      margin: 0;
+      padding: 0 0 0 22px;
+      border-left: 1px solid #E4E4E4;
+    }
+    .sheet-index a {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .sheet-index a span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .sheet-index a:hover { color: #111111; }
+
+    .chapter {
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px;
+      background: #F6F4EF;
+    }
+
+    .post {
+      display: grid;
+      grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .ph {
+      margin: 0;
+      min-width: 0;
+      background: #111111;
+    }
+    .ph img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .ph figcaption {
+      margin: 0;
+      padding: 14px 16px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .post-copy .chapter-title { max-width: 10em; }
+    .caption {
+      margin: 28px 0 0;
+      max-width: 28em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+
+    .blog {
+      background: #2f2c23;
+    }
+    .blog .chapter-title,
+    .blog .chapter-support,
+    .blog .ms p { color: #F6F4EF; }
+    .ms {
+      display: grid;
+      gap: 0;
+      margin: 48px 0 0;
+      max-width: 760px;
+    }
+    .ms article {
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr);
+      gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid rgba(246, 244, 239, 0.22);
+    }
+    .ms b {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .ms p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+    }
+
+    .ads {
+      background: #111111;
+    }
+    .ads .chapter-title,
+    .ads .chapter-support { color: #fff; }
+    .proof {
+      position: relative;
+      max-width: 680px;
+      margin: 48px 0 0;
+      padding: 28px;
+    }
+    .crop {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: #04EA86;
+      border-style: solid;
+    }
+    .crop-tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+    .crop-tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+    .crop-bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+    .crop-br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+    .ad {
+      background: #F6F4EF;
+      padding: 32px 32px 28px;
+    }
+    .ad-tag {
+      display: inline-block;
+      margin: 0;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #04EA86;
+      color: #111111;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ad-line {
+      margin: 16px 0 0;
+      max-width: 14em;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .ad-url {
+      margin: 14px 0 0;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .ad-note {
+      margin: 18px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+
+    .email-chapter { background: #04EA86; }
+    .email-chapter .chapter-title,
+    .email-chapter .chapter-support { color: #111111; }
+    .letter {
+      max-width: 740px;
+      margin: 40px 0 0;
+      padding: 32px 36px 40px;
+      background: #F6F4EF;
+    }
+    .letter-head {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0 0 20px;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .letter-head div {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: baseline;
+    }
+    .letter-head dt {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .letter-head dd {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #111111;
+    }
+    .letter-body {
+      margin: 24px 0 0;
+      max-width: 38em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .stamp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      margin-top: 28px;
+      border: 2px solid #111111;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: #111111;
+    }
+
+    .brief { padding-bottom: 0; }
+    .brief-list {
+      list-style: none;
+      margin: 48px 0 0;
+      padding: 0;
+    }
+    .band {
+      padding: 48px 72px;
+    }
+    .band-attract {
+      display: grid;
+      grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      background: #F6F4EF;
+      border-top: 1px solid #E4E4E4;
+    }
+    .band-engage {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px 40px;
+      background: #2f2c23;
+    }
+    .band-convert {
+      background: #111111;
+      text-align: center;
+    }
+    .band strong {
+      display: block;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .band p {
+      margin: 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .band-engage strong,
+    .band-engage p { color: #F6F4EF; }
+    .band-engage p { max-width: 28em; }
+    .band-convert strong {
+      color: #04EA86;
+      font-size: clamp(56px, 8vw, 96px);
+    }
+    .band-convert p {
+      margin: 16px auto 0;
+      color: #fff;
+    }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close .chapter-support a {
+      color: #04EA86;
+      font-weight: 700;
+    }
+    .close-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 32px;
+    }
+    .text-link {
+      display: inline-flex;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .text-link:hover { color: #111111; }
+    .close .text-link {
+      margin-top: 0;
+      color: #04EA86;
+    }
+    .close .text-link:hover { color: #fff; }
+    .close .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border-color: #04EA86;
+    }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .mast { padding: 48px 32px 0; }
+      .mast-title,
+      .chapter-title,
+      .band strong { font-size: 28px; }
+      .band-convert strong { font-size: 48px; }
+      .chapter { padding: 64px 32px; }
+      .close { padding: 72px 32px 80px; }
+      .folio,
+      .post,
+      .band-attract { grid-template-columns: 1fr; }
+      .sheet { min-height: 0; }
+      .band { padding: 36px 32px; }
+      .brief .chapter-inner { padding: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .mast { padding: 36px 20px 0; }
+      .chapter { padding: 48px 20px; }
+      .close { padding: 56px 20px 64px; }
+      .sheet {
+        grid-template-columns: 1fr;
+        padding: 24px 16px 20px 28px;
+      }
+      .sheet-index {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 14px 18px;
+        padding: 16px 0 0;
+        border-left: 0;
+        border-top: 1px solid #E4E4E4;
+      }
+      .sheet-line { font-size: 22px; }
+      .ms article { grid-template-columns: 40px minmax(0, 1fr); }
+      .ad { padding: 22px 18px; }
+      .ad-line { font-size: 24px; }
+      .letter { padding: 22px 18px 28px; }
+      .letter-head div { grid-template-columns: 72px minmax(0, 1fr); }
+      .band { padding: 28px 20px; }
+      .proof { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../homepage-hero-v3.html#work">Work</a>
+      <a href="../homepage-hero-v3.html#industries">Industries</a>
+      <a href="../homepage-hero-v3.html#about">About</a>
+      <a href="../homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="mast" id="mast" aria-labelledby="mast-title">
+    <div class="mast-inner folio">
+      <div>
+        <p class="eyebrow">05 · Writing</p>
+        <h1 class="mast-title" id="mast-title">The page they meant to book from.</h1>
+        <p class="mast-support">Social, blog, ads, and email, written to attract, engage, and convert.</p>
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+      </div>
+      <figure class="sheet">
+        <div>
+          <p class="sheet-kicker">Placeholder</p>
+          <p class="sheet-line">The page they meant to book from.</p>
+          <div class="sheet-rules" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <nav class="sheet-index" aria-label="What writing covers">
+          <a href="#social"><span>01</span> Social</a>
+          <a href="#blog"><span>02</span> Blog</a>
+          <a href="#ads"><span>03</span> Ads</a>
+          <a href="#email"><span>04</span> Email</a>
+        </nav>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter" id="social" aria-labelledby="social-title">
+    <div class="chapter-inner">
+      <div class="post">
+        <figure class="ph">
+          <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23111111'/%3E%3Ctext x='400' y='418' text-anchor='middle' fill='%2304EA86' font-family='Inter Tight, sans-serif' font-size='42' font-weight='700' letter-spacing='6'%3EPLACEHOLDER%3C/text%3E%3C/svg%3E" width="800" height="800" alt="Placeholder">
+          <figcaption>Placeholder</figcaption>
+        </figure>
+        <div class="post-copy">
+          <h2 class="chapter-title" id="social-title">The post they can answer.</h2>
+          <p class="chapter-support">Social is the short piece. It is written so a patient or a customer stops, then has a reason to answer.</p>
+          <p class="caption">The page they meant to book from. The same line can open a post for a clinic or for a home-service company.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter blog" id="blog" aria-labelledby="blog-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="blog-title">The longer page.</h2>
+      <p class="chapter-support">A blog is the page they meant to book from. It holds the longer explanation, and it ends on the way to book.</p>
+      <div class="ms">
+        <article>
+          <b>01</b>
+          <p>The opening names the visit or the job, so the reader knows the page is for them.</p>
+        </article>
+        <article>
+          <b>02</b>
+          <p>The middle is the explanation: what the clinic does, or what the home-service company does on the job.</p>
+        </article>
+        <article>
+          <b>03</b>
+          <p>The close is the way to book. The page is written to convert, not to trail off.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter ads" id="ads" aria-labelledby="ads-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="ads-title">The line in the ad.</h2>
+      <p class="chapter-support">Ads are the line a campaign can run. The writing is there to convert: the next patient, or the next job.</p>
+      <div class="proof">
+        <span class="crop crop-tl" aria-hidden="true"></span>
+        <span class="crop crop-tr" aria-hidden="true"></span>
+        <span class="crop crop-bl" aria-hidden="true"></span>
+        <span class="crop crop-br" aria-hidden="true"></span>
+        <article class="ad">
+          <p class="ad-tag">Ad</p>
+          <p class="ad-line">The page they meant to book from.</p>
+          <p class="ad-url">Written for the clinic or the company</p>
+          <p class="ad-note">Placeholder. The finished line is written for that business, then marketing runs it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter email-chapter" id="email" aria-labelledby="email-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="email-title">The note in the inbox.</h2>
+      <p class="chapter-support">Email is the same offer, written for someone who already knows the business. It asks them to book.</p>
+      <article class="letter">
+        <dl class="letter-head">
+          <div>
+            <dt>From</dt>
+            <dd>The studio</dd>
+          </div>
+          <div>
+            <dt>To</dt>
+            <dd>The clinic, or the home-service company</dd>
+          </div>
+          <div>
+            <dt>Subject</dt>
+            <dd>The page they meant to book from.</dd>
+          </div>
+        </dl>
+        <p class="letter-body">This note carries the offer to a person who already knows the name. It says what to book, and it stops there. Social, the blog, and the ad can use the same offer. The email is the one that arrives.</p>
+        <p class="stamp">05</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter brief" id="brief" aria-labelledby="brief-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="brief-title">Attract, engage, and convert.</h2>
+      <p class="chapter-support">That is the brief for every piece on this page: the post, the blog, the ad, and the email.</p>
+    </div>
+    <ol class="brief-list">
+      <li class="band band-attract">
+        <strong>Attract</strong>
+        <p>The first line gives a patient or a customer a reason to stop. It names the visit or the job.</p>
+      </li>
+      <li class="band band-engage">
+        <p>The next lines give them a reason to stay with the page, the post, or the note.</p>
+        <strong>Engage</strong>
+      </li>
+      <li class="band band-convert">
+        <strong>Convert</strong>
+        <p>The last line is the way to book. That is the job of the writing.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="chapter close" id="proposal" aria-labelledby="close-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="close-title">Write the page.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. <a href="tel:+17134878445">Call (713) 487-8445</a>. Marketing runs the line once it exists. Consultation names the posts, blogs, ads, and emails in the plan.</p>
+      <div class="close-actions">
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        <a class="text-link" href="../services/">All six services</a>
+        <a class="text-link" href="../service/">Open marketing</a>
+        <a class="text-link" href="../consultation/">Open consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>
