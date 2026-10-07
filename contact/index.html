@@ -428,8 +428,8 @@
       font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      transition: background .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease, transform .35s ease;
-      transition-delay: calc(var(--i) * .32s + .25s);
+      transition: background .7s ease, border-color .7s ease, color .7s ease, box-shadow .7s ease, transform .7s ease;
+      transition-delay: calc(var(--i) * .75s + .25s);
     }
     .step::after {
       content: "";
@@ -442,11 +442,11 @@
       background-image: linear-gradient(var(--green), var(--green));
       background-repeat: no-repeat;
       background-size: 0% 100%;
-      transition: background-size .45s var(--ease);
-      transition-delay: calc(var(--i) * .32s + .4s);
+      transition: background-size 1.15s var(--ease);
+      transition-delay: calc(var(--i) * .75s + .4s);
     }
     .step:last-child::after { display: none; }
-    .step-body { margin-top: 24px; transition: opacity .5s ease, transform .5s var(--ease); transition-delay: calc(var(--i) * .32s + .35s); }
+    .step-body { margin-top: 24px; transition: opacity .5s ease, transform .5s var(--ease); transition-delay: calc(var(--i) * .75s + .35s); }
     .js .steps:not(.is-in) .step-body { opacity: 0; transform: translateY(14px); }
     .step h3 { margin-bottom: 10px; position: relative; display: inline-block; }
     .step h3::after { content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform .25s var(--ease); }
