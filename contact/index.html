@@ -151,7 +151,7 @@
     .pill:hover svg.arrow-up { transform: translate(2px, -2px); }
 
     /* ---------- Header ---------- */
-    .site-header { position: sticky; top: 0; z-index: 50; background: #fff; color: var(--text); border-bottom: 1px solid var(--line); transition: box-shadow .2s ease; }
+    .site-header { position: sticky; top: 0; z-index: 50; background: #fff; color: var(--text); border-bottom: 1px solid var(--line); transition: box-shadow .2s ease; overflow-anchor: none; }
     .site-header.is-stuck { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
 
     /* Utility bar */
@@ -275,9 +275,10 @@
     .header-phone {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 20px 10px 10px;
-      border-radius: 999px;
+      gap: 10px;
+      height: 48px;
+      padding: 0 18px;
+      border-radius: 9px;
       background: var(--ink);
       color: var(--green);
       font-size: 14px;
@@ -314,7 +315,7 @@
     @media (max-width: 1280px) {
       .nav > li > a { padding: 0 10px; font-size: 13px; }
       .header-phone .num { display: none; }
-      .header-phone { padding: 6px; }
+      .header-phone { width: 48px; height: 48px; padding: 0; justify-content: center; }
     }
     @media (max-width: 980px) {
       .topbar-loc, .topbar-social { display: none; }
@@ -1122,9 +1123,14 @@
 
   <script>
     (function () {
-      // Header shadow once the page has scrolled.
+      // Hide the topbar only after it has scrolled away, and keep it hidden until the user is back at the top.
+      // A single threshold flaps: collapsing the bar changes header height and scroll anchoring nudges scrollY across the cutoff.
       var header = document.querySelector(".site-header");
-      var onScroll = function () { header.classList.toggle("is-stuck", window.scrollY > 8); };
+      var onScroll = function () {
+        var y = window.scrollY;
+        if (y > 72) header.classList.add("is-stuck");
+        else if (y <= 2) header.classList.remove("is-stuck");
+      };
       window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
       // Mobile nav
