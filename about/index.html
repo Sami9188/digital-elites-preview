@@ -1,0 +1,695 @@
+<!-- About. What the homepage already says about the studio. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    p, li, dd { text-transform: none; }
+    ul, ol { margin: 0; padding: 0; list-style: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo { display: flex; align-items: center; flex: 0 0 auto; }
+    .logo img { height: 62px; width: auto; display: block; }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 8px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chapter-support {
+      margin: 20px 0 0;
+      max-width: 38em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .wrap {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .text-link {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+      border-bottom: 2px solid #04EA86;
+    }
+    .text-link:hover { color: #111111; background: #C8F8DE; }
+
+    .open { padding: 72px 72px 64px; }
+    .open-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.72fr);
+      gap: 56px;
+      align-items: stretch;
+    }
+    .open-copy .pill { margin-top: 28px; }
+    .lines {
+      margin: 0;
+      background: #111111;
+      color: #fff;
+      padding: 8px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .lines li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .lines li:first-child { border-top: 0; }
+    .lines span {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #04EA86;
+    }
+    .lines strong {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .practice { padding: 8px 72px 72px; }
+    .ledger { margin-top: 36px; border-top: 1px solid #2f2c23; }
+    .ledger a {
+      display: grid;
+      grid-template-columns: 64px minmax(120px, 200px) minmax(0, 1fr) 18px;
+      gap: 20px;
+      align-items: center;
+      padding: 26px 12px;
+      border-bottom: 1px solid #2f2c23;
+      color: #2f2c23;
+    }
+    .ledger a:hover { background: #C8F8DE; }
+    .ledger .num {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #04EA86;
+    }
+    .ledger strong {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .ledger p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .ledger svg { width: 18px; height: 18px; justify-self: end; }
+    .limit {
+      margin: 28px 0 0;
+      max-width: 40em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+
+    .rooms { padding: 8px 72px 80px; }
+    .room-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin-top: 36px;
+      border-top: 1px solid #2f2c23;
+    }
+    .room-row article {
+      min-width: 0;
+      padding: 28px 28px 8px 0;
+      border-right: 1px solid #2f2c23;
+    }
+    .room-row article:last-child { border-right: 0; padding-right: 0; }
+    .room-row .idx {
+      display: block;
+      margin: 0 0 18px;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #04EA86;
+    }
+    .room-row h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .room-row p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .rooms .text-link { display: inline-block; margin-top: 28px; }
+
+    .record { padding: 0 72px 80px; }
+    .count-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 36px;
+      background: #111111;
+      color: #fff;
+    }
+    .count-row div { padding: 36px 32px 40px; min-width: 0; }
+    .count-row div + div { box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.16); }
+    .count-row .src {
+      margin: 0 0 12px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .count-row .fig {
+      margin: 0;
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+    .count-row .name {
+      margin: 10px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #fff;
+    }
+    .record .text-link { display: inline-block; margin-top: 28px; }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 32px;
+    }
+    .close .text-link { color: #04EA86; border-bottom-color: #04EA86; }
+    .close .text-link:hover { color: #111111; background: #04EA86; }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 1100px) {
+      .nav a { padding: 8px 6px; letter-spacing: 0.01em; }
+      .room-row { grid-template-columns: 1fr 1fr; }
+      .room-row article { border-right: 0; border-bottom: 1px solid #2f2c23; padding: 28px 0; }
+      .room-row article:nth-child(odd) { padding-right: 24px; }
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .open { padding: 48px 32px 40px; }
+      .open-grid { grid-template-columns: 1fr; gap: 32px; }
+      .practice, .rooms { padding: 8px 32px 56px; }
+      .record { padding: 0 32px 64px; }
+      .close { padding: 72px 32px 80px; }
+      .chapter-title { font-size: 28px; }
+      .ledger a { grid-template-columns: 48px minmax(0, 1fr) 18px; }
+      .ledger p { grid-column: 2 / -1; }
+      .count-row { grid-template-columns: 1fr; }
+      .count-row div + div { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16); }
+      .count-row .fig { font-size: 48px; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .open { padding: 36px 20px 28px; }
+      .practice, .rooms { padding: 8px 20px 48px; }
+      .record { padding: 0 20px 56px; }
+      .close { padding: 56px 20px 64px; }
+      .room-row { grid-template-columns: 1fr; }
+      .room-row article:nth-child(odd) { padding-right: 0; }
+      .lines strong { font-size: 18px; }
+      .pill { white-space: normal; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../design/">Design</a>
+      <a href="../development/">Development</a>
+      <a href="../service/">Marketing</a>
+      <a href="../video/">Video</a>
+      <a href="../writing/">Writing</a>
+      <a href="../consultation/">Consultation</a>
+      <a href="../work/">Work</a>
+      <a href="../industries/">Industries</a>
+      <a href="./" aria-current="page">About</a>
+      <a href="../contact/">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="open" id="open" aria-labelledby="open-title">
+    <div class="wrap open-grid">
+      <div class="open-copy">
+        <p class="eyebrow">For clinics and home services</p>
+        <h1 class="chapter-title" id="open-title">The studio in Katy.</h1>
+        <p class="chapter-support">The Digital Elites makes websites, ads, and content for companies in Katy and across the U.S. The work is design, development, marketing, video, writing, and consultation.</p>
+        <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
+      </div>
+      <ol class="lines" aria-label="What the work is for">
+        <li><span>01</span><strong>Show up first.</strong></li>
+        <li><span>02</span><strong>Book the job.</strong></li>
+        <li><span>03</span><strong>Stay visible in AI search.</strong></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="practice" id="practice" aria-labelledby="practice-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="practice-title">What the studio does.</h2>
+      <p class="chapter-support">Design, development, marketing, video, writing, and consultation. That is websites, ads, and content for the business.</p>
+      <div class="ledger">
+        <a href="../design/">
+          <span class="num">01</span>
+          <strong>Design</strong>
+          <p>Logos, UI/UX, brand style guides, catalogues, and packages for the business.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="../development/">
+          <span class="num">02</span>
+          <strong>Development</strong>
+          <p>Lead-generation sites, online stores, and web portals, built as a platform that can scale.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="../service/">
+          <span class="num">03</span>
+          <strong>Marketing</strong>
+          <p>Social channels and advertising campaigns for the next patient or the next job.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="../video/">
+          <span class="num">04</span>
+          <strong>Video</strong>
+          <p>Brand stories and promotional video for the channels patients already watch.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="../writing/">
+          <span class="num">05</span>
+          <strong>Writing</strong>
+          <p>Social, blog, ads, and email, written to attract, engage, and convert.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="../consultation/">
+          <span class="num">06</span>
+          <strong>Consultation</strong>
+          <p>A guide through each step so the work reaches the goal without wasted effort.</p>
+          <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="limit">Nothing here promises a ranking, a review count, or a result on a clock. The work is meant to help a business show up and get booked.</p>
+    </div>
+  </section>
+
+  <section class="rooms" id="rooms" aria-labelledby="rooms-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="rooms-title">Who the work is for.</h2>
+      <p class="chapter-support">Clinics and home-service companies, including chiropractic, orthodontics, dental, and home services. The same kinds of firms, in Katy and across the U.S.</p>
+      <div class="room-row">
+        <article>
+          <span class="idx">01</span>
+          <h3>Chiropractic</h3>
+          <p>A clinic site and a patient campaign for the practice that needs the next new patient.</p>
+        </article>
+        <article>
+          <span class="idx">02</span>
+          <h3>Orthodontics</h3>
+          <p>Found in search when someone is ready to start treatment.</p>
+        </article>
+        <article>
+          <span class="idx">03</span>
+          <h3>Dental</h3>
+          <p>The office, the new-patient offer, and the page a patient books from.</p>
+        </article>
+        <article>
+          <span class="idx">04</span>
+          <h3>Home services</h3>
+          <p>The service area, the offer, and the call that books the job.</p>
+        </article>
+      </div>
+      <a class="text-link" href="../industries/">Industries</a>
+    </div>
+  </section>
+
+  <section class="record" id="record" aria-labelledby="record-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="record-title">Clients, projects, years.</h2>
+      <p class="chapter-support">The homepage trust row, and nothing added to it. Bright Approach, LDCCO, Amiri, and Julie Gray are the projects on the work page.</p>
+      <div class="count-row">
+        <div>
+          <p class="src">Google</p>
+          <p class="fig">150+</p>
+          <p class="name">Clients</p>
+        </div>
+        <div>
+          <p class="src">Clutch</p>
+          <p class="fig">100+</p>
+          <p class="name">Projects</p>
+        </div>
+        <div>
+          <p class="src">Years</p>
+          <p class="fig">5+</p>
+          <p class="name">Homepage trust row</p>
+        </div>
+      </div>
+      <a class="text-link" href="../work/">Work</a>
+    </div>
+  </section>
+
+  <section class="close" id="proposal" aria-labelledby="close-title">
+    <div class="wrap">
+      <h2 class="chapter-title" id="close-title">Ask for a proposal.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. The first step is a look at the business and what should be built, before a campaign goes live.</p>
+      <div class="close-actions">
+        <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
+        <a class="text-link" href="../contact/">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>
