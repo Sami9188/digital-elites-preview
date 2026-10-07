@@ -23,68 +23,68 @@
       font-size: 18px;
       font-weight: 400;
       line-height: 1.6;
-      letter-spacing: normal;
     }
     img { max-width: 100%; display: block; }
     a { color: #1A1A1A; }
     a:focus-visible,
-    button:focus-visible,
-    input:focus-visible,
-    textarea:focus-visible {
+    .btn:focus-visible {
       outline: 2px solid #1A1A1A;
       outline-offset: 3px;
     }
 
+    .frame {
+      width: min(1120px, calc(100% - 80px));
+      margin: 0 auto;
+    }
+
     .site-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 20px 40px;
-      background: #FFFFFF;
-      border-bottom: 1px solid #E4E4E4;
+      min-height: 84px;
     }
     .logo { display: flex; align-items: center; flex: 0 0 auto; }
-    #logo { height: 48px; width: auto; display: block; }
+    #logo { height: 44px; width: auto; display: block; }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .header-current {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #1A1A1A;
+    }
     .header-phone {
       font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.2;
       color: #1A1A1A;
       text-decoration: none;
     }
     .header-phone:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-    .wrap {
-      width: min(1400px, calc(100% - 40px));
-      margin: 0 auto;
-      padding: 0 24px;
+    .screen {
+      background: #FFFFFF;
+      padding: 72px 0 88px;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
     }
 
-    .hero {
-      padding: 120px 0 96px;
-      text-align: center;
-    }
-    .hero-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .breadcrumb {
-      margin: 0 0 24px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
-      letter-spacing: normal;
-      color: #1A1A1A;
-    }
-    .breadcrumb a { color: #1A1A1A; text-decoration: none; }
-    .breadcrumb a:hover { text-decoration: underline; text-underline-offset: 3px; }
-    .breadcrumb span { margin: 0 8px; }
-
-    h1, h2 {
-      margin: 0 0 24px;
+    h1 {
+      margin: 0;
       font-family: "Inter Tight", sans-serif;
       font-size: 40px;
       font-weight: 600;
@@ -93,28 +93,119 @@
       text-transform: none;
       color: #1A1A1A;
     }
-    .hero-text {
-      max-width: 750px;
-      margin: 0 auto 32px;
+    .lede {
+      margin: 16px 0 0;
+      max-width: 28em;
       font-family: "Inter Tight", sans-serif;
       font-size: 18px;
       font-weight: 400;
       line-height: 1.6;
-      letter-spacing: normal;
       color: #1A1A1A;
     }
-    .hero-buttons {
+
+    .methods {
+      margin: 40px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid #E4E4E4;
+    }
+    .method {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      align-items: center;
       gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid #E4E4E4;
+      color: #1A1A1A;
+      text-decoration: none;
+    }
+    a.method:hover .method-value { text-decoration: underline; text-underline-offset: 3px; }
+    .icon-box {
+      display: grid;
+      place-items: center;
+      flex: 0 0 44px;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(4, 234, 134, 0.14);
+    }
+    .icon-box svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      stroke: #1A1A1A;
+    }
+    .method-label {
+      display: block;
+      margin: 0;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #1A1A1A;
+    }
+    .method-value {
+      display: block;
+      margin: 2px 0 0;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #1A1A1A;
+    }
+
+    .form-card {
+      background: #FFFFFF;
+      border: 1px solid #E4E4E4;
+      border-radius: 16px;
+      padding: 36px 36px 32px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    label {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: #1A1A1A;
+    }
+    input, textarea {
+      width: 100%;
+      margin: 0;
+      padding: 14px 16px;
+      border: 1px solid #E4E4E4;
+      border-radius: 8px;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+    input { min-height: 52px; }
+    textarea { min-height: 128px; resize: vertical; }
+    input:focus,
+    textarea:focus {
+      border-color: #04EA86;
+      outline: 2px solid #04EA86;
+      outline-offset: 1px;
+    }
+    .form-note {
+      margin: 0;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #1A1A1A;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       min-height: 48px;
       padding: 12px 22px;
       border-radius: 8px;
@@ -125,8 +216,6 @@
       font-size: 16px;
       font-weight: 600;
       line-height: 1.2;
-      letter-spacing: normal;
-      text-transform: none;
       text-decoration: none;
       cursor: pointer;
       transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
@@ -137,292 +226,160 @@
       color: #04EA86;
       border-color: #000000;
     }
-    .btn-outline {
-      background: #FFFFFF;
-      color: #1A1A1A;
-      border-color: #1A1A1A;
-    }
-    .btn-outline:hover,
-    .btn-outline:focus-visible {
-      background: #000000;
-      color: #04EA86;
-      border-color: #000000;
-    }
     .btn-full { width: 100%; }
 
-    .contact-section { padding: 96px 0; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 96px;
-      align-items: start;
-    }
-    .section-label {
-      display: block;
-      margin: 0 0 16px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.6;
-      letter-spacing: normal;
-      text-transform: none;
-      color: #1A1A1A;
-    }
-    .contact-copy {
-      margin: 0 0 32px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
-      letter-spacing: normal;
-      color: #1A1A1A;
-    }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .contact-info li {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    .contact-info svg {
-      flex: 0 0 24px;
-      width: 24px;
-      height: 24px;
-      margin-top: 2px;
-    }
-    .info-kicker {
-      margin: 0;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.6;
-      letter-spacing: normal;
-      text-transform: none;
-      color: #1A1A1A;
-    }
-    .info-value {
-      margin: 4px 0 0;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
-      letter-spacing: normal;
-      color: #1A1A1A;
-    }
-    .info-value a {
-      color: #1A1A1A;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-
-    .form-card {
-      border: 1px solid #E4E4E4;
-      border-radius: 16px;
-      padding: 32px;
+    .address-band {
       background: #FFFFFF;
+      border-top: 1px solid #E4E4E4;
+      padding: 72px 0 96px;
     }
-    .contact-form {
+    .address-inner {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 48px;
     }
-    .form-group { display: flex; flex-direction: column; gap: 8px; }
-    label {
+    .address-kicker {
+      margin: 0 0 12px;
       font-family: "Inter Tight", sans-serif;
       font-size: 15px;
       font-weight: 500;
       line-height: 1.6;
-      letter-spacing: normal;
       color: #1A1A1A;
     }
-    input, textarea {
-      width: 100%;
-      margin: 0;
-      padding: 16px;
-      border: 1px solid #E4E4E4;
-      border-radius: 8px;
-      background: #FFFFFF;
-      color: #1A1A1A;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      letter-spacing: normal;
-    }
-    input { min-height: 56px; }
-    textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .form-note {
+    .street {
       margin: 0;
       font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
-      color: #1A1A1A;
-    }
-
-    .address-section,
-    .cta-section {
-      padding: 96px 0;
-      text-align: center;
-    }
-    .address-section { border-top: 1px solid #E4E4E4; }
-    .cta-section { border-top: 1px solid #E4E4E4; }
-    .section-lead {
-      max-width: 750px;
-      margin: 0 auto 32px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
-      color: #1A1A1A;
-    }
-    .address-block {
-      margin: 0;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      line-height: 1.6;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
       font-style: normal;
+      color: #1A1A1A;
+    }
+    .city {
+      margin: 8px 0 0;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
       color: #1A1A1A;
     }
 
     @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .hero { padding: 64px 0 48px; }
-      .contact-section,
-      .address-section,
-      .cta-section { padding: 48px 0; }
+      .frame { width: calc(100% - 40px); }
+      .split { grid-template-columns: 1fr; gap: 40px; }
+      .screen { padding: 48px 0 56px; }
+      .address-band { padding: 48px 0 64px; }
+      .address-inner { flex-direction: column; align-items: flex-start; gap: 28px; }
     }
     @media (max-width: 700px) {
-      .site-header { padding: 16px 20px; }
+      .header-inner { min-height: 72px; }
       #logo { height: 40px; }
-      .wrap { width: calc(100% - 32px); padding: 0; }
-      .hero-buttons { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; padding: 12px 20px; min-height: 48px; }
-      .form-card { padding: 20px; }
+      .header-current { display: none; }
+      .form-card { padding: 24px 20px; }
+      .btn { width: 100%; min-height: 48px; }
+      .street { font-size: 26px; }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="https://sami9188.github.io/digital-elites-preview/">
-      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites" width="1600" height="540">
-    </a>
-    <a class="header-phone" href="tel:+17134878445">(713) 487-8445</a>
+    <div class="frame header-inner">
+      <a class="logo" href="https://sami9188.github.io/digital-elites-preview/">
+        <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites" width="1600" height="540">
+      </a>
+      <div class="header-actions">
+        <span class="header-current">Contact</span>
+        <a class="header-phone" href="tel:+17134878445">(713) 487-8445</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap">
-        <div class="hero-inner">
-          <p class="breadcrumb"><a href="https://sami9188.github.io/digital-elites-preview/">Home</a><span aria-hidden="true">/</span>Contact</p>
-          <h1>Contact us</h1>
-          <p class="hero-text">Get in touch by phone, email, or the address below.</p>
-          <p class="hero-text">Call (713) 487-8445 or email hi@thedigitalelites.com. The form on this page is for layout only and does not send a message.</p>
-          <div class="hero-buttons">
-            <a class="btn" href="tel:+17134878445">Call (713) 487-8445</a>
-            <a class="btn btn-outline" href="#contact-form">Fill out form</a>
-          </div>
+    <section class="screen">
+      <div class="frame split">
+        <div>
+          <h1>Contact the studio</h1>
+          <p class="lede">Call, email, or visit the studio in Katy.</p>
+          <ul class="methods">
+            <li>
+              <a class="method" href="tel:+17134878445">
+                <span class="icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="method-label">Phone</span>
+                  <span class="method-value">(713) 487-8445</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="method" href="mailto:hi@thedigitalelites.com">
+                <span class="icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="2"/>
+                    <path d="m3 7 9 6 9-6"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="method-label">Email</span>
+                  <span class="method-value">hi@thedigitalelites.com</span>
+                </span>
+              </a>
+            </li>
+            <li>
+              <div class="method">
+                <span class="icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/>
+                    <circle cx="12" cy="10" r="2.25"/>
+                  </svg>
+                </span>
+                <span>
+                  <span class="method-label">Address</span>
+                  <span class="method-value">3323 Upland Spring Trce, Katy, Texas 77493</span>
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <form class="contact-form" action="#" method="post" onsubmit="return false" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(713) 487-8445">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="What do you want to talk about?"></textarea>
+            </div>
+            <p class="form-note">This form does not send. Use the button to call.</p>
+            <a class="btn btn-full" href="tel:+17134878445">Call (713) 487-8445</a>
+          </form>
         </div>
       </div>
     </section>
 
-    <section class="contact-section" id="form">
-      <div class="wrap">
-        <div class="contact-grid">
-          <div>
-            <span class="section-label">Get in touch</span>
-            <h2>Ready to talk?</h2>
-            <p class="contact-copy">Phone, email, and the Katy address are listed here. Use the call button — the form does not submit.</p>
-            <ul class="contact-info">
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                </svg>
-                <div>
-                  <p class="info-kicker">Phone</p>
-                  <p class="info-value"><a href="tel:+17134878445">(713) 487-8445</a></p>
-                </div>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2"/>
-                  <path d="m3 7 9 6 9-6"/>
-                </svg>
-                <div>
-                  <p class="info-kicker">Email</p>
-                  <p class="info-value"><a href="mailto:hi@thedigitalelites.com">hi@thedigitalelites.com</a></p>
-                </div>
-              </li>
-              <li>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/>
-                  <circle cx="12" cy="10" r="2.25"/>
-                </svg>
-                <div>
-                  <p class="info-kicker">Address</p>
-                  <p class="info-value">3323 Upland Spring Trce, Katy, Texas 77493</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="form-card">
-            <form id="contact-form" class="contact-form" action="#" method="post" onsubmit="return false" novalidate>
-              <div class="form-group">
-                <label for="company">Company</label>
-                <input id="company" name="company" type="text" autocomplete="organization" placeholder="Your company name">
-              </div>
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email address</label>
-                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@yourcompany.com">
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone number</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(713) 487-8445">
-              </div>
-              <div class="form-group">
-                <label for="message">How can we help?</label>
-                <textarea id="message" name="message" placeholder="Tell us about the project"></textarea>
-              </div>
-              <p class="form-note">This form does not send. Call or email instead.</p>
-              <a class="btn btn-full" href="tel:+17134878445">Call (713) 487-8445</a>
-            </form>
-          </div>
+    <section class="address-band">
+      <div class="frame address-inner">
+        <div>
+          <p class="address-kicker">Studio address</p>
+          <address class="street">3323 Upland Spring Trce</address>
+          <p class="city">Katy, Texas 77493</p>
         </div>
-      </div>
-    </section>
-
-    <section class="address-section">
-      <div class="wrap">
-        <span class="section-label">Our location</span>
-        <h2>Katy, Texas</h2>
-        <p class="section-lead">The office address is in Katy. There is no map on this page.</p>
-        <address class="address-block">
-          3323 Upland Spring Trce<br>
-          Katy, Texas 77493
-        </address>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="wrap">
-        <h2>Prefer to talk on the phone?</h2>
-        <p class="section-lead">Skip the form and call. The number is (713) 487-8445.</p>
-        <a class="btn" href="tel:+17134878445">Call (713) 487-8445</a>
+        <a class="btn" href="tel:+17134878445">Call the studio</a>
       </div>
     </section>
   </main>
