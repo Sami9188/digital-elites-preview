@@ -7,7 +7,7 @@
   <meta name="description" content="Help the right customers discover your business through search. Organic SEO for established businesses from The Digital Elites.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js");</script>
   <style>
     :root {
@@ -15,34 +15,55 @@
       --olive: #2f2c23;
       --green: #04EA86;
       --black: #111111;
-      --line: #e4e0d8;
-      --muted: #d8d3c8;
+      --line: #E4E4E4;
+      --white: #fff;
+      --soft: #6a655a;
+      --lede: #5c574c;
+      --deep: #0f7a4a;
+      --tint: rgba(4, 234, 134, 0.12);
+      --mist: #c9c4b8;
     }
     * { box-sizing: border-box; }
     html, body {
       margin: 0;
       background: var(--paper);
       color: var(--olive);
-      font-family: "Inter Tight", sans-serif;
-      font-size: 16px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 15.5px;
       font-weight: 400;
-      line-height: 1.5;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
     html { overflow-x: clip; }
-    body { min-height: 100%; }
+    body { min-height: 100%; overflow-x: clip; }
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
     button, input, textarea { font-family: inherit; }
     h1, h2, h3 {
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+      font-family: Montserrat, sans-serif;
+      text-transform: none;
       text-wrap: balance;
       margin: 0;
+      color: var(--olive);
     }
-    h1, h2 { font-size: 48px; }
-    h3 { font-size: 22px; }
+    h1 {
+      font-weight: 800;
+      font-size: 48px;
+      line-height: 1.07;
+      letter-spacing: -0.03em;
+    }
+    h2 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 16.5px;
+      line-height: 1.35;
+      letter-spacing: -0.016em;
+    }
     p { margin: 0 0 16px; text-transform: none; }
     p:last-child { margin-bottom: 0; }
     :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
@@ -63,12 +84,13 @@
     .logo img { height: 62px; width: auto; }
     .nav { display: contents; }
     .nav a {
+      font-family: "Open Sans", sans-serif;
       font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
       padding: 8px 14px;
-      border-radius: 8px;
+      border-radius: 6px;
     }
     .nav a:hover { background: #C8F8DE; }
     .phone {
@@ -103,8 +125,8 @@
     .nav-toggle { display: none; }
     .nav a.nav-phone { display: none; }
 
-    .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 72px; }
-    .section { padding: 120px 0; }
+    .wrap { width: 100%; max-width: 1276px; margin: 0 auto; padding: 0 28px; }
+    .section { padding: 52px 0; }
     .section-white { background: #fff; }
     .section-olive { background: var(--olive); color: var(--paper); }
     .section-olive h2, .section-olive h3 { color: #fff; }
@@ -114,77 +136,119 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 0 22px;
-      border: 2px solid var(--green);
-      border-radius: 9px;
+      height: 36px;
+      min-height: 36px;
+      padding: 0 15px;
+      border: 1px solid var(--green);
+      border-radius: 6px;
       background: var(--green);
       color: var(--black);
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      line-height: 1.2;
+      font-family: "Open Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      line-height: 1;
       cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     }
     .pill:hover { background: var(--black); color: var(--green); border-color: var(--black); }
+    .pill-lg { height: 48px; min-height: 48px; padding: 0 22px; font-size: 14px; }
     .act {
       display: inline-flex;
       align-items: center;
-      min-height: 48px;
-      margin-top: 28px;
-      font-weight: 700;
+      margin-top: 20px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
       text-decoration: underline;
       text-decoration-color: var(--green);
       text-decoration-thickness: 2px;
-      text-underline-offset: 5px;
+      text-underline-offset: 4px;
     }
     .act:hover { background: #C8F8DE; text-decoration: none; }
     .section-olive .act { color: #fff; }
     .section-olive .act:hover { background: var(--green); color: var(--black); }
-    .fine { color: var(--muted); margin-top: 16px; }
+    .fine { color: var(--soft); margin-top: 12px; font-size: 13px; }
     .kicker {
-      margin: 0 0 12px;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 10px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--deep);
     }
-    .ico { width: 28px; height: 28px; display: block; }
-    .ico-wrap {
+    .kicker::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: 0 0 auto;
+    }
+    .ico { width: 22px; height: 22px; display: block; stroke-linejoin: round; }
+    .sq {
       display: grid;
       place-items: center;
       width: 44px;
       height: 44px;
+      border-radius: 6px;
+      background: var(--tint);
       color: var(--olive);
       flex: 0 0 auto;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .sq .ico { width: 22px; height: 22px; }
+    .chev {
+      width: 15px;
+      height: 15px;
+      flex: 0 0 auto;
+      margin-top: 3px;
+      color: var(--olive);
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .hero-photo { position: relative; min-height: 92vh; display: flex; align-items: flex-end; background: var(--olive); color: var(--paper); }
+    .hero-photo { position: relative; min-height: 640px; display: flex; align-items: flex-end; background: var(--olive); }
     .hero-media { position: absolute; inset: 0; overflow: hidden; }
     .hero-media img { width: 100%; height: 100%; object-fit: cover; }
     .hero-photo .wrap { position: relative; z-index: 1; }
     .hero-card {
-      max-width: 640px;
-      margin: 0 0 56px;
-      padding: 40px 40px 36px;
-      background: var(--olive);
+      max-width: 680px;
+      margin: 0 0 48px;
+      padding: 28px 28px 24px;
+      background: var(--paper);
+      color: var(--olive);
+      border-radius: 10px;
       border-top: 4px solid var(--green);
+      box-shadow: 0 16px 40px rgba(17, 17, 17, 0.18);
     }
-    .hero-card h1 { color: #fff; max-width: 11em; }
-    .hero-card .lede { margin-top: 20px; font-size: 18px; color: #fff; }
-    .hero-card p { max-width: 38em; }
-    .hero-card .pill { margin-top: 28px; }
+    .hero-card h1 { color: var(--olive); max-width: 16em; }
+    .hero-card .lede {
+      margin: 16px 0 0;
+      font-size: 16.5px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--lede);
+    }
+    .hero-card p { max-width: 42em; margin-top: 10px; font-size: 14.5px; color: var(--soft); }
+    .hero-card .lede { color: var(--lede); }
+    .hero-card .pill { margin-top: 22px; }
+    .hero-card .fine { margin-top: 12px; }
 
     .bigimg {
       display: grid;
       grid-template-columns: 1.35fr 0.8fr;
-      gap: 56px;
+      gap: 40px;
       align-items: center;
     }
-    .frame { margin: 0; overflow: hidden; border-radius: 18px; background: var(--line); }
+    .frame { margin: 0; overflow: hidden; border-radius: 10px; background: var(--line); }
     .frame img { width: 100%; height: 100%; object-fit: cover; }
     .frame-tall { aspect-ratio: 4 / 5; }
     .frame-narrow { aspect-ratio: 3 / 4; }
@@ -193,18 +257,22 @@
       padding-top: 16px;
       border-top: 4px solid var(--green);
       font-weight: 600;
+      font-size: 14.5px;
+      color: var(--olive);
     }
+    .bigimg p { color: var(--soft); font-size: 15px; }
+    .bigimg .note-bar { color: var(--olive); }
 
     .split-head {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 40px;
-      align-items: end;
-      margin-bottom: 56px;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 28px;
     }
-    .split-head p { max-width: 36em; }
-    .plain-head { max-width: 740px; margin-bottom: 36px; }
-    .plain-head p { margin-top: 16px; }
+    .split-head p { max-width: 36em; margin: 0; color: var(--soft); font-size: 15px; }
+    .plain-head { max-width: 740px; margin-bottom: 22px; }
+    .plain-head p { margin-top: 16px; color: var(--soft); font-size: 15px; }
 
     .iconrow {
       list-style: none;
@@ -212,11 +280,32 @@
       padding: 0;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
     }
-    .iconrow li { min-width: 0; padding: 0 28px; border-left: 1px solid var(--line); }
-    .iconrow li:first-child { border-left: 0; padding-left: 0; }
-    .iconrow h3 { margin: 18px 0 10px; font-size: 20px; }
-    .iconrow p { margin: 0; }
+    .iconrow li {
+      min-width: 0;
+      padding: 16px 16px 18px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+    .iconrow li:hover {
+      border-color: var(--green);
+      box-shadow: 0 10px 24px rgba(17, 17, 17, 0.08);
+      transform: translateY(-3px);
+    }
+    .iconrow li:hover .sq { background: var(--green); color: var(--black); }
+    .iconrow li:hover .chev { opacity: 1; transform: translateX(0); }
+    .iconrow .sq { margin-bottom: 12px; }
+    .iconrow h3 {
+      display: flex;
+      align-items: flex-start;
+      gap: 5px;
+      margin: 0;
+    }
+    .iconrow h3 span { flex: 1; }
+    .iconrow p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--soft); }
 
     .fold-item { border-top: 1px solid var(--line); }
     .fold-item:last-child { border-bottom: 1px solid var(--line); }
@@ -233,14 +322,15 @@
       text-align: left;
       cursor: pointer;
     }
-    .fold-item button:hover .ico-wrap { transform: translateX(4px); color: var(--green); }
+    .fold-item button:hover .sq { background: var(--green); color: var(--black); }
     .fold-title {
       flex: 1;
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
+      font-family: Montserrat, sans-serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.016em;
+      text-transform: none;
     }
     .fold-mark { width: 28px; height: 28px; position: relative; flex: 0 0 auto; }
     .fold-mark::before, .fold-mark::after {
@@ -258,10 +348,11 @@
     .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
     .fold-item.is-open .fold-panel { grid-template-rows: 1fr; }
     .fold-inner { overflow: hidden; min-height: 0; }
-    .fold-item:has(.ico-wrap) .fold-inner { padding-left: 60px; }
+    .fold-item:has(.sq) .fold-inner { padding-left: 60px; }
+    .fold-inner p { font-size: 14.5px; line-height: 1.6; color: var(--olive); }
     html.js .switch-stage [role="tabpanel"] { display: none; }
     html.js .switch-stage [role="tabpanel"].is-on { display: block; }
-    #included, #measure, #process, #consult, #topics { scroll-margin-top: 120px; }
+    section[id], .close[id] { scroll-margin-top: 112px; }
     .fold-item.is-open .fold-inner { padding-bottom: 22px; }
     .ticks {
       list-style: none;
@@ -271,35 +362,35 @@
       grid-template-columns: 1fr 1fr;
       gap: 10px 28px;
     }
-    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
-    .ticks .ico { width: 18px; height: 18px; margin-top: 3px; color: var(--green); }
+    .ticks li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.45; }
+    .ticks .ico { width: 14px; height: 14px; margin-top: 3px; color: var(--green); flex: 0 0 auto; }
 
     .stick {
       display: grid;
       grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
-      gap: 64px;
+      gap: 40px;
       align-items: start;
     }
     .stick-label { position: sticky; top: 124px; }
-    .stick-label p { margin-top: 16px; }
+    .stick-label p { margin-top: 16px; color: var(--soft); font-size: 15px; }
     .stick-list { list-style: none; margin: 0; padding: 0; }
     .stick-list li {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       align-items: center;
-      min-height: 64px;
+      min-height: 52px;
       border-top: 1px solid var(--line);
-      font-size: 18px;
+      font-size: 15px;
     }
     .stick-list li:last-child { border-bottom: 1px solid var(--line); }
-    .stick-list .ico { color: var(--olive); }
-    .stick-list li:hover .ico { transform: translateX(4px); color: var(--green); }
+    .stick-list .ico { width: 16px; height: 16px; color: var(--olive); }
+    .stick-list li:hover .ico { transform: translateX(3px); color: var(--deep); }
     .after { margin-top: 22px; max-width: 42em; }
 
     .switch {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
-      gap: 48px;
+      gap: 36px;
       align-items: center;
     }
     .switch-nav { display: flex; flex-direction: column; }
@@ -309,29 +400,43 @@
       border: 0;
       border-bottom: 1px solid rgba(246, 244, 239, 0.22);
       color: var(--paper);
-      font-size: 16px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 14.5px;
       font-weight: 600;
       line-height: 1.4;
-      padding: 16px 8px;
-      min-height: 54px;
+      padding: 14px 8px;
+      min-height: 48px;
       cursor: pointer;
     }
     .switch-nav button:hover,
     .switch-nav button[aria-selected="true"] { color: var(--green); }
     .switch-nav button[aria-selected="true"] { padding-left: 14px; }
-    .stage-line { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 400; color: #fff; text-transform: none; max-width: 16em; }
-    .section-olive .after { color: var(--muted); }
+    .stage-line {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-transform: none;
+      max-width: 18em;
+    }
+    .section .wrap > p { color: var(--soft); font-size: 15px; }
+    .section-olive .kicker { color: var(--green); }
+    .section-olive .wrap > p { color: var(--paper); }
+    .section-olive .wrap > p.after { color: var(--mist); }
 
     .statement {
       display: grid;
       grid-template-columns: 0.7fr 1.1fr;
-      gap: 56px;
+      gap: 40px;
       align-items: center;
     }
-    .statement h2 { max-width: 12em; }
-    .statement p { margin-top: 18px; max-width: 36em; }
+    .statement h2 { max-width: 16em; }
+    .statement p { margin-top: 16px; max-width: 38em; color: var(--soft); font-size: 15px; }
 
-    .rail { position: relative; margin-top: 56px; }
+    .rail { position: relative; margin-top: 28px; }
     .rail-track {
       position: absolute;
       left: 0;
@@ -364,46 +469,62 @@
       place-items: center;
       width: 44px;
       height: 44px;
-      border-radius: 50%;
+      border-radius: 6px;
       background: var(--green);
       color: var(--black);
-      border: 2px solid var(--green);
-      font-weight: 800;
+      border: 0;
+      font-family: Montserrat, sans-serif;
+      font-weight: 700;
+      font-size: 14px;
       letter-spacing: -0.02em;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
-    .rail h3 { font-size: 18px; margin-bottom: 8px; }
-    .rail p { margin: 0; color: var(--muted); }
+    .rail h3 { margin: 0 0 8px; color: #fff; }
+    .rail p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--mist); }
 
     .month {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
-      gap: 48px;
-      align-items: center;
+      gap: 40px;
+      align-items: start;
     }
-    .month h2 { max-width: 10em; }
-    .month .copy p { margin-top: 16px; }
-    .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; }
-    .chips li {
-      display: inline-flex;
+    .month h2 { max-width: 14em; }
+    .month .copy p { margin-top: 16px; color: var(--soft); font-size: 15px; }
+    .support {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+    }
+    .support li {
+      display: flex;
       align-items: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 10px 16px;
-      border-radius: 999px;
+      gap: 12px;
+      min-height: 68px;
+      padding: 10px 12px;
+      border-radius: 8px;
       border: 1px solid var(--line);
       background: var(--paper);
+      transition: border-color 0.18s ease, transform 0.18s ease;
     }
-    .chips .ico { width: 18px; height: 18px; color: var(--olive); }
-    .chips li:hover { background: var(--black); color: var(--green); border-color: var(--black); }
-    .chips li:hover .ico { color: var(--green); }
+    .support li > span:last-child {
+      font-family: Montserrat, sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.016em;
+      line-height: 1.35;
+    }
+    .support li:hover { border-color: var(--green); transform: translateY(-3px); }
+    .support li:hover .sq { background: var(--green); color: var(--black); }
 
     .band {
       display: grid;
-      grid-template-columns: 48px minmax(160px, 240px) minmax(0, 1fr);
-      gap: 20px;
+      grid-template-columns: 44px minmax(150px, 220px) minmax(0, 1fr);
+      gap: 16px 20px;
       align-items: center;
-      padding: 26px 8px;
+      padding: 18px 8px;
       border-top: 1px solid var(--line);
     }
     .band:last-child { border-bottom: 1px solid var(--line); }
@@ -411,16 +532,16 @@
       background: var(--olive);
       color: var(--paper);
       border: 0;
-      border-radius: 16px;
-      padding: 32px 28px;
+      border-radius: 10px;
+      padding: 22px 22px;
       margin-bottom: 8px;
     }
-    .band-lead h3 { color: var(--green); }
+    .band-lead h3 { color: #fff; }
+    .band-lead p { color: var(--mist); }
     .band-lead + .band { border-top: 0; }
-    .band p { margin: 0; }
-    .band .ico-wrap { color: var(--olive); transition: transform 0.2s ease; }
-    .band-lead .ico-wrap { color: var(--green); }
-    .band:hover .ico-wrap { transform: translateX(6px); }
+    .band p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--soft); }
+    .band-lead .sq { background: var(--green); color: var(--black); }
+    .band:hover .sq { background: var(--green); color: var(--black); }
 
     .index {
       list-style: none;
@@ -438,33 +559,43 @@
       border-top: 1px solid var(--line);
     }
     .index span {
-      font-size: 28px;
-      font-weight: 800;
+      font-family: Montserrat, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--green);
+      color: var(--deep);
       display: inline-block;
     }
-    .index p { margin: 0; font-size: 18px; }
+    .index p {
+      margin: 0;
+      font-family: Montserrat, sans-serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: -0.016em;
+      line-height: 1.35;
+    }
     .index li:hover span { transform: translateX(4px); }
 
-    .close { background: var(--black); color: #fff; padding: 120px 0; }
-    .close h2 { color: #fff; max-width: 12em; }
-    .close p { max-width: 36em; margin-top: 16px; color: var(--paper); }
-    .close .pill { margin-top: 32px; }
+    .close { background: var(--black); color: #fff; padding: 52px 0; }
+    .close h2 { color: #fff; max-width: 16em; }
+    .close p { max-width: 38em; margin-top: 16px; color: var(--paper); font-size: 15.5px; }
+    .close .fine { color: var(--mist); }
+    .close .pill { margin-top: 22px; }
     .site-foot { background: var(--paper); border-top: 1px solid var(--line); padding: 28px 0; }
     .site-foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-    .site-foot p { margin: 0; font-weight: 700; }
+    .site-foot p { margin: 0; font-weight: 600; font-size: 14px; }
 
     html.motion .reveal { clip-path: inset(8% 8% 8% 8%); }
     html.motion .reveal.is-in { clip-path: inset(0); transition: clip-path 1s ease; }
     html.motion .reveal img { transform: scale(1.06); }
     html.motion .reveal.is-in img { transform: none; transition: transform 1.15s ease; }
     html.motion .frame:hover img { transform: scale(1.05); }
-    html.motion .iconrow .ico-wrap { opacity: 0; transform: translateY(8px); }
-    html.motion .iconrow.is-in .ico-wrap { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
-    html.motion .iconrow.is-in li:nth-child(2) .ico-wrap { transition-delay: 0.08s; }
-    html.motion .iconrow.is-in li:nth-child(3) .ico-wrap { transition-delay: 0.16s; }
-    html.motion .iconrow.is-in li:nth-child(4) .ico-wrap { transition-delay: 0.24s; }
+    html.motion .iconrow .sq { opacity: 0; transform: translateY(8px); }
+    html.motion .iconrow.is-in .sq { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease, background 0.18s ease, color 0.18s ease; }
+    html.motion .iconrow.is-in li:nth-child(2) .sq { transition-delay: 0.08s; }
+    html.motion .iconrow.is-in li:nth-child(3) .sq { transition-delay: 0.16s; }
+    html.motion .iconrow.is-in li:nth-child(4) .sq { transition-delay: 0.24s; }
+    html.motion .iconrow.is-in li:hover .sq { transition-delay: 0s; }
     html.motion .rail:not(.is-in) .rail-bar { transform: scaleX(0); }
     html.motion .rail.is-in .rail-bar { transform: scaleX(1); transition: transform 1.5s cubic-bezier(.2,.7,.2,1); }
     html.motion .rail:not(.is-in) .n { background: var(--olive); color: var(--green); }
@@ -473,7 +604,7 @@
     html.motion .rail.is-in li:nth-child(3) .n { transition-delay: 0.45s; }
     html.motion .rail.is-in li:nth-child(4) .n { transition-delay: 0.65s; }
     html.motion .rail.is-in li:nth-child(5) .n { transition-delay: 0.85s; }
-    .ico-wrap, .index span, .stick-list .ico { transition: transform 0.2s ease, color 0.2s ease; }
+    .sq, .index span, .stick-list .ico { transition: transform 0.2s ease, color 0.2s ease, background 0.18s ease; }
 
     @media (max-width: 1100px) {
       .wrap { padding: 0 32px; }
@@ -481,9 +612,9 @@
       .nav a { padding: 8px; }
       .bigimg, .statement, .month, .switch, .stick, .split-head { grid-template-columns: 1fr; gap: 32px; }
       .stick-label { position: static; }
-      .iconrow { grid-template-columns: 1fr 1fr; gap: 28px 0; }
-      .iconrow li { border-left: 0; padding: 24px 20px 0 0; border-top: 1px solid var(--line); }
-      .iconrow li:nth-child(-n+2) { border-top: 0; padding-top: 0; }
+      .split-head p { margin-top: 16px; }
+      .iconrow { grid-template-columns: 1fr 1fr; }
+      .support { grid-template-columns: 1fr 1fr; }
       .rail ol { grid-template-columns: 1fr; gap: 0; }
       .rail-track { left: 21px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
       .rail-bar { transform: scaleY(1); transform-origin: center top; }
@@ -492,7 +623,8 @@
       .rail li { position: relative; padding: 0 0 28px 64px; }
       .rail .n { position: absolute; left: 0; top: 0; }
       .index { grid-template-columns: 1fr; }
-      .band { grid-template-columns: 48px minmax(0, 1fr); }
+      .band { grid-template-columns: 44px minmax(0, 1fr); }
+      .band .sq { grid-row: 1 / span 2; align-self: center; }
       .band h3 { grid-column: 2; }
       .band p { grid-column: 2; }
     }
@@ -540,15 +672,16 @@
         box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
       }
       .nav.is-open { display: flex; }
-      .nav a { display: block; padding: 14px 12px; font-size: 20px; }
-      h1, h2 { font-size: 32px; }
-      .section, .close { padding: 72px 0; }
+      .nav a { display: block; padding: 14px 12px; font-size: 16px; font-weight: 500; }
+      h1 { font-size: 36px; }
+      h2 { font-size: 26px; }
+      .section, .close { padding: 52px 0; }
       .header > .phone { margin-left: 8px; }
-      .hero-photo { min-height: 0; display: block; }
-      .hero-media { position: relative; height: 240px; }
-      .hero-card { margin: 0; max-width: none; }
-      .fold-title { font-size: 18px; }
-      .stage-line { font-size: 22px; }
+      .hero-photo { min-height: 0; display: block; background: var(--paper); }
+      .hero-media { position: relative; height: 220px; }
+      .hero-card { margin: 0; max-width: none; border-radius: 0; box-shadow: none; padding: 28px 0 4px; }
+      .fold-title { font-size: 16.5px; }
+      .stage-line { font-size: 18px; }
     }
     @media (max-width: 640px) {
       .wrap { padding: 0 20px; }
@@ -568,14 +701,12 @@
         letter-spacing: 0.05em;
         text-transform: none;
       }
-      h1, h2 { font-size: 28px; }
-      .section, .close { padding: 64px 0; }
-      .hero-card { padding: 28px 0 8px; background: transparent; border-top: 0; }
-      .hero-photo { background: var(--olive); }
-      .pill { width: 100%; height: auto; min-height: 54px; padding: 14px 16px; white-space: normal; }
-      .iconrow, .ticks, .index { grid-template-columns: 1fr; }
-      .iconrow li { border-top: 1px solid var(--line); padding: 22px 0 0; }
-      .iconrow li:first-child { border-top: 0; padding-top: 0; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+      .section, .close { padding: 44px 0; }
+      .pill { width: 100%; height: auto; min-height: 36px; padding: 10px 16px; white-space: normal; }
+      .pill-lg { min-height: 48px; }
+      .iconrow, .ticks, .index, .support { grid-template-columns: 1fr; }
       .fold-inner { padding-left: 0; }
       .site-foot .wrap { flex-direction: column; align-items: flex-start; }
       .switch-nav button[aria-selected="true"] { padding-left: 8px; }
@@ -624,10 +755,10 @@
       </div>
       <div class="wrap">
         <div class="hero-card">
-          <h1>Organic SEO Services <span class="accent">for Established Businesses</span></h1>
+          <h1>Organic SEO services for established businesses</h1>
           <p class="lede">Help the right customers discover your business through search.</p>
           <p>Technical optimization, search-focused content, and on-page work, scoped to the services you sell, the people you serve, and the actions you want visitors to take.</p>
-          <a class="pill" href="#consult">Request an SEO Consultation</a>
+          <a class="pill pill-lg" href="#consult">Request an SEO consultation</a>
           <p class="fine">For an existing website, or the search foundations of a new one.</p>
         </div>
       </div>
@@ -639,8 +770,8 @@
           <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&h=1500&q=80" width="1200" height="1500" alt="Placeholder: a person working at a desk, standing in for SEO research">
         </figure>
         <div>
-          <h2>What Are Organic SEO Services?</h2>
-          <p style="margin-top:20px">They improve how your website is accessed, understood, and presented in unpaid search.</p>
+          <h2>What are organic SEO services?</h2>
+          <p style="margin-top:16px">They improve how your website is accessed, understood, and presented in unpaid search.</p>
           <p>Technical SEO, relevant content, on-page optimization, and credible authority signals connect useful pages with searches real customers make.</p>
           <p class="note-bar">Rankings are not paid per click. Visibility still takes analysis, implementation, content, and ongoing review.</p>
           <a class="act" href="#included">See what is included</a>
@@ -648,31 +779,31 @@
       </div>
     </section>
 
-    <section class="section section-white" id="problems">
+    <section class="section" id="problems">
       <div class="wrap">
         <div class="split-head">
-          <h2>Address the Problems Holding Your Website Back</h2>
+          <h2>Address the problems holding your website back</h2>
           <p>The plan follows the site you actually have: technical access, content relevance, and the customer journey.</p>
         </div>
         <ul class="iconrow" data-anim>
           <li>
-            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
-            <h3>Important pages are difficult to find</h3>
+            <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
+            <h3><span>Important pages are difficult to find</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></h3>
             <p>Crawl barriers, weak internal links, or conflicting index signals hide the pages that matter.</p>
           </li>
           <li>
-            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
-            <h3>Traffic does not match your offer</h3>
+            <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <h3><span>Traffic does not match your offer</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></h3>
             <p>Visits arrive from searches with little interest in the services you sell.</p>
           </li>
           <li>
-            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
-            <h3>Service pages leave questions open</h3>
+            <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+            <h3><span>Service pages leave questions open</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></h3>
             <p>Buyers need deliverables, a practical explanation, and relevant proof.</p>
           </li>
           <li>
-            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span>
-            <h3>Performance is difficult to measure</h3>
+            <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span>
+            <h3><span>Performance is difficult to measure</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></h3>
             <p>Visibility alone does not show whether SEO is bringing useful enquiries.</p>
           </li>
         </ul>
@@ -683,12 +814,12 @@
     <section class="section" id="included">
       <div class="wrap">
         <div class="plain-head">
-          <h2>What Our Organic SEO Services Include</h2>
+          <h2>What our organic SEO services include</h2>
           <p>Your proposal names the work. Recommendations depend on the website, the resources you have, and the markets that matter.</p>
         </div>
         <div class="fold" data-fold>
           <div class="fold-item is-open">
-            <h3><button type="button" aria-expanded="true"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span><span class="fold-title">SEO audit and prioritization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="true"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span><span class="fold-title">SEO audit and prioritization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>We review technical condition, existing content, and organic performance, then turn findings into a roadmap: what unblocks access first, and what is longer-term content work.</p>
               <ul class="ticks">
@@ -703,67 +834,67 @@
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg></span><span class="fold-title">Keyword research and search intent</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg></span><span class="fold-title">Keyword research and search intent</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>We study how customers search and what the ranking results imply they expect. Relevance, demand, competition, and commercial intent decide the map.</p>
               <p>Related phrases share a page. Service pages, industry pages, and educational content stay distinct.</p>
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 12h8M16.2 8.2 8.8 11M16.2 15.8 8.8 13"/></svg></span><span class="fold-title">Technical SEO</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 12h8M16.2 8.2 8.8 11M16.2 15.8 8.8 13"/></svg></span><span class="fold-title">Technical SEO</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>Search engines need to access and interpret the site: sitemaps, robots directives, canonicals, redirects, indexability, and architecture. Performance and Core Web Vitals are included where they matter.</p>
               <p>Tasks that belong to your developer or host are agreed before work starts.</p>
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/></svg></span><span class="fold-title">On-page optimization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/></svg></span><span class="fold-title">On-page optimization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>Titles, meta descriptions, headings, image alt text, and internal links that explain the page and guide the visitor. The page should answer the query.</p>
               <p>Keywords stay natural. We do not write to a density target or repeat exact-match phrases.</p>
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/><path d="M13 7l4 4"/></svg></span><span class="fold-title">Content planning and development</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/><path d="M13 7l4 4"/></svg></span><span class="fold-title">Content planning and development</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>We find the questions the site should explain: service-page improvements, articles, FAQs, and industry pages. Each page has a purpose and links to the pages around it.</p>
               <p>Your expertise and approved facts keep the writing specific to the company.</p>
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg></span><span class="fold-title">Authority and link review</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg></span><span class="fold-title">Authority and link review</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>We assess external references and the quality of the backlink profile. Where the proposal includes it, authority work means useful resources, editorial outreach, and relevant industry references.</p>
               <p>We do not promise a ranking count, and purchased link volume is not a stand-in for relevance.</p>
             </div></div>
           </div>
           <div class="fold-item">
-            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span><span class="fold-title">Measurement and reporting</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <h3><button type="button" aria-expanded="false"><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span><span class="fold-title">Measurement and reporting</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
             <div class="fold-panel"><div class="fold-inner">
               <p>Impressions, clicks, landing pages, relevant keyword visibility, and tracked enquiries, with context and a recommended next step.</p>
               <p>Google Search Console and Google Analytics 4 support the review when they are connected.</p>
             </div></div>
           </div>
         </div>
-        <a class="pill" href="#consult" style="margin-top:36px">Discuss Your SEO Requirements</a>
+        <a class="pill" href="#consult" style="margin-top:24px">Discuss your SEO requirements</a>
       </div>
     </section>
 
     <section class="section section-white" id="topics">
       <div class="wrap stick">
         <div class="stick-label">
-          <h2>Build Content Around Topics and Customer Questions</h2>
+          <h2>Build content around topics and customer questions</h2>
           <p>A useful page explains the subject, then the next question a buyer will ask. Related terms support that explanation. They are not a phrase list for search engines.</p>
           <a class="act" href="#measure">See what we measure</a>
         </div>
         <div>
           <ul class="stick-list">
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>What the service includes</span></li>
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0"/></svg><span>Who it is suitable for</span></li>
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 8h5a4 4 0 0 1 4 4v3"/></svg><span>How delivery works</span></li>
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M8 4h8v4H8zM6 8h12v12H6z"/></svg><span>What the client needs to provide</span></li>
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg><span>Which outcomes can be measured</span></li>
-            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h.01"/></svg><span>What limitations affect expectations</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>What the service includes</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0"/></svg><span>Who it is suitable for</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 8h5a4 4 0 0 1 4 4v3"/></svg><span>How delivery works</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M8 4h8v4H8zM6 8h12v12H6z"/></svg><span>What the client needs to provide</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg><span>Which outcomes can be measured</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h.01"/></svg><span>What limitations affect expectations</span></li>
           </ul>
         </div>
       </div>
@@ -771,7 +902,7 @@
 
     <section class="section section-olive" id="measure">
       <div class="wrap">
-        <h2>Measure Progress Beyond Keyword Positions</h2>
+        <h2>Measure progress beyond keyword positions</h2>
         <p style="margin-top:16px;max-width:36em">Rankings are one view of visibility. Choose a measure to see what it actually explains.</p>
         <div class="switch" data-switch style="margin-top:40px">
           <div class="switch-nav" role="tablist" aria-label="SEO measures">
@@ -822,14 +953,14 @@
         <div>
           <h2>Measured SEO results are not shown on this page.</h2>
           <p>A credible example names the starting point, the changes, and the period that was measured. Where a verified project exists, it describes the work without invented performance figures.</p>
-          <a class="pill" href="../work/">View Our Work</a>
+          <a class="pill" href="../work/">View our work</a>
         </div>
       </div>
     </section>
 
     <section class="section section-olive" id="process">
       <div class="wrap">
-        <h2>How Our SEO Engagement Works</h2>
+        <h2>How our SEO engagement works</h2>
         <div class="rail" data-anim>
           <div class="rail-track" aria-hidden="true"><span class="rail-bar"></span></div>
           <ol>
@@ -860,45 +991,45 @@
             </li>
           </ol>
         </div>
-        <a class="pill" href="#consult" style="margin-top:40px">Request an SEO Consultation</a>
+        <a class="pill" href="#consult" style="margin-top:24px">Request an SEO consultation</a>
       </div>
     </section>
 
     <section class="section section-white" id="monthly">
       <div class="wrap month">
         <div class="copy">
-          <h2>Ongoing Monthly SEO Support</h2>
+          <h2>Ongoing monthly SEO support</h2>
           <p>Monthly work suits a business that needs continued implementation, content, and review as the site and the market change.</p>
           <p>The first period may focus on access and foundations. Later periods move into content and further optimization. The scope is whatever the agreement names.</p>
           <a class="act" href="#consult">Discuss a monthly SEO plan</a>
         </div>
-        <ul class="chips">
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.5 1.5M16.9 16.9l1.5 1.5M18.4 5.6 16.9 7.1M7.1 16.9 5.6 18.4"/></svg>Technical checks and agreed fixes</li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>Optimization of priority pages</li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/></svg>Content briefs or production</li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg>Internal linking</li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16v-3M12 16V8M16 16v-5"/></svg>Search performance analysis</li>
-          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Reporting and next steps</li>
+        <ul class="support">
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.5 1.5M16.9 16.9l1.5 1.5M18.4 5.6 16.9 7.1M7.1 16.9 5.6 18.4"/></svg></span><span>Technical checks and agreed fixes</span></li>
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg></span><span>Optimization of priority pages</span></li>
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/></svg></span><span>Content briefs or production</span></li>
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg></span><span>Internal linking</span></li>
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16v-3M12 16V8M16 16v-5"/></svg></span><span>Search performance analysis</span></li>
+          <li><span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span>Reporting and next steps</span></li>
         </ul>
       </div>
     </section>
 
     <section class="section" id="compare">
       <div class="wrap">
-        <h2>Organic SEO, Local SEO, and AI Search</h2>
+        <h2>Organic SEO, local SEO, and AI search</h2>
         <p style="margin:16px 0 32px;max-width:36em">These can overlap. They are not the same job. We recommend the combination that fits your audience.</p>
         <article class="band band-lead">
-          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
+          <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
           <h3>Organic SEO</h3>
           <p>Unpaid visibility through technical improvements, useful content, and on-page optimization.</p>
         </article>
         <article class="band">
-          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2"/></svg></span>
+          <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2"/></svg></span>
           <h3>Local SEO</h3>
           <p>Location searches, your Google Business Profile, and accurate information for the areas you serve.</p>
         </article>
         <article class="band">
-          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></span>
+          <span class="sq"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></span>
           <h3>AI search optimization</h3>
           <p>How clearly your expertise is presented for AI-assisted discovery. It can share foundations with organic SEO. It does not guarantee citations or recommendations.</p>
         </article>
@@ -908,7 +1039,7 @@
 
     <section class="section section-white" id="plan">
       <div class="wrap">
-        <h2>An SEO Plan Built Around Your Business</h2>
+        <h2>An SEO plan built around your business</h2>
         <p style="margin-top:16px;max-width:38em">Priorities should reflect the services you want to sell and the customers you can serve. That keeps the plan on useful work, not a generic checklist.</p>
         <ol class="index">
           <li><span>01</span><p>Your business model and customer journey</p></li>
@@ -924,7 +1055,7 @@
 
     <section class="section" id="faq">
       <div class="wrap">
-        <h2>Frequently Asked Questions</h2>
+        <h2>Frequently asked questions</h2>
         <div class="fold" data-fold style="margin-top:36px">
           <div class="fold-item is-open">
             <h3><button type="button" aria-expanded="true"><span class="fold-title">What does an organic SEO agency do?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
@@ -972,9 +1103,9 @@
 
     <section class="close" id="consult">
       <div class="wrap">
-        <h2>Discuss Your Organic Search Goals</h2>
+        <h2>Discuss your organic search goals</h2>
         <p>Tell us about your website, priority services, and the markets you want to reach. We will review the requirements and talk through a next step.</p>
-        <a class="pill" href="tel:+17134878445">Request an SEO Consultation</a>
+        <a class="pill pill-lg" href="tel:+17134878445">Request an SEO consultation</a>
         <p class="fine">Call (713) 487-8445</p>
       </div>
     </section>
