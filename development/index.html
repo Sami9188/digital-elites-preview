@@ -1,0 +1,1018 @@
+<!-- Service: Development (02). Lead-generation sites, online stores, and web portals. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Digital Elites — Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+      background: #F6F4EF;
+      color: #141414;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    p { text-transform: none; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      height: 100px;
+      flex: 0 0 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+    .logo img {
+      height: 62px;
+      width: auto;
+      display: block;
+    }
+    .nav { display: contents; }
+    .nav a {
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      margin: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.2s ease;
+      flex: 0 0 auto;
+    }
+    .nav a:hover,
+    .nav a[aria-current="page"] {
+      background: #C8F8DE;
+      color: #2f2c23;
+    }
+    .phone {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-self: center;
+      align-items: center;
+      gap: 12px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+      color: #04EA86;
+      background: #111111;
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; width: 18px; height: 18px; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; transform: scale(1); }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      height: 54px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.5;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border: 2px solid #111111;
+    }
+
+    .mast {
+      padding: 72px 72px 0;
+      background: #F6F4EF;
+    }
+    .mast-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    .mast-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+      gap: 48px;
+      align-items: end;
+    }
+    .eyebrow {
+      margin: 0 0 16px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title,
+    .chapter-title {
+      margin: 0;
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .mast-title { max-width: 11em; }
+    .mast-support,
+    .chapter-support,
+    .blurb {
+      margin: 24px 0 0;
+      max-width: 36em;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #2f2c23;
+    }
+    .chapter-support { margin: 16px 0 0; }
+    .mast .pill { margin-top: 28px; }
+
+    .build-index {
+      margin: 0;
+      padding: 0 0 0 22px;
+      list-style: none;
+      border-left: 2px solid #04EA86;
+    }
+    .build-index a {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid #E4E4E4;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .build-index a:hover { color: #111111; }
+    .build-index span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+
+    .chapter {
+      width: 100%;
+      scroll-margin-top: 100px;
+      padding: 96px 72px;
+      background: #F6F4EF;
+    }
+    .chapter-inner {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .lead-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .chrome {
+      min-width: 0;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .chrome-top {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      background: #F6F4EF;
+    }
+    .chrome-top i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #E4E4E4;
+      display: block;
+    }
+    .chrome-top em {
+      margin-left: auto;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2f2c23;
+    }
+    .chrome img {
+      width: 100%;
+      height: auto;
+      background: #E7E4DC;
+    }
+    .chrome-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      border-top: 1px solid #E4E4E4;
+    }
+    .chrome-foot strong {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .chrome-foot span {
+      font-size: 14px;
+      font-weight: 600;
+      color: #2f2c23;
+    }
+    .lead-note {
+      margin: 14px 0 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .receipt {
+      margin-top: 40px;
+      max-width: 760px;
+      background: #fff;
+      border-radius: 12px;
+      padding: 28px 28px 0;
+      border: 1px solid #E4E4E4;
+    }
+    .receipt-kicker {
+      margin: 0 0 18px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .receipt-row {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      padding-bottom: 24px;
+    }
+    .ph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 88px;
+      border-radius: 8px;
+      background: #E7E4DC;
+      color: #2f2c23;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .receipt-row h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .receipt-row p {
+      margin: 6px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      color: #2f2c23;
+    }
+    .qty {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .checkout {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 0 -28px;
+      padding: 18px 28px;
+      border-radius: 0 0 12px 12px;
+      background: #04EA86;
+      color: #111111;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .portal {
+      background: #2f2c23;
+    }
+    .portal .chapter-title,
+    .portal .chapter-support { color: #fff; }
+    .window {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      margin-top: 40px;
+      min-height: 300px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1916;
+    }
+    .rail {
+      margin: 0;
+      padding: 22px 18px;
+      list-style: none;
+      border-right: 1px solid rgba(246, 244, 239, 0.14);
+    }
+    .rail li {
+      padding: 12px 0;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(246, 244, 239, 0.55);
+    }
+    .rail li.on { color: #04EA86; }
+    .pane { padding: 32px 28px; min-width: 0; }
+    .pane-kicker {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .pane h3 {
+      margin: 10px 0 0;
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .slots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+    .slots div {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(246, 244, 239, 0.18);
+      border-radius: 8px;
+    }
+    .slots strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .slots span {
+      display: block;
+      margin-top: 8px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      text-transform: none;
+      color: #fff;
+    }
+
+    .scale-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 56px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .layers { min-width: 0; }
+    .layer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      padding: 18px 20px;
+      border-radius: 10px;
+      background: #111111;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .layer small {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #04EA86;
+    }
+    .layer-portal { margin-left: 16%; background: #2f2c23; }
+    .layer-store { margin-left: 8%; }
+    .layer-lead {
+      margin-left: 0;
+      background: #04EA86;
+      color: #111111;
+    }
+    .layer-lead small { color: #111111; }
+    .platform-base {
+      margin: 4px 0 0;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+
+    .room-map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 40px;
+      border-top: 2px solid #2f2c23;
+    }
+    .room-map article {
+      min-width: 0;
+      padding: 28px 32px 0 0;
+    }
+    .room-map article + article {
+      padding: 28px 0 0 32px;
+      border-left: 1px solid #E4E4E4;
+    }
+    .room-map h3 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .room-map p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+    .room-map ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .room-map li {
+      padding: 8px 0;
+      border-bottom: 1px solid #E4E4E4;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+      position: relative;
+    }
+    .track::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #04EA86;
+    }
+    .station { position: relative; min-width: 0; padding-top: 28px; }
+    .station i {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #04EA86;
+      box-shadow: 0 0 0 4px #F6F4EF;
+    }
+    .station strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .station p {
+      margin: 10px 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .close {
+      background: #111111;
+      padding: 96px 72px 104px;
+    }
+    .close .chapter-title,
+    .close .chapter-support { color: #fff; }
+    .close .chapter-support a {
+      color: #04EA86;
+      font-weight: 700;
+    }
+    .close-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px 28px;
+      margin-top: 32px;
+    }
+    .text-link {
+      display: inline-flex;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .text-link:hover { color: #111111; }
+    .close .text-link {
+      margin-top: 0;
+      color: #04EA86;
+    }
+    .close .text-link:hover { color: #fff; }
+    .close .pill:hover {
+      background: #111111;
+      color: #04EA86;
+      border-color: #04EA86;
+    }
+
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        color: #2f2c23;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar,
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before,
+      .nav-toggle-bar::after {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a {
+        display: block;
+        padding: 14px 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+      .mast { padding: 48px 32px 0; }
+      .mast-title,
+      .chapter-title { font-size: 28px; }
+      .mast-split,
+      .lead-layout,
+      .scale-layout,
+      .room-map { grid-template-columns: 1fr; }
+      .chapter { padding: 64px 32px; }
+      .close { padding: 72px 32px 80px; }
+      .room-map article,
+      .room-map article + article {
+        padding: 24px 0 0;
+        border-left: 0;
+      }
+      .room-map article + article { border-top: 1px solid #E4E4E4; margin-top: 8px; }
+      .track { grid-template-columns: 1fr 1fr; }
+      .track::before { display: none; }
+      .layer-portal { margin-left: 12%; }
+      .layer-store { margin-left: 6%; }
+      .pane h3 { font-size: 26px; }
+    }
+
+    @media (max-width: 640px) {
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.05em;
+        text-transform: none;
+        white-space: nowrap;
+      }
+      .nav.is-open a.nav-phone:hover {
+        background: #111111;
+        color: #04EA86;
+      }
+      .mast { padding: 36px 20px 0; }
+      .chapter { padding: 48px 20px; }
+      .close { padding: 56px 20px 64px; }
+      .window,
+      .slots,
+      .receipt-row,
+      .track { grid-template-columns: 1fr; }
+      .rail {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(246, 244, 239, 0.14);
+        padding: 14px 16px;
+      }
+      .rail li { padding: 4px 0; }
+      .pane { padding: 22px 16px 24px; }
+      .receipt { padding: 20px 20px 0; }
+      .checkout { margin: 0 -20px; padding: 16px 20px; }
+      .chrome-foot { flex-wrap: wrap; }
+      .station p { margin-right: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../homepage-hero-v3.html">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../services/">Services</a>
+      <a href="../homepage-hero-v3.html#work">Work</a>
+      <a href="../homepage-hero-v3.html#industries">Industries</a>
+      <a href="../homepage-hero-v3.html#about">About</a>
+      <a href="../homepage-hero-v3.html#contact">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <section class="mast" id="mast" aria-labelledby="mast-title">
+    <div class="mast-inner">
+      <div class="mast-split">
+        <div>
+          <p class="eyebrow">02 · Development</p>
+          <h1 class="mast-title" id="mast-title">Sites, stores, and portals.</h1>
+          <p class="mast-support">Lead-generation sites, online stores, and web portals, built as a platform that can scale.</p>
+          <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        </div>
+        <ol class="build-index" aria-label="What development covers">
+          <li><a href="#lead"><span>01</span>Lead site</a></li>
+          <li><a href="#store"><span>02</span>Online store</a></li>
+          <li><a href="#portal"><span>03</span>Web portal</a></li>
+          <li><a href="#scale"><span>04</span>The platform</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="lead" aria-labelledby="lead-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="lead-title">The page that collects the lead.</h2>
+      <p class="chapter-support">A lead-generation site puts the offer, the phone number, and the way to book on one page, so a patient or a customer can ask for the visit or the job.</p>
+      <div class="lead-layout">
+        <figure class="chrome">
+          <div class="chrome-top" aria-hidden="true">
+            <i></i><i></i><i></i>
+            <em>Bright Approach</em>
+          </div>
+          <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website">
+          <figcaption class="chrome-foot">
+            <strong>Bright Approach</strong>
+            <span>Dr. Emily Carter, ChiroWellness Clinic</span>
+          </figcaption>
+        </figure>
+        <div>
+          <p class="blurb">This is the site shown with Development on the homepage. The page is the example of a lead site: the practice is named, and the next step is on the screen.</p>
+          <p class="lead-note">The same kind of page is built for a clinic or a home-service company. The phone on this studio’s own pages is (713) 487-8445.</p>
+          <a class="text-link" href="../services/">All six services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="store" aria-labelledby="store-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="store-title">The store they can buy from.</h2>
+      <p class="chapter-support">An online store lists what the business sells and gives the customer a way to check out. One product is enough to show the shape. The picture below is a stand-in.</p>
+      <div class="receipt" aria-hidden="true">
+        <p class="receipt-kicker">Online store</p>
+        <div class="receipt-row">
+          <div class="ph">Placeholder</div>
+          <div>
+            <h3>The product</h3>
+            <p>The item the business sells, with a way to add it.</p>
+          </div>
+          <span class="qty">Qty 1</span>
+        </div>
+        <div class="checkout"><span>Checkout</span><span>The order</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter portal" id="portal" aria-labelledby="portal-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="portal-title">The place they sign in to.</h2>
+      <p class="chapter-support">A web portal is the signed-in place for the next visit or the next job. The clinic keeps the appointment there. The home-service company keeps the job there.</p>
+      <div class="window" aria-hidden="true">
+        <ul class="rail">
+          <li class="on">Account</li>
+          <li>Visit</li>
+          <li>Job</li>
+        </ul>
+        <div class="pane">
+          <p class="pane-kicker">Web portal</p>
+          <h3>Signed in</h3>
+          <div class="slots">
+            <div>
+              <strong>Next visit</strong>
+              <span>The appointment a patient comes back for.</span>
+            </div>
+            <div>
+              <strong>Next job</strong>
+              <span>The work a customer asks the company to do.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="scale" aria-labelledby="scale-title">
+    <div class="chapter-inner">
+      <div class="scale-layout">
+        <div>
+          <h2 class="chapter-title" id="scale-title">Built as a platform that can scale.</h2>
+          <p class="chapter-support">The lead site, the store, and the portal share one platform. A clinic can start with the page that books a visit and add the portal when patients need a place to sign in. A home-service company can start with the page that takes the job and add the store when there is something to sell.</p>
+        </div>
+        <div class="layers" aria-hidden="true">
+          <div class="layer layer-portal"><span>Web portal</span><small>03</small></div>
+          <div class="layer layer-store"><span>Online store</span><small>02</small></div>
+          <div class="layer layer-lead"><span>Lead site</span><small>01</small></div>
+          <p class="platform-base">One platform</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="rooms" aria-labelledby="rooms-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="rooms-title">Clinics and home services.</h2>
+      <p class="chapter-support">Chiropractic, orthodontics, and dental practices in Katy, and home-service companies booking jobs across the U.S.</p>
+      <div class="room-map">
+        <article>
+          <h3>Clinics</h3>
+          <p>The site is where a patient finds the practice and asks for a visit. The portal is where that patient comes back.</p>
+          <ul>
+            <li>Chiropractic</li>
+            <li>Orthodontics</li>
+            <li>Dental</li>
+          </ul>
+        </article>
+        <article>
+          <h3>Home services</h3>
+          <p>The site is where a customer asks for the job. The store is there when the company sells a product along with the work.</p>
+          <ul>
+            <li>Home services</li>
+            <li>Jobs across the U.S.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="build" aria-labelledby="build-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="build-title">How a build moves.</h2>
+      <p class="chapter-support">Four steps. Timing follows the size of the job, whether that job is a lead site, a store, or a portal.</p>
+      <div class="track">
+        <article class="station">
+          <i aria-hidden="true"></i>
+          <strong>Requirements</strong>
+          <p>What the site, the store, or the portal has to do for the business.</p>
+        </article>
+        <article class="station">
+          <i aria-hidden="true"></i>
+          <strong>Architecture</strong>
+          <p>The structure of the platform, set before the screens are built.</p>
+        </article>
+        <article class="station">
+          <i aria-hidden="true"></i>
+          <strong>Front end</strong>
+          <p>The screens a patient or a customer uses to book, buy, or sign in.</p>
+        </article>
+        <article class="station">
+          <i aria-hidden="true"></i>
+          <strong>Back end</strong>
+          <p>Where the lead, the order, or the account is kept.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter close" id="proposal" aria-labelledby="close-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="close-title">Build the platform.</h2>
+      <p class="chapter-support">A proposal for a clinic or a home-service company. <a href="tel:+17134878445">Call (713) 487-8445</a>. Design shapes the screens. Video tells the story once the site is up.</p>
+      <div class="close-actions">
+        <a class="pill" href="../homepage-hero-v3.html#proposal">Get your free proposal</a>
+        <a class="text-link" href="../services/">All six services</a>
+        <a class="text-link" href="../design/">Open design</a>
+        <a class="text-link" href="../video/">Open video</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43;
+            d[i + 1] = 0x3f;
+            d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+  </script>
+</body>
+</html>
