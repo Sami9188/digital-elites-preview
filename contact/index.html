@@ -136,13 +136,13 @@
     .pill:hover, .pill:focus-visible {
       background: var(--ink);
       color: var(--green);
-      border-color: var(--ink);
+      border-color: var(--green);
       transform: translateY(-2px);
       box-shadow: 0 10px 24px rgba(0,0,0,.14);
     }
     .pill:active { transform: translateY(0); box-shadow: none; }
     .pill-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
-    .pill-outline:hover, .pill-outline:focus-visible { background: var(--ink); color: var(--green); }
+    .pill-outline:hover, .pill-outline:focus-visible { background: var(--ink); color: var(--green); border-color: var(--green); }
     .pill-light { background: transparent; color: #fff; border-color: #fff; }
     .pill-light:hover, .pill-light:focus-visible { background: #fff; color: var(--ink); border-color: #fff; }
     .pill-sm { height: 48px; padding: 0 18px; font-size: 15px; }
@@ -278,6 +278,7 @@
       gap: 10px;
       height: 48px;
       padding: 0 18px;
+      border: 2px solid var(--green);
       border-radius: 9px;
       background: var(--ink);
       color: var(--green);
@@ -287,9 +288,9 @@
       letter-spacing: 0.05em;
       text-decoration: none;
       white-space: nowrap;
-      transition: background .2s ease, color .2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
-    .header-phone:hover { background: var(--green); color: var(--ink); }
+    .header-phone:hover { background: var(--green); color: var(--ink); border-color: var(--green); }
     .bubble {
       display: inline-grid;
       place-items: center;
