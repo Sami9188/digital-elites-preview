@@ -1,544 +1,243 @@
-<!-- Contact. Call the studio. No form. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Digital Elites — Contact</title>
+  <title>Contact us — The Digital Elites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-      background: #F6F4EF;
-      color: #141414;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      letter-spacing: normal;
-      -webkit-font-smoothing: antialiased;
+    html {
+      background: #FFFFFF;
+      color: #1A1A1A;
+      -webkit-text-size-adjust: 100%;
     }
     body {
+      margin: 0;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: 0;
     }
     img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    p, li, dd { text-transform: none; }
-    ul { margin: 0; padding: 0; list-style: none; }
+    a { color: #1A1A1A; }
+    a:focus-visible {
+      outline: 2px solid #1A1A1A;
+      outline-offset: 3px;
+    }
 
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 9999;
-      width: 100%;
-      height: 100px;
-      flex: 0 0 100px;
+    .site-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      background: #F6F4EF;
-      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+      gap: 24px;
+      padding: 20px 40px;
+      background: #FFFFFF;
+      border-bottom: 1px solid #E6E6E6;
     }
     .logo { display: flex; align-items: center; flex: 0 0 auto; }
-    .logo img { height: 62px; width: auto; display: block; }
-    .nav { display: contents; }
-    .nav a {
-      font-family: "Inter Tight", sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      line-height: 1.5;
-      text-transform: uppercase;
-      color: #2f2c23;
-      margin: 0;
-      padding: 8px 8px;
-      border-radius: 8px;
-      background: transparent;
-      transition: background 0.2s ease;
-      flex: 0 0 auto;
-      white-space: nowrap;
-    }
-    .nav a:hover,
-    .nav a[aria-current="page"] {
-      background: #C8F8DE;
-      color: #2f2c23;
-    }
-    .phone {
-      display: inline-flex;
-      flex: 0 0 auto;
-      align-self: center;
-      align-items: center;
-      gap: 12px;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      line-height: 1.5;
-      color: #04EA86;
-      background: #111111;
-      border: 0;
-      border-radius: 999px;
-      padding: 10px 20px 10px 10px;
-      white-space: nowrap;
-    }
-    .phone-bubble {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #04EA86;
-      transform-origin: center;
-      animation: phone-pulse 1.6s ease-in-out infinite;
-    }
-    .phone svg { display: block; width: 18px; height: 18px; }
-    @keyframes phone-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .phone-bubble { animation: none; transform: scale(1); }
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      height: 54px;
-      border: 2px solid #04EA86;
-      border-radius: 9px;
-      background: #04EA86;
-      color: #111111;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      line-height: 1.5;
-      white-space: nowrap;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-    .pill:hover {
-      background: #111111;
-      color: #04EA86;
-      border: 2px solid #111111;
-    }
-
-    .eyebrow {
-      margin: 0 0 16px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      line-height: 1.5;
-      text-transform: uppercase;
-      color: #2f2c23;
-    }
-    .chapter-title {
-      margin: 0;
-      font-size: 48px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: #2f2c23;
-    }
-    .chapter-support {
-      margin: 20px 0 0;
-      max-width: 38em;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      letter-spacing: normal;
-      text-transform: none;
-      color: #2f2c23;
-    }
-    .wrap {
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-
-    .open { padding: 72px 72px 28px; }
-    .open .pill { margin-top: 28px; }
-
-    .prep { padding: 36px 72px 72px; }
-    .prep-list { margin-top: 36px; }
-    .prep-list li {
-      display: grid;
-      grid-template-columns: 56px minmax(0, 1fr);
-      gap: 20px;
-      align-items: start;
-      padding: 22px 0;
-      border-top: 1px solid #2f2c23;
-    }
-    .prep-list li:last-child { border-bottom: 1px solid #2f2c23; }
-    .prep-list span {
+    .logo img { height: 48px; width: auto; display: block; }
+    .header-actions {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #04EA86;
-      color: #111111;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0;
+      gap: 32px;
     }
-    .prep-list p {
-      margin: 8px 0 0;
-      font-size: 16px;
+    .nav a {
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #1A1A1A;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+    .header-phone {
+      font-size: 18px;
       font-weight: 400;
-      line-height: 1.5;
-      text-transform: none;
-      color: #2f2c23;
+      line-height: 1.4;
+      color: #1A1A1A;
+      text-decoration: none;
     }
-    .prep-list h3 {
-      margin: 6px 0 0;
-      font-size: 22px;
-      font-weight: 800;
+    .header-phone:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+    .main {
+      width: min(680px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 80px 0 96px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 46px;
+      font-weight: 600;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: #2f2c23;
+      color: #1A1A1A;
     }
-
-    .reach {
-      background: #2f2c23;
-      color: #fff;
-      padding: 80px 72px;
-    }
-    .reach .chapter-title { color: #fff; }
-    .reach .chapter-support { color: #fff; }
-    .reach-list { margin-top: 40px; }
-    .reach-list a,
-    .reach-list .place {
-      display: grid;
-      grid-template-columns: 160px minmax(0, 1fr);
-      gap: 24px;
-      align-items: baseline;
-      padding: 26px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-    .reach-list a:last-child,
-    .reach-list .place { border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
-    .reach-list a:hover { color: #04EA86; }
-    .reach-list .k {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #04EA86;
-    }
-    .reach-list .v {
-      margin: 0;
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      text-transform: none;
-      color: inherit;
-    }
-
-    .close {
-      background: #04EA86;
-      padding: 96px 72px 104px;
-    }
-    .close .chapter-title { color: #111111; max-width: 10em; }
-    .close .note {
-      margin: 20px 0 0;
-      max-width: 28em;
-      font-size: 16px;
+    .lede {
+      margin: 16px 0 0;
+      max-width: 36em;
+      font-size: 18px;
       font-weight: 400;
-      line-height: 1.5;
-      text-transform: none;
-      color: #111111;
+      line-height: 1.6;
+      color: #1A1A1A;
     }
-    .dial {
-      display: block;
-      margin-top: 36px;
-      font-size: clamp(36px, 6.4vw, 88px);
-      font-weight: 800;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      text-transform: none;
-      color: #111111;
-      word-break: keep-all;
+    .rows {
+      margin: 40px 0 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid #E6E6E6;
     }
-    .dial:hover { color: #2f2c23; }
-    .bubble-row {
+    .row {
       display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid #E6E6E6;
+    }
+    .icon {
+      flex: 0 0 24px;
+      width: 24px;
+      height: 24px;
+      margin-top: 2px;
+      color: #1A1A1A;
+    }
+    .icon svg { display: block; width: 22px; height: 22px; }
+    .label {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #3D3D3D;
+    }
+    .value {
+      margin: 2px 0 0;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #1A1A1A;
+      overflow-wrap: break-word;
+    }
+    .value a {
+      color: #1A1A1A;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .call {
+      display: inline-flex;
       align-items: center;
-      gap: 22px;
-      margin-top: 28px;
+      justify-content: center;
+      min-height: 48px;
+      margin-top: 36px;
+      padding: 12px 22px;
+      background: #04EA86;
+      color: #111111;
+      border: 1px solid #04EA86;
+      border-radius: 4px;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 0;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     }
-    .bubble-row .phone-bubble { width: 72px; height: 72px; }
-    .bubble-row .phone-bubble svg { width: 32px; height: 32px; }
-
-    .nav-toggle { display: none; }
-    .nav a.nav-phone { display: none; }
-
-    @media (max-width: 1100px) {
-      .nav a { padding: 8px 6px; letter-spacing: 0.01em; }
+    .call:hover,
+    .call:focus-visible {
+      background: #000000;
+      color: #04EA86;
+      border-color: #000000;
     }
 
-    @media (max-width: 900px) {
-      .nav-toggle {
-        display: inline-flex;
+    @media (max-width: 700px) {
+      .site-header {
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        margin: 0 0 0 auto;
-        padding: 0;
-        border: 0;
-        border-radius: 8px;
-        background: transparent;
-        color: #2f2c23;
-        cursor: pointer;
+        gap: 8px 16px;
+        padding: 16px 20px;
       }
-      .nav-toggle:hover { background: #C8F8DE; }
-      .nav-toggle-bar,
-      .nav-toggle-bar::before,
-      .nav-toggle-bar::after {
-        display: block;
-        width: 20px;
-        height: 2px;
-        border-radius: 2px;
-        background: #2f2c23;
-        position: relative;
+      .logo img { height: 40px; }
+      .header-actions {
+        flex: 1 1 auto;
+        justify-content: flex-end;
+        gap: 20px;
       }
-      .nav-toggle-bar::before,
-      .nav-toggle-bar::after {
-        content: "";
-        position: absolute;
-        left: 0;
+      .main {
+        width: min(680px, calc(100% - 40px));
+        padding: 48px 0 72px;
       }
-      .nav-toggle-bar::before { top: -6px; }
-      .nav-toggle-bar::after { top: 6px; }
-      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
-      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
-      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
-      .header { padding: 0 16px; }
-      .logo img { height: 48px; }
-      .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 8px 12px 16px;
-        background: #F6F4EF;
-        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      h1 { font-size: 40px; }
+      .call {
+        width: 100%;
+        min-height: 52px;
       }
-      .nav.is-open { display: flex; }
-      .nav a {
-        display: block;
-        padding: 14px 12px;
-        font-size: 20px;
-        font-weight: 600;
-        line-height: 1.5;
-        letter-spacing: 0.02em;
-      }
-      .open { padding: 48px 32px 16px; }
-      .prep { padding: 24px 32px 56px; }
-      .reach { padding: 64px 32px; }
-      .close { padding: 72px 32px 80px; }
-      .chapter-title { font-size: 28px; }
-      .reach-list .v { font-size: 22px; }
-    }
-
-    @media (max-width: 640px) {
-      .header > .phone { display: none; }
-      .nav.is-open a.nav-phone {
-        display: inline-flex;
-        align-items: center;
-        align-self: flex-start;
-        gap: 12px;
-        margin: 8px 8px 4px;
-        padding: 10px 18px 10px 10px;
-        border-radius: 999px;
-        background: #111111;
-        color: #04EA86;
-        font-size: 14px;
-        font-weight: 700;
-        line-height: 1.5;
-        letter-spacing: 0.05em;
-        text-transform: none;
-        white-space: nowrap;
-      }
-      .nav.is-open a.nav-phone:hover {
-        background: #111111;
-        color: #04EA86;
-      }
-      .open { padding: 36px 20px 8px; }
-      .prep { padding: 20px 20px 48px; }
-      .reach { padding: 56px 20px; }
-      .close { padding: 56px 20px 64px; }
-      .reach-list a,
-      .reach-list .place { grid-template-columns: 1fr; gap: 6px; }
-      .pill { white-space: normal; text-align: center; }
-      .bubble-row .phone-bubble { width: 56px; height: 56px; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <a class="logo" href="../homepage-hero-v3.html">
-      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+  <header class="site-header">
+    <a class="logo" href="https://thedigitalelites.com/">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites" width="1600" height="540">
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-      <span class="nav-toggle-bar"></span>
-    </button>
-    <nav class="nav" id="site-nav">
-      <a href="../services/">Services</a>
-      <a href="../design/">Design</a>
-      <a href="../development/">Development</a>
-      <a href="../service/">Marketing</a>
-      <a href="../video/">Video</a>
-      <a href="../writing/">Writing</a>
-      <a href="../consultation/">Consultation</a>
-      <a href="../work/">Work</a>
-      <a href="../industries/">Industries</a>
-      <a href="../about/">About</a>
-      <a href="./" aria-current="page">Contact</a>
-      <a class="nav-phone" href="tel:+17134878445">
-        <span class="phone-bubble">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-        </span>
-        (713) 487-8445
-      </a>
-    </nav>
-    <a class="phone" href="tel:+17134878445">
-      <span class="phone-bubble">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-      </span>
-      (713) 487-8445
-    </a>
+    <div class="header-actions">
+      <nav class="nav" aria-label="Primary">
+        <a href="#contact" aria-current="page">Contact</a>
+      </nav>
+      <a class="header-phone" href="tel:+17134878445">(713) 487-8445</a>
+    </div>
   </header>
 
-  <section class="open" id="open" aria-labelledby="open-title">
-    <div class="wrap">
-      <p class="eyebrow">Contact</p>
-      <h1 class="chapter-title" id="open-title">Call the studio.</h1>
-      <p class="chapter-support">A proposal for a clinic or a home-service company. This page does not send a message. Call, and say what the business needs.</p>
-      <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
-    </div>
-  </section>
+  <main class="main" id="contact">
+    <h1>Contact us</h1>
+    <p class="lede">Call, email, or write.</p>
 
-  <section class="prep" id="prep" aria-labelledby="prep-title">
-    <div class="wrap">
-      <h2 class="chapter-title" id="prep-title">What to have in mind.</h2>
-      <p class="chapter-support">The first step is a look at the business and what should be built, before a campaign goes live.</p>
-      <ol class="prep-list">
-        <li>
-          <span>1</span>
-          <div>
-            <h3>The business</h3>
-            <p>A clinic or a home-service company. Chiropractic, orthodontics, dental, or home services, in Katy or across the U.S.</p>
-          </div>
-        </li>
-        <li>
-          <span>2</span>
-          <div>
-            <h3>The place</h3>
-            <p>The town, or the service area the calls should come from. The studio itself is in Katy, Texas.</p>
-          </div>
-        </li>
-        <li>
-          <span>3</span>
-          <div>
-            <h3>The work</h3>
-            <p>Design, development, marketing, video, writing, or consultation. Websites, ads, and content for the business. The six are on the <a href="../services/">services</a> page.</p>
-          </div>
-        </li>
-        <li>
-          <span>4</span>
-          <div>
-            <h3>What booked means</h3>
-            <p>The next new patient, or the next job. The studio will not promise a ranking, a review count, or a result on a clock.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="reach" id="reach" aria-labelledby="reach-title">
-    <div class="wrap">
-      <h2 class="chapter-title" id="reach-title">How to reach the studio.</h2>
-      <p class="chapter-support">Phone, email, and the Katy address published on thedigitalelites.com.</p>
-      <div class="reach-list">
-        <a href="tel:+17134878445">
-          <span class="k">Phone</span>
-          <p class="v">(713) 487-8445</p>
-        </a>
-        <a href="mailto:hi@thedigitalelites.com">
-          <span class="k">Email</span>
-          <p class="v">hi@thedigitalelites.com</p>
-        </a>
-        <div class="place">
-          <span class="k">Studio</span>
-          <p class="v">3323 Upland Spring Trce, Katy, Texas 77493</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="close" id="close" aria-labelledby="close-title">
-    <div class="wrap">
-      <h2 class="chapter-title" id="close-title">Ready when you are.</h2>
-      <p class="note">There is no form on this page. Call the studio.</p>
-      <div class="bubble-row">
-        <span class="phone-bubble" aria-hidden="true">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <ul class="rows">
+      <li class="row">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
         </span>
-        <a class="dial" href="tel:+17134878445">(713) 487-8445</a>
-      </div>
-    </div>
-  </section>
+        <div>
+          <p class="label">Phone</p>
+          <p class="value"><a href="tel:+17134878445">(713) 487-8445</a></p>
+        </div>
+      </li>
+      <li class="row">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <path d="m3 7 9 6 9-6"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Email</p>
+          <p class="value"><a href="mailto:hi@thedigitalelites.com">hi@thedigitalelites.com</a></p>
+        </div>
+      </li>
+      <li class="row">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/>
+            <circle cx="12" cy="10" r="2.25"/>
+          </svg>
+        </span>
+        <div>
+          <p class="label">Address</p>
+          <p class="value">3323 Upland Spring Trce, Katy, Texas 77493</p>
+        </div>
+      </li>
+    </ul>
 
-  <script>
-    (function () {
-      var btn = document.querySelector(".nav-toggle");
-      var nav = document.getElementById("site-nav");
-      if (!btn || !nav) return;
-      function setOpen(open) {
-        nav.classList.toggle("is-open", open);
-        btn.setAttribute("aria-expanded", open ? "true" : "false");
-        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      }
-      btn.addEventListener("click", function () {
-        setOpen(btn.getAttribute("aria-expanded") !== "true");
-      });
-      nav.addEventListener("click", function (e) {
-        if (e.target.closest("a")) setOpen(false);
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") setOpen(false);
-      });
-    })();
-  </script>
+    <a class="call" href="tel:+17134878445">Call (713) 487-8445</a>
+  </main>
+
   <script>
     (function () {
       function paint(img) {
@@ -552,9 +251,7 @@
         var d = frame.data;
         for (var i = 0; i < d.length; i += 4) {
           if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
-            d[i] = 0x43;
-            d[i + 1] = 0x3f;
-            d[i + 2] = 0x34;
+            d[i] = 0x43; d[i + 1] = 0x3f; d[i + 2] = 0x34;
           }
         }
         ctx.putImageData(frame, 0, 0);
