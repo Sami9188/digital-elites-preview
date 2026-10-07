@@ -208,32 +208,57 @@
       transition: opacity 0.18s ease, transform 0.18s ease;
     }
 
-    .hero-photo { position: relative; min-height: 640px; display: flex; align-items: flex-end; background: var(--olive); }
-    .hero-media { position: absolute; inset: 0; overflow: hidden; }
-    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-photo .wrap { position: relative; z-index: 1; }
-    .hero-card {
-      max-width: 680px;
-      margin: 0 0 48px;
-      padding: 28px 28px 24px;
-      background: var(--paper);
-      color: var(--olive);
-      border-radius: 10px;
-      border-top: 4px solid var(--green);
-      box-shadow: 0 16px 40px rgba(17, 17, 17, 0.18);
+    .hero { background: #FFFFFF; color: #1A1A1A; padding: 72px 0 80px; }
+    .hero-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 64px;
+      align-items: center;
     }
-    .hero-card h1 { color: var(--olive); max-width: 16em; }
-    .hero-card .lede {
+    .hero-copy { min-width: 0; }
+    .hero-eyebrow {
+      display: inline-block;
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #1A1A1A;
+    }
+    .hero-copy h1 {
+      max-width: min(11em, 100%);
+      color: #1A1A1A;
+      font-weight: 700;
+      font-size: 48px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .hero-copy p {
+      max-width: min(34em, 100%);
       margin: 16px 0 0;
       font-size: 16px;
-      font-weight: 400;
       line-height: 1.5;
-      color: var(--lede);
+      color: #1A1A1A;
     }
-    .hero-card p { max-width: 42em; margin-top: 10px; font-size: 16px; line-height: 1.5; color: var(--soft); }
-    .hero-card .lede { color: var(--lede); }
-    .hero-card .pill { margin-top: 22px; }
-    .hero-card .fine { margin-top: 12px; }
+    .hero-copy .hero-eyebrow { margin: 0 0 20px; }
+    .hero-copy .pill { margin-top: 28px; }
+    .hero-visual {
+      margin: 0;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #1A1A1A;
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      object-position: 28% 42%;
+    }
 
     .bigimg {
       display: grid;
@@ -663,9 +688,10 @@
       h1, h2 { font-size: 36px; }
       .section, .close { padding: 52px 0; }
       .header > .phone { margin-left: 8px; }
-      .hero-photo { min-height: 0; display: block; background: var(--paper); }
-      .hero-media { position: relative; height: 220px; }
-      .hero-card { margin: 0; max-width: none; border-radius: 0; box-shadow: none; padding: 28px 0 4px; }
+      .hero { padding: 40px 0 48px; }
+      .hero-split { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      .hero-copy h1 { font-size: 36px; max-width: 100%; }
+      .hero-visual img { aspect-ratio: 16 / 10; object-position: center 40%; }
     }
     @media (max-width: 640px) {
       .wrap { padding: 0 20px; }
@@ -686,6 +712,7 @@
         text-transform: none;
       }
       h1, h2 { font-size: 32px; }
+      .hero-copy h1 { font-size: 32px; }
       .section, .close { padding: 44px 0; }
       .pill { width: 100%; height: auto; min-height: 36px; padding: 10px 16px; white-space: normal; }
       .pill-lg { min-height: 48px; }
@@ -696,6 +723,8 @@
     }
     @media (max-width: 390px) {
       h1, h2 { font-size: 28px; }
+      .hero { padding: 32px 0 40px; }
+      .hero-copy h1 { font-size: 28px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -735,18 +764,18 @@
   </header>
 
   <main>
-    <section class="hero-photo" id="top">
-      <div class="hero-media reveal" data-anim>
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&h=1200&q=80" width="2000" height="1200" alt="Placeholder: a laptop with charts, standing in for search analysis">
-      </div>
-      <div class="wrap">
-        <div class="hero-card">
+    <section class="hero" id="top">
+      <div class="wrap hero-split">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">Organic SEO</p>
           <h1>Organic SEO services for established businesses</h1>
-          <p class="lede">Help the right customers discover your business through search.</p>
+          <p>Help the right customers discover your business through search.</p>
           <p>Technical optimization, search-focused content, and on-page work, scoped to the services you sell, the people you serve, and the actions you want visitors to take.</p>
-          <a class="pill pill-lg" href="#consult">Request an SEO consultation</a>
-          <p class="fine">For an existing website, or the search foundations of a new one.</p>
+          <a class="pill pill-lg" href="#consult">Discuss your organic search goals</a>
         </div>
+        <figure class="hero-visual reveal" data-anim>
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&h=1750&q=80" width="1400" height="1750" alt="Placeholder: a laptop with charts, standing in for search analysis">
+        </figure>
       </div>
     </section>
 
