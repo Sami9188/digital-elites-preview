@@ -8,32 +8,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
   <style>
+    :root {
+      --paper: #F6F4EF;
+      --olive: #2f2c23;
+      --green: #04EA86;
+      --black: #111111;
+      --line: #e4e0d8;
+      --muted: #d8d3c8;
+    }
     * { box-sizing: border-box; }
     html, body {
       margin: 0;
-      background: #F6F4EF;
-      color: #2f2c23;
+      background: var(--paper);
+      color: var(--olive);
       font-family: "Inter Tight", sans-serif;
       font-size: 16px;
       font-weight: 400;
       line-height: 1.5;
-      overflow-x: hidden;
     }
+    html { overflow-x: clip; }
     body { min-height: 100%; }
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
+    button, input, textarea { font-family: inherit; }
     h1, h2, h3 {
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
       text-transform: uppercase;
       text-wrap: balance;
+      margin: 0;
     }
-    h1, h2 { font-size: 48px; margin: 0; }
-    h3 { font-size: 22px; margin: 0 0 12px; }
-    p { margin: 0 0 16px; }
+    h1, h2 { font-size: 48px; }
+    h3 { font-size: 22px; }
+    p { margin: 0 0 16px; text-transform: none; }
     p:last-child { margin-bottom: 0; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
 
     .header {
       position: sticky;
@@ -44,19 +56,17 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 40px;
-      background: #F6F4EF;
+      background: var(--paper);
       box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
     }
     .logo { display: flex; align-items: center; flex: 0 0 auto; }
-    .logo img { height: 62px; width: auto; display: block; }
+    .logo img { height: 62px; width: auto; }
     .nav { display: contents; }
     .nav a {
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.02em;
-      line-height: 1.5;
       text-transform: uppercase;
-      color: #2f2c23;
       padding: 8px 14px;
       border-radius: 8px;
     }
@@ -68,8 +78,8 @@
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.05em;
-      color: #04EA86;
-      background: #111111;
+      color: var(--green);
+      background: var(--black);
       border-radius: 999px;
       padding: 10px 20px 10px 10px;
       white-space: nowrap;
@@ -81,7 +91,7 @@
       width: 32px;
       height: 32px;
       border-radius: 50%;
-      background: #04EA86;
+      background: var(--green);
       transform-origin: center;
       animation: phone-pulse 1.6s ease-in-out infinite;
     }
@@ -93,50 +103,23 @@
     .nav-toggle { display: none; }
     .nav a.nav-phone { display: none; }
 
-    .wrap {
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 72px;
-    }
-    .hero {
-      background: #2f2c23;
-      color: #F6F4EF;
-      padding: 104px 0 112px;
-      text-align: center;
-    }
-    .hero h1 { color: #fff; max-width: 16em; margin: 0 auto; }
-    .hero .accent { color: #04EA86; }
-    .hero p { max-width: 680px; margin: 16px auto 0; color: #F6F4EF; }
-    .hero .lede { margin-top: 28px; }
-    .hero .note { color: #d8d3c8; }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 36px;
-    }
-    .section { padding: 96px 0; position: relative; }
+    .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 72px; }
+    .section { padding: 120px 0; }
     .section-white { background: #fff; }
-    .section-olive { background: #2f2c23; color: #F6F4EF; }
+    .section-olive { background: var(--olive); color: var(--paper); }
     .section-olive h2, .section-olive h3 { color: #fff; }
-    .section-header { text-align: center; margin: 0 auto 64px; max-width: 920px; }
-    .section-header p { margin: 16px auto 0; max-width: 720px; }
-    .section-action { display: flex; justify-content: center; margin-top: 48px; }
+    .accent { color: var(--green); }
 
     .pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 54px;
-      height: 54px;
       padding: 0 22px;
-      border: 2px solid #04EA86;
+      border: 2px solid var(--green);
       border-radius: 9px;
-      background: #04EA86;
-      color: #111111;
-      font-family: inherit;
+      background: var(--green);
+      color: var(--black);
       font-size: 16px;
       font-weight: 700;
       letter-spacing: 0.05em;
@@ -145,208 +128,373 @@
       cursor: pointer;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
-    .pill:hover { background: #111111; color: #04EA86; border-color: #111111; }
-    .pill-outline {
-      background: transparent;
-      color: #F6F4EF;
-      border-color: #F6F4EF;
-    }
-    .pill-outline:hover { background: #04EA86; color: #111111; border-color: #04EA86; }
-    .pill-on-light {
-      background: transparent;
-      color: #111111;
-      border-color: #111111;
-    }
-    .pill-on-light:hover { background: #111111; color: #04EA86; border-color: #111111; }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .callout {
-      background: #fff;
-      color: #2f2c23;
-      border-radius: 16px;
-      padding: 32px;
-      border-top: 4px solid #04EA86;
-    }
-    .section-white .callout { background: #F6F4EF; }
-    .offers { display: grid; gap: 24px; }
-    .offers-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .offers-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .span-2 { grid-column: 1 / -1; }
-    .offer {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-width: 0;
-    }
-    .section-white .offer { background: #F6F4EF; }
-    .offer h3 { font-size: 20px; }
-    .offer p { margin: 0; }
-    .checks {
-      list-style: none;
-      margin: 20px 0 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 32px;
-    }
-    .checks li {
-      position: relative;
-      padding-left: 28px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    .checks li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.45em;
-      width: 12px;
-      height: 7px;
-      border-left: 2px solid #2f2c23;
-      border-bottom: 2px solid #2f2c23;
-      transform: rotate(-45deg);
-    }
-    .checks-1 { grid-template-columns: 1fr; max-width: 640px; }
-    .sheet {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .section-white .sheet { background: #F6F4EF; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td {
-      text-align: left;
-      padding: 18px 22px;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      vertical-align: top;
-    }
-    th {
-      background: #2f2c23;
-      color: #F6F4EF;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    tr + tr td { border-top: 1px solid #e4e0d8; }
-    .after-note { margin-top: 20px; max-width: 820px; }
-    .steps { list-style: none; margin: 0; padding: 0; }
-    .steps li {
-      display: grid;
-      grid-template-columns: 72px minmax(0, 1fr);
-      gap: 20px;
-      padding: 28px 0;
-      border-top: 1px solid rgba(246, 244, 239, 0.22);
-    }
-    .steps li:last-child { border-bottom: 1px solid rgba(246, 244, 239, 0.22); }
-    .num {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: #04EA86;
-    }
-    .compare {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .compare article {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-width: 0;
-    }
-    .compare .lead {
-      background: #2f2c23;
-      color: #F6F4EF;
-      border: 0;
-    }
-    .compare .lead h3 { color: #04EA86; }
-    .link-row { margin-top: 28px; }
-    a.inline {
+    .pill:hover { background: var(--black); color: var(--green); border-color: var(--black); }
+    .act {
+      display: inline-flex;
+      align-items: center;
+      min-height: 48px;
+      margin-top: 28px;
       font-weight: 700;
       text-decoration: underline;
-      text-decoration-color: #04EA86;
+      text-decoration-color: var(--green);
       text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
+      text-underline-offset: 5px;
     }
-    .faq-list { border-bottom: 1px solid #e4e0d8; }
-    .faq-item { border-top: 1px solid #e4e0d8; }
-    .faq-item button {
+    .act:hover { background: #C8F8DE; text-decoration: none; }
+    .section-olive .act { color: #fff; }
+    .section-olive .act:hover { background: var(--green); color: var(--black); }
+    .fine { color: var(--muted); margin-top: 16px; }
+    .kicker {
+      margin: 0 0 12px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+    .ico { width: 28px; height: 28px; display: block; }
+    .ico-wrap {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      color: var(--olive);
+      flex: 0 0 auto;
+    }
+
+    .hero-photo { position: relative; min-height: 92vh; display: flex; align-items: flex-end; background: var(--olive); color: var(--paper); }
+    .hero-media { position: absolute; inset: 0; overflow: hidden; }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo .wrap { position: relative; z-index: 1; }
+    .hero-card {
+      max-width: 640px;
+      margin: 0 0 56px;
+      padding: 40px 40px 36px;
+      background: var(--olive);
+      border-top: 4px solid var(--green);
+    }
+    .hero-card h1 { color: #fff; max-width: 11em; }
+    .hero-card .lede { margin-top: 20px; font-size: 18px; color: #fff; }
+    .hero-card p { max-width: 38em; }
+    .hero-card .pill { margin-top: 28px; }
+
+    .bigimg {
+      display: grid;
+      grid-template-columns: 1.35fr 0.8fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .frame { margin: 0; overflow: hidden; border-radius: 18px; background: var(--line); }
+    .frame img { width: 100%; height: 100%; object-fit: cover; }
+    .frame-tall { aspect-ratio: 4 / 5; }
+    .frame-narrow { aspect-ratio: 3 / 4; }
+    .note-bar {
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 4px solid var(--green);
+      font-weight: 600;
+    }
+
+    .split-head {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .split-head p { max-width: 36em; }
+    .plain-head { max-width: 740px; margin-bottom: 36px; }
+    .plain-head p { margin-top: 16px; }
+
+    .iconrow {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .iconrow li { min-width: 0; padding: 0 28px; border-left: 1px solid var(--line); }
+    .iconrow li:first-child { border-left: 0; padding-left: 0; }
+    .iconrow h3 { margin: 18px 0 10px; font-size: 20px; }
+    .iconrow p { margin: 0; }
+
+    .fold-item { border-top: 1px solid var(--line); }
+    .fold-item:last-child { border-bottom: 1px solid var(--line); }
+    .fold-item button {
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin: 0;
-      padding: 22px 0;
+      gap: 16px;
+      min-height: 76px;
+      padding: 16px 0;
       border: 0;
       background: transparent;
-      color: #2f2c23;
-      font-family: inherit;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+    .fold-item button:hover .ico-wrap { transform: translateX(4px); color: var(--green); }
+    .fold-title {
+      flex: 1;
       font-size: 22px;
       font-weight: 800;
       line-height: 1.1;
       letter-spacing: -0.02em;
       text-transform: uppercase;
-      text-align: left;
-      cursor: pointer;
     }
-    .faq-mark { flex: 0 0 auto; width: 28px; height: 28px; position: relative; }
-    .faq-mark::before, .faq-mark::after {
+    .fold-mark { width: 28px; height: 28px; position: relative; flex: 0 0 auto; }
+    .fold-mark::before, .fold-mark::after {
       content: "";
       position: absolute;
       left: 4px;
       right: 4px;
       top: 13px;
       height: 2px;
-      background: #2f2c23;
+      background: var(--olive);
     }
-    .faq-mark::after { transform: rotate(90deg); }
-    .faq-item.is-open .faq-mark::after { display: none; }
-    .faq-item.is-open .faq-mark::before { background: #04EA86; }
-    .faq-a { display: none; max-width: 760px; padding: 0 48px 22px 0; }
-    .faq-item.is-open .faq-a { display: block; }
-    .close {
-      background: #111111;
-      color: #fff;
-      text-align: center;
-      padding: 96px 0 104px;
+    .fold-mark::after { transform: rotate(90deg); }
+    .fold-item.is-open .fold-mark::after { display: none; }
+    .fold-item.is-open .fold-mark::before { background: var(--green); }
+    .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+    .fold-item.is-open .fold-panel { grid-template-rows: 1fr; }
+    .fold-inner { overflow: hidden; min-height: 0; }
+    .fold-item:has(.ico-wrap) .fold-inner { padding-left: 60px; }
+    html.js .switch-stage [role="tabpanel"] { display: none; }
+    html.js .switch-stage [role="tabpanel"].is-on { display: block; }
+    #included, #measure, #process, #consult, #topics { scroll-margin-top: 120px; }
+    .fold-item.is-open .fold-inner { padding-bottom: 22px; }
+    .ticks {
+      list-style: none;
+      margin: 8px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 28px;
     }
-    .close h2 { color: #fff; max-width: 16em; margin: 0 auto; }
-    .close p { max-width: 640px; margin: 16px auto 0; color: #F6F4EF; }
-    .site-foot {
-      background: #F6F4EF;
-      border-top: 1px solid #e4e0d8;
-      padding: 28px 0;
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks .ico { width: 18px; height: 18px; margin-top: 3px; color: var(--green); }
+
+    .stick {
+      display: grid;
+      grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
+      gap: 64px;
+      align-items: start;
     }
-    .site-foot .wrap {
+    .stick-label { position: sticky; top: 124px; }
+    .stick-label p { margin-top: 16px; }
+    .stick-list { list-style: none; margin: 0; padding: 0; }
+    .stick-list li {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       gap: 16px;
+      align-items: center;
+      min-height: 64px;
+      border-top: 1px solid var(--line);
+      font-size: 18px;
     }
+    .stick-list li:last-child { border-bottom: 1px solid var(--line); }
+    .stick-list .ico { color: var(--olive); }
+    .stick-list li:hover .ico { transform: translateX(4px); color: var(--green); }
+    .after { margin-top: 22px; max-width: 42em; }
+
+    .switch {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .switch-nav { display: flex; flex-direction: column; }
+    .switch-nav button {
+      text-align: left;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(246, 244, 239, 0.22);
+      color: var(--paper);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      padding: 16px 8px;
+      min-height: 54px;
+      cursor: pointer;
+    }
+    .switch-nav button:hover,
+    .switch-nav button[aria-selected="true"] { color: var(--green); }
+    .switch-nav button[aria-selected="true"] { padding-left: 14px; }
+    .stage-line { margin: 0; font-size: 28px; line-height: 1.3; font-weight: 400; color: #fff; text-transform: none; max-width: 16em; }
+    .section-olive .after { color: var(--muted); }
+
+    .statement {
+      display: grid;
+      grid-template-columns: 0.7fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .statement h2 { max-width: 12em; }
+    .statement p { margin-top: 18px; max-width: 36em; }
+
+    .rail { position: relative; margin-top: 56px; }
+    .rail-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 21px;
+      height: 2px;
+      background: rgba(246, 244, 239, 0.22);
+      z-index: 0;
+    }
+    .rail-bar {
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: var(--green);
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+    .rail ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .rail .n {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--black);
+      border: 2px solid var(--green);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .rail h3 { font-size: 18px; margin-bottom: 8px; }
+    .rail p { margin: 0; color: var(--muted); }
+
+    .month {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .month h2 { max-width: 10em; }
+    .month .copy p { margin-top: 16px; }
+    .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 12px; margin: 0; padding: 0; }
+    .chips li {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .chips .ico { width: 18px; height: 18px; color: var(--olive); }
+    .chips li:hover { background: var(--black); color: var(--green); border-color: var(--black); }
+    .chips li:hover .ico { color: var(--green); }
+
+    .band {
+      display: grid;
+      grid-template-columns: 48px minmax(160px, 240px) minmax(0, 1fr);
+      gap: 20px;
+      align-items: center;
+      padding: 26px 8px;
+      border-top: 1px solid var(--line);
+    }
+    .band:last-child { border-bottom: 1px solid var(--line); }
+    .band-lead {
+      background: var(--olive);
+      color: var(--paper);
+      border: 0;
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin-bottom: 8px;
+    }
+    .band-lead h3 { color: var(--green); }
+    .band-lead + .band { border-top: 0; }
+    .band p { margin: 0; }
+    .band .ico-wrap { color: var(--olive); transition: transform 0.2s ease; }
+    .band-lead .ico-wrap { color: var(--green); }
+    .band:hover .ico-wrap { transform: translateX(6px); }
+
+    .index {
+      list-style: none;
+      margin: 28px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .index li {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+      padding: 22px 32px 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .index span {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--green);
+      display: inline-block;
+    }
+    .index p { margin: 0; font-size: 18px; }
+    .index li:hover span { transform: translateX(4px); }
+
+    .close { background: var(--black); color: #fff; padding: 120px 0; }
+    .close h2 { color: #fff; max-width: 12em; }
+    .close p { max-width: 36em; margin-top: 16px; color: var(--paper); }
+    .close .pill { margin-top: 32px; }
+    .site-foot { background: var(--paper); border-top: 1px solid var(--line); padding: 28px 0; }
+    .site-foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .site-foot p { margin: 0; font-weight: 700; }
-    :focus-visible { outline: 2px solid #04EA86; outline-offset: 3px; }
+
+    html.motion .reveal { clip-path: inset(8% 8% 8% 8%); }
+    html.motion .reveal.is-in { clip-path: inset(0); transition: clip-path 1s ease; }
+    html.motion .reveal img { transform: scale(1.06); }
+    html.motion .reveal.is-in img { transform: none; transition: transform 1.15s ease; }
+    html.motion .frame:hover img { transform: scale(1.05); }
+    html.motion .iconrow .ico-wrap { opacity: 0; transform: translateY(8px); }
+    html.motion .iconrow.is-in .ico-wrap { opacity: 1; transform: none; transition: opacity 0.5s ease, transform 0.5s ease; }
+    html.motion .iconrow.is-in li:nth-child(2) .ico-wrap { transition-delay: 0.08s; }
+    html.motion .iconrow.is-in li:nth-child(3) .ico-wrap { transition-delay: 0.16s; }
+    html.motion .iconrow.is-in li:nth-child(4) .ico-wrap { transition-delay: 0.24s; }
+    html.motion .rail:not(.is-in) .rail-bar { transform: scaleX(0); }
+    html.motion .rail.is-in .rail-bar { transform: scaleX(1); transition: transform 1.5s cubic-bezier(.2,.7,.2,1); }
+    html.motion .rail:not(.is-in) .n { background: var(--olive); color: var(--green); }
+    html.motion .rail.is-in .n { background: var(--green); color: var(--black); transition: background 0.35s ease, color 0.35s ease; }
+    html.motion .rail.is-in li:nth-child(2) .n { transition-delay: 0.25s; }
+    html.motion .rail.is-in li:nth-child(3) .n { transition-delay: 0.45s; }
+    html.motion .rail.is-in li:nth-child(4) .n { transition-delay: 0.65s; }
+    html.motion .rail.is-in li:nth-child(5) .n { transition-delay: 0.85s; }
+    .ico-wrap, .index span, .stick-list .ico { transition: transform 0.2s ease, color 0.2s ease; }
 
     @media (max-width: 1100px) {
       .wrap { padding: 0 32px; }
-      .offers-4 { grid-template-columns: 1fr 1fr; }
-      .compare { grid-template-columns: 1fr; }
       .header { padding: 0 24px; }
-      .nav a { padding: 8px 8px; }
+      .nav a { padding: 8px; }
+      .bigimg, .statement, .month, .switch, .stick, .split-head { grid-template-columns: 1fr; gap: 32px; }
+      .stick-label { position: static; }
+      .iconrow { grid-template-columns: 1fr 1fr; gap: 28px 0; }
+      .iconrow li { border-left: 0; padding: 24px 20px 0 0; border-top: 1px solid var(--line); }
+      .iconrow li:nth-child(-n+2) { border-top: 0; padding-top: 0; }
+      .rail ol { grid-template-columns: 1fr; gap: 0; }
+      .rail-track { left: 21px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+      .rail-bar { transform: scaleY(1); transform-origin: center top; }
+      html.motion .rail:not(.is-in) .rail-bar { transform: scaleY(0); }
+      html.motion .rail.is-in .rail-bar { transform: scaleY(1); }
+      .rail li { position: relative; padding: 0 0 28px 64px; }
+      .rail .n { position: absolute; left: 0; top: 0; }
+      .index { grid-template-columns: 1fr; }
+      .band { grid-template-columns: 48px minmax(0, 1fr); }
+      .band h3 { grid-column: 2; }
+      .band p { grid-column: 2; }
     }
     @media (max-width: 900px) {
       .nav-toggle {
@@ -368,7 +516,7 @@
         width: 20px;
         height: 2px;
         border-radius: 2px;
-        background: #2f2c23;
+        background: var(--olive);
         position: relative;
       }
       .nav-toggle-bar::before, .nav-toggle-bar::after { content: ""; position: absolute; left: 0; }
@@ -388,35 +536,19 @@
         flex-direction: column;
         align-items: stretch;
         padding: 8px 12px 16px;
-        background: #F6F4EF;
+        background: var(--paper);
         box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
       }
       .nav.is-open { display: flex; }
       .nav a { display: block; padding: 14px 12px; font-size: 20px; }
       h1, h2 { font-size: 32px; }
-      .section { padding: 72px 0; }
-      .section-header { margin-bottom: 40px; }
-      .hero { padding: 72px 0; }
-      .close { padding: 72px 0; }
+      .section, .close { padding: 72px 0; }
       .header > .phone { margin-left: 8px; }
-      .faq-item button { font-size: 18px; }
-    }
-    @media (max-width: 700px) {
-      .split, .offers-2, .offers-4, .checks { grid-template-columns: 1fr; }
-      .span-2 { grid-column: auto; }
-      table, thead, tbody, tr, th, td { display: block; width: 100%; }
-      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-      td { border-top: 0; padding: 14px 18px; }
-      tr { border-top: 1px solid #e4e0d8; }
-      td::before {
-        content: attr(data-label);
-        display: block;
-        margin-bottom: 4px;
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
+      .hero-photo { min-height: 0; display: block; }
+      .hero-media { position: relative; height: 240px; }
+      .hero-card { margin: 0; max-width: none; }
+      .fold-title { font-size: 18px; }
+      .stage-line { font-size: 22px; }
     }
     @media (max-width: 640px) {
       .wrap { padding: 0 20px; }
@@ -429,31 +561,37 @@
         margin: 8px 8px 4px;
         padding: 10px 18px 10px 10px;
         border-radius: 999px;
-        background: #111111;
-        color: #04EA86;
+        background: var(--black);
+        color: var(--green);
         font-size: 14px;
         font-weight: 700;
         letter-spacing: 0.05em;
         text-transform: none;
       }
       h1, h2 { font-size: 28px; }
-      .section { padding: 56px 0; }
-      .hero { padding: 56px 0 64px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .pill, .section-action .pill, .close .pill { width: 100%; height: auto; min-height: 54px; padding: 14px 16px; white-space: normal; }
-      .steps li { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
+      .section, .close { padding: 64px 0; }
+      .hero-card { padding: 28px 0 8px; background: transparent; border-top: 0; }
+      .hero-photo { background: var(--olive); }
+      .pill { width: 100%; height: auto; min-height: 54px; padding: 14px 16px; white-space: normal; }
+      .iconrow, .ticks, .index { grid-template-columns: 1fr; }
+      .iconrow li { border-top: 1px solid var(--line); padding: 22px 0 0; }
+      .iconrow li:first-child { border-top: 0; padding-top: 0; }
+      .fold-inner { padding-left: 0; }
       .site-foot .wrap { flex-direction: column; align-items: flex-start; }
-      .faq-a { padding-right: 0; }
+      .switch-nav button[aria-selected="true"] { padding-left: 8px; }
     }
     @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
       .phone-bubble { animation: none; }
-      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after { transition: none; }
     }
   </style>
 </head>
 <body>
   <header class="header">
-    <a class="logo" href="../">
+    <a class="logo" href="../homepage-hero-v3.html">
       <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
@@ -480,404 +618,353 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero-photo" id="top">
+      <div class="hero-media reveal" data-anim>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2000&h=1200&q=80" width="2000" height="1200" alt="Placeholder: a laptop with charts, standing in for search analysis">
+      </div>
       <div class="wrap">
-        <h1>Organic SEO Services<br><span class="accent">for Established Businesses</span></h1>
-        <p class="lede">Help the right customers discover your business through search.</p>
-        <p>The Digital Elites is an organic SEO agency offering technical optimization, search-focused content and on-page improvements. We build your SEO scope around the services you sell, your target audience and the actions you want visitors to take.</p>
-        <p>Whether you need to improve an existing website or establish the search foundations for a new one, we identify priorities and turn them into a practical delivery plan.</p>
-        <div class="hero-actions">
+        <div class="hero-card">
+          <h1>Organic SEO Services <span class="accent">for Established Businesses</span></h1>
+          <p class="lede">Help the right customers discover your business through search.</p>
+          <p>Technical optimization, search-focused content, and on-page work, scoped to the services you sell, the people you serve, and the actions you want visitors to take.</p>
           <a class="pill" href="#consult">Request an SEO Consultation</a>
-          <a class="pill pill-outline" href="../work/">View Our Work</a>
+          <p class="fine">For an existing website, or the search foundations of a new one.</p>
         </div>
-        <p class="note">Discuss your website, target markets and current search challenges.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-header">
+    <section class="section" id="what">
+      <div class="wrap bigimg">
+        <figure class="frame frame-tall reveal" data-anim>
+          <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&h=1500&q=80" width="1200" height="1500" alt="Placeholder: a person working at a desk, standing in for SEO research">
+        </figure>
+        <div>
           <h2>What Are Organic SEO Services?</h2>
-        </div>
-        <div class="split">
-          <div>
-            <p>Organic SEO services improve how your website is accessed, understood and presented in unpaid search results.</p>
-            <p>The work combines technical SEO, relevant content, on-page optimization and credible authority signals. The objective is to connect useful website pages with searches made by potential customers.</p>
-          </div>
-          <aside class="callout">
-            <p>Organic rankings do not involve paying for each click. However, achieving and maintaining visibility requires investment in analysis, implementation, content and ongoing review.</p>
-          </aside>
+          <p style="margin-top:20px">They improve how your website is accessed, understood, and presented in unpaid search.</p>
+          <p>Technical SEO, relevant content, on-page optimization, and credible authority signals connect useful pages with searches real customers make.</p>
+          <p class="note-bar">Rankings are not paid per click. Visibility still takes analysis, implementation, content, and ongoing review.</p>
+          <a class="act" href="#included">See what is included</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-white">
+    <section class="section section-white" id="problems">
       <div class="wrap">
-        <div class="section-header">
+        <div class="split-head">
           <h2>Address the Problems Holding Your Website Back</h2>
-          <p>An SEO plan should respond to your website’s actual condition. We examine the relationship between technical access, content relevance and the customer journey before recommending work.</p>
+          <p>The plan follows the site you actually have: technical access, content relevance, and the customer journey.</p>
         </div>
-        <div class="offers offers-4">
-          <article class="offer">
-            <h3>Important Pages Are Difficult to Find</h3>
-            <p>Crawl barriers, weak internal links or conflicting indexing signals can make important pages harder for search engines to discover and process.</p>
-          </article>
-          <article class="offer">
-            <h3>Traffic Does Not Match Your Offer</h3>
-            <p>Pages may attract searches that bring visitors with little interest in your services. Keyword research and search intent analysis help align content with relevant customer needs.</p>
-          </article>
-          <article class="offer">
-            <h3>Service Pages Leave Buying Questions Unanswered</h3>
-            <p>Visitors need more than a service name. Clear deliverables, practical explanations and relevant proof help them evaluate your business.</p>
-          </article>
-          <article class="offer">
-            <h3>Performance Is Difficult to Measure</h3>
-            <p>Search visibility alone does not explain business value. Tracking enquiries and collecting sales feedback help connect SEO activity with customer acquisition.</p>
-          </article>
-        </div>
+        <ul class="iconrow" data-anim>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
+            <h3>Important pages are difficult to find</h3>
+            <p>Crawl barriers, weak internal links, or conflicting index signals hide the pages that matter.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span>
+            <h3>Traffic does not match your offer</h3>
+            <p>Visits arrive from searches with little interest in the services you sell.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+            <h3>Service pages leave questions open</h3>
+            <p>Buyers need deliverables, a practical explanation, and relevant proof.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span>
+            <h3>Performance is difficult to measure</h3>
+            <p>Visibility alone does not show whether SEO is bringing useful enquiries.</p>
+          </li>
+        </ul>
+        <a class="act" href="#included">See how the work responds</a>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="included">
       <div class="wrap">
-        <div class="section-header">
+        <div class="plain-head">
           <h2>What Our Organic SEO Services Include</h2>
-          <p>Your proposal defines the work included in your engagement. Recommendations depend on your website, available resources and market priorities.</p>
+          <p>Your proposal names the work. Recommendations depend on the website, the resources you have, and the markets that matter.</p>
         </div>
-        <div class="offers offers-2">
-          <article class="offer span-2">
-            <h3>SEO Audit and Prioritization</h3>
-            <p>We review your website’s technical condition, existing content and organic search performance to identify issues and opportunities.</p>
-            <p style="margin-top:16px">The audit can examine:</p>
-            <ul class="checks">
-              <li>Crawlability and indexing signals</li>
-              <li>Website structure and internal links</li>
-              <li>Page titles, headings and content relevance</li>
-              <li>Duplicate pages and canonical tags</li>
-              <li>Broken links and redirects</li>
-              <li>Mobile usability and page performance</li>
-              <li>Existing keyword visibility and landing-page traffic</li>
-            </ul>
-            <p style="margin-top:16px">Findings become a prioritized roadmap, distinguishing fixes that unblock access from longer-term content and optimization work.</p>
-          </article>
-          <article class="offer">
-            <h3>Keyword Research and Search Intent</h3>
-            <p>We investigate how potential customers search for your services and what the ranking results suggest they expect to find.</p>
-            <p style="margin-top:16px">Research considers relevance, search demand, competition and commercial intent. We map related keyword groups to appropriate pages rather than creating a separate page for every phrase.</p>
-            <p style="margin-top:16px">The result is a clearer distinction between service pages, industry pages and educational content.</p>
-          </article>
-          <article class="offer">
-            <h3>Technical SEO</h3>
-            <p>Technical SEO helps search engines access and interpret your website.</p>
-            <p style="margin-top:16px">Depending on the platform and identified issues, work can include XML sitemaps, robots directives, canonicalization, redirects, indexability and site architecture. Performance recommendations may address loading behaviour and Core Web Vitals where relevant.</p>
-            <p style="margin-top:16px">Implementation responsibilities are agreed in advance, including tasks that require your developer or hosting provider.</p>
-          </article>
-          <article class="offer">
-            <h3>On-Page Optimization</h3>
-            <p>We improve page elements that explain your content and guide visitors.</p>
-            <p style="margin-top:16px">Work can include descriptive title tags, meta descriptions, headings, image alternative text and internal links. Content recommendations focus on answering the intended query and making the page useful to prospective customers.</p>
-            <p style="margin-top:16px">Keywords are used naturally. Fixed keyword density targets and repeated exact-match phrases do not guide our writing.</p>
-          </article>
-          <article class="offer">
-            <h3>Content Planning and Development</h3>
-            <p>We identify the questions and topics your website needs to explain more clearly.</p>
-            <p style="margin-top:16px">Depending on scope, deliverables may include service-page improvements, articles, FAQs and supporting industry content. Each page has a defined purpose and connects with relevant pages elsewhere on the website.</p>
-            <p style="margin-top:16px">Your expertise, examples and approved business information help make content specific to your company.</p>
-          </article>
-          <article class="offer">
-            <h3>Authority and Link Review</h3>
-            <p>We assess relevant external references and the quality of your existing backlink profile.</p>
-            <p style="margin-top:16px">Where included, authority-building work may involve useful resources, editorial outreach and relevant business or industry references. The approach and deliverables are defined in your proposal.</p>
-            <p style="margin-top:16px">We do not promise a fixed number of rankings or treat purchased link volume as a substitute for credible relevance.</p>
-          </article>
-          <article class="offer">
-            <h3>Measurement and Reporting</h3>
-            <p>We review organic search performance using available analytics and search data.</p>
-            <p style="margin-top:16px">Reporting can include search impressions, clicks, landing-page performance, relevant keyword visibility and tracked enquiries. Findings are accompanied by context and recommended next actions.</p>
-            <p style="margin-top:16px">Where configured, Google Search Console and Google Analytics 4 support this analysis.</p>
-          </article>
+        <div class="fold" data-fold>
+          <div class="fold-item is-open">
+            <h3><button type="button" aria-expanded="true"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span><span class="fold-title">SEO audit and prioritization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>We review technical condition, existing content, and organic performance, then turn findings into a roadmap: what unblocks access first, and what is longer-term content work.</p>
+              <ul class="ticks">
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Crawlability and indexing signals</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Structure and internal links</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Titles, headings, and relevance</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Duplicates and canonical tags</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Broken links and redirects</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Mobile use and page performance</span></li>
+                <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Keyword visibility and landing-page traffic</span></li>
+              </ul>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg></span><span class="fold-title">Keyword research and search intent</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>We study how customers search and what the ranking results imply they expect. Relevance, demand, competition, and commercial intent decide the map.</p>
+              <p>Related phrases share a page. Service pages, industry pages, and educational content stay distinct.</p>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="12" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 12h8M16.2 8.2 8.8 11M16.2 15.8 8.8 13"/></svg></span><span class="fold-title">Technical SEO</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>Search engines need to access and interpret the site: sitemaps, robots directives, canonicals, redirects, indexability, and architecture. Performance and Core Web Vitals are included where they matter.</p>
+              <p>Tasks that belong to your developer or host are agreed before work starts.</p>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v6h6"/></svg></span><span class="fold-title">On-page optimization</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>Titles, meta descriptions, headings, image alt text, and internal links that explain the page and guide the visitor. The page should answer the query.</p>
+              <p>Keywords stay natural. We do not write to a density target or repeat exact-match phrases.</p>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/><path d="M13 7l4 4"/></svg></span><span class="fold-title">Content planning and development</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>We find the questions the site should explain: service-page improvements, articles, FAQs, and industry pages. Each page has a purpose and links to the pages around it.</p>
+              <p>Your expertise and approved facts keep the writing specific to the company.</p>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg></span><span class="fold-title">Authority and link review</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>We assess external references and the quality of the backlink profile. Where the proposal includes it, authority work means useful resources, editorial outreach, and relevant industry references.</p>
+              <p>We do not promise a ranking count, and purchased link volume is not a stand-in for relevance.</p>
+            </div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg></span><span class="fold-title">Measurement and reporting</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner">
+              <p>Impressions, clicks, landing pages, relevant keyword visibility, and tracked enquiries, with context and a recommended next step.</p>
+              <p>Google Search Console and Google Analytics 4 support the review when they are connected.</p>
+            </div></div>
+          </div>
         </div>
-        <div class="section-action">
-          <a class="pill" href="#consult">Discuss Your SEO Requirements</a>
-        </div>
+        <a class="pill" href="#consult" style="margin-top:36px">Discuss Your SEO Requirements</a>
       </div>
     </section>
 
-    <section class="section section-white">
-      <div class="wrap">
-        <div class="section-header">
+    <section class="section section-white" id="topics">
+      <div class="wrap stick">
+        <div class="stick-label">
           <h2>Build Content Around Topics and Customer Questions</h2>
-          <p>A useful SEO page explains the subject fully enough for the intended audience. It connects the main topic with related concepts, practical details and the next questions a buyer is likely to ask.</p>
+          <p>A useful page explains the subject, then the next question a buyer will ask. Related terms support that explanation. They are not a phrase list for search engines.</p>
+          <a class="act" href="#measure">See what we measure</a>
         </div>
-        <div class="split">
-          <p>For a service business, that may mean explaining:</p>
-          <ul class="checks checks-1">
-            <li>What the service includes</li>
-            <li>Who it is suitable for</li>
-            <li>How delivery works</li>
-            <li>What information the client needs to provide</li>
-            <li>Which outcomes can be measured</li>
-            <li>What limitations affect expectations</li>
+        <div>
+          <ul class="stick-list">
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>What the service includes</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0"/></svg><span>Who it is suitable for</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 8h5a4 4 0 0 1 4 4v3"/></svg><span>How delivery works</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M8 4h8v4H8zM6 8h12v12H6z"/></svg><span>What the client needs to provide</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 16v-3M12 16V8M16 16v-5"/></svg><span>Which outcomes can be measured</span></li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v5M12 16h.01"/></svg><span>What limitations affect expectations</span></li>
           </ul>
         </div>
-        <p class="after-note" style="margin-top:28px">We use this structure to develop relevant content and internal links. Related terminology supports clear explanations rather than becoming a list of phrases inserted for search engines.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section-olive" id="measure">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Measure Progress Beyond Keyword Positions</h2>
-          <p>Rankings help assess visibility, but they are only one part of SEO performance.</p>
+        <h2>Measure Progress Beyond Keyword Positions</h2>
+        <p style="margin-top:16px;max-width:36em">Rankings are one view of visibility. Choose a measure to see what it actually explains.</p>
+        <div class="switch" data-switch style="margin-top:40px">
+          <div class="switch-nav" role="tablist" aria-label="SEO measures">
+            <button type="button" role="tab" id="seo-t1" aria-controls="seo-p1" aria-selected="true">Search impressions and clicks</button>
+            <button type="button" role="tab" id="seo-t2" aria-controls="seo-p2" aria-selected="false" tabindex="-1">Relevant query visibility</button>
+            <button type="button" role="tab" id="seo-t3" aria-controls="seo-p3" aria-selected="false" tabindex="-1">Organic landing-page traffic</button>
+            <button type="button" role="tab" id="seo-t4" aria-controls="seo-p4" aria-selected="false" tabindex="-1">Tracked enquiries</button>
+            <button type="button" role="tab" id="seo-t5" aria-controls="seo-p5" aria-selected="false" tabindex="-1">Enquiry quality</button>
+            <button type="button" role="tab" id="seo-t6" aria-controls="seo-p6" aria-selected="false" tabindex="-1">Technical issue resolution</button>
+          </div>
+          <div class="switch-stage">
+            <div role="tabpanel" id="seo-p1" aria-labelledby="seo-t1" class="is-on">
+              <p class="kicker">Search impressions and clicks</p>
+              <p class="stage-line">How often your pages appear, and how often those appearances become visits.</p>
+            </div>
+            <div role="tabpanel" id="seo-p2" aria-labelledby="seo-t2">
+              <p class="kicker">Relevant query visibility</p>
+              <p class="stage-line">Whether pages are reaching searches connected to the offer, not just any query.</p>
+            </div>
+            <div role="tabpanel" id="seo-p3" aria-labelledby="seo-t3">
+              <p class="kicker">Organic landing-page traffic</p>
+              <p class="stage-line">Which pages attract visitors through unpaid search.</p>
+            </div>
+            <div role="tabpanel" id="seo-p4" aria-labelledby="seo-t4">
+              <p class="kicker">Tracked enquiries</p>
+              <p class="stage-line">Whether visitors complete the contact or booking actions you agreed to track.</p>
+            </div>
+            <div role="tabpanel" id="seo-p5" aria-labelledby="seo-t5">
+              <p class="kicker">Enquiry quality</p>
+              <p class="stage-line">Whether the people contacting you fit the services and the market.</p>
+            </div>
+            <div role="tabpanel" id="seo-p6" aria-labelledby="seo-t6">
+              <p class="kicker">Technical issue resolution</p>
+              <p class="stage-line">Whether the access and website problems already identified have been addressed.</p>
+            </div>
+          </div>
         </div>
-        <div class="sheet">
-          <table>
-            <thead>
-              <tr>
-                <th>Measure</th>
-                <th>What it helps explain</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-label="Measure">Search impressions and clicks</td>
-                <td data-label="What it helps explain">How often your pages appear and attract visits from search</td>
-              </tr>
-              <tr>
-                <td data-label="Measure">Relevant query visibility</td>
-                <td data-label="What it helps explain">Whether your pages are reaching searches connected to your offer</td>
-              </tr>
-              <tr>
-                <td data-label="Measure">Organic landing-page traffic</td>
-                <td data-label="What it helps explain">Which pages attract visitors through unpaid search</td>
-              </tr>
-              <tr>
-                <td data-label="Measure">Tracked enquiries</td>
-                <td data-label="What it helps explain">Whether visitors complete agreed contact or booking actions</td>
-              </tr>
-              <tr>
-                <td data-label="Measure">Enquiry quality</td>
-                <td data-label="What it helps explain">Whether the people contacting you fit your services and market</td>
-              </tr>
-              <tr>
-                <td data-label="Measure">Technical issue resolution</td>
-                <td data-label="What it helps explain">Whether identified access and website problems have been addressed</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="after-note">Metric selection depends on your engagement and tracking setup. Connecting enquiries with customers or revenue requires reliable CRM data and feedback from your sales team.</p>
+        <p class="after">Which measures apply depends on the engagement and the tracking in place. Tying enquiries to customers or revenue needs reliable CRM data and feedback from sales.</p>
+        <a class="act" href="#process">See how an engagement runs</a>
       </div>
     </section>
 
-    <section class="section section-white">
-      <div class="wrap">
-        <div class="section-header">
-          <h2>SEO Work in Context</h2>
-          <p>A credible case study explains the starting point, the changes made and the period over which results were measured.</p>
-        </div>
-        <aside class="callout">
-          <p>Measured SEO results are not shown on this page. Where a verified project is available, the example describes the completed work without invented performance figures.</p>
-        </aside>
-        <div class="section-action">
+    <section class="section" id="context">
+      <div class="wrap statement">
+        <figure class="frame frame-narrow reveal" data-anim>
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&h=1300&q=80" width="1000" height="1300" alt="Placeholder: a planning session at a desk, standing in for an SEO roadmap">
+        </figure>
+        <div>
+          <h2>Measured SEO results are not shown on this page.</h2>
+          <p>A credible example names the starting point, the changes, and the period that was measured. Where a verified project exists, it describes the work without invented performance figures.</p>
           <a class="pill" href="../work/">View Our Work</a>
         </div>
       </div>
     </section>
 
-    <section class="section section-olive">
+    <section class="section section-olive" id="process">
       <div class="wrap">
-        <div class="section-header">
-          <h2>How Our SEO Engagement Works</h2>
+        <h2>How Our SEO Engagement Works</h2>
+        <div class="rail" data-anim>
+          <div class="rail-track" aria-hidden="true"><span class="rail-bar"></span></div>
+          <ol>
+            <li>
+              <span class="n">01</span>
+              <h3>Establish your goals</h3>
+              <p>Business, priority services, markets, the current site, analytics, past SEO, and who can implement.</p>
+            </li>
+            <li>
+              <span class="n">02</span>
+              <h3>Review the site and the landscape</h3>
+              <p>Technical issues, existing pages, and the search results that show what deserves attention first.</p>
+            </li>
+            <li>
+              <span class="n">03</span>
+              <h3>Agree on the roadmap</h3>
+              <p>Deliverables, responsibilities, and which tasks sit with us or with your team.</p>
+            </li>
+            <li>
+              <span class="n">04</span>
+              <h3>Deliver the work</h3>
+              <p>The agreed technical, on-page, and content tasks, with review points for your approvals.</p>
+            </li>
+            <li>
+              <span class="n">05</span>
+              <h3>Evaluate and adjust</h3>
+              <p>Performance against the agreed measures. New findings set the next priorities.</p>
+            </li>
+          </ol>
         </div>
-        <ol class="steps">
-          <li>
-            <span class="num">01</span>
-            <div>
-              <h3>Establish Your Goals</h3>
-              <p>We discuss your business, priority services, target markets and current website. We also identify available analytics, previous SEO work and implementation resources.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">02</span>
-            <div>
-              <h3>Review the Website and Search Landscape</h3>
-              <p>We examine technical issues, existing pages and relevant search results. Findings help determine which improvements and content opportunities deserve attention first.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">03</span>
-            <div>
-              <h3>Agree on the Roadmap</h3>
-              <p>Your proposal defines deliverables, responsibilities and priorities. We clarify which tasks we implement and which require input from your team.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">04</span>
-            <div>
-              <h3>Deliver the Work</h3>
-              <p>We complete the agreed technical, on-page and content tasks, with review points for business information and approvals.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">05</span>
-            <div>
-              <h3>Evaluate and Adjust</h3>
-              <p>We review performance and complete work against the agreed measures. New findings guide subsequent priorities.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="section-action">
-          <a class="pill" href="#consult">Request an SEO Consultation</a>
-        </div>
+        <a class="pill" href="#consult" style="margin-top:40px">Request an SEO Consultation</a>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="split">
-          <div>
-            <h2>Ongoing Monthly SEO Support</h2>
-            <p style="margin-top:20px">Monthly SEO services can suit businesses that need continued implementation, content development and performance review.</p>
-            <p>An ongoing engagement provides room to address new findings and refine priorities as your website and market change.</p>
-            <p>Monthly deliverables depend on the agreed scope. The first period may focus on access, auditing and foundational work, while later periods address content and further optimization.</p>
-          </div>
-          <aside class="callout">
-            <h3>The monthly scope may include</h3>
-            <ul class="checks checks-1">
-              <li>Scheduled technical checks and agreed fixes</li>
-              <li>Optimization of priority pages</li>
-              <li>Content briefs or content production</li>
-              <li>Internal linking improvements</li>
-              <li>Search performance analysis</li>
-              <li>Progress reporting and next-step recommendations</li>
-            </ul>
-          </aside>
+    <section class="section section-white" id="monthly">
+      <div class="wrap month">
+        <div class="copy">
+          <h2>Ongoing Monthly SEO Support</h2>
+          <p>Monthly work suits a business that needs continued implementation, content, and review as the site and the market change.</p>
+          <p>The first period may focus on access and foundations. Later periods move into content and further optimization. The scope is whatever the agreement names.</p>
+          <a class="act" href="#consult">Discuss a monthly SEO plan</a>
         </div>
-        <div class="section-action">
-          <a class="pill" href="#consult">Discuss a Monthly SEO Plan</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-white">
-      <div class="wrap">
-        <div class="section-header">
-          <h2>Organic SEO, Local SEO and AI Search Optimization</h2>
-          <p>These services can overlap, but they address different requirements.</p>
-        </div>
-        <div class="compare">
-          <article class="lead">
-            <h3>Organic SEO</h3>
-            <p>Focuses on relevant unpaid search visibility through technical improvements, useful content and on-page optimization.</p>
-          </article>
-          <article>
-            <h3>Local SEO</h3>
-            <p>Adds attention to location-based searches, Google Business Profile and business information for your service areas.</p>
-          </article>
-          <article>
-            <h3>AI Search Optimization</h3>
-            <p>Addresses how clearly your business information and expertise are presented for AI-assisted discovery. It can share foundations with organic SEO without guaranteeing citations or recommendations.</p>
-          </article>
-        </div>
-        <p class="after-note" style="margin-top:28px">We recommend the combination that fits your audience and actual requirements.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-header">
-          <h2>An SEO Plan Built Around Your Business</h2>
-          <p>Your priorities should reflect the services you want to sell and the customers you can serve.</p>
-        </div>
-        <p>We consider:</p>
-        <ul class="checks">
-          <li>Your business model and customer journey</li>
-          <li>Your target country or service area</li>
-          <li>Your website’s current condition</li>
-          <li>The pages and competitors appearing for relevant searches</li>
-          <li>Your content expertise and available evidence</li>
-          <li>Your implementation capacity and budget</li>
+        <ul class="chips">
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.5 1.5M16.9 16.9l1.5 1.5M18.4 5.6 16.9 7.1M7.1 16.9 5.6 18.4"/></svg>Technical checks and agreed fixes</li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/></svg>Optimization of priority pages</li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 20h4L18 10l-4-4L4 16v4z"/></svg>Content briefs or production</li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l1.5-1.5a5 5 0 0 0-7-7L10 6"/><path d="M14 11a5 5 0 0 0-7 0L5.5 12.5a5 5 0 0 0 7 7L14 18"/></svg>Internal linking</li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16v-3M12 16V8M16 16v-5"/></svg>Search performance analysis</li>
+          <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Reporting and next steps</li>
         </ul>
-        <p style="margin-top:20px">This helps keep the plan focused on useful work rather than a generic checklist.</p>
-        <p class="link-row"><a class="inline" href="../about/">Learn About The Digital Elites</a></p>
       </div>
     </section>
 
-    <section class="section section-white">
+    <section class="section" id="compare">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Frequently Asked Questions</h2>
-        </div>
-        <div class="faq-list">
-          <div class="faq-item is-open">
-            <button type="button" aria-expanded="true">What does an organic SEO agency do?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>An organic SEO agency researches relevant searches, reviews website issues and delivers agreed technical, content and on-page improvements.</p>
-              <p>The engagement may also include authority-building work and performance reporting. The proposal should specify deliverables and implementation responsibilities.</p>
-            </div>
+        <h2>Organic SEO, Local SEO, and AI Search</h2>
+        <p style="margin:16px 0 32px;max-width:36em">These can overlap. They are not the same job. We recommend the combination that fits your audience.</p>
+        <article class="band band-lead">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2"/></svg></span>
+          <h3>Organic SEO</h3>
+          <p>Unpaid visibility through technical improvements, useful content, and on-page optimization.</p>
+        </article>
+        <article class="band">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2"/></svg></span>
+          <h3>Local SEO</h3>
+          <p>Location searches, your Google Business Profile, and accurate information for the areas you serve.</p>
+        </article>
+        <article class="band">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg></span>
+          <h3>AI search optimization</h3>
+          <p>How clearly your expertise is presented for AI-assisted discovery. It can share foundations with organic SEO. It does not guarantee citations or recommendations.</p>
+        </article>
+        <a class="act" href="#consult">Ask which combination fits</a>
+      </div>
+    </section>
+
+    <section class="section section-white" id="plan">
+      <div class="wrap">
+        <h2>An SEO Plan Built Around Your Business</h2>
+        <p style="margin-top:16px;max-width:38em">Priorities should reflect the services you want to sell and the customers you can serve. That keeps the plan on useful work, not a generic checklist.</p>
+        <ol class="index">
+          <li><span>01</span><p>Your business model and customer journey</p></li>
+          <li><span>02</span><p>Your target country or service area</p></li>
+          <li><span>03</span><p>Your website’s current condition</p></li>
+          <li><span>04</span><p>Pages and competitors for relevant searches</p></li>
+          <li><span>05</span><p>Your content expertise and available evidence</p></li>
+          <li><span>06</span><p>Your implementation capacity and budget</p></li>
+        </ol>
+        <a class="act" href="../about/">Learn about The Digital Elites</a>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <h2>Frequently Asked Questions</h2>
+        <div class="fold" data-fold style="margin-top:36px">
+          <div class="fold-item is-open">
+            <h3><button type="button" aria-expanded="true"><span class="fold-title">What does an organic SEO agency do?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>It researches relevant searches, reviews the site, and delivers the agreed technical, content, and on-page work. Authority-building and reporting are included only when the proposal says so.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">How is organic SEO different from paid search?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Organic SEO works on unpaid search visibility. Paid search uses advertising budgets to compete for ad placements.</p>
-              <p>They can support different parts of a marketing plan. Organic traffic does not incur a charge per click, but SEO delivery still requires resources and investment.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How is organic SEO different from paid search?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Organic work builds unpaid visibility. Paid search buys ad placements. Organic visits are not charged per click, but the delivery still takes investment.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">How much do organic SEO services cost?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Pricing depends on website complexity, technical requirements, content needs and the amount of ongoing work.</p>
-              <p>After reviewing your goals, we provide a proposal defining the scope and fees. Developer work or other third-party costs are identified where applicable.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How much do organic SEO services cost?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>It depends on complexity, technical needs, content, and how much work continues. The proposal states scope and fees, including developer or third-party costs where they apply.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">How long does SEO take?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>There is no single timeline for every website. The starting condition, competition, content quality and implementation pace affect progress.</p>
-              <p>Search engines also need time to process changes. We discuss milestones and measurement expectations after reviewing your website.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How long does SEO take?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>There is no single timeline. Condition, competition, content, and pace all change it, and search engines need time to process updates. Milestones are set after a review.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Can you optimize an existing website?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Yes. Existing websites can be reviewed for technical issues, page relevance, content gaps and internal linking opportunities.</p>
-              <p>Some recommendations may require changes to your CMS, templates or hosting configuration.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Can you optimize an existing website?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Yes. The review covers technical issues, relevance, content gaps, and internal links. Some changes need your CMS, templates, or host.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Do you create SEO content?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Content planning and writing can be included in the agreed scope. We use your business information and expertise to develop service pages and supporting content.</p>
-              <p>Specialist claims or sensitive topics may require review by a qualified person from your team.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Do you create SEO content?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Yes, when it is in scope. Pages use your business information and expertise. Specialist or sensitive claims can be reviewed by someone qualified on your team.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Are backlinks necessary?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Relevant links can contribute to authority and discovery, but backlink quantity alone does not determine results.</p>
-              <p>The importance of link acquisition depends on your search landscape and website. Technical access, content relevance and internal linking also need attention.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Are backlinks necessary?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Relevant links can help authority and discovery. Quantity alone does not decide results. Technical access, content relevance, and internal links still matter.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Do you offer monthly SEO services?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>Yes, subject to an agreed scope. Monthly support can include ongoing technical checks, page optimization, content work and reporting.</p>
-              <p>Deliverables and priorities are defined before engagement.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Do you offer monthly SEO services?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Yes, with an agreed scope: checks, page optimization, content, and reporting. Deliverables are defined before the engagement.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Will SEO guarantee enquiries or sales?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>No. SEO can support discovery, but enquiries and sales also depend on demand, your offer, website experience, pricing and follow-up.</p>
-              <p>We agree on relevant measures and assess performance using available evidence.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Will SEO guarantee enquiries or sales?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>No. Discovery is only part of a sale. Demand, the offer, the site, pricing, and follow-up all count. We agree measures and use the evidence you have.</p></div></div>
           </div>
-          <div class="faq-item">
-            <button type="button" aria-expanded="false">Do you guarantee first-page rankings?<span class="faq-mark" aria-hidden="true"></span></button>
-            <div class="faq-a">
-              <p>No. Search engines control rankings. We focus on completing the agreed work, explaining findings and reporting progress transparently.</p>
-            </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Do you guarantee first-page rankings?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>No. Search engines control rankings. We complete the agreed work, explain the findings, and report progress plainly.</p></div></div>
           </div>
         </div>
       </div>
@@ -886,12 +973,9 @@
     <section class="close" id="consult">
       <div class="wrap">
         <h2>Discuss Your Organic Search Goals</h2>
-        <p>Tell us about your website, priority services and the markets you want to reach.</p>
-        <p>We will review your requirements and discuss an appropriate next step for your SEO.</p>
-        <div class="section-action">
-          <a class="pill" href="tel:+17134878445">Request an SEO Consultation</a>
-        </div>
-        <p>Call (713) 487-8445</p>
+        <p>Tell us about your website, priority services, and the markets you want to reach. We will review the requirements and talk through a next step.</p>
+        <a class="pill" href="tel:+17134878445">Request an SEO Consultation</a>
+        <p class="fine">Call (713) 487-8445</p>
       </div>
     </section>
   </main>
@@ -954,21 +1038,68 @@
       });
     })();
     (function () {
-      var items = document.querySelectorAll(".faq-item");
-      items.forEach(function (item) {
-        var button = item.querySelector("button");
-        button.addEventListener("click", function () {
-          var open = item.classList.contains("is-open");
-          items.forEach(function (other) {
-            other.classList.remove("is-open");
-            other.querySelector("button").setAttribute("aria-expanded", "false");
+      document.querySelectorAll("[data-fold]").forEach(function (group) {
+        var items = group.querySelectorAll(".fold-item");
+        items.forEach(function (item) {
+          var button = item.querySelector("button");
+          button.addEventListener("click", function () {
+            var open = item.classList.contains("is-open");
+            items.forEach(function (other) {
+              other.classList.remove("is-open");
+              other.querySelector("button").setAttribute("aria-expanded", "false");
+            });
+            if (!open) {
+              item.classList.add("is-open");
+              button.setAttribute("aria-expanded", "true");
+            }
           });
-          if (!open) {
-            item.classList.add("is-open");
-            button.setAttribute("aria-expanded", "true");
-          }
         });
       });
+    })();
+    (function () {
+      document.querySelectorAll("[data-switch]").forEach(function (root) {
+        var tabs = root.querySelectorAll('[role="tab"]');
+        var panels = root.querySelectorAll('[role="tabpanel"]');
+        function select(tab) {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.setAttribute("aria-selected", on ? "true" : "false");
+            t.tabIndex = on ? 0 : -1;
+          });
+          panels.forEach(function (p) {
+            p.classList.toggle("is-on", p.id === tab.getAttribute("aria-controls"));
+          });
+        }
+        tabs.forEach(function (tab, i) {
+          tab.addEventListener("click", function () { select(tab); });
+          tab.addEventListener("keydown", function (e) {
+            var next = null;
+            if (e.key === "ArrowDown" || e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+            if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+            if (!next) return;
+            e.preventDefault();
+            next.focus();
+            select(next);
+          });
+        });
+      });
+    })();
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      document.documentElement.classList.add("motion");
+      var nodes = document.querySelectorAll("[data-anim]");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (n) { n.classList.add("is-in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.25 });
+      nodes.forEach(function (n) { io.observe(n); });
     })();
   </script>
 </body>

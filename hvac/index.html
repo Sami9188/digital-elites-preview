@@ -8,369 +8,183 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add("js");</script>
   <style>
+    :root { --paper: #F6F4EF; --olive: #2f2c23; --green: #04EA86; --black: #111111; --line: #e4e0d8; --muted: #d8d3c8; }
     * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: #F6F4EF;
-      color: #2f2c23;
-      font-family: "Inter Tight", sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-    body { min-height: 100%; }
+    html, body { margin: 0; background: var(--paper); color: var(--olive); font-family: "Inter Tight", sans-serif; font-size: 16px; font-weight: 400; line-height: 1.5; }
+    html { overflow-x: clip; }
+    img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; }
-    h1, h2, h3 {
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      text-wrap: balance;
-    }
-    h1, h2 { font-size: 48px; margin: 0; }
-    h3 { font-size: 22px; margin: 0 0 12px; }
-    p { margin: 0 0 16px; }
+    button, input, textarea { font-family: inherit; }
+    h1, h2, h3 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; text-transform: uppercase; text-wrap: balance; margin: 0; }
+    h1, h2 { font-size: 48px; }
+    h3 { font-size: 22px; }
+    p { margin: 0 0 16px; text-transform: none; }
     p:last-child { margin-bottom: 0; }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      height: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-      background: #F6F4EF;
-      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
-    }
-    .logo { display: flex; align-items: center; flex: 0 0 auto; }
-    .logo img { height: 62px; width: auto; display: block; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+    .header { position: sticky; top: 0; z-index: 40; height: 100px; display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: var(--paper); box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%); }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 62px; width: auto; }
     .nav { display: contents; }
-    .nav a {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      line-height: 1.5;
-      text-transform: uppercase;
-      color: #2f2c23;
-      padding: 8px 14px;
-      border-radius: 8px;
-    }
+    .nav a { font-size: 14px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; padding: 8px 14px; border-radius: 8px; }
     .nav a:hover { background: #C8F8DE; }
-    .phone {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: #04EA86;
-      background: #111111;
-      border-radius: 999px;
-      padding: 10px 20px 10px 10px;
-      white-space: nowrap;
-    }
-    .phone-bubble {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #04EA86;
-      transform-origin: center;
-      animation: phone-pulse 1.6s ease-in-out infinite;
-    }
+    .phone { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 700; letter-spacing: 0.05em; color: var(--green); background: var(--black); border-radius: 999px; padding: 10px 20px 10px 10px; white-space: nowrap; }
+    .phone-bubble { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--green); transform-origin: center; animation: phone-pulse 1.6s ease-in-out infinite; }
     .phone svg { display: block; }
-    @keyframes phone-pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-    }
+    @keyframes phone-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
     .nav-toggle { display: none; }
     .nav a.nav-phone { display: none; }
-
-    .wrap {
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 72px;
-    }
-    .hero {
-      background: #2f2c23;
-      color: #F6F4EF;
-      padding: 104px 0 112px;
-      text-align: center;
-    }
-    .hero h1 { color: #fff; max-width: 16em; margin: 0 auto; }
-    .hero .accent { color: #04EA86; }
-    .hero p { max-width: 680px; margin: 16px auto 0; color: #F6F4EF; }
-    .hero .lede { margin-top: 28px; }
-    .hero .note { color: #d8d3c8; }
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 36px;
-    }
-    .section { padding: 96px 0; position: relative; }
+    .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 72px; }
+    .section { padding: 120px 0; }
     .section-white { background: #fff; }
-    .section-olive { background: #2f2c23; color: #F6F4EF; }
+    .section-olive { background: var(--olive); color: var(--paper); }
     .section-olive h2, .section-olive h3 { color: #fff; }
-    .section-header { text-align: center; margin: 0 auto 64px; max-width: 920px; }
-    .section-header p { margin: 16px auto 0; max-width: 720px; }
-    .section-action { display: flex; justify-content: center; margin-top: 48px; }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      height: 54px;
-      padding: 0 22px;
-      border: 2px solid #04EA86;
-      border-radius: 9px;
-      background: #04EA86;
-      color: #111111;
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      line-height: 1.2;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-    .pill:hover { background: #111111; color: #04EA86; border-color: #111111; }
-    .pill-outline {
-      background: transparent;
-      color: #F6F4EF;
-      border-color: #F6F4EF;
-    }
-    .pill-outline:hover { background: #04EA86; color: #111111; border-color: #04EA86; }
-    .pill-on-light {
-      background: transparent;
-      color: #111111;
-      border-color: #111111;
-    }
-    .pill-on-light:hover { background: #111111; color: #04EA86; border-color: #111111; }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 64px;
-      align-items: start;
-    }
-    .callout {
-      background: #fff;
-      color: #2f2c23;
-      border-radius: 16px;
-      padding: 32px;
-      border-top: 4px solid #04EA86;
-    }
-    .section-white .callout { background: #F6F4EF; }
-    .offers { display: grid; gap: 24px; }
-    .offers-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .offers-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .span-2 { grid-column: 1 / -1; }
-    .offer {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-width: 0;
-    }
-    .section-white .offer { background: #F6F4EF; }
-    .offer h3 { font-size: 20px; }
-    .offer p { margin: 0; }
-    .checks {
-      list-style: none;
-      margin: 20px 0 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 32px;
-    }
-    .checks li {
-      position: relative;
-      padding-left: 28px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-    .checks li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.45em;
-      width: 12px;
-      height: 7px;
-      border-left: 2px solid #2f2c23;
-      border-bottom: 2px solid #2f2c23;
-      transform: rotate(-45deg);
-    }
-    .checks-1 { grid-template-columns: 1fr; max-width: 640px; }
-    .sheet {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      overflow: hidden;
-    }
-    .section-white .sheet { background: #F6F4EF; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td {
-      text-align: left;
-      padding: 18px 22px;
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 1.5;
-      vertical-align: top;
-    }
-    th {
-      background: #2f2c23;
-      color: #F6F4EF;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    tr + tr td { border-top: 1px solid #e4e0d8; }
-    .after-note { margin-top: 20px; max-width: 820px; }
-    .steps { list-style: none; margin: 0; padding: 0; }
-    .steps li {
-      display: grid;
-      grid-template-columns: 72px minmax(0, 1fr);
-      gap: 20px;
-      padding: 28px 0;
-      border-top: 1px solid rgba(246, 244, 239, 0.22);
-    }
-    .steps li:last-child { border-bottom: 1px solid rgba(246, 244, 239, 0.22); }
-    .num {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      color: #04EA86;
-    }
-    .compare {
-      display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-    .compare article {
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 16px;
-      padding: 32px 28px;
-      min-width: 0;
-    }
-    .compare .lead {
-      background: #2f2c23;
-      color: #F6F4EF;
-      border: 0;
-    }
-    .compare .lead h3 { color: #04EA86; }
-    .link-row { margin-top: 28px; }
-    a.inline {
-      font-weight: 700;
-      text-decoration: underline;
-      text-decoration-color: #04EA86;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-    }
-    .faq-list { border-bottom: 1px solid #e4e0d8; }
-    .faq-item { border-top: 1px solid #e4e0d8; }
-    .faq-item button {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      margin: 0;
-      padding: 22px 0;
-      border: 0;
-      background: transparent;
-      color: #2f2c23;
-      font-family: inherit;
-      font-size: 22px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      text-align: left;
-      cursor: pointer;
-    }
-    .faq-mark { flex: 0 0 auto; width: 28px; height: 28px; position: relative; }
-    .faq-mark::before, .faq-mark::after {
-      content: "";
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      top: 13px;
-      height: 2px;
-      background: #2f2c23;
-    }
-    .faq-mark::after { transform: rotate(90deg); }
-    .faq-item.is-open .faq-mark::after { display: none; }
-    .faq-item.is-open .faq-mark::before { background: #04EA86; }
-    .faq-a { display: none; max-width: 760px; padding: 0 48px 22px 0; }
-    .faq-item.is-open .faq-a { display: block; }
-    .close {
-      background: #111111;
-      color: #fff;
-      text-align: center;
-      padding: 96px 0 104px;
-    }
-    .close h2 { color: #fff; max-width: 16em; margin: 0 auto; }
-    .close p { max-width: 640px; margin: 16px auto 0; color: #F6F4EF; }
-    .site-foot {
-      background: #F6F4EF;
-      border-top: 1px solid #e4e0d8;
-      padding: 28px 0;
-    }
-    .site-foot .wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
+    .accent { color: var(--green); }
+    .pill { display: inline-flex; align-items: center; justify-content: center; min-height: 54px; padding: 0 22px; border: 2px solid var(--green); border-radius: 9px; background: var(--green); color: var(--black); font-size: 16px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.2; cursor: pointer; }
+    .pill:hover { background: var(--black); color: var(--green); border-color: var(--black); }
+    .act { display: inline-flex; align-items: center; min-height: 48px; margin-top: 28px; font-weight: 700; text-decoration: underline; text-decoration-color: var(--green); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+    .act:hover { background: #C8F8DE; text-decoration: none; }
+    .section-olive .act { color: #fff; }
+    .section-olive .act:hover { background: var(--green); color: var(--black); }
+    .fine { color: var(--muted); }
+    .ico { width: 28px; height: 28px; display: block; }
+    .ico-wrap { display: grid; place-items: center; width: 44px; height: 44px; color: var(--olive); }
+    .hero-hvac { background: var(--olive); color: var(--paper); padding: 72px 0 80px; }
+    .hero-hvac h1 { color: #fff; max-width: 11em; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: end; }
+    .hero-hvac .lede { margin-top: 20px; font-size: 18px; color: #fff; max-width: 34em; }
+    .hero-hvac .pill { margin-top: 28px; }
+    .hero-side { position: relative; min-height: 560px; display: flex; align-items: flex-end; border-radius: 18px; overflow: hidden; background: #1c1a16; }
+    .hero-side-media { position: absolute; inset: 0; overflow: hidden; }
+    .hero-side-media img { width: 100%; height: 100%; object-fit: cover; }
+    .jobs { position: relative; z-index: 1; list-style: none; margin: 0; width: 100%; padding: 72px 18px 10px; background: linear-gradient(transparent, rgba(17, 17, 17, 0.92) 36%); }
+    .jobs li { display: flex; align-items: center; gap: 12px; min-height: 52px; border-top: 1px solid rgba(255, 255, 255, 0.22); color: #fff; font-size: 16px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.1; }
+    .jobs .ico { width: 22px; height: 22px; color: var(--green); }
+    .banner { position: relative; min-height: 480px; display: flex; align-items: flex-end; border-radius: 18px; overflow: hidden; background: #ddd; }
+    .banner img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .banner-card { position: relative; z-index: 1; max-width: 440px; margin: 20px; padding: 24px; background: var(--paper); color: var(--olive); }
+    .banner-card p { margin-top: 10px; }
+    .row { display: grid; grid-template-columns: 48px minmax(200px, 300px) minmax(0, 1fr); gap: 18px; align-items: center; min-height: 92px; border-bottom: 1px solid var(--line); }
+    .row p { margin: 0; }
+    .row:hover .ico-wrap { transform: translateX(6px); color: var(--green); }
+    .fold-item { border-top: 1px solid var(--line); }
+    .fold-item:last-child { border-bottom: 1px solid var(--line); }
+    .fold-item button { width: 100%; display: flex; align-items: center; gap: 16px; min-height: 76px; padding: 16px 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: pointer; }
+    .fold-title { flex: 1; font-size: 22px; font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; text-transform: uppercase; }
+    .fold-mark { width: 28px; height: 28px; position: relative; flex: 0 0 auto; }
+    .fold-mark::before, .fold-mark::after { content: ""; position: absolute; left: 4px; right: 4px; top: 13px; height: 2px; background: currentColor; }
+    .fold-mark::after { transform: rotate(90deg); }
+    .fold-item.is-open .fold-mark::after { display: none; }
+    .fold-item.is-open .fold-mark::before { background: var(--green); }
+    .fold-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+    .fold-item.is-open .fold-panel { grid-template-rows: 1fr; }
+    .fold-inner { overflow: hidden; min-height: 0; }
+    .fold-item.is-open .fold-inner { padding-bottom: 18px; }
+    .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 28px; }
+    .tabs button { min-height: 48px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; color: var(--olive); font-weight: 700; cursor: pointer; }
+    .tabs button[aria-selected="true"] { background: var(--green); border-color: var(--green); color: var(--black); }
+    .tabs button:hover { border-color: var(--black); }
+    html.js [role="tabpanel"] { display: none; }
+    html.js [role="tabpanel"].is-on { display: block; }
+    .ticks { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+    .ticks li { display: flex; gap: 10px; align-items: flex-start; }
+    .ticks .ico { width: 18px; height: 18px; margin-top: 3px; color: var(--green); }
+    .time { position: relative; margin-top: 40px; max-width: 820px; }
+    .time-track { position: absolute; left: 21px; top: 8px; bottom: 8px; width: 2px; background: rgba(246, 244, 239, 0.2); }
+    .time-bar { display: block; width: 100%; height: 100%; background: var(--green); transform: scaleY(1); transform-origin: top center; }
+    .time ol { list-style: none; margin: 0; padding: 0; }
+    .time li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 20px; padding-bottom: 32px; }
+    .dot { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--olive); border: 2px solid var(--green); color: var(--green); position: relative; z-index: 1; }
+    .dot .ico { width: 20px; height: 20px; }
+    .time h3 { margin-bottom: 8px; }
+    .time p { margin: 0 0 8px; color: var(--muted); }
+    .book { position: relative; margin-top: 12px; }
+    .book-track { position: absolute; left: 0; right: 0; top: 21px; height: 2px; background: var(--line); }
+    .book-bar { display: block; height: 100%; background: var(--green); transform: scaleX(1); transform-origin: left center; }
+    .book ol { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+    .book .n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: var(--black); font-weight: 800; margin-bottom: 14px; }
+    .book h3 { font-size: 18px; margin-bottom: 8px; }
+    .book p { margin: 0; }
+    .example { margin-top: 28px; padding-top: 16px; border-top: 4px solid var(--green); max-width: 40em; font-weight: 600; }
+    .stick { display: grid; grid-template-columns: minmax(240px, 360px) minmax(0, 1fr); gap: 56px; align-items: start; }
+    .stick-label { position: sticky; top: 124px; }
+    .stick-label p { margin-top: 16px; }
+    .stick-list { list-style: none; margin: 0; padding: 0; }
+    .stick-list li { display: grid; grid-template-columns: minmax(180px, 280px) minmax(0, 1fr); gap: 18px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--line); }
+    .stick-list li:last-child { border-bottom: 1px solid var(--line); }
+    .stick-list h3 { font-size: 18px; }
+    .stick-list p { margin: 0; }
+    .quote-split { display: grid; grid-template-columns: 1.15fr 0.7fr; gap: 48px; align-items: center; }
+    .quote-split h2 { max-width: 14em; }
+    .quote-split p { margin-top: 16px; max-width: 36em; }
+    .frame { margin: 0; border-radius: 18px; overflow: hidden; background: var(--line); aspect-ratio: 4 / 5; }
+    .frame img { width: 100%; height: 100%; object-fit: cover; }
+    .seq { list-style: none; margin: 40px 0 0; padding: 0; }
+    .seq li { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; padding: 26px 0; border-top: 1px solid rgba(246, 244, 239, 0.22); }
+    .seq li:last-child { border-bottom: 1px solid rgba(246, 244, 239, 0.22); }
+    .seq .n { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--green); }
+    .seq p { margin: 8px 0 0; color: var(--muted); }
+    .iconrow { list-style: none; margin: 36px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .iconrow li { min-width: 0; padding: 20px 28px 0 0; border-top: 4px solid var(--green); margin-right: 20px; }
+    .iconrow h3 { font-size: 18px; margin: 14px 0 8px; }
+    .iconrow p { margin: 0; }
+    .iconrow li:hover .ico-wrap { transform: translateY(-4px); color: var(--green); }
+    .form-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: start; }
+    .fields { display: grid; gap: 14px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 14px; font-weight: 700; }
+    .field input, .field textarea { width: 100%; font: 400 16px/1.5 "Inter Tight", sans-serif; color: var(--olive); background: #fff; border: 1px solid var(--line); border-radius: 9px; padding: 12px 14px; }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-status { margin-top: 12px; font-weight: 700; }
+    .close-note { margin-top: 16px; }
+    .site-foot { background: var(--paper); border-top: 1px solid var(--line); padding: 28px 0; }
+    .site-foot .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
     .site-foot p { margin: 0; font-weight: 700; }
-    :focus-visible { outline: 2px solid #04EA86; outline-offset: 3px; }
-
+    #services, #booking, #process, #consult, #measures { scroll-margin-top: 120px; }
+    html.motion .reveal { clip-path: inset(8%); }
+    html.motion .reveal.is-in,
+    html.motion .is-in > .reveal { clip-path: inset(0); transition: clip-path 1s ease; }
+    html.motion .reveal img { transform: scale(1.06); }
+    html.motion .reveal.is-in img,
+    html.motion .is-in > .reveal img { transform: none; transition: transform 1.15s ease; }
+    html.motion .hero-side:hover img, html.motion .banner:hover img, html.motion .frame:hover img { transform: scale(1.05); }
+    html.motion .book:not(.is-in) .book-bar { transform: scaleX(0); }
+    html.motion .book.is-in .book-bar { transform: scaleX(1); transition: transform 1.3s ease; }
+    html.motion .book:not(.is-in) .n { background: var(--paper); color: var(--olive); box-shadow: inset 0 0 0 2px var(--green); }
+    html.motion .book.is-in .n { transition: background 0.3s ease, color 0.3s ease; }
+    html.motion .book.is-in li:nth-child(2) .n { transition-delay: 0.2s; }
+    html.motion .book.is-in li:nth-child(3) .n { transition-delay: 0.4s; }
+    html.motion .book.is-in li:nth-child(4) .n { transition-delay: 0.6s; }
+    html.motion .time:not(.is-in) .time-bar { transform: scaleY(0); }
+    html.motion .time.is-in .time-bar { transform: scaleY(1); transition: transform 1.3s ease; }
+    html.motion .seq:not(.is-in) .n { color: rgba(4, 234, 134, 0.28); }
+    html.motion .seq.is-in .n { color: var(--green); transition: color 0.4s ease; }
+    html.motion .seq.is-in li:nth-child(2) .n { transition-delay: 0.15s; }
+    html.motion .seq.is-in li:nth-child(3) .n { transition-delay: 0.3s; }
+    html.motion .seq.is-in li:nth-child(4) .n { transition-delay: 0.45s; }
+    html.motion .seq.is-in li:nth-child(5) .n { transition-delay: 0.6s; }
+    html.motion .jobs li { opacity: 0; transform: translateY(8px); }
+    html.motion .hero-side.is-in .jobs li { opacity: 1; transform: none; transition: 0.45s ease; }
+    html.motion .hero-side.is-in .jobs li:nth-child(2) { transition-delay: 0.08s; }
+    html.motion .hero-side.is-in .jobs li:nth-child(3) { transition-delay: 0.16s; }
+    html.motion .hero-side.is-in .jobs li:nth-child(4) { transition-delay: 0.24s; }
+    .ico-wrap { transition: transform 0.2s ease, color 0.2s ease; }
     @media (max-width: 1100px) {
       .wrap { padding: 0 32px; }
-      .offers-4 { grid-template-columns: 1fr 1fr; }
-      .compare { grid-template-columns: 1fr; }
       .header { padding: 0 24px; }
-      .nav a { padding: 8px 8px; }
+      .hero-grid, .stick, .quote-split, .form-grid, .ticks, .pair { grid-template-columns: 1fr; }
+      .stick-label { position: static; }
+      .iconrow { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .iconrow li { margin-right: 0; }
+      .book ol { grid-template-columns: 1fr 1fr; }
+      .book-track { display: none; }
+      .row, .stick-list li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
     }
     @media (max-width: 900px) {
-      .nav-toggle {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        margin-left: auto;
-        padding: 0;
-        border: 0;
-        border-radius: 8px;
-        background: transparent;
-        cursor: pointer;
-      }
-      .nav-toggle:hover { background: #C8F8DE; }
-      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after {
-        display: block;
-        width: 20px;
-        height: 2px;
-        border-radius: 2px;
-        background: #2f2c23;
-        position: relative;
-      }
+      .nav-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-left: auto; padding: 0; border: 0; border-radius: 8px; background: transparent; cursor: pointer; }
+      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after { display: block; width: 20px; height: 2px; border-radius: 2px; background: var(--olive); position: relative; }
       .nav-toggle-bar::before, .nav-toggle-bar::after { content: ""; position: absolute; left: 0; }
       .nav-toggle-bar::before { top: -6px; }
       .nav-toggle-bar::after { top: 6px; }
@@ -379,601 +193,380 @@
       .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
       .header { padding: 0 16px; }
       .logo img { height: 48px; }
-      .nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 8px 12px 16px;
-        background: #F6F4EF;
-        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
-      }
+      .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; padding: 8px 12px 16px; background: var(--paper); box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12); }
       .nav.is-open { display: flex; }
       .nav a { display: block; padding: 14px 12px; font-size: 20px; }
       h1, h2 { font-size: 32px; }
       .section { padding: 72px 0; }
-      .section-header { margin-bottom: 40px; }
-      .hero { padding: 72px 0; }
-      .close { padding: 72px 0; }
       .header > .phone { margin-left: 8px; }
-      .faq-item button { font-size: 18px; }
-    }
-    @media (max-width: 700px) {
-      .split, .offers-2, .offers-4, .checks { grid-template-columns: 1fr; }
-      .span-2 { grid-column: auto; }
-      table, thead, tbody, tr, th, td { display: block; width: 100%; }
-      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-      td { border-top: 0; padding: 14px 18px; }
-      tr { border-top: 1px solid #e4e0d8; }
-      td::before {
-        content: attr(data-label);
-        display: block;
-        margin-bottom: 4px;
-        font-size: 13px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-      }
+      .fold-title { font-size: 18px; }
+      .hero-side, .banner { min-height: 420px; }
     }
     @media (max-width: 640px) {
       .wrap { padding: 0 20px; }
       .header > .phone { display: none; }
-      .nav.is-open a.nav-phone {
-        display: inline-flex;
-        align-items: center;
-        align-self: flex-start;
-        gap: 12px;
-        margin: 8px 8px 4px;
-        padding: 10px 18px 10px 10px;
-        border-radius: 999px;
-        background: #111111;
-        color: #04EA86;
-        font-size: 14px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        text-transform: none;
-      }
+      .nav.is-open a.nav-phone { display: inline-flex; align-items: center; align-self: flex-start; gap: 12px; margin: 8px 8px 4px; padding: 10px 18px 10px 10px; border-radius: 999px; background: var(--black); color: var(--green); font-size: 14px; font-weight: 700; letter-spacing: 0.05em; text-transform: none; }
       h1, h2 { font-size: 28px; }
-      .section { padding: 56px 0; }
-      .hero { padding: 56px 0 64px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .pill, .section-action .pill, .close .pill { width: 100%; height: auto; min-height: 54px; padding: 14px 16px; white-space: normal; }
-      .steps li { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
+      .section { padding: 64px 0; }
+      .pill, .tabs button { width: 100%; }
+      .iconrow, .book ol { grid-template-columns: 1fr; }
+      .banner-card { margin: 12px; }
       .site-foot .wrap { flex-direction: column; align-items: flex-start; }
-      .faq-a { padding-right: 0; }
+      .seq li { grid-template-columns: 64px minmax(0, 1fr); }
+      .seq .n { font-size: 32px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .phone-bubble { animation: none; }
-      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after { transition: none; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
     }
-  
-    .hero-split { text-align: left; }
-    .hero-split h1 { margin: 0; max-width: 12em; }
-    .hero-split p { margin-left: 0; margin-right: 0; }
-    .hero-split .hero-actions { justify-content: flex-start; }
-    .split-hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: end; }
-    .job-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(246,244,239,.25); }
-    .job-list li { padding: 18px 0; border-bottom: 1px solid rgba(246,244,239,.25); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.1; color: #fff; }
-    .job-list span { display: block; margin-top: 6px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; color: #d8d3c8; line-height: 1.5; }
-    .lane { display: grid; grid-template-columns: minmax(180px, 280px) minmax(0, 1fr); gap: 28px 40px; padding: 32px 0; border-top: 1px solid #e4e0d8; }
-    .lane:last-child { border-bottom: 1px solid #e4e0d8; }
-    .lane h3 { margin: 0; }
-    .gap-sheet { background: #fff; border-radius: 16px; border: 1px solid #e4e0d8; }
-    .gap-row { display: grid; grid-template-columns: minmax(180px, 300px) minmax(0, 1fr); gap: 24px 40px; padding: 28px 32px; }
-    .gap-row + .gap-row { border-top: 1px solid #e4e0d8; }
-    .steps-light li { border-top-color: #e4e0d8; }
-    .steps-light li:last-child { border-bottom-color: #e4e0d8; }
-    .steps-light h3 { color: #2f2c23; }
-    .why { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
-    .why article { padding-top: 18px; border-top: 4px solid #04EA86; min-width: 0; }
-    .qa { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 24px 40px; padding: 28px 0; border-top: 1px solid #e4e0d8; }
-    .qa h3 { font-size: 20px; margin: 0; }
-    .form-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; }
-    .fields { display: grid; gap: 16px; }
-    .field { display: flex; flex-direction: column; gap: 6px; }
-    .field label { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
-    .field input, .field textarea {
-      width: 100%;
-      font: 400 16px/1.5 "Inter Tight", sans-serif;
-      color: #2f2c23;
-      background: #fff;
-      border: 1px solid #e4e0d8;
-      border-radius: 9px;
-      padding: 12px 14px;
-    }
-    .field textarea { min-height: 110px; resize: vertical; }
-    .form-note { margin-top: 16px; }
-    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    @media (max-width: 1100px) {
-      .why { grid-template-columns: 1fr 1fr; }
-      .split-hero, .form-grid { grid-template-columns: 1fr; gap: 40px; }
-    }
-    @media (max-width: 700px) {
-      .lane, .gap-row, .qa, .pair, .why { grid-template-columns: 1fr; }
-      .gap-row { padding: 22px 18px; }
-    }
-
   </style>
 </head>
 <body>
   <header class="header">
-    <a class="logo" href="../">
-      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
-    </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
-      <span class="nav-toggle-bar"></span>
-    </button>
+    <a class="logo" href="../homepage-hero-v3.html"><img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span class="nav-toggle-bar"></span></button>
     <nav class="nav" id="site-nav">
       <a href="../work/">Work</a>
       <a href="../industries/">Industries</a>
       <a href="../about/">About</a>
       <a href="../contact/">Contact</a>
-      <a class="nav-phone" href="tel:+17134878445">
-        <span class="phone-bubble">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </span>
-        (713) 487-8445
-      </a>
+      <a class="nav-phone" href="tel:+17134878445"><span class="phone-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>(713) 487-8445</a>
     </nav>
-    <a class="phone" href="tel:+17134878445">
-      <span class="phone-bubble">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </span>
-      (713) 487-8445
-    </a>
+    <a class="phone" href="tel:+17134878445"><span class="phone-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>(713) 487-8445</a>
   </header>
-
   <main>
-    <section class="hero hero-split">
-      <div class="wrap split-hero">
+    <section class="hero-hvac">
+      <div class="wrap hero-grid">
         <div>
           <h1>An HVAC Marketing Company Focused on <span class="accent">Qualified Enquiries</span></h1>
-          <p class="lede">Help customers find your heating and cooling business, understand your services and take the next step.</p>
-          <p>The Digital Elites brings SEO, paid advertising, website development and creative services together for HVAC businesses. We plan your marketing around your service areas, priority jobs and capacity to respond to new enquiries.</p>
-          <p>From urgent repair searches to planned system replacements, your campaigns should reflect how customers choose an HVAC contractor.</p>
-          <div class="hero-actions">
-            <a class="pill" href="#consult">Discuss Your HVAC Marketing</a>
-            <a class="pill pill-outline" href="../work/">View Our Work</a>
-          </div>
-          <p class="note">Tell us where you operate, which services you want to grow and what your team can support.</p>
+          <p class="lede">Help customers find your heating and cooling business, understand your services, and take the next step.</p>
+          <p>SEO, paid advertising, websites, and creative, planned around your service areas, the jobs you want, and the capacity to answer.</p>
+          <a class="pill" href="#consult">Discuss Your HVAC Marketing</a>
+          <p class="fine" style="margin-top:16px">From urgent repair searches to planned system replacements.</p>
         </div>
-        <ul class="job-list">
-          <li>Repair and urgent service calls</li>
-          <li>Installation and replacement enquiries</li>
-          <li>Maintenance and repeat business</li>
-          <li>Commercial HVAC opportunities</li>
-        </ul>
+        <div class="hero-side" data-anim>
+          <div class="hero-side-media reveal">
+            <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=1400&h=1600&q=80" width="1400" height="1600" alt="Placeholder: a technician at work, standing in for an HVAC job">
+          </div>
+          <ul class="jobs">
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.6 5.4L4 17l3 3 5.3-5.1a4 4 0 0 0 5.4-5.6L15 12l-3-3 2.7-2.7z"/></svg>Repair and urgent service calls</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M10 14V5a2 2 0 1 1 4 0v9a3.5 3.5 0 1 1-4 0z"/></svg>Installation and replacement</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>Maintenance and repeat business</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-5h6v5"/></svg>Commercial HVAC opportunities</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="journeys">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Marketing That Reflects How HVAC Customers Buy</h2>
-          <p>A customer with a broken air conditioner needs a different journey from someone comparing heating-system replacement options.</p>
-          <p>Your marketing should account for urgency, location and the type of work being requested.</p>
+        <h2>Marketing That Reflects How HVAC Customers Buy</h2>
+        <p style="margin:16px 0 28px;max-width:38em">A broken air conditioner is a different journey from a heating replacement. Urgency, location, and the job type should change the marketing.</p>
+        <div class="banner">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&h=1000&q=80" width="1800" height="1000" alt="Placeholder: a house exterior, standing in for a home service visit">
+          <div class="banner-card">
+            <h3>Repair and urgent service calls</h3>
+            <p>Make availability, coverage, and contact easy to find. Ads and landing pages should match the repairs your team actually does.</p>
+          </div>
         </div>
-        <article class="lane">
-          <h3>Repair and Urgent Service Calls</h3>
-          <p>Make service availability, coverage and contact options easy to find. Ads and landing pages should match the repair services your team actually provides.</p>
+        <article class="row">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 10l8-7 8 7v10H4z"/><path d="M9 20v-6h6v6"/></svg></span>
+          <h3>Installation and replacement</h3>
+          <p>Help people understand options and request an assessment. Explain the process, system categories, and any financing you can verify.</p>
         </article>
-        <article class="lane">
-          <h3>Installation and Replacement Enquiries</h3>
-          <p>Help customers understand their options and request an assessment. Explain your process, available system categories and verified financing arrangements where applicable.</p>
+        <article class="row">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+          <h3>Maintenance and repeat business</h3>
+          <p>Explain the service and make scheduling easy. Reminders work when they match a real maintenance offer.</p>
         </article>
-        <article class="lane">
-          <h3>Maintenance and Repeat Business</h3>
-          <p>Explain maintenance services clearly and make scheduling convenient. Relevant reminders and customer communication can support repeat bookings.</p>
+        <article class="row">
+          <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-5h6v5"/></svg></span>
+          <h3>Commercial HVAC</h3>
+          <p>Give business buyers your capabilities, project needs, and service terms. The form should not be the residential one.</p>
         </article>
-        <article class="lane">
-          <h3>Commercial HVAC Opportunities</h3>
-          <p>Give business buyers useful information about your capabilities, project requirements and service arrangements. Commercial enquiries may need a different form and qualification process from residential calls.</p>
-        </article>
+        <a class="act" href="#services">See the services behind each journey</a>
       </div>
     </section>
 
     <section class="section section-white">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Address the Gaps Between Visibility and Booked Work</h2>
-          <p>An HVAC marketing agency should consider what happens after someone clicks—not just how many visitors arrive.</p>
+        <h2>Address the Gaps Between Visibility and Booked Work</h2>
+        <p style="margin:16px 0 8px;max-width:38em">The click is not the job. Open a gap to see what should change before you buy more traffic.</p>
+        <div class="fold" data-fold style="margin-top:28px">
+          <div class="fold-item is-open">
+            <h3><button type="button" aria-expanded="true"><span class="fold-title">Enquiries outside your service area</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Broad targeting attracts people you cannot serve. Campaign settings and the website should state the coverage you actually have.</p></div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Demand that does not match capacity</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Season changes what you can take. Marketing should follow technician time, open appointments, and the services you want to promote.</p></div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Calls that go unanswered</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>More enquiries do little if customers cannot reach you. Routing, a response process, and follow-up connect marketing to the way the office works.</p></div></div>
+          </div>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Unclear campaign performance</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Calls and forms are not all jobs. Tracking enquiry quality and bookings shows where the investment goes.</p></div></div>
+          </div>
         </div>
-        <div class="gap-sheet">
-          <article class="gap-row">
-            <h3>Enquiries Outside Your Service Area</h3>
-            <p>Broad targeting can attract customers your team cannot serve. Campaign settings and website information should accurately reflect your coverage.</p>
-          </article>
-          <article class="gap-row">
-            <h3>Demand That Does Not Match Capacity</h3>
-            <p>Seasonal demand can change your priorities. Marketing decisions should account for available technicians, appointment capacity and the services you want to promote.</p>
-          </article>
-          <article class="gap-row">
-            <h3>Calls That Go Unanswered</h3>
-            <p>More enquiries create little value if customers cannot reach you. Clear routing, response processes and appropriate follow-up help connect marketing with operations.</p>
-          </article>
-          <article class="gap-row">
-            <h3>Unclear Campaign Performance</h3>
-            <p>Calls and forms are useful measures, but they do not all become jobs. Tracking enquiry quality and booking outcomes helps explain where your investment is going.</p>
-          </article>
-        </div>
+        <a class="act" href="#services">See what we would take on</a>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="services">
       <div class="wrap">
-        <div class="section-header">
-          <h2>HVAC Marketing Services Built Around Your Priorities</h2>
-          <p>Choose a focused service or a coordinated engagement. Your proposal defines the channels, deliverables and responsibilities included.</p>
-        </div>
-        <article class="lane">
-          <h3>HVAC SEO and Local Search</h3>
-          <div>
-            <p>Improve your website’s search foundations and develop pages that explain your heating, cooling and ventilation services.</p>
-            <p>Work can include technical SEO, on-page optimization, internal linking and useful content for repair, installation and maintenance searches. Local SEO can also address Google Business Profile and accurate business information.</p>
-            <p>Service-area content should explain genuine coverage rather than repeat the same page with different city names.</p>
+        <h2>HVAC Marketing Services Built Around Your Priorities</h2>
+        <p style="margin:16px 0 20px;max-width:38em">Choose one service or a coordinated engagement. The proposal names the channels, the deliverables, and who does what.</p>
+        <div data-switch>
+          <div class="tabs" role="tablist" aria-label="HVAC services">
+            <button type="button" role="tab" id="h-t1" aria-controls="h-p1" aria-selected="true">SEO and local search</button>
+            <button type="button" role="tab" id="h-t2" aria-controls="h-p2" aria-selected="false" tabindex="-1">Google Ads</button>
+            <button type="button" role="tab" id="h-t3" aria-controls="h-p3" aria-selected="false" tabindex="-1">Website</button>
+            <button type="button" role="tab" id="h-t4" aria-controls="h-p4" aria-selected="false" tabindex="-1">Content and creative</button>
+            <button type="button" role="tab" id="h-t5" aria-controls="h-p5" aria-selected="false" tabindex="-1">Email</button>
           </div>
-        </article>
-        <article class="lane">
-          <h3>Google Ads for HVAC Services</h3>
-          <div>
-            <p>Reach customers searching for services your business provides.</p>
-            <p>We plan campaigns around job categories, locations and suitable landing pages. Where data and platform controls allow, targeting can account for service hours, budget priorities and enquiry quality.</p>
-            <p>Repair, installation and commercial campaigns may require separate messaging and measurement.</p>
+          <div role="tabpanel" id="h-p1" class="is-on">
+            <p>Strengthen the search foundations and write pages that explain heating, cooling, and ventilation. The work can include technical SEO, on-page edits, internal links, and content for repair, installation, and maintenance searches.</p>
+            <p>Local search can cover the Google Business Profile and accurate business details. Area pages should describe real coverage, not the same page with a new city name.</p>
           </div>
-        </article>
-        <article class="lane">
-          <h3>HVAC Website Design and Development</h3>
-          <div>
-            <p>Make it easy for visitors to check your coverage, understand your services and contact your team.</p>
-            <p>A useful HVAC website can include:</p>
-            <ul class="checks">
-              <li>Separate pages for priority services</li>
-              <li>Clear residential and commercial service information</li>
-              <li>Visible phone and enquiry options</li>
-              <li>Accurate operating hours and service-area details</li>
-              <li>Genuine reviews and project examples</li>
-              <li>Verified credentials, warranties and financing information where applicable</li>
-              <li>A straightforward mobile booking or estimate-request journey</li>
+          <div role="tabpanel" id="h-p2">
+            <p>Reach people already searching for work you do. Campaigns follow job type, location, and a landing page that matches.</p>
+            <p>Where the account allows it, hours, budget, and enquiry quality shape the targeting. Repair, installation, and commercial often need their own message and their own measure.</p>
+          </div>
+          <div role="tabpanel" id="h-p3">
+            <p>Make it easy to check coverage, understand the services, and contact the team.</p>
+            <ul class="ticks">
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Separate pages for priority services</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Residential and commercial information</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Visible phone and enquiry options</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Accurate hours and service area</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Genuine reviews and project examples</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Verified credentials, warranties, and financing where they apply</span></li>
+              <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>A clear mobile path to book or request an estimate</span></li>
             </ul>
           </div>
-        </article>
-        <article class="lane">
-          <h3>HVAC Content and Creative</h3>
-          <div>
-            <p>Answer the questions customers ask before requesting service.</p>
-            <p>Content can explain repair versus replacement considerations, maintenance scope, installation processes and what to expect during an assessment. Technical claims should be reviewed by your HVAC team.</p>
-            <p>Design and video work can help communicate your services through real projects, team introductions and practical explanations.</p>
+          <div role="tabpanel" id="h-p4">
+            <p>Answer the questions people ask before they call: repair versus replacement, what maintenance includes, how installation works, and what an assessment involves. Your technicians review technical claims.</p>
+            <p>Design and video can show real projects, introduce the team, and explain the work in plain sight.</p>
           </div>
-        </article>
-        <article class="lane">
-          <h3>Customer Communication and Email</h3>
-          <div>
-            <p>Keep existing customers informed through relevant service updates and maintenance reminders.</p>
-            <p>Campaigns should reflect your actual offering, customer preferences and appropriate consent arrangements.</p>
+          <div role="tabpanel" id="h-p5">
+            <p>Keep existing customers informed with service updates and maintenance reminders that match what you actually offer.</p>
+            <p>Messages follow customer preferences and the consent you already have.</p>
           </div>
-        </article>
-        <div class="section-action">
-          <a class="pill" href="#consult">Discuss Your Marketing Priorities</a>
         </div>
+        <a class="pill" href="#consult" style="margin-top:32px">Discuss Your Marketing Priorities</a>
       </div>
     </section>
 
     <section class="section section-olive">
       <div class="wrap">
-        <div class="section-header">
-          <h2>AI Search and Follow-Up Automation for HVAC Businesses</h2>
-          <p>Use AI-related services where they support customer discovery and enquiry handling.</p>
+        <h2>AI Search and Follow-Up Automation</h2>
+        <p style="margin-top:16px;max-width:36em">Use these where they help someone find you, or help your team handle the enquiry.</p>
+        <div class="time" data-anim>
+          <div class="time-track" aria-hidden="true"><span class="time-bar"></span></div>
+          <ol>
+            <li>
+              <span class="dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="2"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg></span>
+              <div>
+                <h3>Clear information for AI-assisted search</h3>
+                <p>We review how the site explains services, coverage, and expertise. Useful FAQs and accurate business details support a clearer presence.</p>
+                <p>This can sit beside SEO. Citations and recommendations are not guaranteed.</p>
+              </div>
+            </li>
+            <li>
+              <span class="dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="17" r="2"/><path d="M8 8h6a4 4 0 0 1 4 4v3"/></svg></span>
+              <div>
+                <h3>Enquiry routing and follow-up</h3>
+                <p>Connect forms to the CRM and the response path you agree. Automation can acknowledge the request, record the service, and notify the right person.</p>
+                <p>An enquiry is not a confirmed appointment.</p>
+              </div>
+            </li>
+            <li>
+              <span class="dot"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M9 13h.01M15 13h.01"/></svg></span>
+              <div>
+                <h3>Chatbots with a human handoff</h3>
+                <p>Where it fits, a chatbot can answer approved questions about coverage, hours, and how to enquire.</p>
+                <p>Urgent requests go to your real contact path. The bot is not a substitute for a technician’s assessment.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-        <ol class="steps">
-          <li>
-            <span class="num">01</span>
-            <div>
-              <h3>Clear Information for AI-Assisted Search</h3>
-              <p>We review how your website explains your services, coverage and expertise. Useful FAQs, accurate business information and accessible pages support a clearer online presence.</p>
-              <p>AI search optimization can complement SEO, but citations and recommendations are not guaranteed.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">02</span>
-            <div>
-              <h3>Enquiry Routing and Follow-Up</h3>
-              <p>Connect website forms with your CRM and agreed response workflows.</p>
-              <p>Automation can acknowledge an enquiry, capture the requested service and notify the appropriate team member. It should distinguish an enquiry from a confirmed appointment.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">03</span>
-            <div>
-              <h3>Chatbots with Human Handoff</h3>
-              <p>Where suitable, a chatbot can answer approved questions about service coverage, operating hours and enquiry options.</p>
-              <p>It should direct urgent requests to your actual contact process and avoid presenting itself as a substitute for a technician’s assessment.</p>
-            </div>
-          </li>
-        </ol>
-        <div class="section-action">
-          <a class="pill" href="#consult">Discuss Your Automation Requirements</a>
-        </div>
+        <a class="act" href="#consult">Discuss your automation requirements</a>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="booking">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Connect Marketing with Your Booking Process</h2>
-          <p>Digital marketing for HVAC companies works best when campaigns and customer handling follow the same priorities.</p>
+        <h2>Connect Marketing with Your Booking Process</h2>
+        <p style="margin:16px 0 28px;max-width:36em">Campaigns and the way you handle customers should follow the same priorities.</p>
+        <div class="book" data-anim>
+          <div class="book-track" aria-hidden="true"><span class="book-bar"></span></div>
+          <ol>
+            <li><span class="n">1</span><h3>Attract relevant customers</h3><p>Searches and audiences tied to services and locations you cover.</p></li>
+            <li><span class="n">2</span><h3>Match the page to the request</h3><p>Repair ads land on repair. Replacement ads explain the assessment and install.</p></li>
+            <li><span class="n">3</span><h3>Capture useful details</h3><p>Location, the work requested, and how they prefer to be contacted.</p></li>
+            <li><span class="n">4</span><h3>Record the outcome</h3><p>Qualified, booked, completed, or unsuitable — then improve the campaign and the page.</p></li>
+          </ol>
         </div>
-        <div class="offers offers-4">
-          <article class="offer">
-            <h3>1. Attract Relevant Customers</h3>
-            <p>Target searches and audiences connected with the services and locations you genuinely cover.</p>
-          </article>
-          <article class="offer">
-            <h3>2. Match the Landing Page to the Request</h3>
-            <p>An air-conditioning repair campaign should lead to repair information. A replacement campaign should explain the assessment and installation process.</p>
-          </article>
-          <article class="offer">
-            <h3>3. Capture Useful Details</h3>
-            <p>Collect enough information to route the enquiry, such as service location, requested work and preferred contact method.</p>
-          </article>
-          <article class="offer">
-            <h3>4. Record the Outcome</h3>
-            <p>Identify whether the enquiry was qualified, booked, completed or unsuitable. Use these outcomes to improve campaigns and website journeys.</p>
-          </article>
-        </div>
-        <p class="after-note" style="margin-top:28px">For example, a form submission from outside your service area should not be treated as equally valuable as a booked installation assessment.</p>
+        <p class="example">A form from outside your service area is not equal to a booked installation assessment.</p>
+        <a class="act" href="#measures">See what gets measured</a>
       </div>
     </section>
 
-    <section class="section section-white">
-      <div class="wrap">
-        <div class="section-header">
+    <section class="section section-white" id="measures">
+      <div class="wrap stick">
+        <div class="stick-label">
           <h2>Measure the Opportunities Your Marketing Creates</h2>
-          <p>Your reporting should distinguish customer interest from completed business outcomes.</p>
+          <p>Separate interest from a completed job. Call tracking and the CRM depend on your systems. Sales feedback shows which enquiries become work.</p>
+          <a class="act" href="#process">See the process</a>
         </div>
-        <div class="gap-sheet">
-          <article class="gap-row">
-            <h3>Relevant search visibility</h3>
-            <p>Whether customers can discover your priority services</p>
-          </article>
-          <article class="gap-row">
-            <h3>Calls and form submissions</h3>
-            <p>How many tracked enquiries your marketing generates</p>
-          </article>
-          <article class="gap-row">
-            <h3>Qualified enquiries</h3>
-            <p>Whether requests match your coverage and offering</p>
-          </article>
-          <article class="gap-row">
-            <h3>Booked appointments</h3>
-            <p>Whether suitable enquiries progress to scheduled work</p>
-          </article>
-          <article class="gap-row">
-            <h3>Cost per qualified enquiry</h3>
-            <p>Advertising spend relative to suitable requests</p>
-          </article>
-          <article class="gap-row">
-            <h3>Completed jobs and revenue</h3>
-            <p>Business outcomes, where reliable sales data is available</p>
-          </article>
-        </div>
-        <p class="after-note">Call tracking and CRM integration depend on your systems and agreed setup. Sales feedback is needed to understand which enquiries become booked or completed work.</p>
+        <ul class="stick-list">
+          <li><h3>Relevant search visibility</h3><p>Whether customers can discover the services you want.</p></li>
+          <li><h3>Calls and form submissions</h3><p>How many tracked enquiries the marketing generates.</p></li>
+          <li><h3>Qualified enquiries</h3><p>Whether requests match your coverage and your offer.</p></li>
+          <li><h3>Booked appointments</h3><p>Whether suitable enquiries become scheduled work.</p></li>
+          <li><h3>Cost per qualified enquiry</h3><p>Advertising spend against suitable requests.</p></li>
+          <li><h3>Completed jobs and revenue</h3><p>Business outcomes, where the sales data is reliable.</p></li>
+        </ul>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap">
-        <div class="section-header">
-          <h2>See Relevant Work and Results</h2>
-          <p>A useful project example explains the business context, changes made and outcomes measured.</p>
-        </div>
-        <aside class="callout">
-          <p>An HVAC case study is not shown here. Work from another sector, when shown, is identified by its actual market and is not presented as an HVAC result.</p>
-        </aside>
-        <div class="section-action">
+      <div class="wrap quote-split">
+        <div>
+          <h2>An HVAC case study is not shown here.</h2>
+          <p>A useful example names the business context, the changes, and the outcomes that were measured. Work from another market, when we show it, stays labeled as that market.</p>
           <a class="pill" href="../work/">View Our Work</a>
         </div>
+        <figure class="frame reveal" data-anim>
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1000&h=1300&q=80" width="1000" height="1300" alt="Placeholder: a workshop, standing in for trade work">
+        </figure>
       </div>
     </section>
 
-    <section class="section section-white">
+    <section class="section section-olive" id="process">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Our HVAC Marketing Process</h2>
-        </div>
-        <ol class="steps steps-light">
-          <li>
-            <span class="num">01</span>
-            <div>
-              <h3>Understand Your Business</h3>
-              <p>We discuss your service areas, residential or commercial focus, priority jobs, seasonality and capacity.</p>
-              <p>We also review how your team handles calls, estimates and appointment requests.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">02</span>
-            <div>
-              <h3>Review Your Website and Current Marketing</h3>
-              <p>We assess available search, campaign and website data to identify gaps and priorities.</p>
-              <p>Existing account access and tracking arrangements help determine what can be measured reliably.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">03</span>
-            <div>
-              <h3>Agree on the Plan</h3>
-              <p>Your proposal defines services, deliverables, implementation responsibilities and measurement.</p>
-              <p>Advertising spend and relevant third-party costs are identified separately where applicable.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">04</span>
-            <div>
-              <h3>Build and Launch</h3>
-              <p>We complete the agreed website, content, tracking and campaign work, with review points for your team.</p>
-            </div>
-          </li>
-          <li>
-            <span class="num">05</span>
-            <div>
-              <h3>Review and Refine</h3>
-              <p>We use performance data and booking feedback to adjust targeting, messaging and website journeys.</p>
-            </div>
-          </li>
+        <h2>Our HVAC Marketing Process</h2>
+        <ol class="seq" data-anim>
+          <li><span class="n">01</span><div><h3>Understand your business</h3><p>Service areas, residential or commercial focus, priority jobs, seasonality, capacity, and how calls, estimates, and appointments are handled.</p></div></li>
+          <li><span class="n">02</span><div><h3>Review the website and current marketing</h3><p>Search, campaign, and website data show the gaps. Account access and tracking decide what can be measured.</p></div></li>
+          <li><span class="n">03</span><div><h3>Agree on the plan</h3><p>Services, deliverables, responsibilities, and measurement. Advertising spend and third-party costs are called out separately when they apply.</p></div></li>
+          <li><span class="n">04</span><div><h3>Build and launch</h3><p>The agreed website, content, tracking, and campaign work, with review points for your team.</p></div></li>
+          <li><span class="n">05</span><div><h3>Review and refine</h3><p>Performance and booking feedback adjust targeting, messages, and the paths on the site.</p></div></li>
         </ol>
-        <div class="section-action">
-          <a class="pill" href="#consult">Request a Marketing Consultation</a>
-        </div>
+        <a class="pill" href="#consult" style="margin-top:36px">Request a Marketing Consultation</a>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <div class="section-header">
-          <h2>Why Work with The Digital Elites?</h2>
-          <p>Choose an HVAC marketing company that makes the scope and decision-making clear.</p>
-        </div>
-        <div class="why">
-          <article>
-            <h3>Priorities Connected with Your Services</h3>
-            <p>Marketing recommendations consider the jobs you want, the locations you serve and the customers you can support.</p>
-          </article>
-          <article>
-            <h3>Coordinated Delivery</h3>
-            <p>Website, search, advertising and creative work follow the agreed direction.</p>
-          </article>
-          <article>
-            <h3>Defined Responsibilities</h3>
-            <p>Understand what we deliver, what needs your approval and which tasks involve your internal team or other providers.</p>
-          </article>
-          <article>
-            <h3>Relevant Reporting</h3>
-            <p>Review channel performance alongside available enquiry and booking data, with recommended next actions.</p>
-          </article>
-        </div>
-        <p class="link-row"><a class="inline" href="../about/">About The Digital Elites</a></p>
+        <h2>Why Work with The Digital Elites?</h2>
+        <p style="margin-top:16px;max-width:34em">The scope and the decisions should be easy to see.</p>
+        <ul class="iconrow" data-anim>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3>Priorities tied to your services</h3>
+            <p>Recommendations follow the jobs you want, the places you serve, and the customers you can support.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h13"/></svg></span>
+            <h3>Coordinated delivery</h3>
+            <p>Website, search, advertising, and creative follow the direction you agreed.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M8 4h8v4H8zM5 8h14v12H5z"/></svg></span>
+            <h3>Defined responsibilities</h3>
+            <p>What we deliver, what you approve, and what stays with your team or another provider.</p>
+          </li>
+          <li>
+            <span class="ico-wrap"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16M8 16v-4M12 16V8M16 16v-6"/></svg></span>
+            <h3>Relevant reporting</h3>
+            <p>Channel performance next to enquiry and booking data, with a recommended next step.</p>
+          </li>
+        </ul>
+        <a class="act" href="../about/">About The Digital Elites</a>
       </div>
     </section>
 
-    <section class="section section-white">
+    <section class="section section-white" id="faq">
       <div class="wrap">
-        <div class="section-header">
-          <h2>HVAC Marketing Frequently Asked Questions</h2>
-        </div>
-        <div class="qa">
-          <h3>What does an HVAC marketing agency do?</h3>
-          <div>
-            <p>An HVAC marketing agency plans and delivers marketing for heating, ventilation and air-conditioning businesses.</p>
-            <p>Services may include SEO, local search, paid advertising, website development, content and follow-up workflows. The engagement should define which services are included and how performance is measured.</p>
+        <h2>HVAC Marketing Questions</h2>
+        <div class="fold" data-fold style="margin-top:28px">
+          <div class="fold-item is-open">
+            <h3><button type="button" aria-expanded="true"><span class="fold-title">What does an HVAC marketing agency do?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>It plans and delivers marketing for heating, ventilation, and air-conditioning businesses: SEO, local search, paid ads, the website, content, and follow-up. The agreement names what is included and how it is measured.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Should we start with SEO or Google Ads?</h3>
-          <div>
-            <p>The decision depends on your website, current visibility, demand, budget and priorities.</p>
-            <p>Paid advertising can buy visibility once campaigns are approved and running. SEO addresses unpaid search discovery through ongoing website and content work. Neither guarantees enquiries or booked jobs.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Should we start with SEO or Google Ads?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>It depends on the site, current visibility, demand, budget, and priorities. Ads can buy placement once they are running. SEO builds unpaid discovery over time. Neither guarantees enquiries or booked jobs.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Can you target specific services and locations?</h3>
-          <div>
-            <p>Campaigns and website content can focus on your actual service categories and coverage.</p>
-            <p>We discuss whether you want to prioritize repairs, installation, replacement, maintenance or commercial work before planning the scope.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Can you target specific services and locations?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Yes. Campaigns and pages can focus on the categories and coverage you actually have. We ask whether repairs, installation, replacement, maintenance, or commercial work comes first.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Can we promote residential and commercial HVAC separately?</h3>
-          <div>
-            <p>Yes. These audiences may need different messaging, landing pages and enquiry fields.</p>
-            <p>Separating them can help explain your capabilities and assess the requests each campaign attracts.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Can residential and commercial run separately?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Yes. They often need different messages, pages, and form fields, so you can see what each campaign attracts.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>How should seasonal demand affect marketing?</h3>
-          <div>
-            <p>Your priorities may change with weather, demand and technician availability.</p>
-            <p>Budgets, messaging and promoted services should reflect your capacity and business objectives rather than remain fixed without review.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How should seasonal demand affect marketing?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Priorities move with weather, demand, and who is free to do the work. Budgets, messages, and promoted services should be reviewed, not left fixed.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>How much do HVAC marketing services cost?</h3>
-          <div>
-            <p>Costs depend on the website work, channels, content requirements and ongoing workload.</p>
-            <p>Your proposal outlines agency fees and deliverables. Advertising spend and relevant software costs are identified separately where applicable.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How much do HVAC marketing services cost?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>It depends on the website, the channels, the content, and the ongoing load. The proposal lists agency fees and deliverables. Ad spend and software are separate when they apply.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>How do you measure lead quality?</h3>
-          <div>
-            <p>We agree on qualification criteria such as location, requested service and customer fit.</p>
-            <p>Your team’s feedback helps distinguish suitable enquiries from spam, out-of-area requests and work you do not provide.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">How do you measure lead quality?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>We agree criteria such as location, requested service, and fit. Your team’s feedback separates useful enquiries from spam, out-of-area requests, and work you do not offer.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Do you guarantee a number of HVAC leads?</h3>
-          <div>
-            <p>No. Outcomes depend on competition, demand, budget, your offer and the customer experience.</p>
-            <p>We define the work and measurement approach, then use available evidence to guide improvements.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Do you guarantee a number of HVAC leads?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>No. Results depend on competition, demand, budget, the offer, and the customer experience. We define the work and the measures, then use the evidence to adjust.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Can you work with our existing website and accounts?</h3>
-          <div>
-            <p>We can review existing systems to assess their suitability. Some improvements may require developer involvement, account permissions or changes to the tracking setup.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Can you work with our existing website and accounts?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>We review what you have. Some improvements need a developer, account permissions, or a change to tracking.</p></div></div>
           </div>
-        </div>
-        <div class="qa">
-          <h3>Can automation confirm customer appointments?</h3>
-          <div>
-            <p>Only when the workflow connects with a reliable scheduling system and checks real availability.</p>
-            <p>Otherwise, it should acknowledge the request and explain that your team will confirm the appointment.</p>
+          <div class="fold-item">
+            <h3><button type="button" aria-expanded="false"><span class="fold-title">Can automation confirm appointments?</span><span class="fold-mark" aria-hidden="true"></span></button></h3>
+            <div class="fold-panel"><div class="fold-inner"><p>Only when it connects to a real scheduling system and checks live availability. Otherwise it should acknowledge the request and say your team will confirm.</p></div></div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section" id="consult">
-      <div class="wrap">
-        <div class="form-grid">
-          <div>
-            <h2>Discuss Your HVAC Growth Priorities</h2>
-            <p style="margin-top:20px">Tell us where you operate, which services you want to promote and what your current marketing needs to improve.</p>
-            <p>We will review your requirements and discuss a suitable next step.</p>
-            <p>This preview does not send your details. The next step is to call <a class="inline" href="tel:+17134878445">(713) 487-8445</a>.</p>
-          </div>
-          <form class="fields" action="#" method="post" onsubmit="return false">
-            <div class="pair">
-              <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name"></div>
-              <div class="field"><label for="email">Work Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
-            </div>
-            <div class="field"><label for="site">Company Website</label><input id="site" name="website" type="url" autocomplete="url"></div>
-            <div class="field"><label for="area">Service Area</label><input id="area" name="area" type="text"></div>
-            <div class="field"><label for="services">Priority HVAC Services</label><input id="services" name="services" type="text"></div>
-            <div class="field"><label for="challenge">Main Marketing Challenge</label><textarea id="challenge" name="challenge"></textarea></div>
-            <div class="field"><label for="budget">Budget Range — Optional</label><input id="budget" name="budget" type="text"></div>
-            <button class="pill" type="button">Request a Consultation</button>
-            <p class="form-note">We will use your details to respond to your inquiry. Read our Privacy Policy.</p>
-          </form>
+      <div class="wrap form-grid">
+        <div>
+          <h2>Discuss Your HVAC Growth Priorities</h2>
+          <p style="margin-top:16px">Tell us where you operate, which services you want to promote, and what marketing needs to improve.</p>
+          <p>This preview does not send your details. The next step is to call <a class="act" style="margin-top:0" href="tel:+17134878445">(713) 487-8445</a>.</p>
         </div>
+        <form class="fields" action="#" method="post" onsubmit="return false">
+          <div class="pair">
+            <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name"></div>
+            <div class="field"><label for="email">Work Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+          </div>
+          <div class="field"><label for="site">Company Website</label><input id="site" name="website" type="url" autocomplete="url"></div>
+          <div class="field"><label for="area">Service Area</label><input id="area" name="area" type="text"></div>
+          <div class="field"><label for="services-field">Priority HVAC Services</label><input id="services-field" name="services" type="text"></div>
+          <div class="field"><label for="challenge">Main Marketing Challenge</label><textarea id="challenge" name="challenge"></textarea></div>
+          <div class="field"><label for="budget">Budget Range — Optional</label><input id="budget" name="budget" type="text"></div>
+          <button class="pill" type="button" id="consult-btn">Request a Consultation</button>
+          <p class="form-status" id="form-status" hidden></p>
+          <p class="close-note">We will use your details to respond to your inquiry. Read our Privacy Policy.</p>
+        </form>
       </div>
     </section>
   </main>
-
   <footer class="site-foot">
     <div class="wrap">
       <p>The Digital Elites</p>
-      <a class="phone" href="tel:+17134878445">
-        <span class="phone-bubble">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </span>
-        (713) 487-8445
-      </a>
+      <a class="phone" href="tel:+17134878445"><span class="phone-bubble"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>(713) 487-8445</a>
     </div>
   </footer>
-
-<script>
+  <script>
     (function () {
       function paint(img) {
         if (!img || img.dataset.done || !img.naturalWidth) return;
@@ -1008,32 +601,77 @@
         btn.setAttribute("aria-expanded", open ? "true" : "false");
         btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       }
-      btn.addEventListener("click", function () {
-        setOpen(btn.getAttribute("aria-expanded") !== "true");
-      });
-      nav.addEventListener("click", function (e) {
-        if (e.target.closest("a")) setOpen(false);
-      });
-      document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") setOpen(false);
+      btn.addEventListener("click", function () { setOpen(btn.getAttribute("aria-expanded") !== "true"); });
+      nav.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+    })();
+    (function () {
+      document.querySelectorAll("[data-fold]").forEach(function (group) {
+        var items = group.querySelectorAll(".fold-item");
+        items.forEach(function (item) {
+          var button = item.querySelector("button");
+          button.addEventListener("click", function () {
+            var open = item.classList.contains("is-open");
+            items.forEach(function (other) {
+              other.classList.remove("is-open");
+              other.querySelector("button").setAttribute("aria-expanded", "false");
+            });
+            if (!open) { item.classList.add("is-open"); button.setAttribute("aria-expanded", "true"); }
+          });
+        });
       });
     })();
     (function () {
-      var items = document.querySelectorAll(".faq-item");
-      items.forEach(function (item) {
-        var button = item.querySelector("button");
-        button.addEventListener("click", function () {
-          var open = item.classList.contains("is-open");
-          items.forEach(function (other) {
-            other.classList.remove("is-open");
-            other.querySelector("button").setAttribute("aria-expanded", "false");
+      document.querySelectorAll("[data-switch]").forEach(function (root) {
+        var tabs = root.querySelectorAll('[role="tab"]');
+        var panels = root.querySelectorAll('[role="tabpanel"]');
+        function select(tab) {
+          tabs.forEach(function (t) {
+            var on = t === tab;
+            t.setAttribute("aria-selected", on ? "true" : "false");
+            t.tabIndex = on ? 0 : -1;
           });
-          if (!open) {
-            item.classList.add("is-open");
-            button.setAttribute("aria-expanded", "true");
-          }
+          panels.forEach(function (p) { p.classList.toggle("is-on", p.id === tab.getAttribute("aria-controls")); });
+        }
+        tabs.forEach(function (tab, i) {
+          tab.addEventListener("click", function () { select(tab); });
+          tab.addEventListener("keydown", function (e) {
+            var next = null;
+            if (e.key === "ArrowDown" || e.key === "ArrowRight") next = tabs[(i + 1) % tabs.length];
+            if (e.key === "ArrowUp" || e.key === "ArrowLeft") next = tabs[(i - 1 + tabs.length) % tabs.length];
+            if (!next) return;
+            e.preventDefault();
+            next.focus();
+            select(next);
+          });
         });
       });
+    })();
+    (function () {
+      var button = document.getElementById("consult-btn");
+      var status = document.getElementById("form-status");
+      if (!button || !status) return;
+      button.addEventListener("click", function () {
+        status.hidden = false;
+        status.textContent = "This preview does not send your details. Call (713) 487-8445.";
+      });
+    })();
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      document.documentElement.classList.add("motion");
+      var nodes = document.querySelectorAll("[data-anim]");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function (n) { n.classList.add("is-in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("is-in");
+          io.unobserve(e.target);
+        });
+      }, { threshold: 0.25 });
+      nodes.forEach(function (n) { io.observe(n); });
     })();
   </script>
 </body>
