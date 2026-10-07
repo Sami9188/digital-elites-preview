@@ -592,7 +592,7 @@
     .grow .support { color: var(--on-dark-muted); margin-top: 16px; }
     .grow-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: flex-end; }
 
-    .foot-cols { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)) minmax(0, 1.4fr); gap: 40px; padding: 64px 0; border-bottom: 1px solid var(--line-dark); }
+    .foot-cols { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px; padding: 64px 0; border-bottom: 1px solid var(--line-dark); }
     .foot-brand .brand { margin-bottom: 22px; }
     .foot-brand .brand img { height: 48px; }
     .foot-brand p { margin: 0 0 24px; color: var(--on-dark-muted); font-size: 15px; max-width: 32ch; }
@@ -615,14 +615,16 @@
     .foot-col a::before { content: ""; position: absolute; left: 0; top: 50%; width: 0; height: 2px; background: var(--green); transition: width .2s ease; }
     .foot-col a:hover { color: #fff; padding-left: 16px; }
     .foot-col a:hover::before { width: 10px; }
-    .foot-col .two { grid-template-columns: 1fr 1fr; column-gap: 16px; }
+    .foot-label { margin: 18px 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--on-dark-muted); }
+    .foot-industries > .foot-label:first-of-type { margin-top: 0; }
+    .foot-industries a { white-space: nowrap; }
     .news p { margin: 0 0 16px; color: var(--on-dark-muted); font-size: 15px; }
-    .news-form { display: flex; gap: 8px; }
-    .news-form input { height: 50px; background: #1C1C1C; border-color: #333; color: #fff; border-radius: 9px; }
+    .news-form { display: flex; flex-direction: column; gap: 10px; }
+    .news-form input { width: 100%; height: 50px; background: #1C1C1C; border-color: #333; color: #fff; border-radius: 9px; }
     .news-form input:hover { border-color: #555; }
     .news-form input::placeholder { color: #8A8A8A; }
     .news-form input:focus { border-color: var(--green); box-shadow: none; }
-    .news-form .pill { height: 50px; padding: 0 18px; font-size: 14px; }
+    .news-form .pill { width: 100%; height: 50px; padding: 0 18px; font-size: 14px; }
     .news-form .pill:hover { background: #fff; color: var(--ink); border-color: #fff; }
     .foot-social { display: flex; gap: 10px; margin-top: 24px; }
 
@@ -1083,20 +1085,24 @@
           </ul>
         </nav>
 
-        <nav class="foot-col" aria-labelledby="f-industries">
+        <nav class="foot-col foot-industries" aria-labelledby="f-industries">
           <h3 id="f-industries">Industries</h3>
-          <ul class="two">
+          <p class="foot-label">Clinics</p>
+          <ul>
             <li><a href="https://thedigitalelites.com/chiropractor-digital-marketing-agency/">Chiropractor</a></li>
-            <li><a href="https://thedigitalelites.com/pharmaceutical-digital-marketing-agency/">Pharma</a></li>
             <li><a href="https://thedigitalelites.com/dentist-digital-marketing-agency/">Dentist</a></li>
-            <li><a href="https://thedigitalelites.com/orthodontists-digital-marketing-agency">Orthodontist</a></li>
             <li><a href="https://thedigitalelites.com/medical-spa-digital-marketing-agency/">Medical spa</a></li>
-            <li><a href="https://thedigitalelites.com/pest-control-digital-marketing-agency/">Pest control</a></li>
             <li><a href="https://thedigitalelites.com/counselor-therapist-digital-marketing-agency/">Therapist</a></li>
-            <li><a href="https://thedigitalelites.com/automotive-digital-marketing-agency/">Automotive</a></li>
             <li><a href="https://thedigitalelites.com/health-care-digital-marketing-agency/">Health care</a></li>
-            <li><a href="https://thedigitalelites.com/cleaning-digital-marketing-agency/">Cleaning</a></li>
             <li><a href="https://thedigitalelites.com/plastic-surgery-digital-marketing-agency/">Plastic surgery</a></li>
+            <li><a href="https://thedigitalelites.com/pharmaceutical-digital-marketing-agency/">Pharmaceutical</a></li>
+            <li><a href="https://thedigitalelites.com/orthodontists-digital-marketing-agency">Orthodontist</a></li>
+          </ul>
+          <p class="foot-label">Home services</p>
+          <ul>
+            <li><a href="https://thedigitalelites.com/pest-control-digital-marketing-agency/">Pest control</a></li>
+            <li><a href="https://thedigitalelites.com/automotive-digital-marketing-agency/">Automotive</a></li>
+            <li><a href="https://thedigitalelites.com/cleaning-digital-marketing-agency/">Cleaning</a></li>
             <li><a href="https://thedigitalelites.com/electrician-digital-marketing-agency/">Electrician</a></li>
           </ul>
         </nav>
