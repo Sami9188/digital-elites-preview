@@ -2221,6 +2221,369 @@
       .nav-toggle-bar::before,
       .nav-toggle-bar::after { transition: none; }
     }
+
+    .ai-ledger {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+      gap: 8px;
+      margin-top: 36px;
+      width: 100%;
+    }
+    .ai-piece {
+      min-width: 0;
+      padding: 28px 28px 26px;
+    }
+    .ai-piece h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .ai-piece p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: normal;
+    }
+    .ai-piece-search {
+      grid-column: 1 / -1;
+      border-radius: 12px;
+      background: #111111;
+      color: #fff;
+    }
+    .ai-piece-search h3 { color: #04EA86; }
+    .ai-piece-follow {
+      border-radius: 12px;
+      background: #fff;
+      color: #2f2c23;
+    }
+    .ai-piece-follow h3 { color: #2f2c23; }
+    .ai-piece-chat {
+      border-radius: 12px;
+      background: #04EA86;
+      color: #111111;
+    }
+    .ai-piece-chat h3 { color: #111111; }
+    .ai-oversight {
+      margin: 20px 0 0;
+      max-width: 70ch;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .sector-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+      width: 100%;
+    }
+    .sector {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #111111;
+      color: #fff;
+    }
+    .sector-media {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+    .sector-media img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .sector:hover .sector-media img { transform: scale(1.04); }
+    .sector-caption { padding: 22px 24px 26px; }
+    .sector-caption h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: #04EA86;
+    }
+    .sector-caption p {
+      margin: 12px 0 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #fff;
+    }
+
+    .journey {
+      list-style: none;
+      margin: 48px 0 0;
+      padding: 0;
+      width: 100%;
+    }
+    .journey li {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 8px 24px;
+      align-items: start;
+      min-width: 0;
+      padding: 28px 0 26px;
+      border-top: 1px solid #E4E4E4;
+    }
+    .journey-mark {
+      padding-top: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      line-height: 1.1;
+      color: #04EA86;
+    }
+    .journey h3 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .journey li p {
+      margin: 10px 0 0;
+      max-width: 62ch;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+    .journey .is-shift {
+      margin-left: 88px;
+      padding: 28px;
+      border-top: 0;
+      border: 1px solid #E4E4E4;
+      border-radius: 12px;
+      background: #fff;
+    }
+    .journey .is-convert,
+    .journey .is-improve {
+      margin-top: 8px;
+      padding: 28px;
+      border-top: 0;
+      border-radius: 12px;
+    }
+    .journey .is-convert { background: #111111; }
+    .journey .is-convert h3 { color: #04EA86; }
+    .journey .is-convert p { color: #fff; }
+    .journey .is-improve { background: #04EA86; }
+    .journey .is-improve .journey-mark,
+    .journey .is-improve h3,
+    .journey .is-improve p { color: #111111; }
+    .journey-example {
+      margin: 28px 0 0;
+      padding: 4px 0 4px 28px;
+      max-width: 74ch;
+      border-left: 4px solid #04EA86;
+    }
+    .journey-example p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .process {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 28px;
+      margin: 52px 0 0;
+      padding: 0;
+      width: 100%;
+    }
+    .process li {
+      position: relative;
+      min-width: 0;
+    }
+    .process li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 44px;
+      right: -28px;
+      height: 2px;
+      background: #2f2c23;
+    }
+    .process-no {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 2px solid #111111;
+      border-radius: 50%;
+      background: #04EA86;
+      color: #111111;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .process h3 {
+      margin: 18px 0 0;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .process p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    .know-board {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 8px;
+      margin-top: 48px;
+      width: 100%;
+    }
+    .know-board article {
+      min-width: 0;
+      padding: 28px 28px 26px;
+    }
+    .know-board h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .know-board p {
+      margin: 12px 0 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+    .know-main,
+    .know-side {
+      border-radius: 12px;
+      background: #fff;
+    }
+    .know-report {
+      grid-column: 1 / -1;
+      border-top: 3px solid #04EA86;
+      border-bottom: 1px solid #E4E4E4;
+    }
+    .know-human {
+      grid-column: 1 / -1;
+      border-radius: 12px;
+      background: #111111;
+    }
+    .know-human h3 { color: #04EA86; }
+    .know-human p { color: #fff; }
+    .meet-link {
+      display: inline-block;
+      margin-top: 28px;
+      border-bottom: 2px solid #04EA86;
+      color: #111111;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+    .meet-link:hover { color: #04EA86; }
+
+    .market-names {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 40px;
+      width: 100%;
+    }
+    .market-names span {
+      font-size: clamp(56px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: #2f2c23;
+    }
+    .market-names span:nth-child(2) { text-align: center; }
+    .market-names span:nth-child(3) { text-align: right; }
+    .market-rule {
+      width: 72px;
+      height: 3px;
+      margin-top: 16px;
+      background: #04EA86;
+    }
+    .market-copy {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 32px 40px;
+      margin-top: 28px;
+      width: 100%;
+    }
+    .market-copy p {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #2f2c23;
+    }
+
+    @media (max-width: 900px) {
+      .ai-ledger,
+      .sector-row,
+      .know-board,
+      .market-copy,
+      .process {
+        grid-template-columns: 1fr;
+      }
+      .process { gap: 0; }
+      .process li {
+        padding: 22px 0;
+        border-top: 1px solid #E4E4E4;
+      }
+      .process li:not(:last-child)::after { display: none; }
+      .journey .is-shift { margin-left: 0; }
+      .journey h3 { font-size: 28px; }
+      .market-names span,
+      .market-names span:nth-child(2),
+      .market-names span:nth-child(3) {
+        font-size: 48px;
+        text-align: left;
+      }
+      .chapter-action .pill {
+        max-width: 100%;
+        height: auto;
+        min-height: 54px;
+        padding: 14px 18px;
+        text-align: center;
+        white-space: normal;
+      }
+      .sector-media { height: 180px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sector-media img { transition: none; }
+      .sector:hover .sector-media img { transform: none; }
+    }
   </style>
 </head>
 <body>
@@ -2404,7 +2767,7 @@
   <section class="chapter" id="ai" aria-labelledby="ai-title">
     <div class="chapter-inner">
       <h2 class="chapter-title" id="ai-title">AI Search Optimization &amp; Marketing Automation</h2>
-      <p class="chapter-support">Help people and search systems understand your business, services and expertise. AI-assisted work includes human oversight. Search rankings, AI citations and platform recommendations cannot be guaranteed.</p>
+      <p class="chapter-support">Make AI part of a practical marketing plan. We focus on clear information for search discovery and useful workflows for capturing, routing and following up on enquiries.</p>
 
       <div class="ai-panel">
         <div class="ai-screen">
@@ -2460,6 +2823,25 @@
           <li><span>3</span> Enquire</li>
         </ol>
       </div>
+
+      <div class="ai-ledger">
+        <article class="ai-piece ai-piece-search">
+          <h3>AI Search Optimization</h3>
+          <p>Help people and search systems understand your business, services and expertise.</p>
+          <p>Our work can include reviewing your website’s accessibility, improving service information and developing content that directly answers relevant customer questions. We assess opportunities across traditional search and AI-assisted discovery.</p>
+        </article>
+        <article class="ai-piece ai-piece-follow">
+          <h3>Lead Follow-Up Automation</h3>
+          <p>Connect website enquiries with your CRM and agreed follow-up process.</p>
+          <p>Automation can acknowledge submissions, route information to the right person and prompt the next action helping your team manage enquiries consistently.</p>
+        </article>
+        <article class="ai-piece ai-piece-chat">
+          <h3>AI Chatbots &amp; Customer Enquiries</h3>
+          <p>Give website visitors a convenient way to ask common questions and share their requirements.</p>
+          <p>Where suitable, a chatbot can explain basic service information, capture enquiry details and hand the conversation to your team when human assistance is needed.</p>
+        </article>
+      </div>
+      <p class="ai-oversight">AI-assisted work includes human oversight. Search rankings, AI citations and platform recommendations cannot be guaranteed.</p>
 
       <div class="chapter-action">
         <a class="pill" href="../contact/">Discuss Your AI &amp; Automation Requirements</a>
@@ -2612,7 +2994,7 @@
                 <path d="M22 28.5c.5-2.4 1.8-3.8 4.5-3.8 2.2 0 3.6 1.1 4.3 3.2" stroke="#04EA86" stroke-width="1.75" stroke-linecap="round"/>
               </svg>
               <h3 class="panel-title"><span class="svc-no">06</span>SEO &amp; Local Search</h3>
-              <p class="panel-copy">Improve your website’s search foundations and help potential customers find relevant information about your services.</p>
+              <p class="panel-copy">Improve your website’s search foundations and help potential customers find relevant information about your services. Our scope can include technical SEO, keyword research, service-page optimization, content planning and internal linking. Local SEO can also address Google Business Profile and business information for your service areas.</p>
             </div>
             <ol class="session">
               <li><span>1</span> Search</li>
@@ -2644,7 +3026,7 @@
           <div class="room-caption">
             <h3 class="room-name">Chiropractic</h3>
             <span class="room-rule" aria-hidden="true"></span>
-            <p class="room-line">Make your expertise and service scope easier for prospective clients to evaluate.</p>
+            <p class="room-line">Patients book the adjustment from this room.</p>
           </div>
         </article>
 
@@ -2655,7 +3037,7 @@
           <p class="room-tag">Placeholder · orthodontic practice</p>
           <div class="room-caption">
             <h3 class="room-name">Orthodontics</h3>
-            <p class="room-line">Support buyers who need to research your offer and involve multiple decision-makers.</p>
+            <p class="room-line">Parents compare the consult before they start.</p>
           </div>
         </article>
 
@@ -2666,7 +3048,7 @@
           <p class="room-tag">Placeholder · dental office</p>
           <div class="room-caption">
             <h3 class="room-name">Dental</h3>
-            <p class="room-line">Clear positioning, useful content and relevant campaigns help explain your capabilities throughout a longer buying process.</p>
+            <p class="room-line">The chair, the offer, and a way to request a visit.</p>
           </div>
         </article>
 
@@ -2679,6 +3061,31 @@
           <div class="room-caption">
             <h3 class="room-name">Home Service Businesses</h3>
             <p class="room-line">Help homeowners understand your services, check your coverage and request an estimate. Local search, targeted advertising and clear website journeys can support customer acquisition for businesses such as HVAC providers, roofers and electrical contractors.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="sector-row">
+        <article class="sector">
+          <div class="sector-media">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Placeholder: a professional office interior.">
+            <p class="room-tag">Placeholder · professional office</p>
+          </div>
+          <div class="sector-caption">
+            <h3>Professional Service Firms</h3>
+            <p>Make your expertise and service scope easier for prospective clients to evaluate.</p>
+            <p>Relevant content, credible service pages and clear consultation options help buyers understand your approach before making an enquiry.</p>
+          </div>
+        </article>
+        <article class="sector">
+          <div class="sector-media">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Placeholder: a business meeting around a table.">
+            <p class="room-tag">Placeholder · business meeting</p>
+          </div>
+          <div class="sector-caption">
+            <h3>B2B Companies</h3>
+            <p>Support buyers who need to research your offer and involve multiple decision-makers.</p>
+            <p>Clear positioning, useful content and relevant campaigns help explain your capabilities throughout a longer buying process.</p>
           </div>
         </article>
       </div>
@@ -2716,6 +3123,123 @@
 
       <div class="chapter-action">
         <a class="pill" href="../industries/">Explore Industries</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-journey" id="journey" aria-labelledby="journey-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="journey-title">Connect Discovery with Qualified Enquiries</h2>
+      <p class="chapter-support">A successful customer journey needs more than traffic. Visitors should find an offer relevant to their needs, understand why your business fits and know how to take the next step.</p>
+      <ol class="journey">
+        <li>
+          <span class="journey-mark">01</span>
+          <div>
+            <h3>Attract</h3>
+            <p>Reach potential customers through organic search, paid advertising and relevant content.</p>
+          </div>
+        </li>
+        <li class="is-shift">
+          <span class="journey-mark">02</span>
+          <div>
+            <h3>Explain</h3>
+            <p>Use your website to clarify your services, answer buying questions and demonstrate your capabilities.</p>
+          </div>
+        </li>
+        <li class="is-convert">
+          <span class="journey-mark">03</span>
+          <div>
+            <h3>Convert</h3>
+            <p>Provide relevant landing pages, accessible contact forms and clear consultation options.</p>
+          </div>
+        </li>
+        <li class="is-improve">
+          <span class="journey-mark">04</span>
+          <div>
+            <h3>Improve</h3>
+            <p>Review campaign data and enquiry feedback to refine targeting, messaging and the website experience.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="journey-example">
+        <p>For example, an advertisement for one service should lead to a page about that service. The page should explain the scope, show relevant proof and capture the information your team needs to respond.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-process" id="process" aria-labelledby="process-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="process-title">A Clear Process from Planning to Delivery</h2>
+      <ol class="process">
+        <li>
+          <span class="process-no">1</span>
+          <h3>Understand Your Business</h3>
+          <p>We discuss your audience, offer, current marketing and sales process. Your goals and available data help establish what needs attention first.</p>
+        </li>
+        <li>
+          <span class="process-no">2</span>
+          <h3>Define the Scope</h3>
+          <p>We recommend services and explain the deliverables, responsibilities and costs. The proposal sets out the measurement approach and identifies advertising spend separately where applicable.</p>
+        </li>
+        <li>
+          <span class="process-no">3</span>
+          <h3>Build &amp; Launch</h3>
+          <p>We deliver the agreed website, content, creative work or campaigns, with review points for your feedback.</p>
+        </li>
+        <li>
+          <span class="process-no">4</span>
+          <h3>Measure &amp; Refine</h3>
+          <p>We assess relevant performance measures and enquiry quality. Findings guide the next changes to your campaigns, content, website or follow-up process.</p>
+        </li>
+      </ol>
+      <div class="chapter-action">
+        <a class="pill" href="../contact/">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter-know" id="know" aria-labelledby="know-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="know-title">Know What Is Being Done and Why</h2>
+      <p class="chapter-support">Choosing a full-service digital marketing company involves more than comparing service lists. You need to understand the scope, how delivery is managed and how progress will be assessed.</p>
+      <div class="know-board">
+        <article class="know-main">
+          <h3>Defined Deliverables</h3>
+          <p>Understand what is included, what requires your input and how requests outside the scope will be handled.</p>
+        </article>
+        <article class="know-side">
+          <h3>Coordinated Execution</h3>
+          <p>Website, advertising, content and creative decisions follow the agreed marketing direction.</p>
+        </article>
+        <article class="know-report">
+          <h3>Relevant Reporting</h3>
+          <p>Review the measures appropriate to your engagement, with context and recommended next actions.</p>
+        </article>
+        <article class="know-human">
+          <h3>Human Oversight</h3>
+          <p>AI-assisted research, content and workflows receive human review for accuracy, relevance and brand consistency.</p>
+        </article>
+      </div>
+      <a class="meet-link" href="../about/">Meet The Digital Elites</a>
+    </div>
+  </section>
+
+  <section class="chapter chapter-markets" id="markets" aria-labelledby="markets-title">
+    <div class="chapter-inner">
+      <h2 class="chapter-title" id="markets-title">Working with Businesses Across Markets</h2>
+      <p class="chapter-support">We welcome enquiries from businesses in the USA, UK, UAE and other international markets.</p>
+      <div class="market-names">
+        <span>USA</span>
+        <span>UK</span>
+        <span>UAE</span>
+      </div>
+      <div class="market-rule" aria-hidden="true"></div>
+      <div class="market-copy">
+        <p>Before engagement, we discuss your target audience, communication requirements and project needs to assess whether our delivery approach is suitable.</p>
+        <p>Your marketing plan should reflect the market you want to reach, the services you sell and your team’s capacity to handle new business.</p>
+      </div>
+      <div class="chapter-action">
+        <a class="pill" href="../contact/">Discuss Your Market &amp; Goals</a>
       </div>
     </div>
   </section>
@@ -2979,7 +3503,7 @@
   <section class="chapter" id="work" aria-labelledby="work-title">
     <div class="chapter-inner">
       <h2 class="chapter-title" id="work-title">See the Work Behind Our Approach</h2>
-      <p class="chapter-support">Explore the challenges, decisions and deliverables behind our website, marketing and creative projects. We deliver the agreed website, content, creative work or campaigns, with review points for your feedback.</p>
+      <p class="chapter-support">Explore the challenges, decisions and deliverables behind our website, marketing and creative projects.</p>
 
       <div class="shot-stage">
         <figure class="polaroid polaroid-1">
@@ -3057,7 +3581,6 @@
   <section class="chapter chapter-faq" id="faq" aria-labelledby="faq-title">
     <div class="chapter-inner">
       <h2 class="chapter-title" id="faq-title">Frequently Asked Questions</h2>
-      <p class="chapter-support">Choosing a full-service digital marketing company involves more than comparing service lists.</p>
       <div class="faq-list">
         <div class="faq-item is-open">
           <button type="button" aria-expanded="true">
@@ -3075,6 +3598,13 @@
         </div>
         <div class="faq-item">
           <button type="button" aria-expanded="false">
+            Should I choose one agency or separate specialists?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">One agency can suit businesses that need coordinated work across multiple channels. Separate specialists may suit a narrow requirement or a business with an internal team managing the wider strategy. Compare relevant experience, scope, communication and account-access arrangements before deciding.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
             How much do your services cost?
             <span class="faq-mark" aria-hidden="true"></span>
           </button>
@@ -3086,6 +3616,34 @@
             <span class="faq-mark" aria-hidden="true"></span>
           </button>
           <p class="faq-a">Timelines depend on your starting point, competition and chosen services. Website work has agreed delivery milestones, while marketing performance requires ongoing evaluation. Budget, market demand, your offer and enquiry handling can also affect outcomes. We discuss expectations before work begins.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            How do you measure performance?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Depending on the engagement, relevant measures may include organic visibility, enquiries, booked consultations, conversion rate and cost per lead. Understanding which enquiries become customers also requires reliable tracking and feedback from your sales team.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            How is AI search optimization different from SEO?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">SEO addresses how your website is discovered and understood in search engines. AI search optimization adds attention to how your business information and expertise may be interpreted in AI-assisted answers. The work can overlap through useful content, clear service information and technically accessible pages.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Can automation help with lead follow-up?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">Yes, where the required systems and workflows support it. Automation can acknowledge enquiries, pass details to a CRM and prompt follow-up actions. Human involvement remains necessary for questions, qualification and conversations that require judgment.</p>
+        </div>
+        <div class="faq-item">
+          <button type="button" aria-expanded="false">
+            Do you work with international clients?
+            <span class="faq-mark" aria-hidden="true"></span>
+          </button>
+          <p class="faq-a">We welcome enquiries from businesses in the USA, UK, UAE and other markets. During the initial discussion, we review your requirements and agree on suitable communication and delivery arrangements.</p>
         </div>
         <div class="faq-item">
           <button type="button" aria-expanded="false">
@@ -3104,7 +3662,7 @@
   <section class="chapter close" id="contact">
     <div class="chapter-inner" id="proposal">
       <h2 class="chapter-title">Let’s Discuss Your Website &amp; Marketing Goals</h2>
-      <p class="chapter-support">Tell us about your business, your current challenges and what you want to improve. We will review your requirements and discuss whether a specific project or a broader marketing engagement is the right next step. We welcome enquiries from businesses in the USA, UK, UAE and other international markets.</p>
+      <p class="chapter-support">Tell us about your business, your current challenges and what you want to improve. We will review your requirements and discuss whether a specific project or a broader marketing engagement is the right next step.</p>
       <div class="chapter-action">
         <a class="pill" href="tel:+17134878445">Call (713) 487-8445</a>
       </div>
