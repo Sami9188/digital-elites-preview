@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Digital Marketing Services for Businesses in Dubai — The Digital Elites</title>
+  <meta name="description" content="Digital marketing services for businesses targeting Dubai. Remote delivery with an agreed scope.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: #F6F4EF;
+      color: #2f2c23;
+      font-family: "Inter Tight", sans-serif;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    body { min-height: 100%; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    h1, h2, h3 {
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    h1, h2 { font-size: 48px; margin: 0; }
+    h3 { font-size: 22px; margin: 0 0 12px; }
+    p { margin: 0 0 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: #F6F4EF;
+      box-shadow: 0 0 10px 3px rgb(0 0 0 / 11%);
+    }
+    .logo { display: flex; align-items: center; flex: 0 0 auto; }
+    .logo img { height: 62px; width: auto; display: block; }
+    .nav { display: contents; }
+    .nav a {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #2f2c23;
+      padding: 8px 14px;
+      border-radius: 8px;
+    }
+    .nav a:hover { background: #C8F8DE; }
+    .phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #04EA86;
+      background: #111111;
+      border-radius: 999px;
+      padding: 10px 20px 10px 10px;
+      white-space: nowrap;
+    }
+    .phone-bubble {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #04EA86;
+      transform-origin: center;
+      animation: phone-pulse 1.6s ease-in-out infinite;
+    }
+    .phone svg { display: block; }
+    @keyframes phone-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    .nav-toggle { display: none; }
+    .nav a.nav-phone { display: none; }
+
+    .wrap {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 72px;
+    }
+    .hero {
+      background: #2f2c23;
+      color: #F6F4EF;
+      padding: 104px 0 112px;
+      text-align: center;
+    }
+    .hero h1 { color: #fff; max-width: 16em; margin: 0 auto; }
+    .hero .accent { color: #04EA86; }
+    .hero p { max-width: 680px; margin: 16px auto 0; color: #F6F4EF; }
+    .hero .lede { margin-top: 28px; }
+    .hero .note { color: #d8d3c8; }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .section { padding: 96px 0; position: relative; }
+    .section-white { background: #fff; }
+    .section-olive { background: #2f2c23; color: #F6F4EF; }
+    .section-olive h2, .section-olive h3 { color: #fff; }
+    .section-header { text-align: center; margin: 0 auto 64px; max-width: 920px; }
+    .section-header p { margin: 16px auto 0; max-width: 720px; }
+    .section-action { display: flex; justify-content: center; margin-top: 48px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      height: 54px;
+      padding: 0 22px;
+      border: 2px solid #04EA86;
+      border-radius: 9px;
+      background: #04EA86;
+      color: #111111;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .pill:hover { background: #111111; color: #04EA86; border-color: #111111; }
+    .pill-outline {
+      background: transparent;
+      color: #F6F4EF;
+      border-color: #F6F4EF;
+    }
+    .pill-outline:hover { background: #04EA86; color: #111111; border-color: #04EA86; }
+    .pill-on-light {
+      background: transparent;
+      color: #111111;
+      border-color: #111111;
+    }
+    .pill-on-light:hover { background: #111111; color: #04EA86; border-color: #111111; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .callout {
+      background: #fff;
+      color: #2f2c23;
+      border-radius: 16px;
+      padding: 32px;
+      border-top: 4px solid #04EA86;
+    }
+    .section-white .callout { background: #F6F4EF; }
+    .offers { display: grid; gap: 24px; }
+    .offers-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .offers-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .span-2 { grid-column: 1 / -1; }
+    .offer {
+      background: #fff;
+      border: 1px solid #e4e0d8;
+      border-radius: 16px;
+      padding: 32px 28px;
+      min-width: 0;
+    }
+    .section-white .offer { background: #F6F4EF; }
+    .offer h3 { font-size: 20px; }
+    .offer p { margin: 0; }
+    .checks {
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+    }
+    .checks li {
+      position: relative;
+      padding-left: 28px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .checks li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 12px;
+      height: 7px;
+      border-left: 2px solid #2f2c23;
+      border-bottom: 2px solid #2f2c23;
+      transform: rotate(-45deg);
+    }
+    .checks-1 { grid-template-columns: 1fr; max-width: 640px; }
+    .sheet {
+      background: #fff;
+      border: 1px solid #e4e0d8;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .section-white .sheet { background: #F6F4EF; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td {
+      text-align: left;
+      padding: 18px 22px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    th {
+      background: #2f2c23;
+      color: #F6F4EF;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    tr + tr td { border-top: 1px solid #e4e0d8; }
+    .after-note { margin-top: 20px; max-width: 820px; }
+    .steps { list-style: none; margin: 0; padding: 0; }
+    .steps li {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 20px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(246, 244, 239, 0.22);
+    }
+    .steps li:last-child { border-bottom: 1px solid rgba(246, 244, 239, 0.22); }
+    .num {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: #04EA86;
+    }
+    .compare {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .compare article {
+      background: #fff;
+      border: 1px solid #e4e0d8;
+      border-radius: 16px;
+      padding: 32px 28px;
+      min-width: 0;
+    }
+    .compare .lead {
+      background: #2f2c23;
+      color: #F6F4EF;
+      border: 0;
+    }
+    .compare .lead h3 { color: #04EA86; }
+    .link-row { margin-top: 28px; }
+    a.inline {
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: #04EA86;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+    .faq-list { border-bottom: 1px solid #e4e0d8; }
+    .faq-item { border-top: 1px solid #e4e0d8; }
+    .faq-item button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0;
+      padding: 22px 0;
+      border: 0;
+      background: transparent;
+      color: #2f2c23;
+      font-family: inherit;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+    }
+    .faq-mark { flex: 0 0 auto; width: 28px; height: 28px; position: relative; }
+    .faq-mark::before, .faq-mark::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 13px;
+      height: 2px;
+      background: #2f2c23;
+    }
+    .faq-mark::after { transform: rotate(90deg); }
+    .faq-item.is-open .faq-mark::after { display: none; }
+    .faq-item.is-open .faq-mark::before { background: #04EA86; }
+    .faq-a { display: none; max-width: 760px; padding: 0 48px 22px 0; }
+    .faq-item.is-open .faq-a { display: block; }
+    .close {
+      background: #111111;
+      color: #fff;
+      text-align: center;
+      padding: 96px 0 104px;
+    }
+    .close h2 { color: #fff; max-width: 16em; margin: 0 auto; }
+    .close p { max-width: 640px; margin: 16px auto 0; color: #F6F4EF; }
+    .site-foot {
+      background: #F6F4EF;
+      border-top: 1px solid #e4e0d8;
+      padding: 28px 0;
+    }
+    .site-foot .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .site-foot p { margin: 0; font-weight: 700; }
+    :focus-visible { outline: 2px solid #04EA86; outline-offset: 3px; }
+
+    @media (max-width: 1100px) {
+      .wrap { padding: 0 32px; }
+      .offers-4 { grid-template-columns: 1fr 1fr; }
+      .compare { grid-template-columns: 1fr; }
+      .header { padding: 0 24px; }
+      .nav a { padding: 8px 8px; }
+    }
+    @media (max-width: 900px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        margin-left: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+      }
+      .nav-toggle:hover { background: #C8F8DE; }
+      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 2px;
+        background: #2f2c23;
+        position: relative;
+      }
+      .nav-toggle-bar::before, .nav-toggle-bar::after { content: ""; position: absolute; left: 0; }
+      .nav-toggle-bar::before { top: -6px; }
+      .nav-toggle-bar::after { top: 6px; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { top: 0; transform: rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle-bar::after { top: 0; transform: rotate(-45deg); }
+      .header { padding: 0 16px; }
+      .logo img { height: 48px; }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 12px 16px;
+        background: #F6F4EF;
+        box-shadow: 0 16px 28px rgba(17, 17, 17, 0.12);
+      }
+      .nav.is-open { display: flex; }
+      .nav a { display: block; padding: 14px 12px; font-size: 20px; }
+      h1, h2 { font-size: 32px; }
+      .section { padding: 72px 0; }
+      .section-header { margin-bottom: 40px; }
+      .hero { padding: 72px 0; }
+      .close { padding: 72px 0; }
+      .header > .phone { margin-left: 8px; }
+      .faq-item button { font-size: 18px; }
+    }
+    @media (max-width: 700px) {
+      .split, .offers-2, .offers-4, .checks { grid-template-columns: 1fr; }
+      .span-2 { grid-column: auto; }
+      table, thead, tbody, tr, th, td { display: block; width: 100%; }
+      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      td { border-top: 0; padding: 14px 18px; }
+      tr { border-top: 1px solid #e4e0d8; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 20px; }
+      .header > .phone { display: none; }
+      .nav.is-open a.nav-phone {
+        display: inline-flex;
+        align-items: center;
+        align-self: flex-start;
+        gap: 12px;
+        margin: 8px 8px 4px;
+        padding: 10px 18px 10px 10px;
+        border-radius: 999px;
+        background: #111111;
+        color: #04EA86;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: none;
+      }
+      h1, h2 { font-size: 28px; }
+      .section { padding: 56px 0; }
+      .hero { padding: 56px 0 64px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .pill, .section-action .pill, .close .pill { width: 100%; height: auto; min-height: 54px; padding: 14px 16px; white-space: normal; }
+      .steps li { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
+      .site-foot .wrap { flex-direction: column; align-items: flex-start; }
+      .faq-a { padding-right: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .phone-bubble { animation: none; }
+      .nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after { transition: none; }
+    }
+  
+    .hero-split { text-align: left; }
+    .hero-split h1 { margin: 0; max-width: 12em; }
+    .hero-split p { margin-left: 0; margin-right: 0; }
+    .hero-split .hero-actions { justify-content: flex-start; }
+    .split-hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: end; }
+    .job-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(246,244,239,.25); }
+    .job-list li { padding: 18px 0; border-bottom: 1px solid rgba(246,244,239,.25); font-size: 22px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1.1; color: #fff; }
+    .job-list span { display: block; margin-top: 6px; font-size: 16px; font-weight: 400; letter-spacing: 0; text-transform: none; color: #d8d3c8; line-height: 1.5; }
+    .lane { display: grid; grid-template-columns: minmax(180px, 280px) minmax(0, 1fr); gap: 28px 40px; padding: 32px 0; border-top: 1px solid #e4e0d8; }
+    .lane:last-child { border-bottom: 1px solid #e4e0d8; }
+    .lane h3 { margin: 0; }
+    .gap-sheet { background: #fff; border-radius: 16px; border: 1px solid #e4e0d8; }
+    .gap-row { display: grid; grid-template-columns: minmax(180px, 300px) minmax(0, 1fr); gap: 24px 40px; padding: 28px 32px; }
+    .gap-row + .gap-row { border-top: 1px solid #e4e0d8; }
+    .steps-light li { border-top-color: #e4e0d8; }
+    .steps-light li:last-child { border-bottom-color: #e4e0d8; }
+    .steps-light h3 { color: #2f2c23; }
+    .why { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+    .why article { padding-top: 18px; border-top: 4px solid #04EA86; min-width: 0; }
+    .qa { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 24px 40px; padding: 28px 0; border-top: 1px solid #e4e0d8; }
+    .qa h3 { font-size: 20px; margin: 0; }
+    .form-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; }
+    .fields { display: grid; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field label { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; }
+    .field input, .field textarea {
+      width: 100%;
+      font: 400 16px/1.5 "Inter Tight", sans-serif;
+      color: #2f2c23;
+      background: #fff;
+      border: 1px solid #e4e0d8;
+      border-radius: 9px;
+      padding: 12px 14px;
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .form-note { margin-top: 16px; }
+    .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 1100px) {
+      .why { grid-template-columns: 1fr 1fr; }
+      .split-hero, .form-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+    @media (max-width: 700px) {
+      .lane, .gap-row, .qa, .pair, .why { grid-template-columns: 1fr; }
+      .gap-row { padding: 22px 18px; }
+    }
+
+  
+    .svc { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 8px 20px; padding: 28px 0; border-top: 1px solid #e4e0d8; }
+    .svc .num { color: #2f2c23; }
+    .models { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+    .models article { background: #F6F4EF; border: 1px solid #e4e0d8; border-radius: 16px; padding: 32px 28px; min-width: 0; }
+    .models .mid { background: #2f2c23; color: #F6F4EF; border: 0; }
+    .models .mid h3 { color: #04EA86; }
+    .offers-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 1100px) {
+      .offers-3 { grid-template-columns: 1fr; }
+      .models { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .svc { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="../">
+      <img id="logo" crossorigin="anonymous" src="https://thedigitalelites.com/wp-content/uploads/2025/06/white-logo.png" alt="The Digital Elites">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="site-nav">
+      <a href="../work/">Work</a>
+      <a href="../industries/">Industries</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+      <a class="nav-phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </nav>
+    <a class="phone" href="tel:+17134878445">
+      <span class="phone-bubble">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </span>
+      (713) 487-8445
+    </a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Digital Marketing Services<br><span class="accent">for Businesses in Dubai</span></h1>
+        <p class="lede">Bring your website, search marketing, advertising and creative work together around clear business goals.</p>
+        <p>The Digital Elites provides digital marketing services to businesses targeting Dubai. We work remotely, coordinating SEO, paid advertising, website development, content and AI-related solutions within an agreed scope.</p>
+        <p>Whether you serve customers across Dubai or focus on specific areas, we plan around your audience, offer and customer acquisition process.</p>
+        <div class="hero-actions">
+          <a class="pill" href="#consult">Discuss Your Dubai Marketing Goals</a>
+          <a class="pill pill-outline" href="../work/">View Our Work</a>
+        </div>
+        <p class="note">Remote delivery with agreed communication, review points and project responsibilities.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>A Marketing Plan Built Around Your Dubai Audience</h2>
+          <p>Targeting Dubai requires more than adding a city name to your website. Your marketing should explain who you serve, where you operate and how customers can take the next step.</p>
+          <p>We start by understanding your actual market.</p>
+        </div>
+        <div class="offers offers-4">
+          <article class="offer">
+            <h3>Define Your Customer</h3>
+            <p>Are you targeting residents, visitors, business buyers or a combination? Your audience affects the channels, messaging and website information your plan needs.</p>
+          </article>
+          <article class="offer">
+            <h3>Clarify Your Coverage</h3>
+            <p>Campaigns and landing pages should reflect the locations your business genuinely serves. A Dubai-wide provider may need a different approach from a business serving selected neighbourhoods.</p>
+          </article>
+          <article class="offer">
+            <h3>Match Language with Customer Needs</h3>
+            <p>We discuss which languages your customers use and what your team can support. Arabic content or multilingual development is scoped separately where required and available.</p>
+          </article>
+          <article class="offer">
+            <h3>Connect Marketing with Your Sales Process</h3>
+            <p>A consultation-led service, online store and appointment-based business need different conversion journeys. Your marketing should reflect how customers actually buy.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Digital Marketing Services for Dubai Businesses</h2>
+          <p>Choose a focused project or a coordinated engagement. Your proposal defines the deliverables, responsibilities and costs.</p>
+        </div>
+        <article class="svc">
+          <span class="num">01</span>
+          <div>
+            <h3>SEO and Local Search</h3>
+            <p>Improve your website’s technical foundations and develop content aligned with relevant customer searches.</p>
+            <p>The scope can include keyword research, service-page optimization, internal linking and technical SEO. For eligible client businesses, local search work can also address Google Business Profile and accurate business information.</p>
+            <p>Location pages should explain genuine service coverage and provide useful information rather than repeat the same content with different area names.</p>
+            <p class="link-row"><a class="inline" href="../seo/">Explore SEO Services</a></p>
+          </div>
+        </article>
+        <article class="svc">
+          <span class="num">02</span>
+          <div>
+            <h3>Google Ads and Paid Campaigns</h3>
+            <p>Reach potential customers with campaigns aligned with your services, audience and coverage.</p>
+            <p>We connect ad messaging with relevant landing pages and agreed conversion tracking. Campaign priorities consider your budget, operating hours and capacity to handle enquiries.</p>
+          </div>
+        </article>
+        <article class="svc">
+          <span class="num">03</span>
+          <div>
+            <h3>Website Design and Development</h3>
+            <p>Help visitors understand your offer and contact your team.</p>
+            <p>We develop responsive websites with clear service information, straightforward navigation and suitable enquiry or booking options. Depending on your business, contact paths may include forms, phone calls or WhatsApp.</p>
+          </div>
+        </article>
+        <article class="svc">
+          <span class="num">04</span>
+          <div>
+            <h3>Social Media Marketing</h3>
+            <p>Plan content and campaigns around the platforms relevant to your customers.</p>
+            <p>The scope can include publishing priorities, creative assets and paid social activity, with messaging that reflects your brand and offer.</p>
+          </div>
+        </article>
+        <article class="svc">
+          <span class="num">05</span>
+          <div>
+            <h3>Content and Creative Services</h3>
+            <p>Explain your services through useful website copy, articles, graphics and video content.</p>
+            <p>We use approved business information and your subject expertise to keep content accurate and specific to your company.</p>
+          </div>
+        </article>
+        <div class="section-action">
+          <a class="pill" href="#consult">Discuss the Services You Need</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>AI Search Optimization and Marketing Automation</h2>
+          <p>Add AI-related services where they support discovery and customer handling.</p>
+        </div>
+        <div class="offers offers-3">
+          <article class="offer">
+            <h3>Clear Business Information for AI-Assisted Search</h3>
+            <p>We review how your website explains your services, expertise and market coverage. Answer-focused content and accessible pages can support a clearer online presence across search experiences.</p>
+            <p style="margin-top:16px">AI search optimization does not guarantee platform citations or recommendations.</p>
+          </article>
+          <article class="offer">
+            <h3>Enquiry Routing and Follow-Up</h3>
+            <p>Connect forms with your CRM and agreed response workflows.</p>
+            <p style="margin-top:16px">Automation can acknowledge an enquiry, notify the appropriate person and prompt follow-up. It should clearly distinguish a request from a confirmed appointment.</p>
+          </article>
+          <article class="offer">
+            <h3>Chatbots with Human Handoff</h3>
+            <p>Where suitable, chatbots can answer approved questions, collect basic requirements and direct visitors to your team.</p>
+            <p style="margin-top:16px">The workflow should reflect your real service availability and provide human assistance when needed.</p>
+          </article>
+        </div>
+        <div class="section-action">
+          <a class="pill" href="#consult">Discuss Your AI Requirements</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Marketing That Reflects Your Business Model</h2>
+          <p>We shape the plan around what you sell and how customers evaluate it.</p>
+        </div>
+        <div class="models">
+          <article>
+            <h3>Service Businesses</h3>
+            <p>Make your service scope, coverage and contact options clear. Connect relevant searches and campaigns with pages that answer customer questions.</p>
+          </article>
+          <article class="mid">
+            <h3>Professional and B2B Firms</h3>
+            <p>Explain expertise, deliverables and suitability for buyers who may compare providers before requesting a consultation or proposal.</p>
+          </article>
+          <article>
+            <h3>eCommerce Businesses</h3>
+            <p>Connect product information, advertising and website journeys with your actual delivery coverage and purchase process.</p>
+          </article>
+        </div>
+        <p class="after-note" style="margin-top:28px">Recommendations depend on your requirements and our agreed delivery scope.</p>
+        <p class="link-row"><a class="inline" href="../industries/">Explore Industries</a></p>
+      </div>
+    </section>
+
+    <section class="section section-olive">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>How We Work Remotely with Dubai Businesses</h2>
+          <p>You do not need to share an office with your agency to have a clear delivery process. You do need defined responsibilities, suitable access and reliable communication.</p>
+        </div>
+        <aside class="callout">
+          <p>The Digital Elites operates remotely and does not have a physical office in Dubai.</p>
+        </aside>
+        <ol class="steps" style="margin-top:36px">
+          <li>
+            <span class="num">01</span>
+            <div>
+              <h3>Understand Your Requirements</h3>
+              <p>We discuss your target customers, offer, existing marketing and business priorities.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div>
+              <h3>Agree on Scope and Communication</h3>
+              <p>Your proposal defines deliverables, costs and implementation responsibilities. We agree on suitable meeting times, feedback channels and review points.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div>
+              <h3>Arrange Necessary Access</h3>
+              <p>We identify the website, advertising and analytics access required for the work. Permissions and account arrangements are discussed before implementation.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">04</span>
+            <div>
+              <h3>Deliver and Review</h3>
+              <p>We complete the agreed tasks and collect your feedback at defined stages.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">05</span>
+            <div>
+              <h3>Measure and Refine</h3>
+              <p>We review relevant performance data and customer feedback to guide subsequent improvements.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="section-action">
+          <a class="pill" href="#consult">Book an Online Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Measure Performance Against Your Goals</h2>
+          <p>Reporting should explain more than how many people saw a campaign.</p>
+        </div>
+        <p>Depending on your engagement, we may review:</p>
+        <ul class="checks">
+          <li>Relevant search visibility and organic clicks</li>
+          <li>Landing-page traffic and conversion behaviour</li>
+          <li>Tracked calls, forms and booking requests</li>
+          <li>Qualified enquiries and customer fit</li>
+          <li>Advertising cost per enquiry</li>
+          <li>Sales outcomes where reliable data is available</li>
+        </ul>
+        <p style="margin-top:20px">Connecting marketing with revenue requires appropriate tracking and feedback from your team. The measurement setup is agreed as part of the scope.</p>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Explore Our Work</h2>
+          <p>Review genuine examples of our website, marketing and creative delivery.</p>
+        </div>
+        <aside class="callout">
+          <p>A project is identified by its actual market. This page does not present work as Dubai experience unless that is the market served.</p>
+        </aside>
+        <div class="section-action">
+          <a class="pill" href="../work/">View Our Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>What to Expect from The Digital Elites</h2>
+        </div>
+        <div class="why">
+          <article>
+            <h3>Defined Deliverables</h3>
+            <p>Understand which services are included, what requires your input and how scope changes are handled.</p>
+          </article>
+          <article>
+            <h3>Coordinated Execution</h3>
+            <p>Website, content, advertising and creative work follow the agreed business priorities.</p>
+          </article>
+          <article>
+            <h3>Relevant Reporting</h3>
+            <p>Review appropriate measures, findings and recommended next actions.</p>
+          </article>
+          <article>
+            <h3>Human Oversight</h3>
+            <p>AI-assisted work receives human review for accuracy, relevance and brand consistency.</p>
+          </article>
+        </div>
+        <p class="link-row"><a class="inline" href="../about/">About The Digital Elites</a></p>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap">
+        <div class="section-header">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" aria-expanded="true">Do you have an office in Dubai?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>No. The Digital Elites operates remotely and does not have a physical office in Dubai. Meetings, feedback and project coordination are handled online through agreed channels.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Can we work with you if our business is in Dubai?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>Yes. We welcome enquiries from Dubai businesses. We review your requirements and confirm whether our services and remote delivery approach fit the project.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Can you target customers in specific Dubai areas?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a">
+              <p>Campaigns and content can reflect your actual service coverage. The approach depends on search demand, available targeting options and whether area-specific pages would provide useful information.</p>
+              <p>We do not recommend creating repetitive pages simply to insert neighbourhood names.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Do you provide Arabic marketing content?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>Arabic content requirements are discussed separately. Availability, writing, translation and review arrangements must be confirmed in the proposal before work begins.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Can you manage our existing website and advertising accounts?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>We can review your existing setup and identify the access needed. Some tasks may require developer involvement or changes to account permissions and tracking.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">How much do your services cost?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>Pricing depends on the services, complexity and ongoing workload. Your proposal outlines agency fees and deliverables, with advertising spend and relevant third-party costs identified separately.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Should we start with SEO or paid advertising?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a">
+              <p>The decision depends on your website, current visibility, demand, budget and priorities.</p>
+              <p>Paid advertising buys access to ad placements. SEO develops your unpaid search presence through technical and content work. Neither guarantees enquiries or sales.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Can you connect WhatsApp enquiries with our marketing?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a">
+              <p>Where the website and systems support it, WhatsApp contact options and click tracking can be included in scope.</p>
+              <p>A click does not confirm a conversation or qualified enquiry, so further measurement depends on your systems and customer-handling process.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">How do we communicate during the project?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a"><p>We agree on communication channels, meeting arrangements and review points before engagement. Scheduling considers your team’s availability and the project’s needs.</p></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" aria-expanded="false">Do you guarantee rankings or leads?<span class="faq-mark" aria-hidden="true"></span></button>
+            <div class="faq-a">
+              <p>No. Search platforms control rankings, while enquiries also depend on demand, competition, budget and your offer.</p>
+              <p>We define the work and measurement approach, then use available evidence to guide improvements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="consult">
+      <div class="wrap">
+        <div class="form-grid">
+          <div>
+            <h2>Discuss Your Dubai Marketing Goals</h2>
+            <p style="margin-top:20px">Tell us what your business offers, who you want to reach and what your current marketing needs to improve.</p>
+            <p>We will review your requirements and discuss an appropriate next step.</p>
+            <p>This preview does not send your details. The next step is to call <a class="inline" href="tel:+17134878445">(713) 487-8445</a>.</p>
+          </div>
+          <form class="fields" action="#" method="post" onsubmit="return false">
+            <div class="pair">
+              <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name"></div>
+              <div class="field"><label for="email">Work Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+            </div>
+            <div class="pair">
+              <div class="field"><label for="site">Company Website</label><input id="site" name="website" type="url" autocomplete="url"></div>
+              <div class="field"><label for="industry">Industry</label><input id="industry" name="industry" type="text"></div>
+            </div>
+            <div class="field"><label for="targets">Target Customers or Service Areas</label><input id="targets" name="targets" type="text"></div>
+            <div class="field"><label for="needed">Services Needed</label><input id="needed" name="needed" type="text"></div>
+            <div class="field"><label for="goals">Project Goals</label><textarea id="goals" name="goals"></textarea></div>
+            <div class="field"><label for="budget">Budget Range — Optional</label><input id="budget" name="budget" type="text"></div>
+            <button class="pill" type="button">Request a Consultation</button>
+            <p class="form-note">We will use your details to respond to your enquiry. Read our Privacy Policy.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p>The Digital Elites</p>
+      <a class="phone" href="tel:+17134878445">
+        <span class="phone-bubble">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </span>
+        (713) 487-8445
+      </a>
+    </div>
+  </footer>
+
+<script>
+    (function () {
+      function paint(img) {
+        if (!img || img.dataset.done || !img.naturalWidth) return;
+        var canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var d = frame.data;
+        for (var i = 0; i < d.length; i += 4) {
+          if (d[i] > 210 && d[i + 1] > 210 && d[i + 2] > 210 && d[i + 3] > 20) {
+            d[i] = 0x43; d[i + 1] = 0x3f; d[i + 2] = 0x34;
+          }
+        }
+        ctx.putImageData(frame, 0, 0);
+        img.dataset.done = "1";
+        img.src = canvas.toDataURL("image/png");
+      }
+      var img = document.getElementById("logo");
+      if (img) {
+        if (img.complete && img.naturalWidth) paint(img);
+        else img.addEventListener("load", function () { paint(img); });
+      }
+    })();
+    (function () {
+      var btn = document.querySelector(".nav-toggle");
+      var nav = document.getElementById("site-nav");
+      if (!btn || !nav) return;
+      function setOpen(open) {
+        nav.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      }
+      btn.addEventListener("click", function () {
+        setOpen(btn.getAttribute("aria-expanded") !== "true");
+      });
+      nav.addEventListener("click", function (e) {
+        if (e.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") setOpen(false);
+      });
+    })();
+    (function () {
+      var items = document.querySelectorAll(".faq-item");
+      items.forEach(function (item) {
+        var button = item.querySelector("button");
+        button.addEventListener("click", function () {
+          var open = item.classList.contains("is-open");
+          items.forEach(function (other) {
+            other.classList.remove("is-open");
+            other.querySelector("button").setAttribute("aria-expanded", "false");
+          });
+          if (!open) {
+            item.classList.add("is-open");
+            button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
