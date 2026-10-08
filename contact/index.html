@@ -476,7 +476,17 @@
     .section-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 40px; align-items: end; margin-bottom: 48px; }
     .section-head h2 { max-width: 18ch; }
     .section-head .support { margin: 0; }
-    .message-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 40px; align-items: start; }
+    .message-grid { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 40px; align-items: stretch; }
+    .message-side { display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+    .message-intro h2 { max-width: none; }
+    .message-intro .support { margin: 18px 0 0; max-width: 46ch; }
+    .message-side .studio { flex: 1 1 auto; display: flex; flex-direction: column; }
+    .message-side .studio-list { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-evenly; }
+    .message-side .studio-social { margin-top: auto; }
+    .message-grid .form-panel { display: flex; flex-direction: column; }
+    .message-grid .form-panel .form-grid { flex: 1 1 auto; grid-template-rows: auto auto auto 1fr auto; }
+    .message-grid .form-panel .field.full:has(textarea) { min-height: 0; }
+    .message-grid .form-panel textarea { flex: 1 1 auto; height: 100%; min-height: 140px; }
 
     .form-panel { border: 1px solid var(--line); border-radius: 18px; padding: 40px; background: #fff; }
     .form-panel h3 { font-size: 24px; margin-bottom: 6px; }
@@ -657,7 +667,10 @@
       .message { padding: 64px 0; }
       .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
       .message-grid { grid-template-columns: 1fr; gap: 32px; }
-      .message-grid .form-panel { order: -1; }
+      .message-side { display: contents; }
+      .message-intro { order: 0; }
+      .message-grid .form-panel { order: 1; }
+      .message-side .studio { order: 2; }
       .form-panel { padding: 28px 24px; }
       .process { padding: 64px 0; }
       .process-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
@@ -1020,15 +1033,13 @@
     <!-- Message form -->
     <section class="message" id="message">
       <div class="frame">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Free proposal</p>
-            <h2>Start with a plan, not a pitch</h2>
-          </div>
-          <p class="support">Send a few details and we'll come back with a plain-English proposal: what we'd build or run for your business, what it costs, and when it would go live. You decide after you've read it.</p>
-        </div>
-
         <div class="message-grid">
+          <div class="message-side">
+          <div class="message-intro">
+            <p class="eyebrow">Free proposal</p>
+            <h2>Start with a plan,<br> not a pitch</h2>
+            <p class="support">Send a few details and we'll come back with a plain-English proposal: what we'd build or run for your business, what it costs, and when it would go live. You decide after you've read it.</p>
+          </div>
           <aside class="studio" aria-label="Contact details">
             <p class="tag">Reach the studio</p>
             <ul class="studio-list">
@@ -1062,6 +1073,7 @@
               <a class="social-btn" href="https://www.tiktok.com/@thedigitalelites" aria-label="TikTok" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.3 0 .58.04.86.13V9.4a6.33 6.33 0 0 0-5.35 10.14 6.33 6.33 0 0 0 10.86-4.43V8.03a8.17 8.17 0 0 0 4.77 1.52V6.1a4.84 4.84 0 0 1-1.03.59z"/></svg></a>
             </div>
           </aside>
+          </div>
 
           <div class="form-panel">
             <h3>Request your proposal</h3>
