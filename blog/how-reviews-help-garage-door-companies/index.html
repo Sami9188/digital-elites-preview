@@ -922,13 +922,14 @@
     .cta-actions .pill { min-width: 290px; }
     .cta-actions .pill-outline { background: #fff; }
     .cta-actions .pill-outline svg { color: var(--green-line); transition: color .2s ease; }
-    .cta-actions .pill-outline:hover svg, .cta-actions .pill-outline:focus-visible svg { color: var(--green); }
     .cta-actions .pill-outline:hover,
     .cta-actions .pill-outline:focus-visible {
-      background: #fff;
-      color: var(--ink);
+      background: var(--dark);
+      color: #fff;
       border-color: var(--dark);
     }
+    .cta-actions .pill-outline:hover svg,
+    .cta-actions .pill-outline:focus-visible svg { color: currentColor; }
     .cta-actions .pill:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
 
     /* Reading progress (injected into the fixed header by the page script) */
