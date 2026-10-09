@@ -601,71 +601,70 @@
     .index-list a.is-active small { color: var(--ink); }
     .index-note { font-size: 13px; color: var(--muted); white-space: nowrap; }
 
-    /* Website projects: masonry */
+    /* Website projects: masonry v2 (natural image ratios, shortest-column placement) */
     .sites { padding: 88px 0 96px; }
     .sites .section-head { margin-bottom: 44px; }
-    .masonry { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
-    .m-col { display: flex; flex-direction: column; gap: 40px; }
+    .wm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+    .wm.is-laid { display: flex; gap: 28px; align-items: flex-start; }
+    .wm-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 28px; }
 
-    .m-card { display: block; text-decoration: none; color: inherit; }
-    .m-frame {
-      position: relative; display: block; overflow: hidden; border-radius: 16px;
-      border: 1px solid var(--line); background: #F2F2F2;
-      transition: border-color .3s ease, box-shadow .4s ease, transform .4s var(--ease);
+    .wm-item { position: relative; }
+    .wm-card { display: block; text-decoration: none; color: inherit; border-radius: 22px; outline: none; }
+    .wm-media {
+      position: relative; display: block; overflow: hidden; border-radius: 22px;
+      background: #F3F4F2; padding: 28px;
+      transition: background-color .35s ease, box-shadow .4s ease, transform .4s var(--ease);
     }
-    .m-card:hover .m-frame, .m-card:focus-visible .m-frame { border-color: var(--green-line); box-shadow: 0 36px 70px -42px rgba(0,0,0,.5); transform: translateY(-6px); }
-    .m-card:focus-visible { outline: none; }
-    .m-card:focus-visible .m-frame { outline: 2px solid var(--green-line); outline-offset: 3px; }
-    .m-dots { position: absolute; top: 0; left: 0; right: 0; z-index: 1; display: flex; gap: 6px; padding: 12px 14px; background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,0)); }
-    .m-dots i { width: 8px; height: 8px; border-radius: 50%; background: #D6D6D6; }
-    .m-dots i:first-child { background: var(--green); }
-    .m-shot { display: block; position: relative; }
-    .m-shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: object-position 6s linear; }
-    .m-card:hover .m-shot img, .m-card:focus-visible .m-shot img { object-position: bottom; }
-    .r-tall  { aspect-ratio: 3 / 4.4; }
-    .r-port  { aspect-ratio: 4 / 5; }
-    .r-sq    { aspect-ratio: 1 / 1; }
-    .r-xtall { aspect-ratio: 1 / 2.85; }
-    .m-view {
-      position: absolute; right: 14px; bottom: 14px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 14px; border-radius: 999px; background: #fff; border: 1.5px solid var(--green-line);
+    .wm-media img { display: block; width: 100%; height: auto; border-radius: 6px; mix-blend-mode: multiply; transition: transform .6s var(--ease); }
+    .wm-card:hover .wm-media, .wm-card:focus-visible .wm-media { background: #E9FBF2; transform: translateY(-6px); box-shadow: 0 40px 70px -46px rgba(0,0,0,.45); }
+    .wm-card:hover .wm-media img, .wm-card:focus-visible .wm-media img { transform: scale(1.025); }
+    .wm-card:focus-visible .wm-media { outline: 2px solid var(--green-line); outline-offset: 3px; }
+
+    /* Long full-page screenshots: fixed frame that scrolls on hover */
+    .wm-item.is-long .wm-media { padding: 0; height: 640px; background: #fff; border: 1px solid var(--line); }
+    .wm-item.is-long .wm-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 0; mix-blend-mode: normal; transition: object-position 7s linear; }
+    .wm-item.is-long .wm-card:hover .wm-media img, .wm-item.is-long .wm-card:focus-visible .wm-media img { object-position: bottom; transform: none; }
+    .wm-item.is-long .wm-media::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.9)); pointer-events: none; transition: opacity .3s ease; }
+    .wm-item.is-long .wm-card:hover .wm-media::after { opacity: 0; }
+
+    .wm-open {
+      position: absolute; right: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 15px; border-radius: 999px; background: #fff; border: 1.5px solid var(--dark);
       font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text);
       opacity: 0; transform: translateY(8px); transition: opacity .25s ease, transform .3s var(--ease);
     }
-    .m-view svg { width: 14px; height: 14px; }
-    .m-card:hover .m-view, .m-card:focus-visible .m-view { opacity: 1; transform: none; }
+    .wm-open svg { width: 14px; height: 14px; }
+    .wm-card:hover .wm-open, .wm-card:focus-visible .wm-open { opacity: 1; transform: none; }
 
-    .m-cap { display: grid; grid-template-columns: 1fr auto; gap: 6px 16px; align-items: start; padding: 18px 2px 0; }
-    .m-meta { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-    .m-meta::before { content: ""; width: 18px; height: 3px; background: var(--green); }
-    .m-cap h3 { grid-column: 1; margin: 0; font-size: 22px; transition: color .2s ease; }
-    .m-cap p { grid-column: 1; margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
-    .m-arrow { grid-column: 2; grid-row: 1 / span 3; align-self: center; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid var(--line); color: var(--text); transition: background .25s ease, border-color .25s ease, transform .35s var(--ease); }
-    .m-arrow svg { width: 16px; height: 16px; }
-    .m-card:hover .m-arrow, .m-card:focus-visible .m-arrow { background: var(--green); border-color: var(--green-line); transform: rotate(-45deg); }
+    .wm-cap { display: grid; grid-template-columns: 1fr auto; gap: 6px 18px; align-items: center; padding: 20px 4px 4px; }
+    .wm-type { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .wm-type::before { content: ""; width: 18px; height: 3px; background: var(--green); }
+    .wm-cap h3 { grid-column: 1; margin: 0; font-size: 24px; }
+    .wm-cap p { grid-column: 1; margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); max-width: 46ch; }
+    .wm-arrow { grid-column: 2; grid-row: 1 / span 3; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--dark); color: var(--text); transition: background .25s ease, border-color .25s ease, color .25s ease, transform .35s var(--ease); }
+    .wm-arrow svg { width: 17px; height: 17px; }
+    .wm-card:hover .wm-arrow, .wm-card:focus-visible .wm-arrow { background: var(--dark); color: #fff; transform: rotate(-45deg); }
 
-    .m-item { position: relative; }
-    .m-live { position: absolute; top: 10px; right: 12px; z-index: 3; display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: #fff; border: 1.5px solid var(--green-line); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: background .2s ease; }
-    .m-live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-    .m-live:hover { background: var(--green); }
+    .wm-live { position: absolute; top: 14px; right: 14px; z-index: 3; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: #fff; border: 1.5px solid var(--green-line); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text); text-decoration: none; transition: background .2s ease; }
+    .wm-live::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    .wm-live:hover { background: var(--green); }
     .sites-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 
-    @media (hover: none) { .m-view { opacity: 1; transform: none; } }
+    @media (hover: none) { .wm-open { opacity: 1; transform: none; } }
     @media (max-width: 980px) {
       .sites { padding: 56px 0 64px; }
-      .masonry { display: block; column-count: 2; column-gap: 20px; }
-      .m-col { display: contents; }
-      .m-item { break-inside: avoid; margin-bottom: 32px; }
-      .r-xtall { aspect-ratio: 3 / 5; }
-      .m-cap h3 { font-size: 19px; }
+      .wm-media { padding: 20px; }
+      .wm-item.is-long .wm-media { height: 520px; }
+      .wm-cap h3 { font-size: 20px; }
     }
-    @media (max-width: 600px) {
-      .masonry { column-count: 1; }
-      .m-item { margin-bottom: 28px; }
+    @media (max-width: 640px) {
+      .wm, .wm.is-laid { display: flex; flex-direction: column; gap: 32px; }
+      .wm-media { padding: 14px; border-radius: 18px; }
+      .wm-item.is-long .wm-media { height: 460px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .m-frame, .m-shot img, .m-view, .m-arrow { transition: none; }
-      .m-card:hover .m-frame { transform: none; }
+      .wm-media, .wm-media img, .wm-open, .wm-arrow { transition: none; }
+      .wm-card:hover .wm-media { transform: none; }
     }
 
     /* Campaign & search gallery (black band) */
@@ -1055,7 +1054,7 @@
           <li><a href="#campaigns">Campaign &amp; search <small>6</small></a></li>
           <li><a href="#ships">What's included</a></li>
         </ul>
-        <span class="index-note">Hover a screenshot to scroll it · click to open full size</span>
+        <span class="index-note">Click any project to see it full size</span>
       </div>
     </nav>
 
@@ -1067,94 +1066,83 @@
             <p class="eyebrow">Websites</p>
             <h2 id="websites-title">Five recent website builds</h2>
           </div>
-          <p class="support">Each one planned around a single job: make it clear what the business does and easy to get in touch. Hover a project to scroll through the page, click to open it full size.</p>
+          <p class="support">Each one planned around a single job: make it clear what the business does and easy to get in touch. Click any project to see it full size.</p>
         </div>
-        <div class="masonry">
-          <div class="m-col">
-            <article class="m-item">
-              <a class="m-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" data-viewer="Bright Approach" target="_blank" rel="noopener">
-                <span class="m-frame">
-                  <span class="m-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="m-shot r-tall"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website, full page" width="1440" height="1000" loading="lazy" decoding="async"></span>
-                  <span class="m-view" aria-hidden="true">View full page <svg><use href="#i-arrow"/></svg></span>
-                </span>
-                <span class="m-cap">
-                  <span class="m-meta">WordPress</span>
-                  <h3>Bright Approach</h3>
-                  <p>WordPress site built to explain the service clearly and move visitors to a booking.</p>
-                  <span class="m-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-                </span>
-              </a>
-            </article>
-            <article class="m-item">
-              <a class="m-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" data-viewer="Julie Gray" target="_blank" rel="noopener">
-                <span class="m-frame">
-                  <span class="m-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="m-shot r-sq"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" alt="Julie Gray website, full page" width="1440" height="1000" loading="lazy" decoding="async"></span>
-                  <span class="m-view" aria-hidden="true">View full page <svg><use href="#i-arrow"/></svg></span>
-                </span>
-                <span class="m-cap">
-                  <span class="m-meta">Personal brand</span>
-                  <h3>Julie Gray</h3>
-                  <p>Who she is, what she offers and a clear way to reach her.</p>
-                  <span class="m-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-                </span>
-              </a>
-            </article>
-          </div>
-          <div class="m-col">
-            <article class="m-item">
-              <a class="m-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" data-viewer="Amiri" target="_blank" rel="noopener">
-                <span class="m-frame">
-                  <span class="m-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="m-shot r-sq"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" alt="Amiri website, full page" width="1440" height="1000" loading="lazy" decoding="async"></span>
-                  <span class="m-view" aria-hidden="true">View full page <svg><use href="#i-arrow"/></svg></span>
-                </span>
-                <span class="m-cap">
-                  <span class="m-meta">Website build</span>
-                  <h3>Amiri</h3>
-                  <p>Website design and build, with the brand carried through every page.</p>
-                  <span class="m-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-                </span>
-              </a>
-            </article>
-            <article class="m-item">
-              <a class="m-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" data-viewer="LDCCO" target="_blank" rel="noopener">
-                <span class="m-frame">
-                  <span class="m-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="m-shot r-tall"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website, full page" width="1440" height="1000" loading="lazy" decoding="async"></span>
-                  <span class="m-view" aria-hidden="true">View full page <svg><use href="#i-arrow"/></svg></span>
-                </span>
-                <span class="m-cap">
-                  <span class="m-meta">Website build</span>
-                  <h3>LDCCO</h3>
-                  <p>Services and contact options laid out plainly.</p>
-                  <span class="m-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-                </span>
-              </a>
-            </article>
-          </div>
-          <div class="m-col">
-            <article class="m-item">
-              <a class="m-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" data-viewer="Reach Education Fund" target="_blank" rel="noopener">
-                <span class="m-frame">
-                  <span class="m-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                  <span class="m-shot r-xtall"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" alt="Reach Education Fund website, full page" width="1440" height="1000" loading="lazy" decoding="async"></span>
-                  <span class="m-view" aria-hidden="true">View full page <svg><use href="#i-arrow"/></svg></span>
-                </span>
-                <span class="m-cap">
-                  <span class="m-meta">Nonprofit</span>
-                  <h3>Reach Education Fund</h3>
-                  <p>Programme, eligibility and how to apply, made easy to find.</p>
-                  <span class="m-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
-                </span>
-              </a>
-              <a class="m-live" href="https://reacheducationfund.com/" target="_blank" rel="noopener">Live site<span class="sr-only">: Reach Education Fund</span></a>
-            </article>
-          </div>
+        <div class="wm" id="wm">
+        <article class="wm-item">
+          <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" data-viewer="Bright Approach" target="_blank" rel="noopener">
+            <span class="wm-media">
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website" loading="lazy" decoding="async">
+              <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
+            </span>
+            <span class="wm-cap">
+              <span class="wm-type">WordPress</span>
+              <h3>Bright Approach</h3>
+              <p>WordPress site built to explain the service clearly and move visitors to a booking.</p>
+              <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </span>
+          </a>
+        </article>
+        <article class="wm-item">
+          <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" data-viewer="Amiri" target="_blank" rel="noopener">
+            <span class="wm-media">
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" alt="Amiri website" loading="lazy" decoding="async">
+              <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
+            </span>
+            <span class="wm-cap">
+              <span class="wm-type">Website build</span>
+              <h3>Amiri</h3>
+              <p>Website design and build, with the brand carried through every page.</p>
+              <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </span>
+          </a>
+        </article>
+        <article class="wm-item">
+          <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" data-viewer="Reach Education Fund" target="_blank" rel="noopener">
+            <span class="wm-media">
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" alt="Reach Education Fund website" loading="lazy" decoding="async">
+              <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
+            </span>
+            <span class="wm-cap">
+              <span class="wm-type">Nonprofit</span>
+              <h3>Reach Education Fund</h3>
+              <p>Programme, eligibility and how to apply, made easy to find.</p>
+              <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </span>
+          </a>
+          <a class="wm-live" href="https://reacheducationfund.com/" target="_blank" rel="noopener">Live site<span class="sr-only">: Reach Education Fund</span></a>
+        </article>
+        <article class="wm-item">
+          <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" data-viewer="Julie Gray" target="_blank" rel="noopener">
+            <span class="wm-media">
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" alt="Julie Gray website" loading="lazy" decoding="async">
+              <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
+            </span>
+            <span class="wm-cap">
+              <span class="wm-type">Personal brand</span>
+              <h3>Julie Gray</h3>
+              <p>Who she is, what she offers and a clear way to reach her.</p>
+              <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </span>
+          </a>
+        </article>
+        <article class="wm-item">
+          <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" data-viewer="LDCCO" target="_blank" rel="noopener">
+            <span class="wm-media">
+              <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website" loading="lazy" decoding="async">
+              <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
+            </span>
+            <span class="wm-cap">
+              <span class="wm-type">Website build</span>
+              <h3>LDCCO</h3>
+              <p>Services and contact options laid out plainly.</p>
+              <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
+            </span>
+          </a>
+        </article>
         </div>
         <div class="sites-foot">
-          <span>Screenshots show the full home page of each site.</span>
+          <span>Want to see work closer to your industry? We'll walk you through it on a call.</span>
           <a class="link" href="../contact/">Talk to us about your website <svg><use href="#i-arrow"/></svg></a>
         </div>
       </div>
@@ -1485,6 +1473,62 @@
           if (hit) setActive(hit.target.id);
         }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
         targets.forEach(function (t) { sio.observe(t); });
+      }
+
+      /* ---------- Website masonry: natural ratios, shortest-column placement ---------- */
+      var wm = document.getElementById("wm");
+      if (wm) {
+        var wmItems = Array.prototype.slice.call(wm.querySelectorAll(".wm-item"));
+        var wmCount = 0;
+        var markLong = function (it) {
+          var img = it.querySelector("img");
+          if (img && img.naturalWidth) it.classList.toggle("is-long", img.naturalHeight / img.naturalWidth > 1.4);
+        };
+        var layout = function () {
+          var n = window.innerWidth <= 640 ? 1 : 2;
+          wmItems.forEach(markLong);
+          if (n === 1) {
+            wm.classList.remove("is-laid");
+            wmItems.forEach(function (it) { wm.appendChild(it); });
+            wm.querySelectorAll(".wm-col").forEach(function (c) { c.remove(); });
+            wmCount = 1; return;
+          }
+          var cols = [];
+          wm.querySelectorAll(".wm-col").forEach(function (c) { c.remove(); });
+          for (var i = 0; i < n; i++) { var c = document.createElement("div"); c.className = "wm-col"; wm.appendChild(c); cols.push(c); }
+          wm.classList.add("is-laid");
+          wmItems.forEach(function (it) {
+            var m = it.querySelector(".wm-media"); if (m) m.style.height = "";
+            var shortest = cols.reduce(function (a, b) { return b.offsetHeight < a.offsetHeight ? b : a; });
+            shortest.appendChild(it);
+          });
+          // Balance: let a long screenshot frame grow or shrink so the columns end level.
+          var tallest = Math.max.apply(null, cols.map(function (c) { return c.offsetHeight; }));
+          cols.forEach(function (c) {
+            var gap = tallest - c.offsetHeight;
+            var longOne = c.querySelector(".wm-item.is-long .wm-media");
+            if (longOne && gap > 0) {
+              var hNow = longOne.offsetHeight;
+              longOne.style.height = Math.min(hNow + gap, 1200) + "px";
+            }
+          });
+          var tallest2 = Math.max.apply(null, cols.map(function (c) { return c.offsetHeight; }));
+          cols.forEach(function (c) {
+            var extra = c.offsetHeight - Math.min.apply(null, cols.map(function (x) { return x.offsetHeight; }));
+            var longOne = c.querySelector(".wm-item.is-long .wm-media");
+            if (longOne && extra > 0 && c.offsetHeight === tallest2) {
+              longOne.style.height = Math.max(longOne.offsetHeight - extra, 420) + "px";
+            }
+          });
+          wmCount = n;
+        };
+        var relayout = function () { requestAnimationFrame(layout); };
+        wmItems.forEach(function (it) {
+          var img = it.querySelector("img");
+          if (img && !img.complete) img.addEventListener("load", relayout, { once: true });
+        });
+        var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(layout, 120); });
+        layout();
       }
 
       // Full-page screenshot viewer.
