@@ -1140,19 +1140,20 @@
 
     /* ---------- Hero sizing (shared) ---------- */
     /* Same hero height and the same content start (badge/eyebrow -> h1) on every page, so moving
-       between pages doesn't jump. Content is top-aligned at one shared offset; the shared min-height
-       is sized so the tallest hero copy (homepage / about) fits with roughly equal space above and below.
+       between pages doesn't jump. Content is top-aligned at one shared offset.
        The overlay-header script adds the header height to this padding-top AND min-height, so the
-       values below are the area under the header (the background still runs up behind it). */
+       values below are the area under the header (the background still runs up behind it).
+       Used height = that min-height plus the header = max(tallest laptop hero, 100svh - 100px). */
     main > .hero:first-child,
     main > .work-hero:first-child,
     main > .blog-hero:first-child {
       --hero-pad-top: 72px;
       --hero-pad-bottom: 72px;
-      /* Floor = tallest hero copy (about / homepage) + both paddings + about one line of slack. The text
-         column narrows below ~1220px, so the floor rises as the viewport narrows (capped at 780px); taller
-         screens get a fuller hero via the vh term. All five pages resolve to the same value at any viewport. */
-      --hero-min: max(clamp(716px, 1300px - 48vw, 780px), min(76vh, 760px));
+      /* 687px is the tallest hero copy (about) plus both paddings. With the header added on,
+         a 900px screen shows about 80px of the next section. Taller screens use the svh term,
+         and the used height becomes calc(100svh - 100px). */
+      --hero-min: max(687px, calc(100vh - 100px - var(--site-header-h, 133px)));
+      --hero-min: max(687px, calc(100svh - 100px - var(--site-header-h, 133px)));
       position: relative;
       display: flex;
       align-items: flex-start;
@@ -1175,10 +1176,16 @@
     main > .hero:first-child .hero-grid > .flow,
     main > .work-hero:first-child .work-hero-grid > .stack { align-self: center; }
     @media (max-width: 980px) {
-      /* Stacked heroes: same start line and a shared floor; heroes with a visual below the copy grow past it. */
+      /* Same used height: calc(100svh - 100px). The copy floor stays off so a phone still peeks.
+         Heroes with a visual stacked under the copy grow past this height. */
       main > .hero:first-child,
       main > .work-hero:first-child,
-      main > .blog-hero:first-child { --hero-pad-top: 48px; --hero-pad-bottom: 56px; --hero-min: min(630px, calc(100vh - 160px)); }
+      main > .blog-hero:first-child {
+        --hero-pad-top: 48px;
+        --hero-pad-bottom: 56px;
+        --hero-min: calc(100vh - 100px - var(--site-header-h, 113px));
+        --hero-min: calc(100svh - 100px - var(--site-header-h, 113px));
+      }
     }
     @media (max-width: 560px) {
       main > .hero:first-child h1,
