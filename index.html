@@ -640,7 +640,7 @@
     .stage .mi svg { width: 22px; height: 22px; }
     .stage:hover .mi { background: var(--dark); color: var(--green); transform: scale(1.06); }
     .stage::after { content: ""; position: absolute; top: 25px; left: 52px; right: -28px; height: 2px; background: repeating-linear-gradient(90deg, var(--dark) 0 6px, transparent 6px 12px); opacity: .35; }
-    .stage::before { content: ""; position: absolute; top: 20px; right: -34px; width: 8px; height: 8px; border-top: 2px solid var(--dark); border-right: 2px solid var(--dark); transform: rotate(45deg); opacity: .5; z-index: 1; }
+    .stage::before { content: ""; position: absolute; top: 21px; right: -22px; width: 8px; height: 8px; border-top: 2px solid var(--dark); border-right: 2px solid var(--dark); transform: rotate(45deg); opacity: .5; z-index: 1; }
     .stage:last-child::after, .stage:last-child::before { display: none; }
     .stage h3 { margin: 22px 0 8px; }
     .stage p { margin: 0; font-size: 16px; color: var(--muted); }
@@ -720,7 +720,8 @@
       .stage h3 { margin: 12px 0 6px; }
       .stage h3 { margin-top: 12px; }
       .stage::after { top: 52px; left: 25px; right: auto; bottom: 0; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--dark) 0 6px, transparent 6px 12px); }
-      .stage::before { display: none; }
+      .stage::before { top: auto; right: auto; bottom: 6px; left: 21px; transform: rotate(135deg); }
+      .stage:nth-child(2)::after, .stage:nth-child(2)::before { display: block; }
       .stage:last-child { padding-bottom: 0; }
       .case dl { grid-template-columns: 1fr; gap: 4px 0; }
       .case dt { margin-top: 8px; }
