@@ -621,84 +621,6 @@
     .read { align-self: flex-start; }
     .read svg { width: 16px; height: 16px; }
 
-    /* ---------- Latest articles: carousel ---------- */
-    .latest { padding: 72px 0 84px; }
-    .latest-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
-    .latest-head .eyebrow { margin-bottom: 14px; }
-    .latest-head h2 { font-size: clamp(30px, 3vw, 40px); }
-    .car-controls { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
-    .car-count { display: flex; align-items: baseline; gap: 6px; margin: 0 10px 0 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .car-count [data-car-cur] { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
-    .car-btn {
-      display: inline-grid; place-items: center; width: 52px; height: 52px; padding: 0; flex: 0 0 auto;
-      border: 2px solid var(--dark); border-radius: 50%; background: #fff; color: var(--ink); cursor: pointer;
-      transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
-    }
-    .car-btn[hidden] { display: none; }
-    .car-btn svg { width: 20px; height: 20px; transition: transform .2s ease; }
-    .car-btn:hover, .car-btn:focus-visible { background: var(--dark); transform: translateY(-2px); box-shadow: 0 10px 20px -12px rgba(0,0,0,.55); color: #fff; border-color: var(--dark); }
-    .car-btn[data-car="1"]:hover svg { transform: translateX(3px); }
-    .car-btn[data-car="-1"]:hover svg { transform: translateX(-3px); }
-    .car-btn:active { transform: translateY(0); box-shadow: none; }
-    .car-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 3px; }
-    .car-play { width: 40px; height: 40px; }
-    .car-play svg { width: 14px; height: 14px; }
-    .car-play .ico-play, .car.is-user-paused .car-play .ico-pause { display: none; }
-    .car.is-user-paused .car-play .ico-play { display: block; }
-
-    .car-track {
-      position: relative; display: flex; gap: 24px; overflow-x: auto; overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
-      border-radius: 20px;
-    }
-    .car-track::-webkit-scrollbar { display: none; }
-    .car-track:focus-visible { outline: 2px solid var(--green-line); outline-offset: 4px; }
-    .slide {
-      position: relative; flex: 0 0 100%; scroll-snap-align: start; scroll-snap-stop: always;
-      display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);
-      border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff;
-      transition: border-color .25s ease;
-    }
-    .slide-media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #EDEDED; }
-    .slide-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s var(--ease); }
-    .slide-media .media-tag { left: 20px; bottom: 20px; }
-    .slide-body { display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 44px 48px 44px; }
-    .slide-title { position: static; font-size: clamp(24px, 2.3vw, 32px); line-height: 1.15; max-width: 22ch; }
-    .slide .excerpt { font-size: 17px; max-width: 44ch; }
-    .slide .read { margin-top: 4px; }
-    .slide:hover { border-color: var(--dark); }
-    .slide:hover .slide-media img { transform: scale(1.04); }
-    .slide:hover .slide-title a { background-size: 100% 3px; }
-    .slide:hover .read { background-size: 100% 2px; }
-    .slide:hover .read svg { transform: translateX(4px); }
-    .slide:has(a:focus-visible) { border-color: var(--dark); box-shadow: inset 0 0 0 2px var(--green-line); }
-    .slide:has(a:focus-visible) .slide-title a { background-size: 100% 3px; }
-
-    /* "Up next" rail: doubles as navigation and progress */
-    .car-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 20px; margin: 24px 0 0; padding: 0; list-style: none; }
-    .car-tab {
-      display: flex; flex-direction: column; gap: 8px; width: 100%; height: 100%; padding: 0 0 4px; margin: 0;
-      border: 0; background: none; color: var(--muted); font-family: var(--font); text-align: left; cursor: pointer;
-      border-radius: 4px;
-    }
-    .car-bar { position: relative; display: block; height: 3px; margin-bottom: 6px; border-radius: 3px; background: var(--line); overflow: hidden; transition: background .2s ease; }
-    .car-bar i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--green-line); }
-    .car-tab.is-past .car-bar i { width: 100%; background: #9FD9C2; }
-    .car-tab[aria-current="true"] .car-bar i { width: 100%; background: var(--green-line); }
-    .car.is-playing .car-tab[aria-current="true"] .car-bar i { width: 0; animation: car-fill var(--car-dur, 7s) linear forwards; }
-    .car.is-playing.is-held .car-tab[aria-current="true"] .car-bar i { animation-play-state: paused; }
-    @keyframes car-fill { from { width: 0; } to { width: 100%; } }
-    .car-tab-meta { font-size: 12px; font-weight: 700; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .car-tab-meta b { color: var(--ink); font-weight: 800; margin-right: 4px; }
-    .car-tab-title {
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-      font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--muted); transition: color .2s ease;
-    }
-    .car-tab:hover .car-tab-title, .car-tab[aria-current="true"] .car-tab-title { color: var(--ink); }
-    .car-tab:hover .car-bar { background: #C9C9C4; }
-    .car-tab[aria-current="true"] .car-tab-meta { color: var(--green-line); }
-    .car-tab:focus-visible { outline: 2px solid var(--green-line); outline-offset: 6px; }
-
     /* ---------- Archive: sticky finder toolbar ---------- */
     .archive { scroll-margin-top: 0; padding-bottom: 96px; }
     .archive .section-head { margin-bottom: 36px; }
@@ -850,7 +772,7 @@
     .post.is-new { animation: post-in .5s var(--ease) backwards; animation-delay: calc(var(--d, 0) * 60ms); }
     @keyframes post-in { from { opacity: 0; transform: translateY(14px); } }
 
-    .no-js .finder-bar, .no-js .active-chips, .no-js .more, .no-js .car-controls, .no-js .car-nav { display: none; }
+    .no-js .finder-bar, .no-js .active-chips, .no-js .more { display: none; }
 
     /* ---------- Archive: empty state + load more ---------- */
     .empty {
@@ -941,13 +863,6 @@
     @media (max-width: 980px) {
       .blog-hero { min-height: 0; padding: 56px 0 64px; }
       .hero-bg::after { background: linear-gradient(90deg, #fff 0%, #fff 85%, rgba(255,255,255,.75) 100%); }
-      .latest { padding: 56px 0 64px; }
-      .slide { grid-template-columns: 1fr; align-content: start; }
-      .slide-media { aspect-ratio: 16 / 9; }
-      .slide-body { justify-content: flex-start; padding: 28px 28px 32px; gap: 14px; }
-      .car-nav { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; margin-left: calc(var(--gutter) * -1); margin-right: calc(var(--gutter) * -1); padding: 4px var(--gutter) 8px; scroll-padding-inline: var(--gutter); }
-      .car-nav::-webkit-scrollbar { display: none; }
-      .car-nav li { flex: 0 0 200px; scroll-snap-align: start; }
       .post-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; }
       .ask { padding-bottom: 64px; }
     }
@@ -971,29 +886,6 @@
       .hero-actions { margin-top: 28px; gap: 16px; }
       .hero-actions .pill { width: 100%; }
       .hero-stats { font-size: 14px; }
-      .latest-head { align-items: flex-end; margin-bottom: 20px; gap: 12px; }
-      .latest-head h2 { font-size: 26px; }
-      .latest-head .eyebrow { margin-bottom: 10px; }
-      .car-count { display: none; }
-      .car-btn { width: 44px; height: 44px; }
-      .car-play { width: 36px; height: 36px; }
-      .car-btn svg { width: 18px; height: 18px; }
-      .car-controls { gap: 8px; }
-      .car-track { gap: 14px; border-radius: 16px; }
-      .slide { border-radius: 16px; }
-      .slide-body { padding: 20px 20px 24px; gap: 12px; }
-      .slide-title { font-size: 22px; }
-      .slide .excerpt { font-size: 15px; }
-      .slide-media .media-tag { left: 14px; bottom: 14px; }
-      /* Rail becomes a numbered segment bar */
-      .car-nav { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; margin: 16px 0 0; padding: 0; overflow: visible; }
-      .car-nav li { flex: none; }
-      .car-tab { min-height: 44px; justify-content: center; gap: 6px; padding: 8px 0; }
-      .car-bar { margin: 0; }
-      .car-tab-title { display: none; }
-      .car-tab-meta { font-size: 0; letter-spacing: 0; text-align: center; }
-      .car-tab-meta b { margin: 0; font-size: 12px; letter-spacing: .04em; color: var(--muted); }
-      .car-tab[aria-current="true"] .car-tab-meta b { color: var(--ink); }
       .post-grid { grid-template-columns: 1fr; gap: 20px; }
       .post-body { padding: 20px 20px 22px; }
       .post-title { font-size: 19px; }
@@ -1012,12 +904,10 @@
       .sheet[open] { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .post, .slide, .car-btn, .dd-btn, .achip, .post-media img, .slide-media img, .post-title a, .slide-title a, .more-bar span, .ask-card .mi, .finder-bar, .toolbar { transition: none; }
-      .post:hover, .post:focus-within, .car-btn:hover, .achip:hover { transform: none; }
-      .post:hover .post-media img, .post:focus-within .post-media img, .slide:hover .slide-media img { transform: none; }
+      .post, .dd-btn, .achip, .post-media img, .post-title a, .more-bar span, .ask-card .mi, .finder-bar, .toolbar { transition: none; }
+      .post:hover, .post:focus-within, .achip:hover { transform: none; }
+      .post:hover .post-media img, .post:focus-within .post-media img { transform: none; }
       .post.is-new, .dd-pop, .sheet[open] { animation: none; }
-      .car-bar i { animation: none !important; }
-      .car-track { scroll-behavior: auto; }
     }
 
     /* ---------- Overlay header + footer v2 (shared) ---------- */
@@ -1298,133 +1188,6 @@
               <li>Latest <strong><time datetime="2026-08-20">Aug 20, 2026</time></strong></li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Latest articles: carousel -->
-    <section class="latest" id="latest" aria-labelledby="latest-title">
-      <div class="frame">
-        <div class="car" id="latest-car" role="region" aria-roledescription="carousel" aria-labelledby="latest-title">
-          <div class="latest-head">
-            <div>
-              <p class="eyebrow">Latest articles</p>
-              <h2 id="latest-title">Fresh from the blog</h2>
-            </div>
-            <div class="car-controls">
-              <p class="car-count" aria-hidden="true"><span data-car-cur>01</span><span class="of">/ 06</span></p>
-              <button class="car-btn car-play" type="button" aria-label="Pause automatic slide change" hidden><svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg><svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
-              <button class="car-btn" type="button" data-car="-1" aria-label="Previous article" aria-controls="car-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-              <button class="car-btn" type="button" data-car="1" aria-label="Next article" aria-controls="car-track"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            </div>
-          </div>
-          <div class="car-track" id="car-track">
-          <article class="slide" id="slide-1" role="group" aria-roledescription="slide" aria-label="1 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Reviews_help_garage_door_leads_202608191011-768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Reviews_help_garage_door_leads_202608191011-768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Reviews_help_garage_door_leads_202608191011.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="eager" decoding="async" alt="Title graphic: how reviews help garage door companies get more leads">
-              <span class="media-tag">Garage door</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="new-tag">Newest</span><span class="topic">Reviews</span><time datetime="2026-08-20">Aug 20, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/how-reviews-help-garage-door-companies/">How Reviews Help Garage Door Companies Get More Leads</a></h3>
-              <p class="excerpt">Ranking on Google is only part of it. How reviews build homeowner confidence before the first call and turn local searches into leads.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          <article class="slide" id="slide-2" role="group" aria-roledescription="slide" aria-label="2 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-vs-Google-Ads--768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-vs-Google-Ads--768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-vs-Google-Ads-.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="lazy" decoding="async" alt="Title graphic: garage door SEO vs Google Ads">
-              <span class="media-tag">Garage door</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="topic">SEO</span><time datetime="2026-08-19">Aug 19, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/garage-door-seo-vs-google-ads-which-is-better/">Garage Door SEO vs Google Ads: Which Is Better?</a></h3>
-              <p class="excerpt">Every garage door owner eventually asks it: should the budget go to SEO or Google Ads? A comparison of speed, cost and visibility.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          <article class="slide" id="slide-3" role="group" aria-roledescription="slide" aria-label="3 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-Company-Website-What-Pages-Do--768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-Company-Website-What-Pages-Do--768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-Company-Website-What-Pages-Do-.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="lazy" decoding="async" alt="Title graphic: what pages a garage door company website needs">
-              <span class="media-tag">Garage door</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="topic">Websites</span><time datetime="2026-08-18">Aug 18, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/garage-door-company-website/">Garage Door Company Website: What Pages Do You Actually Need?</a></h3>
-              <p class="excerpt">Homepage, services, contact: many garage door sites stop there. The pages you actually need, and the job each one does.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          <article class="slide" id="slide-4" role="group" aria-roledescription="slide" aria-label="4 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Google-Ads-for-Garage-Door-Companies-How-to-Get-More-Calls-768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Google-Ads-for-Garage-Door-Companies-How-to-Get-More-Calls-768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Google-Ads-for-Garage-Door-Companies-How-to-Get-More-Calls.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="lazy" decoding="async" alt="Title graphic: Google Ads for garage door companies">
-              <span class="media-tag">Garage door</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="topic">Paid ads</span><time datetime="2026-08-17">Aug 17, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/google-ads-for-garage-door-leads/">Google Ads for Garage Door Companies: How to Get More Calls</a></h3>
-              <p class="excerpt">SEO takes months to pay off; Google Ads can ring your phone today. How to structure, write and track campaigns that bring calls.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          <article class="slide" id="slide-5" role="group" aria-roledescription="slide" aria-label="5 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-How-to-Get-More-Calls-From-Google-768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-How-to-Get-More-Calls-From-Google-768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Garage-Door-SEO-How-to-Get-More-Calls-From-Google.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="lazy" decoding="async" alt="Title graphic: garage door SEO">
-              <span class="media-tag">Garage door</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="topic">SEO</span><time datetime="2026-08-16">Aug 16, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/garage-door-seo-how-to-get-more-calls/">Garage Door SEO: How to Get More Calls From Google</a></h3>
-              <p class="excerpt">Not showing up for “garage door repair near me”? A practical local SEO roadmap for turning those searches into phone calls.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          <article class="slide" id="slide-6" role="group" aria-roledescription="slide" aria-label="6 of 6">
-            <div class="slide-media">
-              <img src="https://thedigitalelites.com/wp-content/uploads/2026/08/Building_tree_service_website_202608082337-768x429.webp" srcset="https://thedigitalelites.com/wp-content/uploads/2026/08/Building_tree_service_website_202608082337-768x429.webp 768w, https://thedigitalelites.com/wp-content/uploads/2026/08/Building_tree_service_website_202608082337.webp 1376w" sizes="(max-width: 980px) calc(100vw - 48px), 660px" width="768" height="429" loading="lazy" decoding="async" alt="Illustration of a tree service website being built">
-              <span class="media-tag">Tree service</span>
-            </div>
-            <div class="slide-body">
-              <p class="meta"><span class="topic">Websites</span><time datetime="2026-08-13">Aug 13, 2026</time></p>
-              <h3 class="slide-title"><a href="https://thedigitalelites.com/build-a-high-converting-tree-service-website/">How to Build a High Converting Tree Service Website</a></h3>
-              <p class="excerpt">A website can look polished and still fail at its one real job: turning visitors into calls. How tree service sites get it right.</p>
-              <span class="link read" aria-hidden="true">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </div>
-          </article>
-          </div>
-          <ol class="car-nav" aria-label="Latest articles">
-          <li><button class="car-tab" type="button" aria-controls="slide-1" aria-label="Show article 1: How Reviews Help Garage Door Companies Get More Leads" aria-current="true">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>01</b> Garage door</span>
-            <span class="car-tab-title" aria-hidden="true">How Reviews Help Garage Door Companies Get More Leads</span>
-          </button></li>
-          <li><button class="car-tab" type="button" aria-controls="slide-2" aria-label="Show article 2: Garage Door SEO vs Google Ads: Which Is Better?">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>02</b> Garage door</span>
-            <span class="car-tab-title" aria-hidden="true">Garage Door SEO vs Google Ads: Which Is Better?</span>
-          </button></li>
-          <li><button class="car-tab" type="button" aria-controls="slide-3" aria-label="Show article 3: Garage Door Company Website: What Pages Do You Actually Need?">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>03</b> Garage door</span>
-            <span class="car-tab-title" aria-hidden="true">Garage Door Company Website: What Pages Do You Actually Need?</span>
-          </button></li>
-          <li><button class="car-tab" type="button" aria-controls="slide-4" aria-label="Show article 4: Google Ads for Garage Door Companies: How to Get More Calls">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>04</b> Garage door</span>
-            <span class="car-tab-title" aria-hidden="true">Google Ads for Garage Door Companies: How to Get More Calls</span>
-          </button></li>
-          <li><button class="car-tab" type="button" aria-controls="slide-5" aria-label="Show article 5: Garage Door SEO: How to Get More Calls From Google">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>05</b> Garage door</span>
-            <span class="car-tab-title" aria-hidden="true">Garage Door SEO: How to Get More Calls From Google</span>
-          </button></li>
-          <li><button class="car-tab" type="button" aria-controls="slide-6" aria-label="Show article 6: How to Build a High Converting Tree Service Website">
-            <span class="car-bar" aria-hidden="true"><i></i></span>
-            <span class="car-tab-meta" aria-hidden="true"><b>06</b> Tree service</span>
-            <span class="car-tab-title" aria-hidden="true">How to Build a High Converting Tree Service Website</span>
-          </button></li>
-          </ol>
-          <p class="sr-only" aria-live="polite" data-car-live></p>
         </div>
       </div>
     </section>
@@ -2233,99 +1996,6 @@
       /* ==========  PAGE-SPECIFIC JS GOES HERE  ========== */
       var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       var toArr = function (list) { return Array.prototype.slice.call(list); };
-
-      // ---------- Latest articles carousel ----------
-      // Scroll-snap track (native swipe) + prev/next + "up next" rail that shows progress.
-      // Gentle auto-advance: off with reduced motion, paused on hover, keyboard focus, when off-screen, or by the user.
-      var car = document.getElementById("latest-car");
-      if (car) {
-        var track = document.getElementById("car-track");
-        var slides = toArr(track.querySelectorAll(".slide"));
-        var tabs = toArr(car.querySelectorAll(".car-tab"));
-        var curEl = car.querySelector("[data-car-cur]");
-        var live = car.querySelector("[data-car-live]");
-        var playBtn = car.querySelector(".car-play");
-        var total = slides.length, cur = 0;
-        var pad = function (i) { return (i < 9 ? "0" : "") + (i + 1); };
-        var setActive = function (i, announce) {
-          cur = i;
-          slides.forEach(function (s, k) { s.inert = k !== i; });
-          tabs.forEach(function (t, k) {
-            if (k === i) t.setAttribute("aria-current", "true"); else t.removeAttribute("aria-current");
-            t.classList.toggle("is-past", k < i);
-          });
-          curEl.textContent = pad(i);
-          if (announce) live.textContent = "Article " + (i + 1) + " of " + total + ": " + slides[i].querySelector(".slide-title a").textContent;
-          // keep the active rail item in view where the rail scrolls sideways (tablet)
-          var rail = tabs[i].closest(".car-nav");
-          if (rail.scrollWidth > rail.clientWidth + 2) {
-            var li = tabs[i].parentNode;
-            if (li.offsetLeft < rail.scrollLeft || li.offsetLeft + li.offsetWidth > rail.scrollLeft + rail.clientWidth) {
-              rail.scrollTo({ left: li.offsetLeft - 24, behavior: reduceMotion ? "auto" : "smooth" });
-            }
-          }
-        };
-        var go = function (i, announce) {
-          i = (i + total) % total;
-          setActive(i, announce);
-          track.scrollTo({ left: slides[i].offsetLeft, behavior: reduceMotion ? "auto" : "smooth" });
-        };
-        // Swipe / trackpad: settle on whichever slide the track snapped to.
-        var settle;
-        track.addEventListener("scroll", function () {
-          clearTimeout(settle);
-          settle = setTimeout(function () {
-            var w = slides[1] ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth;
-            var i = Math.max(0, Math.min(total - 1, Math.round(track.scrollLeft / w)));
-            if (i !== cur) setActive(i, true);
-          }, 90);
-        }, { passive: true });
-        window.addEventListener("resize", function () { track.scrollTo({ left: slides[cur].offsetLeft, behavior: "auto" }); });
-
-        toArr(car.querySelectorAll("[data-car]")).forEach(function (b) {
-          b.addEventListener("click", function () { go(cur + Number(b.getAttribute("data-car")), true); });
-        });
-        tabs.forEach(function (t, k) { t.addEventListener("click", function () { go(k, true); }); });
-        car.addEventListener("keydown", function (e) {
-          if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-          e.preventDefault();
-          go(cur + (e.key === "ArrowRight" ? 1 : -1), true);
-          if (e.target.classList && e.target.classList.contains("car-tab")) tabs[cur].focus();
-        });
-
-        // Auto-advance, driven by the progress bar's own animation so bar and timing never drift apart.
-        var userPaused = false, hover = false, kbFocus = false, onScreen = false;
-        var sync = function () {
-          var a = document.activeElement;
-          kbFocus = !!(a && a !== document.body && car.contains(a) && a.matches(":focus-visible"));
-          car.classList.toggle("is-playing", !reduceMotion && !userPaused);
-          car.classList.toggle("is-held", hover || kbFocus || !onScreen || document.hidden);
-          car.classList.toggle("is-user-paused", userPaused);
-        };
-        if (!reduceMotion) {
-          playBtn.hidden = false;
-          playBtn.addEventListener("click", function () {
-            userPaused = !userPaused;
-            playBtn.setAttribute("aria-label", userPaused ? "Resume automatic slide change" : "Pause automatic slide change");
-            sync();
-          });
-          car.addEventListener("animationend", function (e) {
-            if (e.animationName === "car-fill" && car.classList.contains("is-playing")) go(cur + 1, false);
-          });
-          car.addEventListener("mouseenter", function () { hover = true; sync(); });
-          car.addEventListener("mouseleave", function () { hover = false; sync(); });
-          car.addEventListener("focusin", function () { setTimeout(sync, 0); });
-          car.addEventListener("focusout", function () { setTimeout(sync, 0); });
-          track.addEventListener("touchstart", function () { hover = true; sync(); }, { passive: true });
-          track.addEventListener("touchend", function () { setTimeout(function () { hover = false; sync(); }, 2500); }, { passive: true });
-          document.addEventListener("visibilitychange", sync);
-          if ("IntersectionObserver" in window) {
-            new IntersectionObserver(function (en) { onScreen = en[0].isIntersecting; sync(); }, { threshold: 0.35 }).observe(track);
-          } else { onScreen = true; }
-        }
-        setActive(0, false);
-        sync();
-      }
 
       // ---------- Archive: search + topic/industry/sort + load more ----------
       var grid = document.getElementById("post-grid");
