@@ -1323,24 +1323,25 @@
               <button class="tb-clear" id="search-clear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
             </form>
             <div class="tb-filters" role="group" aria-label="Filter projects">
-              <div class="dd" data-dd="cms">
-                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-cms">
-                  <span class="dd-k">CMS</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              <div class="dd" data-dd="service">
+                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-service">
+                  <span class="dd-k">Services</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
-                <div class="dd-pop" id="dd-cms" hidden>
-                  <fieldset><legend class="sr-only">CMS</legend>
-                  <label class="opt"><input type="radio" name="cms" value="all" data-group="cms" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All platforms</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="cms" value="wordpress" data-group="cms" data-label="WordPress"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">WordPress</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="cms" value="shopify" data-group="cms" data-label="Shopify"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Shopify</span><span class="opt-n"></span></label>
+                <div class="dd-pop" id="dd-service" hidden>
+                  <fieldset><legend class="sr-only">Services</legend>
+                  <label class="opt"><input type="radio" name="service" value="all" data-group="service" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All services</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="design" data-group="service" data-label="Design"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Design</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="development" data-group="service" data-label="Development"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Development</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="marketing" data-group="service" data-label="Marketing"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Marketing</span><span class="opt-n"></span></label>
                   </fieldset>
                 </div>
               </div>
               <div class="dd" data-dd="industry">
                 <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-industry">
-                  <span class="dd-k">Industry</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  <span class="dd-k">Industries</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
                 <div class="dd-pop" id="dd-industry" hidden>
-                  <fieldset><legend class="sr-only">Industry</legend>
+                  <fieldset><legend class="sr-only">Industries</legend>
                   <label class="opt"><input type="radio" name="industry" value="all" data-group="industry" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All industries</span><span class="opt-n"></span></label>
                   <label class="opt"><input type="radio" name="industry" value="health" data-group="industry" data-label="Health care"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Health care</span><span class="opt-n"></span></label>
                   <label class="opt"><input type="radio" name="industry" value="nonprofit" data-group="industry" data-label="Nonprofit &amp; education"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Nonprofit &amp; education</span><span class="opt-n"></span></label>
@@ -1350,18 +1351,15 @@
                   </fieldset>
                 </div>
               </div>
-              <div class="dd" data-dd="service">
-                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-service">
-                  <span class="dd-k">Service</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              <div class="dd" data-dd="platform">
+                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-platform">
+                  <span class="dd-k">Platforms</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
-                <div class="dd-pop" id="dd-service" hidden>
-                  <fieldset><legend class="sr-only">Service</legend>
-                  <label class="opt"><input type="radio" name="service" value="all" data-group="service" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All services</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="service" value="web" data-group="service" data-label="Website design &amp; build"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Website design &amp; build</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="service" value="seo" data-group="service" data-label="SEO"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">SEO</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="service" value="social" data-group="service" data-label="Social media"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Social media</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="service" value="ads" data-group="service" data-label="Paid advertising"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Paid advertising</span><span class="opt-n"></span></label>
-                  <label class="opt"><input type="radio" name="service" value="tracking" data-group="service" data-label="Tracking &amp; automation"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Tracking &amp; automation</span><span class="opt-n"></span></label>
+                <div class="dd-pop" id="dd-platform" hidden>
+                  <fieldset><legend class="sr-only">Platforms</legend>
+                  <label class="opt"><input type="radio" name="platform" value="all" data-group="platform" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All platforms</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="platform" value="wordpress" data-group="platform" data-label="WordPress"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">WordPress</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="platform" value="shopify" data-group="platform" data-label="Shopify"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Shopify</span><span class="opt-n"></span></label>
                   </fieldset>
                 </div>
               </div>
@@ -1398,7 +1396,7 @@
           <p class="support">Each one planned around a single job: make it clear what the business does and easy to get in touch. Click any project to see it full size.</p>
         </div>
         <div class="wm" id="wm">
-        <article class="wm-item" data-cms="wordpress" data-industry="health" data-service="web" data-search="bright approach wordpress site built to explain the service clearly and move visitors to a booking. wordpress health care website design and build website">
+        <article class="wm-item" data-platform="wordpress" data-industry="health" data-service="development" data-search="bright approach wordpress site built to explain the service clearly and move visitors to a booking. wordpress health care website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" data-viewer="Bright Approach" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website" loading="lazy" decoding="async">
@@ -1413,7 +1411,7 @@
             </span>
           </a>
         </article>
-        <article class="wm-item" data-cms="shopify" data-industry="retail" data-service="web" data-search="amiri website design and build, with the brand carried through every page. shopify retail and ecommerce website design and build website">
+        <article class="wm-item" data-platform="shopify" data-industry="retail" data-service="development" data-search="amiri website design and build, with the brand carried through every page. shopify retail and ecommerce website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" data-viewer="Amiri" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" alt="Amiri website" loading="lazy" decoding="async">
@@ -1428,7 +1426,7 @@
             </span>
           </a>
         </article>
-        <article class="wm-item" data-cms="wordpress" data-industry="nonprofit" data-service="web" data-search="reach education fund programme, eligibility and how to apply, made easy to find. wordpress nonprofit and education website design and build website">
+        <article class="wm-item" data-platform="wordpress" data-industry="nonprofit" data-service="development" data-search="reach education fund programme, eligibility and how to apply, made easy to find. wordpress nonprofit and education website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" data-viewer="Reach Education Fund" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" alt="Reach Education Fund website" loading="lazy" decoding="async">
@@ -1444,7 +1442,7 @@
           </a>
           <a class="wm-live" href="https://reacheducationfund.com/" target="_blank" rel="noopener">Live site<span class="sr-only">: Reach Education Fund</span></a>
         </article>
-        <article class="wm-item" data-cms="wordpress" data-industry="personal" data-service="web" data-search="julie gray who she is, what she offers and a clear way to reach her. wordpress personal brand website design and build website">
+        <article class="wm-item" data-platform="wordpress" data-industry="personal" data-service="development" data-search="julie gray who she is, what she offers and a clear way to reach her. wordpress personal brand website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" data-viewer="Julie Gray" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" alt="Julie Gray website" loading="lazy" decoding="async">
@@ -1459,7 +1457,7 @@
             </span>
           </a>
         </article>
-        <article class="wm-item" data-cms="wordpress" data-industry="construction" data-service="web" data-search="ldcco services and contact options laid out plainly. wordpress construction website design and build website">
+        <article class="wm-item" data-platform="wordpress" data-industry="construction" data-service="development" data-search="ldcco services and contact options laid out plainly. wordpress construction website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" data-viewer="LDCCO" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website" loading="lazy" decoding="async">
@@ -1493,32 +1491,32 @@
           <p class="support">Samples from SEO programmes, technical fixes and social campaigns. Open any tile to see it full size.</p>
         </div>
         <div class="gallery-grid">
-          <a class="tile" data-cms="" data-industry="" data-service="seo" data-search="seo optimization keyword research, service-page optimization and content planning. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="seo optimization keyword research, service-page optimization and content planning. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" alt="SEO optimization sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
             <span class="tile-text"><small>SEO</small><strong>SEO optimization</strong><span>Keyword research, service-page optimization and content planning.</span></span>
           </a>
-          <a class="tile" data-cms="" data-industry="" data-service="seo" data-search="technical seo site speed, crawlability, structured data and internal linking. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="technical seo site speed, crawlability, structured data and internal linking. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" alt="Technical SEO sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-dev"/></svg></span>
             <span class="tile-text"><small>SEO</small><strong>Technical SEO</strong><span>Site speed, crawlability, structured data and internal linking.</span></span>
           </a>
-          <a class="tile" data-cms="" data-industry="" data-service="social" data-search="social engagement content and campaigns planned around the brand and publishing priorities. social media campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="social engagement content and campaigns planned around the brand and publishing priorities. social media campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" alt="Social engagement sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-social"/></svg></span>
             <span class="tile-text"><small>Social media</small><strong>Social engagement</strong><span>Content and campaigns planned around the brand and publishing priorities.</span></span>
           </a>
-          <a class="tile" data-cms="" data-industry="" data-service="ads" data-search="agency optimization campaign targeting, messaging and conversion tracking tied together. paid advertising campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="agency optimization campaign targeting, messaging and conversion tracking tied together. paid advertising campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" alt="Agency optimization sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-marketing"/></svg></span>
             <span class="tile-text"><small>Paid advertising</small><strong>Agency optimization</strong><span>Campaign targeting, messaging and conversion tracking tied together.</span></span>
           </a>
-          <a class="tile" data-cms="" data-industry="" data-service="ads seo" data-search="online management ongoing management of listings, campaigns and reporting. paid advertising · seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="online management ongoing management of listings, campaigns and reporting. paid advertising · seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" alt="Online management sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-target"/></svg></span>
             <span class="tile-text"><small>Paid advertising · SEO</small><strong>Online management</strong><span>Ongoing management of listings, campaigns and reporting.</span></span>
           </a>
-          <a class="tile" data-cms="" data-industry="" data-service="tracking" data-search="technical agency tracking, automation and the plumbing behind the campaigns. tracking and automation campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-platform="" data-industry="" data-service="marketing" data-search="technical agency tracking, automation and the plumbing behind the campaigns. tracking and automation campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" alt="Technical agency sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-flow"/></svg></span>
             <span class="tile-text"><small>Tracking &amp; automation</small><strong>Technical agency</strong><span>Tracking, automation and the plumbing behind the campaigns.</span></span>
@@ -1537,14 +1535,15 @@
         <button class="sheet-x" type="button" data-close aria-label="Close filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
       <div class="sheet-body">
-          <fieldset class="sgroup"><legend>CMS</legend>
+          <fieldset class="sgroup"><legend>Services</legend>
             <div class="rchips">
-              <label class="rchip"><input type="radio" name="m-cms" value="all" data-group="cms" data-label="All" checked><span>All</span></label>
-              <label class="rchip"><input type="radio" name="m-cms" value="wordpress" data-group="cms" data-label="WordPress"><span>WordPress</span><span class="opt-n"></span></label>
-              <label class="rchip"><input type="radio" name="m-cms" value="shopify" data-group="cms" data-label="Shopify"><span>Shopify</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="all" data-group="service" data-label="All" checked><span>All</span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="design" data-group="service" data-label="Design"><span>Design</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="development" data-group="service" data-label="Development"><span>Development</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="marketing" data-group="service" data-label="Marketing"><span>Marketing</span><span class="opt-n"></span></label>
             </div>
           </fieldset>
-          <fieldset class="sgroup"><legend>Industry</legend>
+          <fieldset class="sgroup"><legend>Industries</legend>
             <div class="rchips">
               <label class="rchip"><input type="radio" name="m-industry" value="all" data-group="industry" data-label="All" checked><span>All</span></label>
               <label class="rchip"><input type="radio" name="m-industry" value="health" data-group="industry" data-label="Health care"><span>Health care</span><span class="opt-n"></span></label>
@@ -1554,14 +1553,11 @@
               <label class="rchip"><input type="radio" name="m-industry" value="construction" data-group="industry" data-label="Construction"><span>Construction</span><span class="opt-n"></span></label>
             </div>
           </fieldset>
-          <fieldset class="sgroup"><legend>Service</legend>
+          <fieldset class="sgroup"><legend>Platforms</legend>
             <div class="rchips">
-              <label class="rchip"><input type="radio" name="m-service" value="all" data-group="service" data-label="All" checked><span>All</span></label>
-              <label class="rchip"><input type="radio" name="m-service" value="web" data-group="service" data-label="Website design &amp; build"><span>Website design &amp; build</span><span class="opt-n"></span></label>
-              <label class="rchip"><input type="radio" name="m-service" value="seo" data-group="service" data-label="SEO"><span>SEO</span><span class="opt-n"></span></label>
-              <label class="rchip"><input type="radio" name="m-service" value="social" data-group="service" data-label="Social media"><span>Social media</span><span class="opt-n"></span></label>
-              <label class="rchip"><input type="radio" name="m-service" value="ads" data-group="service" data-label="Paid advertising"><span>Paid advertising</span><span class="opt-n"></span></label>
-              <label class="rchip"><input type="radio" name="m-service" value="tracking" data-group="service" data-label="Tracking &amp; automation"><span>Tracking &amp; automation</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-platform" value="all" data-group="platform" data-label="All" checked><span>All</span></label>
+              <label class="rchip"><input type="radio" name="m-platform" value="wordpress" data-group="platform" data-label="WordPress"><span>WordPress</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-platform" value="shopify" data-group="platform" data-label="Shopify"><span>Shopify</span><span class="opt-n"></span></label>
             </div>
           </fieldset>
       </div>
@@ -1901,7 +1897,7 @@
         layout();
       }
 
-      /* ---------- Project finder: search + CMS / industry / service (same behaviour as the blog archive) ---------- */
+      /* ---------- Project finder: search + service / industry / platform (same behaviour as the blog archive) ---------- */
       var projects = document.getElementById("projects");
       if (projects) {
         var toArr = function (l) { return Array.prototype.slice.call(l); };
@@ -1928,11 +1924,11 @@
         var openSheet = document.getElementById("open-filters");
         var sheetApply = document.getElementById("sheet-apply");
         var badge = openSheet.querySelector(".tb-badge");
-        var GROUPS = ["cms", "industry", "service"];
-        var NAMES = { cms: "CMS", industry: "Industry", service: "Service" };
-        var fresh = function () { return { cms: "all", industry: "all", service: "all", q: "" }; };
+        var GROUPS = ["service", "industry", "platform"];
+        var NAMES = { service: "Services", industry: "Industries", platform: "Platforms" };
+        var fresh = function () { return { service: "all", industry: "all", platform: "all", q: "" }; };
         var state = fresh();
-        var labels = { cms: {}, industry: {}, service: {} };
+        var labels = { service: {}, industry: {}, platform: {} };
         radios.forEach(function (r) { labels[r.dataset.group][r.value] = r.dataset.label; });
 
         var norm = function (s) {
@@ -2016,7 +2012,7 @@
             lab.classList.toggle("is-zero", n === 0);
           });
 
-          // Triggers: "CMS: WordPress (4)"
+          // Triggers: "Platforms: WordPress (4)"
           dds.forEach(function (d) {
             var g = d.dataset.dd, v = state[g];
             d.classList.toggle("is-set", v !== "all");
@@ -2161,7 +2157,7 @@
           if (wide.addEventListener) wide.addEventListener("change", onWide);
         }
 
-        // Restore a shared/filtered view from the URL (?cms=wordpress&industry=health&service=web&q=booking)
+        // Restore a shared/filtered view from the URL (?service=development&industry=health&platform=wordpress&q=booking)
         try {
           var params = new URLSearchParams(location.search);
           GROUPS.forEach(function (g) {
