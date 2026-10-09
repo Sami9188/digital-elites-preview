@@ -584,22 +584,252 @@
     .js .stack.is-on .stack-3 { transition-delay: .36s; }
     .js .stack.is-on .browser:hover { transform: translateY(-10px); transition-delay: 0s; }
 
-    /* Sticky index */
-    .index { position: sticky; top: var(--header-h); z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .site-header.is-stuck ~ main .index { top: var(--header-h); }
-    .index-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 60px; }
-    .index-list { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; overflow-x: auto; scrollbar-width: none; }
-    .index-list::-webkit-scrollbar { display: none; }
-    .index-list a {
-      display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px;
-      border: 1.5px solid transparent; font-size: 13px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase;
-      color: var(--text); text-decoration: none; white-space: nowrap; transition: border-color .2s ease, background .2s ease, color .2s ease;
+    /* ---------- Project finder (same toolbar as the blog archive) ---------- */
+    .projects { padding-top: 56px; }
+    .projects-meta { padding-bottom: 40px; }
+    .projects-meta .active-chips { margin-top: 16px; }
+    .finder-bar { position: sticky; top: var(--stick, 0px); z-index: 30; padding: 0; transition: background .2s ease, box-shadow .2s ease, padding .2s ease; scroll-margin-top: calc(var(--stick, 92px) + 16px); }
+    .finder-bar.is-stuck { background: #fff; box-shadow: 0 1px 0 var(--line), 0 14px 28px -22px rgba(0,0,0,.35); padding: 10px 0; }
+    .toolbar {
+      display: flex; align-items: center; gap: 10px; padding: 10px;
+      border: 1px solid var(--line); border-radius: 16px; background: #fff;
+      transition: border-color .2s ease, padding .2s ease;
     }
-    .index-list a small { font-size: 12px; font-weight: 700; color: var(--muted); }
-    .index-list a:hover { border-color: var(--green-line); }
-    .index-list a.is-active { background: var(--green); border-color: var(--green-line); color: var(--ink); }
-    .index-list a.is-active small { color: var(--ink); }
-    .index-note { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .finder-bar.is-stuck .toolbar { border-color: transparent; padding: 0; }
+
+    .tb-search { position: relative; flex: 1 1 220px; min-width: 0; max-width: 400px; margin: 0; }
+    .tb-search input {
+      height: 48px; padding: 0 44px 0 44px; font-size: 16px; border-radius: 10px;
+      -webkit-appearance: none; appearance: none;
+    }
+    .tb-search input:hover { border-color: #B9B9B9; }
+    .tb-search input:focus { border-color: var(--green-line); box-shadow: 0 0 0 4px rgba(4,234,134,.3); }
+    .tb-search input::-webkit-search-cancel-button, .tb-search input::-webkit-search-decoration { -webkit-appearance: none; appearance: none; }
+    .tb-search-ico { position: absolute; left: 15px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%); color: var(--ink); pointer-events: none; }
+    .tb-clear {
+      position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+      display: grid; place-items: center; width: 36px; height: 36px; padding: 0;
+      border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer;
+      transition: background .2s ease, color .2s ease;
+    }
+    .tb-clear[hidden] { display: none; }
+    .tb-clear svg { width: 15px; height: 15px; }
+    .tb-clear:hover { background: var(--green); color: var(--ink); }
+    .tb-clear:focus-visible { outline: 2px solid var(--green-line); outline-offset: 0; }
+
+    .tb-filters { display: flex; align-items: center; gap: 8px; flex: 0 1 auto; min-width: 0; }
+    .dd { position: relative; }
+    .dd-btn {
+      display: inline-flex; align-items: center; gap: 7px; height: 48px; padding: 0 14px 0 16px;
+      border: 1.5px solid var(--green-line); border-radius: 10px; background: #fff; color: var(--ink);
+      font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      white-space: nowrap; cursor: pointer;
+      transition: background .2s ease, box-shadow .2s ease;
+    }
+    .dd-k { color: var(--muted); }
+    .dd-k::after { content: ":"; }
+    .dd-v { color: var(--ink); max-width: 16ch; overflow: hidden; text-overflow: ellipsis; }
+    .dd-n { min-width: 22px; padding: 2px 7px; border-radius: 999px; background: var(--dark); color: #fff; font-size: 11px; letter-spacing: 0; text-align: center; }
+    .dd-n[hidden] { display: none; }
+    .dd-btn .chev { width: 14px; height: 14px; color: var(--green-line); transition: transform .2s ease; }
+    .dd-btn:hover { background: #F2FDF7; box-shadow: 0 6px 14px -8px rgba(24,158,115,.6); }
+    .dd-btn[aria-expanded="true"] { background: #F2FDF7; }
+    .dd-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+    .dd.is-set .dd-btn { background: var(--green); }
+    .dd.is-set .dd-k { color: var(--ink); opacity: .7; }
+    .dd.is-set .dd-btn .chev { color: var(--ink); }
+    .dd.is-set .dd-btn:hover { box-shadow: 0 6px 14px -8px rgba(24,158,115,.9); }
+    .dd-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+
+    .dd-pop {
+      position: absolute; top: calc(100% + 8px); left: 0; z-index: 5; min-width: 260px; padding: 8px;
+      background: #fff; border: 1px solid var(--line); border-radius: 14px;
+      box-shadow: 0 24px 50px -18px rgba(0,0,0,.28), 0 2px 6px rgba(0,0,0,.04);
+      animation: dd-in .18s var(--ease);
+    }
+    .dd-pop[hidden] { display: none; }
+    .dd-sort .dd-pop { min-width: 200px; }
+    @keyframes dd-in { from { opacity: 0; transform: translateY(-4px); } }
+    .dd-pop fieldset { margin: 0; padding: 0; border: 0; display: grid; gap: 2px; }
+    .opt {
+      position: relative; display: flex; align-items: center; gap: 12px; min-height: 42px; padding: 8px 10px;
+      border-radius: 9px; color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: background .15s ease;
+    }
+    .opt input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+    .opt-dot { position: relative; flex: 0 0 18px; width: 18px; height: 18px; border: 2px solid var(--green-line); border-radius: 50%; background: #fff; transition: background .15s ease; }
+    .opt-dot::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--dark); transform: scale(0); transition: transform .15s var(--ease); }
+    .opt-t { flex: 1 1 auto; }
+    .opt-n { min-width: 26px; padding: 2px 7px; border-radius: 999px; background: #EFEFEC; color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; }
+    .opt:hover { background: #F2FDF7; }
+    .opt:has(input:checked) { background: #EAFBF2; }
+    .opt:has(input:checked) .opt-dot { background: var(--green); }
+    .opt:has(input:checked) .opt-dot::after { transform: scale(1); }
+    .opt:has(input:checked) .opt-n { background: var(--dark); color: #fff; }
+    .opt:has(input:focus-visible) { outline: 2px solid var(--green-line); outline-offset: -2px; }
+    .opt.is-zero:not(:has(input:checked)) { color: #A9A6A0; }
+    .opt.is-zero:not(:has(input:checked)) .opt-dot { border-color: #CFCFCB; }
+
+    .tb-filter-btn {
+      display: none; align-items: center; gap: 8px; height: 48px; padding: 0 14px; flex: 0 0 auto;
+      border: 1.5px solid var(--green-line); border-radius: 10px; background: #fff; color: var(--ink);
+      font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+      transition: background .2s ease;
+    }
+    .tb-filter-btn svg { width: 18px; height: 18px; }
+    .tb-filter-btn:hover { background: #F2FDF7; }
+    .tb-filter-btn.is-set { background: var(--green); }
+    .tb-filter-btn:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+    .tb-badge { min-width: 20px; padding: 1px 6px; border-radius: 999px; background: var(--dark); color: #fff; font-size: 11px; letter-spacing: 0; text-align: center; }
+    .tb-badge[hidden] { display: none; }
+
+    .tb-status { display: flex; align-items: center; gap: 14px; margin-left: auto; padding: 0 6px 0 8px; white-space: nowrap; }
+    .archive-status { margin: 0; font-size: 15px; color: var(--muted); }
+    .archive-status strong { color: var(--ink); font-weight: 800; }
+    .tb-clearall {
+      position: relative; padding: 6px 0; border: 0; background: none; color: var(--ink); cursor: pointer;
+      font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      background-image: linear-gradient(var(--green-line), var(--green-line)); background-repeat: no-repeat; background-size: 100% 2px; background-position: 0 100%;
+      transition: color .2s ease, background-size .2s ease;
+    }
+    .tb-clearall[hidden] { display: none; }
+    .tb-clearall:hover { color: var(--green-line); background-image: linear-gradient(var(--green), var(--green)); }
+    .tb-clearall:focus-visible { outline: 2px solid var(--green-line); outline-offset: 3px; }
+
+    /* Active filters, removable */
+    .active-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0 0; }
+    .active-chips[hidden] { display: none; }
+    .achip {
+      display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 8px 0 14px;
+      border: 1.5px solid var(--green-line); border-radius: 999px; background: #F2FDF7; color: var(--ink);
+      font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .achip .k { color: var(--muted); font-weight: 600; }
+    .achip .x { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #fff; transition: background .2s ease, color .2s ease; }
+    .achip .x svg { width: 11px; height: 11px; }
+    .achip:hover { background: var(--green); transform: translateY(-1px); }
+    .achip:hover .x { background: var(--dark); color: var(--green); }
+    .achip:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+
+    .empty {
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
+      margin-top: 28px; padding: 64px 24px; border: 1.5px dashed #CFE9DD; border-radius: 20px;
+      background: radial-gradient(120% 90% at 50% 0%, #F2FDF7 0%, #fff 70%);
+    }
+    .empty[hidden] { display: none; }
+    .empty-ico { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 8px; border-radius: 50%; background: var(--dark); color: var(--green); box-shadow: 0 0 0 10px rgba(4,234,134,.14); }
+    .empty-ico svg { width: 26px; height: 26px; }
+    .empty-title { margin: 0; font-size: 24px; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); }
+    .empty-text { margin: 0 0 14px; max-width: 46ch; font-size: 16px; color: var(--muted); }
+    .empty-text strong { color: var(--ink); }
+    .empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .empty-actions [hidden] { display: none; }
+
+    .projects .empty { margin: 16px 0 56px; }
+    html:not(.js) .finder-bar, html:not(.js) .active-chips { display: none; }
+    .wm-item[hidden], .tile[hidden], .sites[hidden], .gallery[hidden] { display: none !important; }
+    #websites, #campaigns { scroll-margin-top: calc(var(--stick, 92px) + 24px); }
+    .projects-meta + .sites { padding-top: 16px; }
+    .sec-n { margin-left: 4px; color: var(--muted); }
+    .sec-n[hidden] { display: none; }
+    .gallery .sec-n { color: var(--on-dark-muted); }
+    .wm-type i { font-style: normal; color: var(--green-line); }
+    .wm-item.is-in, .tile.is-in { animation: proj-in .45s var(--ease) backwards; animation-delay: calc(var(--d, 0) * 50ms); }
+    @keyframes proj-in { from { opacity: 0; transform: translateY(12px); } }
+
+    /* Screenshot that fails to load: a tidy browser-frame placeholder instead of broken alt text */
+    .wm-fallback { display: none; }
+    .wm-item.is-broken .wm-media { padding: 0; height: auto !important; aspect-ratio: 16 / 11; border: 1px solid var(--line); background: #fff; }
+    .wm-item.is-broken .wm-media img { display: none; }
+    .wm-item.is-broken .wm-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; }
+    .wm-fallback-bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 14px; border-bottom: 1px solid var(--line); background: #FAFAFA; }
+    .wm-fallback-bar i { width: 8px; height: 8px; border-radius: 50%; background: #DCDCDC; }
+    .wm-fallback-bar i:first-child { background: var(--green); }
+    .wm-fallback-body { flex: 1; display: grid; place-items: center; align-content: center; gap: 10px; padding: 24px; text-align: center;
+      background: radial-gradient(120% 90% at 50% 0%, #F2FDF7 0%, #fff 70%); }
+    .wm-fallback-body b { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 16px; background: var(--dark); color: var(--green); font-size: 26px; font-weight: 800; }
+    .wm-fallback-body span { font-size: 15px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
+    .tile.is-broken img { visibility: hidden; }
+
+    /* ---------- Phone filter sheet ---------- */
+    .sheet {
+      position: fixed; inset: auto 0 0 0; width: 100%; max-width: 100%; max-height: min(86vh, 720px); margin: 0;
+      padding: 0; border: 0; border-radius: 22px 22px 0 0; background: #fff; color: var(--text);
+      box-shadow: 0 -20px 50px rgba(0,0,0,.2);
+      flex-direction: column; overflow: hidden;
+    }
+    .sheet[open] { display: flex; animation: sheet-up .3s var(--ease); }
+    .sheet::backdrop { background: rgba(38,38,38,.55); }
+    @keyframes sheet-up { from { transform: translateY(100%); } }
+    .sheet-head { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 22px 20px 14px; border-bottom: 1px solid var(--line); }
+    .sheet-head::before { content: ""; position: absolute; top: 8px; left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: 4px; background: #DADAD6; }
+    .sheet-title { margin: 0; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); }
+    .sheet-x { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 2px solid var(--dark); border-radius: 50%; background: #fff; color: var(--ink); cursor: pointer; transition: background .2s ease, color .2s ease; }
+    .sheet-x svg { width: 16px; height: 16px; }
+    .sheet-x:hover, .sheet-x:focus-visible { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .sheet-x:focus-visible { outline: 2px solid var(--dark); outline-offset: 2px; }
+    .sheet-body { flex: 1 1 auto; overflow-y: auto; padding: 8px 20px 20px; overscroll-behavior: contain; }
+    .sgroup { margin: 0; padding: 16px 0 4px; border: 0; }
+    .sgroup + .sgroup { border-top: 1px solid var(--line); margin-top: 12px; }
+    .sgroup legend { float: left; width: 100%; margin: 0 0 12px; padding: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+    .rchips { clear: both; display: flex; flex-wrap: wrap; gap: 8px; }
+    .rchip {
+      position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 14px;
+      border: 1.5px solid var(--green-line); border-radius: 999px; background: #fff; color: var(--ink);
+      font-size: 13px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; cursor: pointer;
+      transition: background .15s ease;
+    }
+    .rchip input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; pointer-events: none; }
+    .rchip .opt-n { min-width: 22px; padding: 2px 6px; font-size: 11px; }
+    .rchip:hover { background: #F2FDF7; }
+    .rchip:has(input:checked) { background: var(--green); }
+    .rchip:has(input:checked) .opt-n { background: var(--dark); color: #fff; }
+    .rchip:has(input:focus-visible) { outline: 2px solid var(--dark); outline-offset: 2px; }
+    .rchip.is-zero:not(:has(input:checked)) { color: #A9A6A0; border-color: #CFE0D8; }
+    .rchips-seg { display: grid; grid-template-columns: 1fr 1fr; }
+    .rchips-seg .rchip { justify-content: center; }
+    .sheet-foot { display: grid; grid-template-columns: auto 1fr; gap: 10px; padding: 14px 20px calc(14px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: #fff; }
+    .sheet-foot .pill { min-height: 50px; height: 50px; font-size: 14px; }
+
+    @media (max-width: 1180px) {
+      .toolbar { flex-wrap: wrap; }
+      .tb-search { flex: 1 1 100%; max-width: none; }
+      .finder-bar.is-stuck .toolbar { row-gap: 8px; }
+    }
+    @media (max-width: 980px) {
+      .projects { padding-top: 40px; }
+      .projects-meta { padding-bottom: 32px; }
+      .projects-meta + .sites { padding-top: 12px; }
+      .projects .empty { margin-bottom: 32px; }
+    }
+    @media (max-width: 760px) {
+      /* Phones: search + a single "Filters" button; the dropdowns move into a bottom sheet. */
+      .finder-bar { position: static; }
+      .toolbar { flex-wrap: wrap; gap: 10px; padding: 0; border: 0; }
+      .tb-search { flex: 1 1 0; }
+      .tb-search input { padding-left: 40px; font-size: 16px; }
+      .tb-search input:placeholder-shown { padding-right: 10px; }
+      .tb-search-ico { left: 13px; }
+      .tb-filters { display: none; }
+      .tb-filter-btn { display: inline-flex; }
+      .tb-status { flex: 1 1 100%; justify-content: space-between; margin: 0; padding: 2px 2px 0; }
+      .archive-status { font-size: 14px; }
+      .active-chips { margin-top: 12px; }
+    }
+    @media (max-width: 640px) {
+      .empty { padding: 44px 20px; }
+      .empty-actions { flex-direction: column; width: 100%; }
+      .empty-actions .pill { width: 100%; }
+    }
+    @media (min-width: 761px) {
+      .sheet[open] { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dd-btn, .achip, .finder-bar, .toolbar { transition: none; }
+      .achip:hover { transform: none; }
+      .wm-item.is-in, .tile.is-in, .dd-pop, .sheet[open] { animation: none; }
+    }
 
     /* Website projects: masonry v2 (natural image ratios, shortest-column placement) */
     .sites { padding: 88px 0 96px; }
@@ -732,8 +962,6 @@
       .work-hero { padding: 48px 0 56px; }
       .work-hero-grid { grid-template-columns: 1fr; gap: 40px; }
       .stack { max-width: 560px; margin: 0 auto; }
-      .index-row { min-height: 56px; }
-      .index-note { display: none; }
       .gallery { padding: 64px 0; }
       .gallery-grid { grid-template-columns: 1fr 1fr; }
       .ships { padding: 56px 0; }
@@ -1046,65 +1274,132 @@
       </div>
     </section>
 
-    <!-- Sticky index -->
-    <nav class="index" aria-label="Portfolio sections">
-      <div class="frame index-row">
-        <ul class="index-list" id="index-list">
-          <li><a href="#websites" class="is-active">Websites <small>5</small></a></li>
-          <li><a href="#campaigns">Campaign &amp; search <small>6</small></a></li>
-          <li><a href="#ships">What's included</a></li>
-        </ul>
-        <span class="index-note">Click any project to see it full size</span>
+    <!-- Projects: finder + websites + campaign samples (the toolbar sticks while you browse them) -->
+    <div class="projects" id="projects">
+      <div class="finder-bar" id="finder-bar">
+        <div class="frame">
+          <div class="toolbar" id="toolbar">
+            <form class="tb-search" id="work-search-form" role="search" action="#projects">
+              <label class="sr-only" for="work-search">Search projects</label>
+              <svg class="tb-search-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <input id="work-search" type="search" name="q" placeholder="Search projects" autocomplete="off" enterkeyhint="search">
+              <button class="tb-clear" id="search-clear" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+            </form>
+            <div class="tb-filters" role="group" aria-label="Filter projects">
+              <div class="dd" data-dd="cms">
+                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-cms">
+                  <span class="dd-k">CMS</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dd-pop" id="dd-cms" hidden>
+                  <fieldset><legend class="sr-only">CMS</legend>
+                  <label class="opt"><input type="radio" name="cms" value="all" data-group="cms" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All platforms</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="cms" value="wordpress" data-group="cms" data-label="WordPress"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">WordPress</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="cms" value="shopify" data-group="cms" data-label="Shopify"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Shopify</span><span class="opt-n"></span></label>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="dd" data-dd="industry">
+                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-industry">
+                  <span class="dd-k">Industry</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dd-pop" id="dd-industry" hidden>
+                  <fieldset><legend class="sr-only">Industry</legend>
+                  <label class="opt"><input type="radio" name="industry" value="all" data-group="industry" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All industries</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="industry" value="health" data-group="industry" data-label="Health care"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Health care</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="industry" value="nonprofit" data-group="industry" data-label="Nonprofit &amp; education"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Nonprofit &amp; education</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="industry" value="retail" data-group="industry" data-label="Retail &amp; eCommerce"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Retail &amp; eCommerce</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="industry" value="personal" data-group="industry" data-label="Personal brand"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Personal brand</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="industry" value="construction" data-group="industry" data-label="Construction"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Construction</span><span class="opt-n"></span></label>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="dd" data-dd="service">
+                <button class="dd-btn" type="button" aria-expanded="false" aria-controls="dd-service">
+                  <span class="dd-k">Service</span><span class="dd-v">All</span><span class="dd-n" hidden></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="dd-pop" id="dd-service" hidden>
+                  <fieldset><legend class="sr-only">Service</legend>
+                  <label class="opt"><input type="radio" name="service" value="all" data-group="service" data-label="All" checked><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">All services</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="web" data-group="service" data-label="Website design &amp; build"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Website design &amp; build</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="seo" data-group="service" data-label="SEO"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">SEO</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="social" data-group="service" data-label="Social media"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Social media</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="ads" data-group="service" data-label="Paid advertising"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Paid advertising</span><span class="opt-n"></span></label>
+                  <label class="opt"><input type="radio" name="service" value="tracking" data-group="service" data-label="Tracking &amp; automation"><span class="opt-dot" aria-hidden="true"></span><span class="opt-t">Tracking &amp; automation</span><span class="opt-n"></span></label>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <button class="tb-filter-btn" id="open-filters" type="button" aria-haspopup="dialog" aria-controls="filter-sheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg><span>Filters</span><span class="tb-badge" hidden></span></button>
+            <div class="tb-status">
+              <p class="archive-status" id="work-status" aria-live="polite"><strong>11</strong> projects</p>
+              <button class="tb-clearall" type="button" data-reset hidden>Clear all</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </nav>
+      <div class="frame projects-meta">
+        <div class="active-chips" id="active-chips" aria-label="Active filters" role="group" hidden></div>
+        <div class="empty" id="work-empty" hidden>
+          <span class="empty-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+          <p class="empty-title" id="empty-title" tabindex="-1">No projects match that yet</p>
+          <p class="empty-text" id="empty-text">Try a broader word, or clear the filters to see every project.</p>
+          <div class="empty-actions">
+            <button class="pill pill-sm" type="button" data-reset>Clear filters</button>
+            <a class="pill pill-outline pill-sm" href="../contact/">Ask for examples</a>
+          </div>
+        </div>
+      </div>
 
     <!-- Websites -->
     <section class="sites" id="websites" aria-labelledby="websites-title">
       <div class="frame">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Websites</p>
+            <p class="eyebrow">Websites<span class="sec-n" id="n-websites" hidden></span></p>
             <h2 id="websites-title">Five recent website builds</h2>
           </div>
           <p class="support">Each one planned around a single job: make it clear what the business does and easy to get in touch. Click any project to see it full size.</p>
         </div>
         <div class="wm" id="wm">
-        <article class="wm-item">
+        <article class="wm-item" data-cms="wordpress" data-industry="health" data-service="web" data-search="bright approach wordpress site built to explain the service clearly and move visitors to a booking. wordpress health care website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" data-viewer="Bright Approach" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Bright-Approach-WP.png" alt="Bright Approach website" loading="lazy" decoding="async">
+              <span class="wm-fallback" aria-hidden="true"><span class="wm-fallback-bar"><i></i><i></i><i></i></span><span class="wm-fallback-body"><b>B</b><span>Bright Approach</span></span></span>
               <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
             </span>
             <span class="wm-cap">
-              <span class="wm-type">WordPress</span>
+              <span class="wm-type">WordPress <i aria-hidden="true">·</i> Health care</span>
               <h3>Bright Approach</h3>
               <p>WordPress site built to explain the service clearly and move visitors to a booking.</p>
               <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
             </span>
           </a>
         </article>
-        <article class="wm-item">
+        <article class="wm-item" data-cms="shopify" data-industry="retail" data-service="web" data-search="amiri website design and build, with the brand carried through every page. shopify retail and ecommerce website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" data-viewer="Amiri" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Amiri.png" alt="Amiri website" loading="lazy" decoding="async">
+              <span class="wm-fallback" aria-hidden="true"><span class="wm-fallback-bar"><i></i><i></i><i></i></span><span class="wm-fallback-body"><b>A</b><span>Amiri</span></span></span>
               <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
             </span>
             <span class="wm-cap">
-              <span class="wm-type">Website build</span>
+              <span class="wm-type">Shopify <i aria-hidden="true">·</i> Retail &amp; eCommerce</span>
               <h3>Amiri</h3>
               <p>Website design and build, with the brand carried through every page.</p>
               <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
             </span>
           </a>
         </article>
-        <article class="wm-item">
+        <article class="wm-item" data-cms="wordpress" data-industry="nonprofit" data-service="web" data-search="reach education fund programme, eligibility and how to apply, made easy to find. wordpress nonprofit and education website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" data-viewer="Reach Education Fund" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/reacheducationfund.com_.png" alt="Reach Education Fund website" loading="lazy" decoding="async">
+              <span class="wm-fallback" aria-hidden="true"><span class="wm-fallback-bar"><i></i><i></i><i></i></span><span class="wm-fallback-body"><b>R</b><span>Reach Education Fund</span></span></span>
               <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
             </span>
             <span class="wm-cap">
-              <span class="wm-type">Nonprofit</span>
+              <span class="wm-type">WordPress <i aria-hidden="true">·</i> Nonprofit &amp; education</span>
               <h3>Reach Education Fund</h3>
               <p>Programme, eligibility and how to apply, made easy to find.</p>
               <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
@@ -1112,28 +1407,30 @@
           </a>
           <a class="wm-live" href="https://reacheducationfund.com/" target="_blank" rel="noopener">Live site<span class="sr-only">: Reach Education Fund</span></a>
         </article>
-        <article class="wm-item">
+        <article class="wm-item" data-cms="wordpress" data-industry="personal" data-service="web" data-search="julie gray who she is, what she offers and a clear way to reach her. wordpress personal brand website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" data-viewer="Julie Gray" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Julie-Gray-.png" alt="Julie Gray website" loading="lazy" decoding="async">
+              <span class="wm-fallback" aria-hidden="true"><span class="wm-fallback-bar"><i></i><i></i><i></i></span><span class="wm-fallback-body"><b>J</b><span>Julie Gray</span></span></span>
               <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
             </span>
             <span class="wm-cap">
-              <span class="wm-type">Personal brand</span>
+              <span class="wm-type">WordPress <i aria-hidden="true">·</i> Personal brand</span>
               <h3>Julie Gray</h3>
               <p>Who she is, what she offers and a clear way to reach her.</p>
               <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
             </span>
           </a>
         </article>
-        <article class="wm-item">
+        <article class="wm-item" data-cms="wordpress" data-industry="construction" data-service="web" data-search="ldcco services and contact options laid out plainly. wordpress construction website design and build website">
           <a class="wm-card" href="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" data-viewer="LDCCO" target="_blank" rel="noopener">
             <span class="wm-media">
               <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/LDCCO.png" alt="LDCCO website" loading="lazy" decoding="async">
+              <span class="wm-fallback" aria-hidden="true"><span class="wm-fallback-bar"><i></i><i></i><i></i></span><span class="wm-fallback-body"><b>L</b><span>LDCCO</span></span></span>
               <span class="wm-open" aria-hidden="true">View full size <svg><use href="#i-arrow"/></svg></span>
             </span>
             <span class="wm-cap">
-              <span class="wm-type">Website build</span>
+              <span class="wm-type">WordPress <i aria-hidden="true">·</i> Construction</span>
               <h3>LDCCO</h3>
               <p>Services and contact options laid out plainly.</p>
               <span class="wm-arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
@@ -1153,41 +1450,41 @@
       <div class="frame">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Campaign &amp; search</p>
+            <p class="eyebrow">Campaign &amp; search<span class="sec-n" id="n-campaigns" hidden></span></p>
             <h2 id="campaigns-title">Search, social and marketing work</h2>
           </div>
           <p class="support">Samples from SEO programmes, technical fixes and social campaigns. Open any tile to see it full size.</p>
         </div>
         <div class="gallery-grid">
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="seo" data-search="seo optimization keyword research, service-page optimization and content planning. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/SEO-Optimization-540x540-1.jpg" alt="SEO optimization sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-search"/></svg></span>
             <span class="tile-text"><small>SEO</small><strong>SEO optimization</strong><span>Keyword research, service-page optimization and content planning.</span></span>
           </a>
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="seo" data-search="technical seo site speed, crawlability, structured data and internal linking. seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Technical-SEO-540x540-1.jpg" alt="Technical SEO sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-dev"/></svg></span>
             <span class="tile-text"><small>SEO</small><strong>Technical SEO</strong><span>Site speed, crawlability, structured data and internal linking.</span></span>
           </a>
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="social" data-search="social engagement content and campaigns planned around the brand and publishing priorities. social media campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Social-Engagement-540x540-1.jpg" alt="Social engagement sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-social"/></svg></span>
             <span class="tile-text"><small>Social media</small><strong>Social engagement</strong><span>Content and campaigns planned around the brand and publishing priorities.</span></span>
           </a>
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="ads" data-search="agency optimization campaign targeting, messaging and conversion tracking tied together. paid advertising campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio1-540x540-1.jpg" alt="Agency optimization sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-marketing"/></svg></span>
-            <span class="tile-text"><small>Marketing</small><strong>Agency optimization</strong><span>Campaign targeting, messaging and conversion tracking tied together.</span></span>
+            <span class="tile-text"><small>Paid advertising</small><strong>Agency optimization</strong><span>Campaign targeting, messaging and conversion tracking tied together.</span></span>
           </a>
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="ads seo" data-search="online management ongoing management of listings, campaigns and reporting. paid advertising · seo campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio2-540x540-1.jpg" alt="Online management sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-target"/></svg></span>
-            <span class="tile-text"><small>Marketing</small><strong>Online management</strong><span>Ongoing management of listings, campaigns and reporting.</span></span>
+            <span class="tile-text"><small>Paid advertising · SEO</small><strong>Online management</strong><span>Ongoing management of listings, campaigns and reporting.</span></span>
           </a>
-          <a class="tile" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" target="_blank" rel="noopener">
+          <a class="tile" data-cms="" data-industry="" data-service="tracking" data-search="technical agency tracking, automation and the plumbing behind the campaigns. tracking and automation campaign" href="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" target="_blank" rel="noopener">
             <img src="https://thedigitalelites.com/wp-content/uploads/2025/06/agency_portfolio3-540x540-1.jpg" alt="Technical agency sample" width="540" height="540" loading="lazy" decoding="async">
             <span class="tile-ico" aria-hidden="true"><svg><use href="#i-flow"/></svg></span>
-            <span class="tile-text"><small>Marketing</small><strong>Technical agency</strong><span>Tracking, automation and the plumbing behind the campaigns.</span></span>
+            <span class="tile-text"><small>Tracking &amp; automation</small><strong>Technical agency</strong><span>Tracking, automation and the plumbing behind the campaigns.</span></span>
           </a>
         </div>
         <div class="gallery-note">
@@ -1196,6 +1493,47 @@
         </div>
       </div>
     </section>
+
+    <dialog class="sheet" id="filter-sheet" aria-labelledby="sheet-title">
+      <div class="sheet-head">
+        <p class="sheet-title" id="sheet-title">Filter projects</p>
+        <button class="sheet-x" type="button" data-close aria-label="Close filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </div>
+      <div class="sheet-body">
+          <fieldset class="sgroup"><legend>CMS</legend>
+            <div class="rchips">
+              <label class="rchip"><input type="radio" name="m-cms" value="all" data-group="cms" data-label="All" checked><span>All</span></label>
+              <label class="rchip"><input type="radio" name="m-cms" value="wordpress" data-group="cms" data-label="WordPress"><span>WordPress</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-cms" value="shopify" data-group="cms" data-label="Shopify"><span>Shopify</span><span class="opt-n"></span></label>
+            </div>
+          </fieldset>
+          <fieldset class="sgroup"><legend>Industry</legend>
+            <div class="rchips">
+              <label class="rchip"><input type="radio" name="m-industry" value="all" data-group="industry" data-label="All" checked><span>All</span></label>
+              <label class="rchip"><input type="radio" name="m-industry" value="health" data-group="industry" data-label="Health care"><span>Health care</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-industry" value="nonprofit" data-group="industry" data-label="Nonprofit &amp; education"><span>Nonprofit &amp; education</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-industry" value="retail" data-group="industry" data-label="Retail &amp; eCommerce"><span>Retail &amp; eCommerce</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-industry" value="personal" data-group="industry" data-label="Personal brand"><span>Personal brand</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-industry" value="construction" data-group="industry" data-label="Construction"><span>Construction</span><span class="opt-n"></span></label>
+            </div>
+          </fieldset>
+          <fieldset class="sgroup"><legend>Service</legend>
+            <div class="rchips">
+              <label class="rchip"><input type="radio" name="m-service" value="all" data-group="service" data-label="All" checked><span>All</span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="web" data-group="service" data-label="Website design &amp; build"><span>Website design &amp; build</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="seo" data-group="service" data-label="SEO"><span>SEO</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="social" data-group="service" data-label="Social media"><span>Social media</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="ads" data-group="service" data-label="Paid advertising"><span>Paid advertising</span><span class="opt-n"></span></label>
+              <label class="rchip"><input type="radio" name="m-service" value="tracking" data-group="service" data-label="Tracking &amp; automation"><span>Tracking &amp; automation</span><span class="opt-n"></span></label>
+            </div>
+          </fieldset>
+      </div>
+      <div class="sheet-foot">
+        <button class="pill pill-outline pill-sm" type="button" data-reset>Clear all</button>
+        <button class="pill pill-sm" type="button" data-close id="sheet-apply">Show 11 projects</button>
+      </div>
+    </dialog>
+    </div>
 
     <!-- What's included -->
     <section class="ships" id="ships" aria-labelledby="ships-title">
@@ -1460,21 +1798,6 @@
       var stack = document.getElementById("stack");
       if (stack) requestAnimationFrame(function () { setTimeout(function () { stack.classList.add("is-on"); }, 120); });
 
-      // Sticky index: highlight the section in view.
-      var indexLinks = Array.prototype.slice.call(document.querySelectorAll("#index-list a"));
-      var targets = indexLinks.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
-      if (indexLinks.length && "IntersectionObserver" in window) {
-        var setActive = function (id) {
-          indexLinks.forEach(function (a) { a.classList.toggle("is-active", a.getAttribute("href") === "#" + id); });
-        };
-        var sio = new IntersectionObserver(function (entries) {
-          var hit = entries.filter(function (en) { return en.isIntersecting; })
-            .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; })[0];
-          if (hit) setActive(hit.target.id);
-        }, { rootMargin: "-35% 0px -55% 0px", threshold: 0 });
-        targets.forEach(function (t) { sio.observe(t); });
-      }
-
       /* ---------- Website masonry: natural ratios, shortest-column placement ---------- */
       var wm = document.getElementById("wm");
       if (wm) {
@@ -1482,14 +1805,16 @@
         var wmCount = 0;
         var markLong = function (it) {
           var img = it.querySelector("img");
-          if (img && img.naturalWidth) it.classList.toggle("is-long", img.naturalHeight / img.naturalWidth > 1.4);
+          if (img && img.naturalWidth && !it.classList.contains("is-broken")) it.classList.toggle("is-long", img.naturalHeight / img.naturalWidth > 1.4);
         };
         var layout = function () {
           var n = window.innerWidth <= 640 ? 1 : 2;
           wmItems.forEach(markLong);
-          if (n === 1) {
+          var live = wmItems.filter(function (it) { return !it.hidden; });
+          wmItems.forEach(function (it) { if (it.hidden) wm.appendChild(it); });
+          if (n === 1 || live.length < 2) {
             wm.classList.remove("is-laid");
-            wmItems.forEach(function (it) { wm.appendChild(it); });
+            wmItems.forEach(function (it) { var m = it.querySelector(".wm-media"); if (m) m.style.height = ""; wm.appendChild(it); });
             wm.querySelectorAll(".wm-col").forEach(function (c) { c.remove(); });
             wmCount = 1; return;
           }
@@ -1497,12 +1822,13 @@
           wm.querySelectorAll(".wm-col").forEach(function (c) { c.remove(); });
           for (var i = 0; i < n; i++) { var c = document.createElement("div"); c.className = "wm-col"; wm.appendChild(c); cols.push(c); }
           wm.classList.add("is-laid");
-          wmItems.forEach(function (it) {
+          live.forEach(function (it) {
             var m = it.querySelector(".wm-media"); if (m) m.style.height = "";
             var shortest = cols.reduce(function (a, b) { return b.offsetHeight < a.offsetHeight ? b : a; });
             shortest.appendChild(it);
           });
           // Balance: let a long screenshot frame grow or shrink so the columns end level.
+          if (cols.some(function (c) { return !c.children.length; })) { wmCount = n; return; }
           var tallest = Math.max.apply(null, cols.map(function (c) { return c.offsetHeight; }));
           cols.forEach(function (c) {
             var gap = tallest - c.offsetHeight;
@@ -1523,13 +1849,298 @@
           wmCount = n;
         };
         var relayout = function () { requestAnimationFrame(layout); };
+        window.wmLayout = layout;
+        var broken = function (it) { it.classList.add("is-broken"); it.classList.remove("is-long"); relayout(); };
         wmItems.forEach(function (it) {
           var img = it.querySelector("img");
-          if (img && !img.complete) img.addEventListener("load", relayout, { once: true });
+          if (!img) return;
+          if (img.complete && !img.naturalWidth && img.getAttribute("src")) broken(it);
+          else if (!img.complete) {
+            img.addEventListener("load", relayout, { once: true });
+            img.addEventListener("error", function () { broken(it); }, { once: true });
+          }
         });
         var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(layout, 120); });
         layout();
       }
+
+      /* ---------- Project finder: search + CMS / industry / service (same behaviour as the blog archive) ---------- */
+      var projects = document.getElementById("projects");
+      if (projects) {
+        var toArr = function (l) { return Array.prototype.slice.call(l); };
+        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var items = toArr(projects.querySelectorAll(".wm-item[data-search], .tile[data-search]"));
+        var secs = [
+          { el: document.getElementById("websites"), n: document.getElementById("n-websites") },
+          { el: document.getElementById("campaigns"), n: document.getElementById("n-campaigns") }
+        ];
+        var input = document.getElementById("work-search");
+        var form = document.getElementById("work-search-form");
+        var clearQ = document.getElementById("search-clear");
+        var radios = toArr(projects.querySelectorAll('input[type="radio"][data-group]'));
+        var dds = toArr(projects.querySelectorAll(".dd"));
+        var statusEl = document.getElementById("work-status");
+        var chipsEl = document.getElementById("active-chips");
+        var empty = document.getElementById("work-empty");
+        var emptyText = document.getElementById("empty-text");
+        var emptyTitle = document.getElementById("empty-title");
+        var resets = toArr(projects.querySelectorAll("[data-reset]"));
+        var barReset = projects.querySelector(".tb-clearall");
+        var bar = document.getElementById("finder-bar");
+        var sheet = document.getElementById("filter-sheet");
+        var openSheet = document.getElementById("open-filters");
+        var sheetApply = document.getElementById("sheet-apply");
+        var badge = openSheet.querySelector(".tb-badge");
+        var GROUPS = ["cms", "industry", "service"];
+        var NAMES = { cms: "CMS", industry: "Industry", service: "Service" };
+        var fresh = function () { return { cms: "all", industry: "all", service: "all", q: "" }; };
+        var state = fresh();
+        var labels = { cms: {}, industry: {}, service: {} };
+        radios.forEach(function (r) { labels[r.dataset.group][r.value] = r.dataset.label; });
+
+        var norm = function (s) {
+          return (s || "").toLowerCase().replace(/[‘’'“”"]/g, "").replace(/&/g, " and ").replace(/\s+/g, " ").trim();
+        };
+        var esc = function (s) { return s.replace(/[<>&"]/g, function (ch) { return { "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[ch]; }); };
+        var X = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+        var has = function (c, g, v) { return (" " + (c.dataset[g] || "") + " ").indexOf(" " + v + " ") >= 0; };
+        // Does a project match the current state? `skip` ignores one facet (used for live option counts).
+        var matches = function (c, skip) {
+          for (var k = 0; k < GROUPS.length; k++) {
+            var g = GROUPS[k];
+            if (skip !== g && state[g] !== "all" && !has(c, g, state[g])) return false;
+          }
+          if (state.q) {
+            var words = state.q.split(" ");
+            for (var i = 0; i < words.length; i++) if (c.dataset.search.indexOf(words[i]) < 0) return false;
+          }
+          return true;
+        };
+        var nSet = function () { return GROUPS.filter(function (g) { return state[g] !== "all"; }).length; };
+        var filtered = function () { return nSet() > 0 || !!state.q; };
+        var syncURL = function () {
+          try {
+            var p = new URLSearchParams();
+            GROUPS.forEach(function (g) { if (state[g] !== "all") p.set(g, state[g]); });
+            if (input.value.trim()) p.set("q", input.value.trim());
+            var qs = p.toString();
+            history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash);
+          } catch (err) { /* file:// or sandboxed frames */ }
+        };
+
+        // Sticky toolbar sits under the fixed, height-changing site header.
+        var siteHeader = document.querySelector(".site-header");
+        var setStick = function () { if (siteHeader) document.documentElement.style.setProperty("--stick", siteHeader.getBoundingClientRect().height + "px"); };
+        setStick();
+        if (siteHeader && "ResizeObserver" in window) new ResizeObserver(setStick).observe(siteHeader);
+        var stuckCheck = function () {
+          var top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--stick")) || 0;
+          var r = bar.getBoundingClientRect();
+          bar.classList.toggle("is-stuck", getComputedStyle(bar).position === "sticky" && r.top <= top + 0.5 && projects.getBoundingClientRect().bottom > top + r.height + 40);
+        };
+        window.addEventListener("scroll", stuckCheck, { passive: true });
+        window.addEventListener("resize", stuckCheck);
+
+        var render = function (animate) {
+          var count = 0;
+          items.forEach(function (c) {
+            var on = matches(c), was = !c.hidden;
+            c.hidden = !on;
+            c.classList.remove("is-in");
+            if (on) count++;
+            if (on && !was && animate && !reduceMotion) { c.style.setProperty("--d", count % 6); c.classList.add("is-in"); }
+          });
+          secs.forEach(function (s) {
+            if (!s.el) return;
+            var all = toArr(s.el.querySelectorAll("[data-search]"));
+            var vis = all.filter(function (c) { return !c.hidden; }).length;
+            s.el.hidden = vis === 0;
+            s.n.hidden = !filtered();
+            s.n.textContent = " · " + vis + " of " + all.length;
+          });
+          if (window.wmLayout) window.wmLayout();
+
+          // Live counts next to every option, given the other facets + search.
+          var facetCount = {};
+          GROUPS.forEach(function (g) {
+            var base = items.filter(function (c) { return matches(c, g); });
+            facetCount[g] = { all: base.length };
+            Object.keys(labels[g]).forEach(function (v) {
+              if (v !== "all") facetCount[g][v] = base.filter(function (c) { return has(c, g, v); }).length;
+            });
+          });
+          radios.forEach(function (r) {
+            var g = r.dataset.group;
+            r.checked = state[g] === r.value;
+            var n = facetCount[g][r.value];
+            var lab = r.closest("label");
+            var nEl = lab.querySelector(".opt-n");
+            if (nEl) nEl.textContent = n;
+            lab.classList.toggle("is-zero", n === 0);
+          });
+
+          // Triggers: "CMS: WordPress (4)"
+          dds.forEach(function (d) {
+            var g = d.dataset.dd, v = state[g];
+            d.classList.toggle("is-set", v !== "all");
+            d.querySelector(".dd-v").textContent = labels[g][v];
+            var n = d.querySelector(".dd-n");
+            n.hidden = v === "all";
+            if (!n.hidden) n.textContent = count;
+          });
+
+          var bits = GROUPS.filter(function (g) { return state[g] !== "all"; }).map(function (g) { return labels[g][state[g]]; });
+          var qText = input.value.trim();
+          statusEl.innerHTML = filtered()
+            ? "<strong>" + count + "</strong> of " + items.length + " projects" +
+              '<span class="sr-only">' + (qText ? " for " + esc(qText) : "") + (bits.length ? " in " + esc(bits.join(", ")) : "") + "</span>"
+            : "<strong>" + items.length + "</strong> projects";
+
+          // Removable chips for everything active
+          var chips = GROUPS.filter(function (g) { return state[g] !== "all"; }).map(function (g) { return [g, NAMES[g], labels[g][state[g]]]; });
+          if (state.q) chips.push(["q", "Search", "“" + qText + "”"]);
+          chipsEl.innerHTML = chips.map(function (c) {
+            return '<button class="achip" type="button" data-clear="' + c[0] + '" aria-label="Remove ' + esc(c[1].toLowerCase() + " " + c[2]) + '">' +
+              '<span class="k">' + c[1] + "</span>" + esc(c[2]) + '<span class="x">' + X + "</span></button>";
+          }).join("");
+          chipsEl.hidden = !chips.length;
+
+          empty.hidden = count !== 0;
+          if (count === 0) {
+            var where = bits.length ? " in <strong>" + esc(bits.join(" · ")) + "</strong>" : "";
+            emptyText.innerHTML = (qText ? "No projects mention <strong>“" + esc(qText) + "”</strong>" + where + " yet." : "No projects" + where + " yet.") +
+              " Clear the filters to see all " + items.length + ", or ask us for examples closer to your business.";
+          }
+
+          var n = nSet();
+          badge.hidden = !n; badge.textContent = n;
+          openSheet.classList.toggle("is-set", n > 0);
+          openSheet.setAttribute("aria-label", "Filters" + (n ? ", " + n + " active" : ""));
+          sheetApply.textContent = count === 0 ? "0 projects match" : "Show " + count + (count === 1 ? " project" : " projects");
+          barReset.hidden = !filtered();
+          clearQ.hidden = !input.value;
+          syncURL();
+          stuckCheck();
+        };
+
+        // If the bar is pinned while results change, bring the top of the results back under it.
+        var toResults = function () {
+          if (!bar.classList.contains("is-stuck")) return;
+          var top = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--stick")) || 0;
+          var y = projects.getBoundingClientRect().top + window.scrollY - top;
+          window.scrollTo({ top: y, behavior: "auto" });
+        };
+        var setState = function (g, v) { toResults(); state[g] = v; render(true); };
+
+        // Radios (desktop popovers + phone sheet share one state)
+        radios.forEach(function (r) {
+          r.addEventListener("change", function () { if (r.checked) setState(r.dataset.group, r.value); });
+        });
+
+        // Desktop dropdowns: disclosure button + radio group. Arrow keys change the value live;
+        // a click, Enter or Escape closes and returns focus to the trigger.
+        var closeDD = function (d, focus) {
+          var btn = d.querySelector(".dd-btn");
+          d.querySelector(".dd-pop").hidden = true;
+          btn.setAttribute("aria-expanded", "false");
+          if (focus) btn.focus();
+        };
+        dds.forEach(function (d) {
+          var btn = d.querySelector(".dd-btn"), pop = d.querySelector(".dd-pop"), byPointer = false;
+          btn.addEventListener("click", function () {
+            var open = pop.hidden;
+            dds.forEach(function (o) { closeDD(o); });
+            if (!open) return;
+            pop.hidden = false;
+            btn.setAttribute("aria-expanded", "true");
+            (pop.querySelector("input:checked") || pop.querySelector("input")).focus({ preventScroll: true });
+          });
+          pop.addEventListener("pointerdown", function () { byPointer = true; });
+          pop.addEventListener("click", function (e) {
+            if (e.target.matches("input") && byPointer) { byPointer = false; closeDD(d, true); }
+          });
+          pop.addEventListener("keydown", function (e) {
+            byPointer = false;
+            if (e.key === "Escape" || e.key === "Enter") { e.preventDefault(); e.stopPropagation(); closeDD(d, true); }
+          });
+          d.addEventListener("focusout", function (e) { if (!d.contains(e.relatedTarget) && e.relatedTarget) closeDD(d); });
+        });
+        document.addEventListener("click", function (e) {
+          dds.forEach(function (d) { if (!d.contains(e.target)) closeDD(d); });
+        });
+
+        // Search: filters as you type
+        var t;
+        input.addEventListener("input", function () {
+          clearQ.hidden = !input.value;
+          clearTimeout(t);
+          t = setTimeout(function () { setState("q", norm(input.value)); }, 140);
+        });
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); clearTimeout(t); setState("q", norm(input.value));
+          if (window.innerWidth <= 760) input.blur();
+        });
+        clearQ.addEventListener("click", function () { input.value = ""; setState("q", ""); input.focus(); });
+
+        chipsEl.addEventListener("click", function (e) {
+          var b = e.target.closest("[data-clear]");
+          if (!b) return;
+          var g = b.dataset.clear;
+          if (g === "q") input.value = "";
+          setState(g, g === "q" ? "" : "all");
+          var next = chipsEl.querySelector(".achip");
+          (next || input).focus({ preventScroll: true });
+        });
+
+        resets.forEach(function (b) {
+          b.addEventListener("click", function () {
+            toResults();
+            input.value = ""; state = fresh(); render(true);
+            if (!sheet.contains(b)) input.focus({ preventScroll: true });
+          });
+        });
+
+        // In-page links to a section that the current filters hide: clear the filters first.
+        toArr(document.querySelectorAll('a[href="#websites"], a[href="#campaigns"]')).forEach(function (a) {
+          a.addEventListener("click", function () {
+            var target = document.querySelector(a.getAttribute("href"));
+            if (target && target.hidden) { input.value = ""; state = fresh(); render(false); }
+          });
+        });
+
+        // Phone: bottom sheet
+        openSheet.addEventListener("click", function () {
+          if (typeof sheet.showModal === "function") sheet.showModal(); else sheet.setAttribute("open", "");
+        });
+        var closeSheet = function () { if (sheet.open) { sheet.close(); openSheet.focus({ preventScroll: true }); } };
+        toArr(sheet.querySelectorAll("[data-close]")).forEach(function (b) { b.addEventListener("click", closeSheet); });
+        sheet.addEventListener("click", function (e) { if (e.target === sheet) closeSheet(); });
+        // "Show N projects": bring the results into view under the search row.
+        sheetApply.addEventListener("click", function () { bar.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); });
+        sheet.addEventListener("keydown", function (e) { if (e.key === "Escape") e.stopPropagation(); });
+        if (window.matchMedia) {
+          var wide = window.matchMedia("(min-width: 761px)");
+          var onWide = function () { if (wide.matches && sheet.open) sheet.close(); };
+          if (wide.addEventListener) wide.addEventListener("change", onWide);
+        }
+
+        // Restore a shared/filtered view from the URL (?cms=wordpress&industry=health&service=web&q=booking)
+        try {
+          var params = new URLSearchParams(location.search);
+          GROUPS.forEach(function (g) {
+            var v = params.get(g);
+            if (v && labels[g][v]) state[g] = v;
+          });
+          if (params.get("q")) { input.value = params.get("q"); state.q = norm(input.value); }
+        } catch (err) { /* ignore */ }
+        render(false);
+      }
+
+      // Campaign tiles: hide a broken image instead of showing alt text over the tile.
+      Array.prototype.slice.call(document.querySelectorAll(".tile img")).forEach(function (img) {
+        var mark = function () { img.closest(".tile").classList.add("is-broken"); };
+        if (img.complete && !img.naturalWidth) mark(); else img.addEventListener("error", mark, { once: true });
+      });
 
       // Full-page screenshot viewer.
       var viewer = document.getElementById("viewer");
