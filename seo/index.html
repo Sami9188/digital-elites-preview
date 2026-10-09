@@ -1141,19 +1141,18 @@
     /* ---------- Hero sizing (shared) ---------- */
     /* Same hero height and the same content start (badge/eyebrow -> h1) on every page, so moving
        between pages doesn't jump. Content is top-aligned at one shared offset.
-       The overlay-header script adds the header height to this padding-top AND min-height, so the
-       values below are the area under the header (the background still runs up behind it).
-       Used height = that min-height plus the header = max(tallest laptop hero, 100svh - 100px). */
+       The overlay-header script adds the header height to padding-top AND min-height, so --hero-min
+       is only the area under the header. Final painted height = that min-height plus the header
+       = calc(100svh - 160px). There is no pixel floor: an 800px window and a 900px window both
+       keep about 160px of the next section in view. Desktop also sets height to that same value
+       so a taller copy block cannot stretch one page past the others. */
     main > .hero:first-child,
     main > .work-hero:first-child,
     main > .blog-hero:first-child {
-      --hero-pad-top: 72px;
-      --hero-pad-bottom: 72px;
-      /* 687px is the tallest hero copy (about) plus both paddings. With the header added on,
-         a 900px screen shows about 80px of the next section. Taller screens use the svh term,
-         and the used height becomes calc(100svh - 100px). */
-      --hero-min: max(687px, calc(100vh - 100px - var(--site-header-h, 133px)));
-      --hero-min: max(687px, calc(100svh - 100px - var(--site-header-h, 133px)));
+      --hero-pad-top: 16px;
+      --hero-pad-bottom: 16px;
+      --hero-min: calc(100vh - 160px - var(--site-header-h, 133px));
+      --hero-min: calc(100svh - 160px - var(--site-header-h, 133px));
       position: relative;
       display: flex;
       align-items: flex-start;
@@ -1161,31 +1160,62 @@
       padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
       overflow: hidden;
     }
+    @media (min-width: 981px) {
+      main > .hero:first-child,
+      main > .work-hero:first-child,
+      main > .blog-hero:first-child {
+        height: calc(100vh - 160px);
+        height: calc(100svh - 160px);
+      }
+    }
     /* One headline scale for every hero (the homepage's), so the h1 doesn't change size between pages. */
     main > .hero:first-child h1,
     main > .work-hero:first-child h1,
     main > .blog-hero:first-child h1 { font-size: clamp(34px, 3.4vw, 48px); }
-    /* Heroes that open with the small eyebrow (instead of the 39px reviews badge + 22px gap) get the
-       badge's footprint, so the h1 starts on the same line on every page; eyebrow-to-h1 gap is unchanged. */
+    /* Eyebrow pages: 12px padding-top plus the 21px eyebrow and 16px margin equals the 39px badge plus its 10px margin, so the h1 starts on the same line. */
     main > .hero:first-child .eyebrow:first-child,
     main > .work-hero:first-child .eyebrow:first-child,
-    main > .blog-hero:first-child .eyebrow:first-child { padding-top: 24px; margin-bottom: 16px; }
+    main > .blog-hero:first-child .eyebrow:first-child { padding-top: 12px; margin-bottom: 16px; }
+    /* Tighter stack so the tallest copy (homepage and about) fits inside the shared height. */
+    main > .hero:first-child .badge,
+    main > .work-hero:first-child .badge,
+    main > .blog-hero:first-child .badge { margin-bottom: 10px; }
+    main > .hero:first-child .hero-proof .badge { margin: 0; }
+    main > .hero:first-child .lead,
+    main > .work-hero:first-child .lead,
+    main > .blog-hero:first-child .lead,
+    main > .hero:first-child .support,
+    main > .work-hero:first-child .support,
+    main > .blog-hero:first-child .support { margin-top: 10px; }
+    main > .hero:first-child .hero-cta,
+    main > .work-hero:first-child .hero-cta,
+    main > .blog-hero:first-child .hero-cta,
+    main > .hero:first-child .hero-actions,
+    main > .blog-hero:first-child .hero-actions { margin-top: 14px; }
+    main > .hero:first-child .hero-meta,
+    main > .work-hero:first-child .hero-meta,
+    main > .blog-hero:first-child .hero-meta,
+    main > .work-hero:first-child .hero-index { margin-top: 8px; }
+    main > .hero:first-child .hero-proof { margin-top: 12px; flex-wrap: nowrap; }
+    main > .hero:first-child .hero-content { max-width: min(740px, 100%); }
     /* Two-column heroes: copy starts at the top line like the single-column ones; the visual stays centred on it. */
     main > .hero:first-child .hero-grid,
     main > .work-hero:first-child .work-hero-grid { align-items: start; }
     main > .hero:first-child .hero-grid > .flow,
     main > .work-hero:first-child .work-hero-grid > .stack { align-self: center; }
     @media (max-width: 980px) {
-      /* Same used height: calc(100svh - 100px). The copy floor stays off so a phone still peeks.
-         Heroes with a visual stacked under the copy grow past this height. */
+      /* Same used height: calc(100svh - 160px). No pixel floor, so a phone still peeks.
+         Height stays auto: a visual stacked under the copy can grow, and must not be clipped. */
       main > .hero:first-child,
       main > .work-hero:first-child,
       main > .blog-hero:first-child {
-        --hero-pad-top: 48px;
-        --hero-pad-bottom: 56px;
-        --hero-min: calc(100vh - 100px - var(--site-header-h, 113px));
-        --hero-min: calc(100svh - 100px - var(--site-header-h, 113px));
+        --hero-pad-top: 24px;
+        --hero-pad-bottom: 20px;
+        --hero-min: calc(100vh - 160px - var(--site-header-h, 113px));
+        --hero-min: calc(100svh - 160px - var(--site-header-h, 113px));
+        height: auto;
       }
+      main > .hero:first-child .hero-proof { flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
       main > .hero:first-child h1,
