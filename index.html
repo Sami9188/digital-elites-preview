@@ -1846,9 +1846,16 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
       .home-vquote figcaption { grid-column: 1; grid-row: auto; margin-top: 22px; padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--tde-line); }
       .home-vquote blockquote p { font-size: 17px; }
     }
-    /* Logo marquee on grey: sits between the dark work carousel and the white process section */
-    .home-logos { background: var(--tde-cta-grey); }
-    .home-logos + .process { border-top: 0; }
+    /* Logo marquee lives in the trust band, in the slot under the stats */
+    .home-trust .home-logos {
+      background: transparent;
+      margin-top: 32px;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--tde-grey-line);
+    }
+    @media (max-width: 640px) {
+      .home-trust .home-logos { margin-top: 24px; padding-top: 20px; }
+    }
     /* Logo marquee: each logo carries a scale (--s) so wide wordmarks and square marks look the same size */
     .tde-logos { --home-logo-h: 64px; }
     .tde-logos .tde-logo { --tde-logo-h: calc(var(--home-logo-h) * var(--s, 1)); }
@@ -2065,20 +2072,42 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
             <p class="tde-stat__label">Years in business</p>
           </li>
         </ul>
-        <div class="tde-trust__foot">
-          <ul class="tde-trust__rated">
-            <li class="tde-trust__label">Rated on</li>
-            <li><a class="tde-badge" href="https://www.google.com/search?q=The+Digital+Elites+Katy+TX+reviews" target="_blank" rel="noopener"><span class="tde-g" aria-hidden="true"></span><b>Google</b> <span class="tde-stars" role="img" aria-label="5 out of 5 stars"></span><span class="tde-sr"> reviews (opens in a new tab)</span></a></li>
-          </ul>
-          <ul class="tde-trust__clients" aria-label="Recent clients">
-            <li class="tde-trust__label" aria-hidden="true">Recent clients</li>
-            <li><img class="tde-trust__logo" src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/j_miles-design-finallogos-wordmark-logo-v1-truffle-rgb-3000px-w-300ppi.png" alt="J. Miles Design" width="191" height="28" loading="lazy" decoding="async"></li>
-            <li><img class="tde-trust__logo" src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/resolutemanagementconsultancy.com-logo9.png" alt="Resolute" width="143" height="28" loading="lazy" decoding="async"></li>
-            <li><img class="tde-trust__logo" src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/fypractice.com-logo9.png" alt="Frances Yeo Practice" width="124" height="28" loading="lazy" decoding="async"></li>
-            <li><img class="tde-trust__logo" src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/COUNSELTRAIN__3_-removebg-preview.png" alt="CounselTrain" width="168" height="28" loading="lazy" decoding="async"></li>
-          </ul>
-        </div>
       </div>
+    <!-- Client logos -->
+    <section class="tde-logos tde-logos--flush home-logos" aria-labelledby="logos-title">
+      <div class="tde-frame tde-logos__head">
+        <p class="tde-eyebrow" id="logos-title">Some of the businesses we&#8217;ve worked with</p>
+        <button class="tde-round tde-round--sm" type="button" data-tde-toggle aria-label="Pause moving logos" data-tde-label-play="Play moving logos"><svg class="tde-ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg><svg class="tde-ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+      </div>
+      <div class="tde-logos__row">
+        <ul class="tde-logos__track">
+        <li class="tde-logo" style="--s:0.66"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/COUNSELTRAIN__3_-removebg-preview.png" alt="CounselTrain" width="300" height="50" loading="lazy" decoding="async"></li>
+        <li class="tde-logo tde-logo--padded"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Logo-8.png" alt="LDCCO" width="280" height="125" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.77"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/fypractice.com-logo9.png" alt="Frances Yeo Psychology Practice" width="512" height="116" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.71"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/resolutemanagementconsultancy.com-logo9.png" alt="Resolute" width="512" height="100" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/waterroofing-black-01-01.png" alt="Waters Roofing" width="196" height="173" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.62"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/j_miles-design-finallogos-wordmark-logo-v1-truffle-rgb-3000px-w-300ppi.png" alt="J. Miles Design" width="1200" height="176" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.03"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/huggyhomey-official-logo-horizontal-slate_125e41f5-7d5c-4114-bc54-5ed6e97455cd.png" alt="Huggy Homey" width="158" height="64" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/primary-logo.png" alt="Lish Beauty Bar" width="193" height="109" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.85"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/7b0fb648-6c41-4244-8a57-5789fed26b29.png" alt="Akoesta" width="300" height="100" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.66"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/vulcanstrength.com-logo11.png" alt="Vulcan Strength Training Systems" width="512" height="85" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.71"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/benik-kart.com-logo37.png" alt="Team Benik" width="512" height="98" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/kepsakekreations.com-logo9.png" alt="Kepsake Kreations" width="512" height="341" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+      <div class="tde-logos__row tde-logos__row--reverse">
+        <ul class="tde-logos__track">
+        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-amiri.png" alt="Amiri" width="77" height="68" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.00"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-reabus.png" alt="Reabus" width="178" height="69" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.97"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-genius-minds.png" alt="Genius Minds" width="169" height="61" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.97"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-intrigue.png" alt="Intrigue Theater" width="178" height="65" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.74"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-interaptus.png" alt="Interaptus" width="153" height="41" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.90"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-roadlink.png" alt="Roadlink" width="143" height="50" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:0.57"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-lesole.png" alt="Lesole" width="122" height="32" loading="lazy" decoding="async"></li>
+        <li class="tde-logo" style="--s:1.10"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-gourmet.png" alt="Gourmet" width="149" height="69" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
+    </section>
     </section>
 
     <!-- Client reviews: video + written -->
@@ -2379,42 +2408,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
           <button class="tde-round" type="button" data-tde-prev aria-label="Previous project"><svg class="tde-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
           <button class="tde-round" type="button" data-tde-next aria-label="Next project"><svg class="tde-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
-      </div>
-    </section>
-
-    <!-- Client logos -->
-    <section class="tde-logos tde-logos--flush home-logos" aria-labelledby="logos-title">
-      <div class="tde-frame tde-logos__head">
-        <p class="tde-eyebrow" id="logos-title">Some of the businesses we&#8217;ve worked with</p>
-        <button class="tde-round tde-round--sm" type="button" data-tde-toggle aria-label="Pause moving logos" data-tde-label-play="Play moving logos"><svg class="tde-ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg><svg class="tde-ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
-      </div>
-      <div class="tde-logos__row">
-        <ul class="tde-logos__track">
-        <li class="tde-logo" style="--s:0.66"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/COUNSELTRAIN__3_-removebg-preview.png" alt="CounselTrain" width="300" height="50" loading="lazy" decoding="async"></li>
-        <li class="tde-logo tde-logo--padded"><img src="https://thedigitalelites.com/wp-content/uploads/2025/06/Logo-8.png" alt="LDCCO" width="280" height="125" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.77"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/fypractice.com-logo9.png" alt="Frances Yeo Psychology Practice" width="512" height="116" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.71"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/resolutemanagementconsultancy.com-logo9.png" alt="Resolute" width="512" height="100" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/waterroofing-black-01-01.png" alt="Waters Roofing" width="196" height="173" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.62"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/j_miles-design-finallogos-wordmark-logo-v1-truffle-rgb-3000px-w-300ppi.png" alt="J. Miles Design" width="1200" height="176" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.03"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/huggyhomey-official-logo-horizontal-slate_125e41f5-7d5c-4114-bc54-5ed6e97455cd.png" alt="Huggy Homey" width="158" height="64" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/primary-logo.png" alt="Lish Beauty Bar" width="193" height="109" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.85"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/7b0fb648-6c41-4244-8a57-5789fed26b29.png" alt="Akoesta" width="300" height="100" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.66"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/vulcanstrength.com-logo11.png" alt="Vulcan Strength Training Systems" width="512" height="85" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.71"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/benik-kart.com-logo37.png" alt="Team Benik" width="512" height="98" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/02/kepsakekreations.com-logo9.png" alt="Kepsake Kreations" width="512" height="341" loading="lazy" decoding="async"></li>
-        </ul>
-      </div>
-      <div class="tde-logos__row tde-logos__row--reverse">
-        <ul class="tde-logos__track">
-        <li class="tde-logo" style="--s:1.20"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-amiri.png" alt="Amiri" width="77" height="68" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.00"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-reabus.png" alt="Reabus" width="178" height="69" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.97"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-genius-minds.png" alt="Genius Minds" width="169" height="61" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.97"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-intrigue.png" alt="Intrigue Theater" width="178" height="65" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.74"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-interaptus.png" alt="Interaptus" width="153" height="41" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.90"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-roadlink.png" alt="Roadlink" width="143" height="50" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:0.57"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-lesole.png" alt="Lesole" width="122" height="32" loading="lazy" decoding="async"></li>
-        <li class="tde-logo" style="--s:1.10"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-gourmet.png" alt="Gourmet" width="149" height="69" loading="lazy" decoding="async"></li>
-        </ul>
       </div>
     </section>
 
