@@ -1882,6 +1882,15 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
     .post { transition: transform .25s var(--ease), background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
     .post:hover, .post:focus-within { background: #F4FEF9; border-color: var(--green-line); box-shadow: 0 24px 48px -32px rgba(24,158,115,.45); }
   </style>
+  <style>
+    /* CTA contrast (site-wide): secondary buttons are filled so they never share the background they sit on.
+       Light surfaces -> solid dark; dark surfaces -> solid white; both turn green on hover. */
+    html body .pill.pill-outline, html body .tde-btn.tde-btn--outline { background: var(--dark, #262626); border-color: var(--dark, #262626); color: #fff; }
+    html body .pill.pill-light, html body .tde-carousel--dark .tde-btn.tde-btn--outline { background: #fff; border-color: #fff; color: var(--ink, #111); }
+    html body .pill.pill-outline:hover, html body .pill.pill-outline:focus-visible,
+    html body .pill.pill-light:hover, html body .pill.pill-light:focus-visible,
+    html body .tde-btn.tde-btn--outline:hover, html body .tde-btn.tde-btn--outline:focus-visible { background: var(--green, #04EA86); border-color: var(--green, #04EA86); color: var(--ink, #111); }
+  </style>
 </head>
 <body>
 

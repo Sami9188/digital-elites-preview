@@ -1900,6 +1900,15 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
     .tde-logo:hover img[src*="wdd-brand-reabus"], .tde-logo:hover img[src*="wdd-brand-genius-minds"], .tde-logo:hover img[src*="wdd-brand-intrigue"] { filter: brightness(.55) contrast(1.4); opacity: 1; }
     .tde-logo--padded img { height: calc(var(--tde-logo-h) * 1.7); margin-block: calc(var(--tde-logo-h) * -.35); }
   </style>
+  <style>
+    /* CTA contrast (site-wide): secondary buttons are filled so they never share the background they sit on.
+       Light surfaces -> solid dark; dark surfaces -> solid white; both turn green on hover. */
+    html body .pill.pill-outline, html body .tde-btn.tde-btn--outline { background: var(--dark, #262626); border-color: var(--dark, #262626); color: #fff; }
+    html body .pill.pill-light, html body .tde-carousel--dark .tde-btn.tde-btn--outline { background: #fff; border-color: #fff; color: var(--ink, #111); }
+    html body .pill.pill-outline:hover, html body .pill.pill-outline:focus-visible,
+    html body .pill.pill-light:hover, html body .pill.pill-light:focus-visible,
+    html body .tde-btn.tde-btn--outline:hover, html body .tde-btn.tde-btn--outline:focus-visible { background: var(--green, #04EA86); border-color: var(--green, #04EA86); color: var(--ink, #111); }
+  </style>
 </head>
 <body>
 

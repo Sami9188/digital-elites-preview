@@ -1846,16 +1846,9 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
       .home-vquote figcaption { grid-column: 1; grid-row: auto; margin-top: 22px; padding: 18px 0 0; border-left: 0; border-top: 1px solid var(--tde-line); }
       .home-vquote blockquote p { font-size: 17px; }
     }
-    /* Logo marquee lives in the trust band, in the slot under the stats */
-    .home-trust .home-logos {
-      background: transparent;
-      margin-top: 32px;
-      padding: 24px 0 0;
-      border-top: 1px solid var(--tde-grey-line);
-    }
-    @media (max-width: 640px) {
-      .home-trust .home-logos { margin-top: 24px; padding-top: 20px; }
-    }
+    /* Logo marquee on grey: sits between the dark work carousel and the white process section */
+    .home-logos { background: var(--tde-cta-grey); }
+    .home-logos + .process { border-top: 0; }
     /* Logo marquee: each logo carries a scale (--s) so wide wordmarks and square marks look the same size */
     .tde-logos { --home-logo-h: 64px; }
     .tde-logos .tde-logo { --tde-logo-h: calc(var(--home-logo-h) * var(--s, 1)); }
@@ -1870,6 +1863,27 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
     .tde-logo img[src*="wdd-brand-reabus"], .tde-logo img[src*="wdd-brand-genius-minds"], .tde-logo img[src*="wdd-brand-intrigue"] { filter: grayscale(1) brightness(.4) contrast(1.6); opacity: .7; }
     .tde-logo:hover img[src*="wdd-brand-reabus"], .tde-logo:hover img[src*="wdd-brand-genius-minds"], .tde-logo:hover img[src*="wdd-brand-intrigue"] { filter: brightness(.55) contrast(1.4); opacity: 1; }
     .tde-logo--padded img { height: calc(var(--tde-logo-h) * 1.7); margin-block: calc(var(--tde-logo-h) * -.35); }
+  </style>
+  <style>
+    /* Homepage blog cards: same hover as the blog page — mint fill + green border, no underline */
+    .latest .slide { transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .latest .slide:hover, .latest .slide:focus-within { background: #F4FEF9; border-color: var(--green-line); box-shadow: 0 24px 48px -32px rgba(24,158,115,.45); }
+    .slide .slide-title a, .slide .read, .slide .read:hover { background-size: 0 0 !important; text-decoration: none; }
+  </style>
+  <style>
+    /* CTA contrast (site-wide): secondary buttons are filled so they never share the background they sit on.
+       Light surfaces -> solid dark; dark surfaces -> solid white; both turn green on hover. */
+    html body .pill.pill-outline, html body .tde-btn.tde-btn--outline { background: var(--dark, #262626); border-color: var(--dark, #262626); color: #fff; }
+    html body .pill.pill-light, html body .tde-carousel--dark .tde-btn.tde-btn--outline { background: #fff; border-color: #fff; color: var(--ink, #111); }
+    html body .pill.pill-outline:hover, html body .pill.pill-outline:focus-visible,
+    html body .pill.pill-light:hover, html body .pill.pill-light:focus-visible,
+    html body .tde-btn.tde-btn--outline:hover, html body .tde-btn.tde-btn--outline:focus-visible { background: var(--green, #04EA86); border-color: var(--green, #04EA86); color: var(--ink, #111); }
+  </style>
+  <style>
+    /* Logo marquee now lives inside the Google-ratings band, in place of the "Rated on Google" line */
+    .home-trust .home-logos--in-trust { margin-top: 32px; padding: 0; background: transparent; border: 0; }
+    .home-trust .home-logos--in-trust .tde-logos__head { margin-bottom: 28px; padding-top: 24px; border-top: 1px solid var(--tde-grey-line, #DEDED9); }
+    @media (max-width: 640px) { .home-trust .home-logos--in-trust { margin-top: 24px; } .home-trust .home-logos--in-trust .tde-logos__head { margin-bottom: 20px; padding-top: 20px; } }
   </style>
 </head>
 <body>
@@ -2033,7 +2047,7 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
           <div class="tde-hero-quote__card">
             <span class="tde-stars" role="img" aria-label="5 out of 5 stars"></span>
             <blockquote>
-              <p><span class="ph">They rebuilt the site so the work explains itself. The enquiries that come in now are from people who already understand what we do.</span></p>
+              <p>They rebuilt the site so the work explains itself. The enquiries that come in now are from people who already understand what we do.</p>
             </blockquote>
             <figcaption>
               <span>
@@ -2072,9 +2086,9 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
             <p class="tde-stat__label">Years in business</p>
           </li>
         </ul>
+
       </div>
-    <!-- Client logos -->
-    <section class="tde-logos tde-logos--flush home-logos" aria-labelledby="logos-title">
+      <div class="tde-logos tde-logos--flush home-logos home-logos--in-trust" role="group" aria-labelledby="logos-title">
       <div class="tde-frame tde-logos__head">
         <p class="tde-eyebrow" id="logos-title">Some of the businesses we&#8217;ve worked with</p>
         <button class="tde-round tde-round--sm" type="button" data-tde-toggle aria-label="Pause moving logos" data-tde-label-play="Play moving logos"><svg class="tde-ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.5" y="5" width="4" height="14" rx="1"/><rect x="13.5" y="5" width="4" height="14" rx="1"/></svg><svg class="tde-ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
@@ -2107,7 +2121,8 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
         <li class="tde-logo" style="--s:1.10"><img src="https://webdesignerdubai.ae/wp-content/uploads/2026/09/wdd-brand-gourmet.png" alt="Gourmet" width="149" height="69" loading="lazy" decoding="async"></li>
         </ul>
       </div>
-    </section>
+    </div>
+    
     </section>
 
     <!-- Client reviews: video + written -->
