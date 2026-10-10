@@ -1293,7 +1293,6 @@
 .tde-avatars > :nth-child(even) { background: var(--tde-green); color: var(--tde-ink); }
 .tde-avatar--light { background: #E9E9E6; color: var(--tde-ink); }
 
-
 /* ---------- 3. Project cards ---------- */
 .tde-project {
   position: relative;
@@ -1458,7 +1457,6 @@
 .tde-grid-2 .tde-project__summary { font-size: 17px; }
 .tde-grid-2 .tde-project__title a::after { border-radius: 18px; }
 
-
 /* ---------- 4. Hero testimonial ---------- */
 /* Photo on the right, quote card hanging off its lower-left corner.
    Total height = photo + --tde-hq-hang, so it fits the homepage's fixed-height hero. */
@@ -1519,7 +1517,6 @@ a.tde-hero-quote__badge:focus-visible { outline: 2px solid var(--tde-green-line)
 .tde-hero-quote__name { display: block; font-size: 15px; font-weight: 800; line-height: 1.25; letter-spacing: .01em; text-transform: uppercase; color: var(--tde-ink); }
 .tde-hero-quote__role { display: block; margin-top: 2px; font-size: 14px; line-height: 1.4; color: var(--tde-muted); }
 
-
 /* ---------- 5. Trust band ---------- */
 .tde-trust { padding: 40px 0 36px; background: var(--tde-paper); color: var(--tde-text); font-family: var(--tde-font); border-top: 1px solid var(--tde-line); border-bottom: 1px solid var(--tde-line); }
 .tde-trust--grey { --tde-avatars-ring: var(--tde-cta-grey); background: var(--tde-cta-grey); border-color: transparent; }
@@ -1565,7 +1562,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-trust__clients > li:not(.tde-trust__label):hover { opacity: .9; }
 .tde-trust__logo { display: block; height: 28px; width: auto; filter: grayscale(1); opacity: .7; }
 .tde-trust__clients .tde-trust__label { margin-right: 0; }
-
 
 /* ---------- 6. Video testimonials ---------- */
 .tde-videos__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
@@ -1619,7 +1615,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-video__company { margin: 4px 0 0; font-size: 15px; line-height: 1.45; color: var(--tde-muted); }
 .tde-video__quote { margin: 10px 0 0; font-size: 16px; font-weight: 500; line-height: 1.45; color: var(--tde-text); }
 
-
 /* ---------- 7. Client logo marquee ---------- */
 .tde-logos {
   --tde-logo-h: 64px; --tde-logo-gap: 96px;
@@ -1669,7 +1664,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-logo__text--plain::before { display: none; }
 .tde-logo:hover .tde-logo__text { opacity: 1; }
 
-
 /* ---------- 8. Text testimonials ---------- */
 .tde-quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 0; padding: 0; list-style: none; }
 .tde-quotes > li { display: flex; min-width: 0; }
@@ -1688,7 +1682,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-quote__company { display: block; margin-top: 2px; font-size: 14px; line-height: 1.4; color: var(--tde-muted); }
 .tde-quotes--grey .tde-quote { border-color: transparent; background: var(--tde-cta-grey); }
 .tde-quotes--grey .tde-quote figcaption { border-top-color: var(--tde-grey-line); }
-
 
 /* ---------- 9. Grey CTA utility ---------- */
 /* Add .tde-cta-grey to an existing CTA container on a white section (.section-cta.split,
@@ -1715,7 +1708,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-cta-grey .market-list li { background: #fff; border-color: transparent; }
 .tde-cta-grey .contact-list li + li { border-top-color: var(--tde-grey-line); }
 .tde-cta-grey .contact-row:hover, .tde-cta-grey .contact-row:focus-visible { background: #fff; }
-
 
 /* ---------- 10. Closing CTA (about page #talk, rebuilt) ---------- */
 .tde-closing__card {
@@ -1748,7 +1740,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
 .tde-contact-row:focus-visible { outline: 2px solid var(--tde-green-line); outline-offset: 2px; }
 .tde-contact-row:hover .tde-contact-row__icon, .tde-contact-row:focus-visible .tde-contact-row__icon { background: var(--tde-green); color: var(--tde-ink); }
 .tde-contact-row:hover .tde-contact-row__go, .tde-contact-row:focus-visible .tde-contact-row__go { opacity: 1; transform: none; }
-
 
 /* ---------- 11. Responsive ---------- */
 @media (min-width: 1680px) {
@@ -1855,7 +1846,6 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
   .tde-stat:nth-child(even) { padding-left: 18px; }
 }
 
-
 /* ---------- 12. Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   .tde-project:has(:focus-visible) .tde-browser { transform: none; }
@@ -1884,6 +1874,13 @@ a.tde-badge:hover { border-color: var(--tde-dark); transform: translateY(-1px); 
     .ask-card.tde-cta-grey { --tde-cta-pad: 36px 40px; }
     .ask-card.tde-cta-grey:hover { border-color: var(--green-line); box-shadow: 0 24px 48px -32px rgba(24,158,115,.45); }
     @media (max-width: 640px) { .ask-card.tde-cta-grey { --tde-cta-pad: 28px 22px; } }
+  </style>
+  <style>
+    /* Blog hover (restored): grey at rest, mint fill + green border on hover — closing card and every article card */
+    .ask-card.tde-cta-grey { transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .ask-card.tde-cta-grey:hover { background: #F4FEF9; border-color: var(--green-line); box-shadow: 0 24px 48px -32px rgba(24,158,115,.45); }
+    .post { transition: transform .25s var(--ease), background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .post:hover, .post:focus-within { background: #F4FEF9; border-color: var(--green-line); box-shadow: 0 24px 48px -32px rgba(24,158,115,.45); }
   </style>
 </head>
 <body>
